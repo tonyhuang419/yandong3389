@@ -1,0 +1,220 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<meta charset="utf-8" /> 
+	<title>html5 demo</title> 
+	<style>
+		.nav{
+			width:100%;
+		}
+		.body{
+			
+			margin-left:20px;
+		}
+		.float-left{
+			
+		}
+		.pre {
+			text-align: left;
+			font-size:14px;
+			font-family: Monaco, Courier, "Microsoft YaHei";
+			margin:10px 0 0 0;
+			padding: 10px 20px;
+			background: rgba(164, 254, 255, 0.1);
+			border-radius: 8px;
+			border: 1px solid rgba(212, 212, 212, 1);
+			white-space: normal;
+			line-height:30px;
+			width:590px;
+		}
+		
+		.gradients_display{
+			border-radius: 5px;
+			width:600px;
+			height:400px;
+			color:orange;
+			font-size:96px;
+			box-sizing:border-box;
+			padding-left:140px;
+			padding-top:130px;
+			cursor:crosshair;
+			-webkit-user-select:none;
+			-webkit-transition:  padding 0.4s ease;
+			background:-webkit-gradient(radial, 50% 50%, 0, 50% 50%, 100, from(#fff), to(#00abeb));
+		}
+	</style>
+	<link type="text/css" rel="stylesheet" href="../style/style.css" />
+</head> 
+<body class="demo" onload="init()">
+	<h3>CSS3 透明、渐变</h3>
+	<div class="nav" id="nav">
+	</div>
+	<div class="body">
+		<span>
+			可以点击鼠标左键来射击圈内文字，并且可以使用滚轮调整内圈大小^_^
+		</span>
+		<div class="gradients_display" id="gradients_display" >
+			Q+
+		</div>
+		<pre class="pre box1">
+			<div><b>background:</b></br> -webkit-gradient(<b>radial</b>, </br><span id="gradients-position1-value">50% 50%</span>, 0,</br><span id="gradients-position2-value">50% 50%</span>,<span id="gradients_radial_value">100</span>,</br>from(<span id="gradients_color1_value">#fff</span>),to(<span id="gradients_color2_value">#00abeb</span>))
+			</div>
+			<span>起始颜色：</span><input type="text" value="#fff" onchange="onColor1Change(event)" class="float-left input1 input2"/></br>
+			<span>终止颜色：</span><input type="text" value="#00abeb" onchange="onColor2Change(event)" class="float-left input1 input2"/></br>
+			
+		</pre>
+	</div>
+	<script type="text/javascript">
+		var box,
+			gd,
+			gp1,
+			gp2,
+			isStart,
+			timeout;
+		var $ = function(s){
+			return document.getElementById(s);
+		};
+		var init = function(){
+			box = $('gradients_display').getBoundingClientRect();
+			gd = $('gradients_display');
+			gp1 = $('gradients-position1-value');
+			gp2 = $('gradients-position2-value');
+			gd.addEventListener("mousemove",onMouseMove,false);
+			gd.addEventListener("mousewheel",onMouseWheel,false);
+			gd.addEventListener("mousedown",onMouseDown,false);
+			gd.addEventListener("mouseup",onMouseUp,false);
+			gd.addEventListener("mouseover",onMouseOver,false);
+			gd.addEventListener("mouseout",onMouseOut,false);
+		};
+		var start = function(){
+			gd.style.paddingLeft = "140px";
+			gd.style.paddingTop = "130px";
+			gd.style.fontSize ="96px";
+			var maxStep = 300;
+			var speed = 1.5;
+			timeout = setInterval(function(){
+				var size = parseInt($('gradients_radial_value').innerHTML);
+				var step = (size/100)*maxStep;
+//				var left = parseInt(gd.style.paddingLeft);
+//				var top = parseInt(gd.style.paddingTop);
+				var _x = Math.floor(Math.random()*maxStep);
+				var left = _x;
+				if(_x<0){
+					left = 0;
+				}
+				if(_x>maxStep){
+					left = maxStep;
+				}
+				gd.style.paddingLeft = left+"px";
+				
+				
+				//var _y = Math.floor(Math.random()*step) - step/2;
+				var _y = Math.floor(Math.random()*maxStep)
+				var top = _y;
+				if(top<0){
+					top = 0;
+				}
+				if(top>maxStep){
+					top = maxStep;
+				}
+				gd.style.paddingTop = top+"px";
+			},(1000/speed));
+		}
+		var shut = function(x,y){
+			var size = parseInt($('gradients_radial_value').innerHTML)- 30;
+			var color1 = $('gradients_color1_value').innerHTML;
+			var color2 = $('gradients_color2_value').innerHTML;
+			
+			bg = gd.style.background;
+			bg = bg.replace(/(, )(\d+)(, from)/g,"$1"+size+"$3");
+			gd.style.background = bg;
+			
+			var left = parseInt(gd.style.paddingLeft);
+			var top = parseInt(gd.style.paddingTop);
+			var fontSize = parseInt(gd.style.fontSize);
+			if(left<x&&x<(left+fontSize)&&top<y&&y<(top+fontSize)){
+				gd.innerHTML = "中!";
+				setTimeout(function(){
+					gd.innerHTML = "Q+";
+				},500);
+			}
+		}
+		var onMouseOver = function(e){
+			start();
+		}
+		var onMouseOut = function(e){
+			clearInterval(timeout);
+		}
+		var onMouseDown = function(e){
+			var x = e.clientX - box.left;
+			var y = e.clientY - box.top;
+			shut(x,y);
+		}
+		var onMouseUp = function(){
+			var size = parseInt($('gradients_radial_value').innerHTML);
+			var color1 = $('gradients_color1_value').innerHTML;
+			var color2 = $('gradients_color2_value').innerHTML;
+			
+			bg = gd.style.background;
+			bg = bg.replace(/(, )(\d+)(, from)/g,"$1"+size+"$3");
+			gd.style.background = bg;
+		}
+		var onMouseWheel = function(e){
+			var size = parseInt($('gradients_radial_value').innerHTML);
+			size += parseInt(e.wheelDelta/10);
+			if(size<1){
+				size = 1;
+			}
+			gd.style.fontSize = (150 - size) + "px";
+			
+			bg = gd.style.background;
+			bg = bg.replace(/(, )(\d+)(, from)/g,"$1"+size+"$3");
+			gd.style.background = bg;
+			$('gradients_radial_value').innerHTML = size;
+			e.preventDefault();
+		}
+		var onMouseMove = function(e) {
+			if(!isStart){
+				isStart = true;
+				//start();	
+			}
+			var left = parseInt(gd.style.paddingLeft);
+			var top = parseInt(gd.style.paddingTop);
+			var xm = e.clientX - box.left - (left+60);
+			var ym = e.clientY - box.top - (top+70);
+			var d = Math.sqrt(xm*xm + ym*ym);
+			gd.style.textShadow = -xm + 'px ' + -ym + 'px ' + (d / 5 +5) + 'px #333';
+			
+			xm = e.clientX - box.left;
+			ym = e.clientY - box.top;
+			var size = $('gradients_radial_value').innerHTML;;
+			var color1 = $('gradients_color1_value').innerHTML;
+			var color2 = $('gradients_color2_value').innerHTML;
+			gp1.innerHTML = gp2.innerHTML = xm+' '+ym;
+			gd.style.background = '-webkit-gradient(radial, ' + xm+' ' +ym + ', 0, ' + xm+' ' +ym + ', ' + size + ', from('+color1+'), to('+color2+'))';
+			
+		};
+		var onGradientsChange = function(e){
+			var size = e.target.value;
+			var color1 = $('gradients_color1_value').innerHTML;
+			var color2 = $('gradients_color2_value').innerHTML;
+			gd.style.background = '-webkit-gradient(radial, 50% 50%, 0, 50% 50%, ' + size + ', from('+color1+'), to('+color2+'))';
+			$('gradients_radial_value').innerHTML = size;
+		};
+		var onColor1Change = function(e){
+			var size = $('gradients_radial_value').innerHTML;
+			var color1 = e.target.value;
+			var color2 = $('gradients_color2_value').innerHTML;
+			gd.style.background = '-webkit-gradient(radial, 50% 50%, 0, 50% 50%, ' + size + ', from('+color1+'), to('+color2+'))';
+			$('gradients_color1_value').innerHTML = color1;
+		};
+		var onColor2Change = function(e){
+			var size = $('gradients_radial_value').innerHTML;
+			var color1 = $('gradients_color1_value').innerHTML;
+			var color2 = e.target.value;
+			gd.style.background = '-webkit-gradient(radial, 50% 50%, 0, 50% 50%, ' + size + ', from('+color1+'), to('+color2+'))';
+			$('gradients_color2_value').innerHTML = color2;
+		};
+	</script>
+</body> 
+</html>
