@@ -1,0 +1,70 @@
+@charset "utf-8";
+#share {
+    height:32px;
+				margin:10px 0;
+}
+#share a {
+    display:block;
+    width:32px;
+    height:32px;
+    float:left;
+    margin-right:5px;
+    background:url(share.gif) no-repeat 0 0;
+				text-indent:-999px;
+    -webkit-transition:all .6s ease-out;
+    -moz-transition:all .6s ease-out;
+    -o-transition:all .6s ease-out;
+    transition:all .6s ease-out;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px
+}
+#share a.kaixin {
+    background-position:0 -32px
+}
+#share a.renren {
+    background-position:0 -64px
+}
+#share a.taobao {
+    background-position:0 -96px
+}
+#share a.douban {
+    background-position:0 -128px
+}
+#share a.xianguo {
+    background-position:0 -160px
+}
+#share a.tsohu {
+    background-position:0 -192px
+}
+#share a.t163 {
+    background-position:0 -224px
+}
+#share a.qzone {
+    background-position:0 -256px
+}
+#share a.pengyou {
+    background-position:0 -288px
+}
+#share a.tqq {
+    background-position:0 -320px
+}
+#share a.feixin {
+    background-position:0 -352px
+}
+#share a.facebook {
+    background-position:0 -384px
+}
+#share a.twitter {
+    background-position:0 -416px
+}
+#share a.baidu {
+    background-position:0 -448px
+}
+#share a:hover {
+    -webkit-transform:rotate(-360deg) scale(1.20);
+    -moz-transform:rotate(-360deg) scale(1.20);
+    -o-transform:rotate(-360deg) scale(1.20);
+    transform:rotate(-360deg) scale(1.20);
+
+}
