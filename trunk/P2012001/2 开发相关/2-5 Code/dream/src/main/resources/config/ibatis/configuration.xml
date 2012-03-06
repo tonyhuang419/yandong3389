@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<mappers>
+	
+	
+	    <!-- 手动追加的sqlMap配置文件 -->
+	    <mapper resource="sqlmap/base/UserMapper.xml" />
+	    
+	    
+	    
+	    <!-- 自动生成的sqlMap配置文件 -->
+		<mapper resource="sqlmap/base/UserMapper.xml" />
+		<mapper resource="sqlmap/base/UserCopyMapper.xml" />
+	    <mapper resource="sqlmap/base/common_SqlMap.xml" />
+	</mappers>
+</configuration>

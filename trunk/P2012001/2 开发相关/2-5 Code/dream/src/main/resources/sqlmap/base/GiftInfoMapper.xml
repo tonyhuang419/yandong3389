@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dreams.dream.dao.base.GiftInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.GiftInfo" >
+    <id column="gift_id" property="giftId" jdbcType="INTEGER" />
+    <result column="gift_name" property="giftName" jdbcType="VARCHAR" />
+    <result column="gift_quantity" property="giftQuantity" jdbcType="INTEGER" />
+    <result column="gift_image_address" property="giftImageAddress" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.giftName != null" >
+         and gift_name = #{condition.giftName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.giftQuantity != null" >
+         and gift_quantity = #{condition.giftQuantity,jdbcType=INTEGER}
+      </if>
+      <if test="condition.giftImageAddress != null" >
+         and gift_image_address = #{condition.giftImageAddress,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.giftName != null" >
+         and gift_name = #{example.condition.giftName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.giftQuantity != null" >
+         and gift_quantity = #{example.condition.giftQuantity,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.giftImageAddress != null" >
+         and gift_image_address = #{example.condition.giftImageAddress,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    gift_id, gift_name, gift_quantity, gift_image_address
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dreams.dream.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from gift_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from gift_info
+    where gift_id = #{giftId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from gift_info
+    where gift_id = #{giftId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria" >
+    delete from gift_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.GiftInfo" >
+    insert into gift_info (gift_id, gift_name, gift_quantity, 
+      gift_image_address)
+    values (#{giftId,jdbcType=INTEGER}, #{giftName,jdbcType=VARCHAR}, #{giftQuantity,jdbcType=INTEGER}, 
+      #{giftImageAddress,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.GiftInfo" >
+    insert into gift_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="giftId != null" >
+        gift_id,
+      </if>
+      <if test="giftName != null" >
+        gift_name,
+      </if>
+      <if test="giftQuantity != null" >
+        gift_quantity,
+      </if>
+      <if test="giftImageAddress != null" >
+        gift_image_address,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="giftId != null" >
+        #{giftId,jdbcType=INTEGER},
+      </if>
+      <if test="giftName != null" >
+        #{giftName,jdbcType=VARCHAR},
+      </if>
+      <if test="giftQuantity != null" >
+        #{giftQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="giftImageAddress != null" >
+        #{giftImageAddress,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from gift_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update gift_info
+    <set >
+      <if test="record.giftId != null" >
+        gift_id = #{record.giftId,jdbcType=INTEGER},
+      </if>
+      <if test="record.giftName != null" >
+        gift_name = #{record.giftName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.giftQuantity != null" >
+        gift_quantity = #{record.giftQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="record.giftImageAddress != null" >
+        gift_image_address = #{record.giftImageAddress,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update gift_info
+    set gift_id = #{record.giftId,jdbcType=INTEGER},
+      gift_name = #{record.giftName,jdbcType=VARCHAR},
+      gift_quantity = #{record.giftQuantity,jdbcType=INTEGER},
+      gift_image_address = #{record.giftImageAddress,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.GiftInfo" >
+    update gift_info
+    <set >
+      <if test="giftName != null" >
+        gift_name = #{giftName,jdbcType=VARCHAR},
+      </if>
+      <if test="giftQuantity != null" >
+        gift_quantity = #{giftQuantity,jdbcType=INTEGER},
+      </if>
+      <if test="giftImageAddress != null" >
+        gift_image_address = #{giftImageAddress,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where gift_id = #{giftId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.GiftInfo" >
+    update gift_info
+    set gift_name = #{giftName,jdbcType=VARCHAR},
+      gift_quantity = #{giftQuantity,jdbcType=INTEGER},
+      gift_image_address = #{giftImageAddress,jdbcType=VARCHAR}
+    where gift_id = #{giftId,jdbcType=INTEGER}
+  </update>
+</mapper>

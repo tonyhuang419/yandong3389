@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dreams.dream.dao.base.BrowsingHistoryMapper" >
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.BrowsingHistory" >
+    <id column="browsing_history_id" property="browsingHistoryId" jdbcType="INTEGER" />
+    <result column="article_id" property="articleId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="browse_time" property="browseTime" jdbcType="TIMESTAMP" />
+    <result column="ip_address" property="ipAddress" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.articleId != null" >
+         and article_id = #{condition.articleId,jdbcType=INTEGER}
+      </if>
+      <if test="condition.userId != null" >
+         and user_id = #{condition.userId,jdbcType=INTEGER}
+      </if>
+      <if test="condition.browseTime != null" >
+         and browse_time = #{condition.browseTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.ipAddress != null" >
+         and ip_address = #{condition.ipAddress,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.articleId != null" >
+         and article_id = #{example.condition.articleId,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.userId != null" >
+         and user_id = #{example.condition.userId,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.browseTime != null" >
+         and browse_time = #{example.condition.browseTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.ipAddress != null" >
+         and ip_address = #{example.condition.ipAddress,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    browsing_history_id, article_id, user_id, browse_time, ip_address
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dreams.dream.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from browsing_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from browsing_history
+    where browsing_history_id = #{browsingHistoryId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from browsing_history
+    where browsing_history_id = #{browsingHistoryId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria" >
+    delete from browsing_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.BrowsingHistory" >
+    insert into browsing_history (browsing_history_id, article_id, user_id, 
+      browse_time, ip_address)
+    values (#{browsingHistoryId,jdbcType=INTEGER}, #{articleId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
+      #{browseTime,jdbcType=TIMESTAMP}, #{ipAddress,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.BrowsingHistory" >
+    insert into browsing_history
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="browsingHistoryId != null" >
+        browsing_history_id,
+      </if>
+      <if test="articleId != null" >
+        article_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="browseTime != null" >
+        browse_time,
+      </if>
+      <if test="ipAddress != null" >
+        ip_address,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="browsingHistoryId != null" >
+        #{browsingHistoryId,jdbcType=INTEGER},
+      </if>
+      <if test="articleId != null" >
+        #{articleId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="browseTime != null" >
+        #{browseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ipAddress != null" >
+        #{ipAddress,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from browsing_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update browsing_history
+    <set >
+      <if test="record.browsingHistoryId != null" >
+        browsing_history_id = #{record.browsingHistoryId,jdbcType=INTEGER},
+      </if>
+      <if test="record.articleId != null" >
+        article_id = #{record.articleId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.browseTime != null" >
+        browse_time = #{record.browseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.ipAddress != null" >
+        ip_address = #{record.ipAddress,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update browsing_history
+    set browsing_history_id = #{record.browsingHistoryId,jdbcType=INTEGER},
+      article_id = #{record.articleId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      browse_time = #{record.browseTime,jdbcType=TIMESTAMP},
+      ip_address = #{record.ipAddress,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.BrowsingHistory" >
+    update browsing_history
+    <set >
+      <if test="articleId != null" >
+        article_id = #{articleId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="browseTime != null" >
+        browse_time = #{browseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ipAddress != null" >
+        ip_address = #{ipAddress,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where browsing_history_id = #{browsingHistoryId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.BrowsingHistory" >
+    update browsing_history
+    set article_id = #{articleId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      browse_time = #{browseTime,jdbcType=TIMESTAMP},
+      ip_address = #{ipAddress,jdbcType=VARCHAR}
+    where browsing_history_id = #{browsingHistoryId,jdbcType=INTEGER}
+  </update>
+</mapper>

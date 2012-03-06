@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dreams.dream.dao.base.ArticleInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.ArticleInfo" >
+    <id column="article_id" property="articleId" jdbcType="INTEGER" />
+    <result column="article_image" property="articleImage" jdbcType="VARCHAR" />
+    <result column="publish_time" property="publishTime" jdbcType="TIMESTAMP" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="article_type_id" property="articleTypeId" jdbcType="INTEGER" />
+    <result column="video_address" property="videoAddress" jdbcType="VARCHAR" />
+    <result column="article_keywords" property="articleKeywords" jdbcType="VARCHAR" />
+    <result column="verify_state" property="verifyState" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.dreams.dream.pojo.base.ArticleInfo" extends="BaseResultMap" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.articleImage != null" >
+         and article_image = #{condition.articleImage,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.publishTime != null" >
+         and publish_time = #{condition.publishTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.userId != null" >
+         and user_id = #{condition.userId,jdbcType=INTEGER}
+      </if>
+      <if test="condition.articleTypeId != null" >
+         and article_type_id = #{condition.articleTypeId,jdbcType=INTEGER}
+      </if>
+      <if test="condition.videoAddress != null" >
+         and video_address = #{condition.videoAddress,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.articleKeywords != null" >
+         and article_keywords = #{condition.articleKeywords,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.verifyState != null" >
+         and verify_state = #{condition.verifyState,jdbcType=INTEGER}
+      </if>
+      <if test="condition.articleContent != null" >
+         and article_content = #{condition.articleContent,jdbcType=LONGVARCHAR}
+      </if>
+    </trim>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.articleImage != null" >
+         and article_image = #{example.condition.articleImage,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.publishTime != null" >
+         and publish_time = #{example.condition.publishTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.userId != null" >
+         and user_id = #{example.condition.userId,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.articleTypeId != null" >
+         and article_type_id = #{example.condition.articleTypeId,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.videoAddress != null" >
+         and video_address = #{example.condition.videoAddress,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.articleKeywords != null" >
+         and article_keywords = #{example.condition.articleKeywords,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.verifyState != null" >
+         and verify_state = #{example.condition.verifyState,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.articleContent != null" >
+         and article_content = #{example.condition.articleContent,jdbcType=LONGVARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    article_id, article_image, publish_time, user_id, article_type_id, video_address, 
+    article_keywords, verify_state
+  </sql>
+  <sql id="Blob_Column_List" >
+    article_content
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.dreams.dream.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from article_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dreams.dream.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from article_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from article_info
+    where article_id = #{articleId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from article_info
+    where article_id = #{articleId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria" >
+    delete from article_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.ArticleInfo" >
+    insert into article_info (article_id, article_image, publish_time, 
+      user_id, article_type_id, video_address, 
+      article_keywords, verify_state, article_content
+      )
+    values (#{articleId,jdbcType=INTEGER}, #{articleImage,jdbcType=VARCHAR}, #{publishTime,jdbcType=TIMESTAMP}, 
+      #{userId,jdbcType=INTEGER}, #{articleTypeId,jdbcType=INTEGER}, #{videoAddress,jdbcType=VARCHAR}, 
+      #{articleKeywords,jdbcType=VARCHAR}, #{verifyState,jdbcType=INTEGER}, #{articleContent,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.ArticleInfo" >
+    insert into article_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="articleId != null" >
+        article_id,
+      </if>
+      <if test="articleImage != null" >
+        article_image,
+      </if>
+      <if test="publishTime != null" >
+        publish_time,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="articleTypeId != null" >
+        article_type_id,
+      </if>
+      <if test="videoAddress != null" >
+        video_address,
+      </if>
+      <if test="articleKeywords != null" >
+        article_keywords,
+      </if>
+      <if test="verifyState != null" >
+        verify_state,
+      </if>
+      <if test="articleContent != null" >
+        article_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="articleId != null" >
+        #{articleId,jdbcType=INTEGER},
+      </if>
+      <if test="articleImage != null" >
+        #{articleImage,jdbcType=VARCHAR},
+      </if>
+      <if test="publishTime != null" >
+        #{publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="articleTypeId != null" >
+        #{articleTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="videoAddress != null" >
+        #{videoAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="articleKeywords != null" >
+        #{articleKeywords,jdbcType=VARCHAR},
+      </if>
+      <if test="verifyState != null" >
+        #{verifyState,jdbcType=INTEGER},
+      </if>
+      <if test="articleContent != null" >
+        #{articleContent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from article_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update article_info
+    <set >
+      <if test="record.articleId != null" >
+        article_id = #{record.articleId,jdbcType=INTEGER},
+      </if>
+      <if test="record.articleImage != null" >
+        article_image = #{record.articleImage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publishTime != null" >
+        publish_time = #{record.publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.articleTypeId != null" >
+        article_type_id = #{record.articleTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.videoAddress != null" >
+        video_address = #{record.videoAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.articleKeywords != null" >
+        article_keywords = #{record.articleKeywords,jdbcType=VARCHAR},
+      </if>
+      <if test="record.verifyState != null" >
+        verify_state = #{record.verifyState,jdbcType=INTEGER},
+      </if>
+      <if test="record.articleContent != null" >
+        article_content = #{record.articleContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update article_info
+    set article_id = #{record.articleId,jdbcType=INTEGER},
+      article_image = #{record.articleImage,jdbcType=VARCHAR},
+      publish_time = #{record.publishTime,jdbcType=TIMESTAMP},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      article_type_id = #{record.articleTypeId,jdbcType=INTEGER},
+      video_address = #{record.videoAddress,jdbcType=VARCHAR},
+      article_keywords = #{record.articleKeywords,jdbcType=VARCHAR},
+      verify_state = #{record.verifyState,jdbcType=INTEGER},
+      article_content = #{record.articleContent,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update article_info
+    set article_id = #{record.articleId,jdbcType=INTEGER},
+      article_image = #{record.articleImage,jdbcType=VARCHAR},
+      publish_time = #{record.publishTime,jdbcType=TIMESTAMP},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      article_type_id = #{record.articleTypeId,jdbcType=INTEGER},
+      video_address = #{record.videoAddress,jdbcType=VARCHAR},
+      article_keywords = #{record.articleKeywords,jdbcType=VARCHAR},
+      verify_state = #{record.verifyState,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.ArticleInfo" >
+    update article_info
+    <set >
+      <if test="articleImage != null" >
+        article_image = #{articleImage,jdbcType=VARCHAR},
+      </if>
+      <if test="publishTime != null" >
+        publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="articleTypeId != null" >
+        article_type_id = #{articleTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="videoAddress != null" >
+        video_address = #{videoAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="articleKeywords != null" >
+        article_keywords = #{articleKeywords,jdbcType=VARCHAR},
+      </if>
+      <if test="verifyState != null" >
+        verify_state = #{verifyState,jdbcType=INTEGER},
+      </if>
+      <if test="articleContent != null" >
+        article_content = #{articleContent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where article_id = #{articleId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.dreams.dream.pojo.base.ArticleInfo" >
+    update article_info
+    set article_image = #{articleImage,jdbcType=VARCHAR},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      user_id = #{userId,jdbcType=INTEGER},
+      article_type_id = #{articleTypeId,jdbcType=INTEGER},
+      video_address = #{videoAddress,jdbcType=VARCHAR},
+      article_keywords = #{articleKeywords,jdbcType=VARCHAR},
+      verify_state = #{verifyState,jdbcType=INTEGER},
+      article_content = #{articleContent,jdbcType=LONGVARCHAR}
+    where article_id = #{articleId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.ArticleInfo" >
+    update article_info
+    set article_image = #{articleImage,jdbcType=VARCHAR},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      user_id = #{userId,jdbcType=INTEGER},
+      article_type_id = #{articleTypeId,jdbcType=INTEGER},
+      video_address = #{videoAddress,jdbcType=VARCHAR},
+      article_keywords = #{articleKeywords,jdbcType=VARCHAR},
+      verify_state = #{verifyState,jdbcType=INTEGER}
+    where article_id = #{articleId,jdbcType=INTEGER}
+  </update>
+</mapper>
