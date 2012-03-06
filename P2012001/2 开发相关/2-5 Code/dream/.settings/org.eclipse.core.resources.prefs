@@ -1,0 +1,4 @@
+#Sat Feb 18 21:37:47 CST 2012
+eclipse.preferences.version=1
+encoding//src/main/resources/config/ibatis/jdbc.properties=UTF-8
+encoding//src/main/resources/config/ibatis/jdbc2.properties=UTF-8
