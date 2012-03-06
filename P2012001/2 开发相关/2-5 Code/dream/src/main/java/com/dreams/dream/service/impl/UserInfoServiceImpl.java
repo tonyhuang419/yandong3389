@@ -1,0 +1,65 @@
+package com.dreams.dream.service.impl;
+
+import com.dreams.dream.dao.base.UserInfoMapper;
+import com.dreams.dream.pojo.base.Criteria;
+import com.dreams.dream.pojo.base.UserInfo;
+import com.dreams.dream.service.UserInfoService;
+import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserInfoServiceImpl implements UserInfoService {
+    @Autowired
+    private UserInfoMapper userInfoMapper;
+
+    private static final Logger logger = LoggerFactory.getLogger(UserInfoServiceImpl.class);
+
+    public int countByExample(Criteria example) {
+        int count = this.userInfoMapper.countByExample(example);
+        logger.debug("count: {}", count);
+        return count;
+    }
+
+    public UserInfo selectByPrimaryKey(Integer userId) {
+        return this.userInfoMapper.selectByPrimaryKey(userId);
+    }
+
+    public List<UserInfo> selectByExample(Criteria example) {
+        return this.userInfoMapper.selectByExample(example);
+    }
+
+    public int deleteByPrimaryKey(Integer userId) {
+        return this.userInfoMapper.deleteByPrimaryKey(userId);
+    }
+
+    public int updateByPrimaryKeySelective(UserInfo record) {
+        return this.userInfoMapper.updateByPrimaryKeySelective(record);
+    }
+
+    public int updateByPrimaryKey(UserInfo record) {
+        return this.userInfoMapper.updateByPrimaryKey(record);
+    }
+
+    public int deleteByExample(Criteria example) {
+        return this.userInfoMapper.deleteByExample(example);
+    }
+
+    public int updateByExampleSelective(UserInfo record, Criteria example) {
+        return this.userInfoMapper.updateByExampleSelective(record, example);
+    }
+
+    public int updateByExample(UserInfo record, Criteria example) {
+        return this.userInfoMapper.updateByExample(record, example);
+    }
+
+    public int insert(UserInfo record) {
+        return this.userInfoMapper.insert(record);
+    }
+
+    public int insertSelective(UserInfo record) {
+        return this.userInfoMapper.insertSelective(record);
+    }
+}

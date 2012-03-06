@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dreams.dream.dao.base.UserInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.UserInfo" >
+    <id column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="login_name" property="loginName" jdbcType="VARCHAR" />
+    <result column="login_pass" property="loginPass" jdbcType="VARCHAR" />
+    <result column="user_mail" property="userMail" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="user_sex" property="userSex" jdbcType="INTEGER" />
+    <result column="user_birthday" property="userBirthday" jdbcType="TIMESTAMP" />
+    <result column="about_myself" property="aboutMyself" jdbcType="VARCHAR" />
+    <result column="is_public_mail" property="isPublicMail" jdbcType="INTEGER" />
+    <result column="is_send_mail" property="isSendMail" jdbcType="INTEGER" />
+    <result column="register_time" property="registerTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.dreams.dream.pojo.base.UserInfo" extends="BaseResultMap" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.loginName != null" >
+         and login_name = #{condition.loginName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.loginPass != null" >
+         and login_pass = #{condition.loginPass,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.userMail != null" >
+         and user_mail = #{condition.userMail,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.userName != null" >
+         and user_name = #{condition.userName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.userSex != null" >
+         and user_sex = #{condition.userSex,jdbcType=INTEGER}
+      </if>
+      <if test="condition.userBirthday != null" >
+         and user_birthday = #{condition.userBirthday,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.aboutMyself != null" >
+         and about_myself = #{condition.aboutMyself,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.isPublicMail != null" >
+         and is_public_mail = #{condition.isPublicMail,jdbcType=INTEGER}
+      </if>
+      <if test="condition.isSendMail != null" >
+         and is_send_mail = #{condition.isSendMail,jdbcType=INTEGER}
+      </if>
+      <if test="condition.registerTime != null" >
+         and register_time = #{condition.registerTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.nation != null" >
+         and nation = #{condition.nation,jdbcType=VARBINARY}
+      </if>
+    </trim>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.loginName != null" >
+         and login_name = #{example.condition.loginName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.loginPass != null" >
+         and login_pass = #{example.condition.loginPass,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.userMail != null" >
+         and user_mail = #{example.condition.userMail,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.userName != null" >
+         and user_name = #{example.condition.userName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.userSex != null" >
+         and user_sex = #{example.condition.userSex,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.userBirthday != null" >
+         and user_birthday = #{example.condition.userBirthday,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.aboutMyself != null" >
+         and about_myself = #{example.condition.aboutMyself,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.isPublicMail != null" >
+         and is_public_mail = #{example.condition.isPublicMail,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.isSendMail != null" >
+         and is_send_mail = #{example.condition.isSendMail,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.registerTime != null" >
+         and register_time = #{example.condition.registerTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.nation != null" >
+         and nation = #{example.condition.nation,jdbcType=VARBINARY}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    user_id, login_name, login_pass, user_mail, user_name, user_sex, user_birthday, about_myself, 
+    is_public_mail, is_send_mail, register_time
+  </sql>
+  <sql id="Blob_Column_List" >
+    nation
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.dreams.dream.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from user_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dreams.dream.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from user_info
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user_info
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria" >
+    delete from user_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.UserInfo" >
+    insert into user_info (user_id, login_name, login_pass, 
+      user_mail, user_name, user_sex, 
+      user_birthday, about_myself, is_public_mail, 
+      is_send_mail, register_time, nation
+      )
+    values (#{userId,jdbcType=INTEGER}, #{loginName,jdbcType=VARCHAR}, #{loginPass,jdbcType=VARCHAR}, 
+      #{userMail,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{userSex,jdbcType=INTEGER}, 
+      #{userBirthday,jdbcType=TIMESTAMP}, #{aboutMyself,jdbcType=VARCHAR}, #{isPublicMail,jdbcType=INTEGER}, 
+      #{isSendMail,jdbcType=INTEGER}, #{registerTime,jdbcType=TIMESTAMP}, #{nation,jdbcType=VARBINARY}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.UserInfo" >
+    insert into user_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="loginName != null" >
+        login_name,
+      </if>
+      <if test="loginPass != null" >
+        login_pass,
+      </if>
+      <if test="userMail != null" >
+        user_mail,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="userSex != null" >
+        user_sex,
+      </if>
+      <if test="userBirthday != null" >
+        user_birthday,
+      </if>
+      <if test="aboutMyself != null" >
+        about_myself,
+      </if>
+      <if test="isPublicMail != null" >
+        is_public_mail,
+      </if>
+      <if test="isSendMail != null" >
+        is_send_mail,
+      </if>
+      <if test="registerTime != null" >
+        register_time,
+      </if>
+      <if test="nation != null" >
+        nation,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="loginName != null" >
+        #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPass != null" >
+        #{loginPass,jdbcType=VARCHAR},
+      </if>
+      <if test="userMail != null" >
+        #{userMail,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null" >
+        #{userSex,jdbcType=INTEGER},
+      </if>
+      <if test="userBirthday != null" >
+        #{userBirthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="aboutMyself != null" >
+        #{aboutMyself,jdbcType=VARCHAR},
+      </if>
+      <if test="isPublicMail != null" >
+        #{isPublicMail,jdbcType=INTEGER},
+      </if>
+      <if test="isSendMail != null" >
+        #{isSendMail,jdbcType=INTEGER},
+      </if>
+      <if test="registerTime != null" >
+        #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nation != null" >
+        #{nation,jdbcType=VARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from user_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update user_info
+    <set >
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.loginName != null" >
+        login_name = #{record.loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loginPass != null" >
+        login_pass = #{record.loginPass,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userMail != null" >
+        user_mail = #{record.userMail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userName != null" >
+        user_name = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userSex != null" >
+        user_sex = #{record.userSex,jdbcType=INTEGER},
+      </if>
+      <if test="record.userBirthday != null" >
+        user_birthday = #{record.userBirthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.aboutMyself != null" >
+        about_myself = #{record.aboutMyself,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isPublicMail != null" >
+        is_public_mail = #{record.isPublicMail,jdbcType=INTEGER},
+      </if>
+      <if test="record.isSendMail != null" >
+        is_send_mail = #{record.isSendMail,jdbcType=INTEGER},
+      </if>
+      <if test="record.registerTime != null" >
+        register_time = #{record.registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.nation != null" >
+        nation = #{record.nation,jdbcType=VARBINARY},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update user_info
+    set user_id = #{record.userId,jdbcType=INTEGER},
+      login_name = #{record.loginName,jdbcType=VARCHAR},
+      login_pass = #{record.loginPass,jdbcType=VARCHAR},
+      user_mail = #{record.userMail,jdbcType=VARCHAR},
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      user_sex = #{record.userSex,jdbcType=INTEGER},
+      user_birthday = #{record.userBirthday,jdbcType=TIMESTAMP},
+      about_myself = #{record.aboutMyself,jdbcType=VARCHAR},
+      is_public_mail = #{record.isPublicMail,jdbcType=INTEGER},
+      is_send_mail = #{record.isSendMail,jdbcType=INTEGER},
+      register_time = #{record.registerTime,jdbcType=TIMESTAMP},
+      nation = #{record.nation,jdbcType=VARBINARY}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update user_info
+    set user_id = #{record.userId,jdbcType=INTEGER},
+      login_name = #{record.loginName,jdbcType=VARCHAR},
+      login_pass = #{record.loginPass,jdbcType=VARCHAR},
+      user_mail = #{record.userMail,jdbcType=VARCHAR},
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      user_sex = #{record.userSex,jdbcType=INTEGER},
+      user_birthday = #{record.userBirthday,jdbcType=TIMESTAMP},
+      about_myself = #{record.aboutMyself,jdbcType=VARCHAR},
+      is_public_mail = #{record.isPublicMail,jdbcType=INTEGER},
+      is_send_mail = #{record.isSendMail,jdbcType=INTEGER},
+      register_time = #{record.registerTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.UserInfo" >
+    update user_info
+    <set >
+      <if test="loginName != null" >
+        login_name = #{loginName,jdbcType=VARCHAR},
+      </if>
+      <if test="loginPass != null" >
+        login_pass = #{loginPass,jdbcType=VARCHAR},
+      </if>
+      <if test="userMail != null" >
+        user_mail = #{userMail,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null" >
+        user_sex = #{userSex,jdbcType=INTEGER},
+      </if>
+      <if test="userBirthday != null" >
+        user_birthday = #{userBirthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="aboutMyself != null" >
+        about_myself = #{aboutMyself,jdbcType=VARCHAR},
+      </if>
+      <if test="isPublicMail != null" >
+        is_public_mail = #{isPublicMail,jdbcType=INTEGER},
+      </if>
+      <if test="isSendMail != null" >
+        is_send_mail = #{isSendMail,jdbcType=INTEGER},
+      </if>
+      <if test="registerTime != null" >
+        register_time = #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nation != null" >
+        nation = #{nation,jdbcType=VARBINARY},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.dreams.dream.pojo.base.UserInfo" >
+    update user_info
+    set login_name = #{loginName,jdbcType=VARCHAR},
+      login_pass = #{loginPass,jdbcType=VARCHAR},
+      user_mail = #{userMail,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      user_sex = #{userSex,jdbcType=INTEGER},
+      user_birthday = #{userBirthday,jdbcType=TIMESTAMP},
+      about_myself = #{aboutMyself,jdbcType=VARCHAR},
+      is_public_mail = #{isPublicMail,jdbcType=INTEGER},
+      is_send_mail = #{isSendMail,jdbcType=INTEGER},
+      register_time = #{registerTime,jdbcType=TIMESTAMP},
+      nation = #{nation,jdbcType=VARBINARY}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.UserInfo" >
+    update user_info
+    set login_name = #{loginName,jdbcType=VARCHAR},
+      login_pass = #{loginPass,jdbcType=VARCHAR},
+      user_mail = #{userMail,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      user_sex = #{userSex,jdbcType=INTEGER},
+      user_birthday = #{userBirthday,jdbcType=TIMESTAMP},
+      about_myself = #{aboutMyself,jdbcType=VARCHAR},
+      is_public_mail = #{isPublicMail,jdbcType=INTEGER},
+      is_send_mail = #{isSendMail,jdbcType=INTEGER},
+      register_time = #{registerTime,jdbcType=TIMESTAMP}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dreams.dream.dao.base.SystemConfigInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.SystemConfigInfo" >
+    <id column="system_config_id" property="systemConfigId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" />
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" />
+  </sql>
+  <sql id="Base_Column_List" >
+    system_config_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dreams.dream.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from system_config_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from system_config_info
+    where system_config_id = #{systemConfigId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria" >
+    delete from system_config_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.SystemConfigInfo" >
+    insert into system_config_info (system_config_id)
+    values (#{systemConfigId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.SystemConfigInfo" >
+    insert into system_config_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="systemConfigId != null" >
+        system_config_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="systemConfigId != null" >
+        #{systemConfigId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from system_config_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update system_config_info
+    <set >
+      <if test="record.systemConfigId != null" >
+        system_config_id = #{record.systemConfigId,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update system_config_info
+    set system_config_id = #{record.systemConfigId,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
