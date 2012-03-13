@@ -1,0 +1,231 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body,div,header,footer,span,label,ul,li,a,img,nav {
+	padding:0;
+	margin:0;
+}
+
+body {
+	/*居中显示*/
+	margin: 0px auto;
+	width: 980px;
+	font-size: 12px;
+	font-family: '宋体';
+}
+
+header {
+	/*height: 61px;*/
+	padding: 28px 0 0;
+	background:url(img/header.jpg) repeat-x;
+}
+
+header .title {
+	height: 31px;
+	width: 280px;
+	margin-left: 34px;
+	background:url(img/text.jpg);
+}
+
+header .menu {
+	height: 25px;
+	margin-top: 5px;
+	padding-left: 320px;
+	border-bottom: 4px solid #bbbbbb;
+}
+
+.menu ul li {
+	/*文字居中显示*/
+	line-height: 26px;
+	text-align: center;
+	width: 82px;
+	background: url(img/tab2.jpg) no-repeat;
+	list-style: none;
+	float: left;
+	margin-right: 1px;
+}
+
+.menu ul li.tab {
+	background: url(img/tab1.jpg) no-repeat;
+	color: #ffffff;
+}
+
+.navigation {
+	height: 19px;
+	background: url(img/navigation_background.jpg) repeat-x;
+	padding: 8px 0px 0px 6px;
+}
+
+.navigation a {
+	/*去掉a标签文字的下划线*/
+	text-decoration: none;
+	color: #555555;
+	height: 13px;
+	display: block;
+	float: left;
+}
+
+.timeArea {
+	width: 790px;
+	float: left; /*浮动使两个DIV并排*/
+}
+ /*
+ 1. 内联元素设置高、宽无用，只有块级元素好用
+ 2. 块与浮动联用
+ 3. 内联与块，何时浮动，看布局需要
+ */
+
+a.time {
+	height: 13px;
+	background: url(img/clock.jpg) no-repeat;
+	padding-left: 20px;
+}
+
+a.home {
+	background: url(img/home.jpg) no-repeat;
+	padding-left: 20px;
+}
+
+a.logout {
+	background: url(img/lock.jpg) no-repeat;
+	padding-left: 20px;
+	margin-left: 15px;
+}
+
+div.left {
+	width: 203px;
+	height: 570px;
+	padding: 5px 5px;
+	border: 1px solid #aaaaaa;
+	/*border-left: 1px; 这样设置为何与下方的效果等同*/
+	border-left-width: 0px;
+	float: left;
+}
+
+nav {
+	width: 203px;
+	margin-bottom: 7px;
+}
+
+nav a {
+	line-height: 30px;
+	text-align: center;
+	text-decoration: none;
+	margin-bottom: 6px;
+	color: #555555;
+	display: block;
+}
+
+nav a.select_left_tab {
+	background: url(img/select_left_tab.jpg) no-repeat;
+}
+
+nav a.unselect_left_tab {
+	background: url(img/unselect_left_tab.jpg) no-repeat;
+}
+
+nav a img {
+	margin-right: 8px;
+}
+
+nav a span {
+	width: 6px;
+	height: 9px;
+	background: url(img/arrow_left.png) no-repeat;
+}
+
+.supportArea {
+	width: 183px;
+	height: 168px;
+	/*border: 1px solid #F00;*/
+	padding: 6px 10px;
+	background: url(img/support_background.jpg) no-repeat;
+}
+
+.supportArea span {
+	display: block;
+}
+
+.support {
+	margin-bottom: 10px;
+}
+
+.arrow {
+	background: url(img/arrow_left_2.png) no-repeat;
+	padding-left: 16px;
+}
+
+.arrow_s {
+	width: 172px;
+	background: url(img/arrow_left_s.png) no-repeat 0;
+	padding-left: 26px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+}
+
+.arrow_s_email {
+	width: 172px;
+	background: url(img/arrow_left_s.png) no-repeat 0;
+	padding-left: 10px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+}
+
+.no_arrow {
+	padding-left: 55px;
+}
+
+.dashe {
+	margin: 10px 16px;
+	border-bottom: 1px dashed #555555;
+}
+
+.footer {
+	height: 31px;
+	background: url(img/footer.jpg) no-repeat;
+	line-height: 31px;
+	text-align: center;
+	color: white;
+}
+
+.main {
+	height: 575px;
+	border: 1px solid #aaaaaa;
+	border-left-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	margin-left: 214px;
+	padding: 5px 5px 0px 5px;
+}
+
+.tableData {
+	border: 1px solid #aaaaaa;
+	table-layout: fixed;
+	text-align: center;
+	width: 100%;
+	border-collapse: collapse;/*将表格的边框合并成单一的边框*/
+}
+
+.tableData thead th {
+	border: 1px solid #aaaaaa;
+	height: 26px;
+	background: url(img/table_header_2.jpg) repeat-x;
+}
+
+.tableData td {
+	border: 1px solid #aaaaaa;
+	height: 20px;
+	word-wrap: break-word;
+	overflow: hidden;
+}
+
+.tableData td.other {
+	background: url(img/table_row_2.jpg) repeat-x;
+}
+
+.page {
+	margin-top: 5px;
+	text-align: center;
+	color: #555555;
+}
+
