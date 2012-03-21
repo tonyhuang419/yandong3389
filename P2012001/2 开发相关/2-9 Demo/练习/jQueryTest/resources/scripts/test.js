@@ -1,6 +1,13 @@
 // JavaScript Document
 $(document).ready(function(){
 	
+	$(".top-menu").next().css("background-color","blue");
+	
+	$("p").next(".selected").css("background-color","yellow");
+	
+	var len = $("button").siblings().css("background-color", "red").length;
+	$("#message").text("Unique siblings:" + len);
+	
 	$("button").click(function(){
 		$(this).parent().slideUp("slow", function(){
 			if ($("div:last").is(":hidden")) {
