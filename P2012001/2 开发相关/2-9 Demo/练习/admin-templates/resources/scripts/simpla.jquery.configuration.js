@@ -2,20 +2,20 @@ $(document).ready(function(){
 	
 	//Sidebar Accordion Menu:
 		
-		$("#main-nav li ul").hide(); // Hide all sub menus
-		$("#main-nav li a.current").parent().find("ul").slideToggle("slow"); // Slide down the current menu item's sub menu
+		$("#main-nav li ul").hide(); // 隐藏所有子菜单
+		$("#main-nav li a.current").parent().find("ul").slideToggle("slow"); // 打开当前样式为当前的菜单，下属子菜单
 		
-		$("#main-nav li a.nav-top-item").click( // When a top menu item is clicked...
+		$("#main-nav li a.nav-top-item").click( // 点击父菜单时...
 			function () {
-				$(this).parent().siblings().find("ul").slideUp("normal"); // Slide up all sub menus except the one clicked
-				$(this).next().slideToggle("normal"); // Slide down the clicked sub menu
+				$(this).parent().siblings().find("ul").slideUp("normal"); // 除了点击的菜单外，隐藏所有兄弟菜单
+				$(this).next().slideToggle("normal"); // 打开点击菜单的子菜单
 				return false;
 			}
 		);
 		
-		$("#main-nav li a.no-submenu").click( // When a menu item with no sub menu is clicked...
+		$("#main-nav li a.no-submenu").click( // 点击没有子菜单项目时...
 			function () {
-				window.location.href=(this.href); // Just open the link instead of a sub menu
+				window.location.href=(this.href); // 打开自身链接
 				return false;
 			}
 		); 
