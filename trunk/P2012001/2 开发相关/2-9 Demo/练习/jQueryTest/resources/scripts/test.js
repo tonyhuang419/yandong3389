@@ -1,21 +1,49 @@
 // JavaScript Document
 $(document).ready(function(){
 	
+	$("#go1").click(function(){
+		$("#block1").animate({width: "500px"}, {queue: false, duration: 3000})
+					.animate({fontSize: "24px"}, 1500)
+					.animate({borderRightWidth: "15px"}, 1000);
+	});
+	
+	$("#go2").click(function(){
+		$("#block2").animate({width: "500px"}, 3000)
+					.animate({fontSize: "24px"}, 1500)
+					.animate({borderLeftWidth: "15px"}, 1000);
+	});
+	
+	$("#go3").click(function(){
+		$("#go1").add("#go2").click();
+	});
+	
+	$("#go4").click(function(){
+		$(".animateDivStyle").css({width: "", fontSize: "", borderWidth: ""});
+	});
+	
+	$("#clickMe").click(function(){
+		$("#animateImg").animate({opacity: 0.25, left: '+=50', height: 'toggle'}, 1000, function(){
+			//Animate Complete callback function
+		});
+	});
+	
+	$("#stopBtn").click(function(){$("#animateImg").stop()});
+	
 	$(".top-menu").next().css("background-color","blue");
 	
 	$("p").next(".selected").css("background-color","yellow");
 	
-	var len = $("button").siblings().css("background-color", "red").length;
-	$("#message").text("Unique siblings:" + len);
+	//var len = $("button").siblings().css("background-color", "red").length;
+//	$("#message").text("Unique siblings:" + len);
 	
-	$("button").click(function(){
-		$(this).parent().slideUp("slow", function(){
-			if ($("div:last").is(":hidden")) {
-				$("div").slideDown("slow");
-			}
-		});
-		$("#message").text($(this).text() + " completed!");
-	})
+	//$("button").click(function(){
+//		$(this).parent().slideUp("slow", function(){
+//			if ($("div:last").is(":hidden")) {
+//				$("div").slideDown("slow");
+//			}
+//		});
+//		$("#message").text($(this).text() + " completed!");
+//	});
 	
 	
 	$("#clickDiv").css("border","1px solid red");
@@ -23,7 +51,7 @@ $(document).ready(function(){
 		$("#toggleImg").slideToggle("slow", function(){
 			
 		});
-	})
+	});
 	
 	//$("li.item-a").parent().css("background-color","red");;
 	
