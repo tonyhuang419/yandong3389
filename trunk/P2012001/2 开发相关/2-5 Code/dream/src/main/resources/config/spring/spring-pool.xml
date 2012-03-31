@@ -29,12 +29,12 @@
 	</bean>
 	
 	<!-- oracle数据库 -->
-	<bean id="oracleDataSource" parent="c3p0">
-		<property name="driverClass" value="${oracle.jdbc.driverClassName}" />
-		<property name="jdbcUrl" value="${oracle.jdbc.url}" />
-		<property name="user" value="${oracle.jdbc.username}" />
-		<property name="password" value="${oracle.jdbc.password}" />
-	</bean>
+<!-- 	<bean id="oracleDataSource" parent="c3p0"> -->
+<!-- 		<property name="driverClass" value="${oracle.jdbc.driverClassName}" /> -->
+<!-- 		<property name="jdbcUrl" value="${oracle.jdbc.url}" /> -->
+<!-- 		<property name="user" value="${oracle.jdbc.username}" /> -->
+<!-- 		<property name="password" value="${oracle.jdbc.password}" /> -->
+<!-- 	</bean> -->
 	
 	<!-- mysql数据库 -->
 	<bean id="mysqlDataSource" parent="c3p0">
@@ -43,5 +43,14 @@
 		<property name="user" value="${mysql.jdbc.username}" />
 		<property name="password" value="${mysql.jdbc.password}" />
 	</bean>
+	
+		<!-- dbcp配置 -->
+<!-- 	<bean id="mysqlDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"> -->
+<!-- 		<property name="driverClassName" value="${mysql.jdbc.driver}" /> -->
+<!-- 		<property name="url" value="${mysql.jdbc.url}" /> -->
+<!-- 		<property name="username" value="${mysql.jdbc.username}" /> -->
+<!-- 		<property name="password" value="${mysql.jdbc.password}" /> -->
+<!-- 	</bean> -->
+	
 	
 </beans>
