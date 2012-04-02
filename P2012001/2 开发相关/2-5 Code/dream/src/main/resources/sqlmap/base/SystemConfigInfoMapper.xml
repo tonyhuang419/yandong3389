@@ -3,15 +3,24 @@
 <mapper namespace="com.dreams.dream.dao.base.SystemConfigInfoMapper" >
   <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.SystemConfigInfo" >
     <id column="system_config_id" property="systemConfigId" jdbcType="INTEGER" />
+    <result column="test_name" property="testName" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
-    <trim prefix="where" prefixOverrides="and|or" />
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.testName != null" >
+         and test_name = #{condition.testName,jdbcType=VARCHAR}
+      </if>
+    </trim>
   </sql>
   <sql id="Update_By_Example_Where_Clause" >
-    <trim prefix="where" prefixOverrides="and|or" />
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.testName != null" >
+         and test_name = #{example.condition.testName,jdbcType=VARCHAR}
+      </if>
+    </trim>
   </sql>
   <sql id="Base_Column_List" >
-    system_config_id
+    system_config_id, test_name
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dreams.dream.pojo.base.Criteria" >
     select
@@ -28,6 +37,12 @@
     </if>
     <include refid="common.Mysql_Pagination_Limit" />
   </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from system_config_info
+    where system_config_id = #{systemConfigId,jdbcType=INTEGER}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from system_config_info
     where system_config_id = #{systemConfigId,jdbcType=INTEGER}
@@ -39,8 +54,8 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.dreams.dream.pojo.base.SystemConfigInfo" >
-    insert into system_config_info (system_config_id)
-    values (#{systemConfigId,jdbcType=INTEGER})
+    insert into system_config_info (system_config_id, test_name)
+    values (#{systemConfigId,jdbcType=INTEGER}, #{testName,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.SystemConfigInfo" >
     insert into system_config_info
@@ -48,10 +63,16 @@
       <if test="systemConfigId != null" >
         system_config_id,
       </if>
+      <if test="testName != null" >
+        test_name,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="systemConfigId != null" >
         #{systemConfigId,jdbcType=INTEGER},
+      </if>
+      <if test="testName != null" >
+        #{testName,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -67,6 +88,9 @@
       <if test="record.systemConfigId != null" >
         system_config_id = #{record.systemConfigId,jdbcType=INTEGER},
       </if>
+      <if test="record.testName != null" >
+        test_name = #{record.testName,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -74,9 +98,24 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update system_config_info
-    set system_config_id = #{record.systemConfigId,jdbcType=INTEGER}
+    set system_config_id = #{record.systemConfigId,jdbcType=INTEGER},
+      test_name = #{record.testName,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.SystemConfigInfo" >
+    update system_config_info
+    <set >
+      <if test="testName != null" >
+        test_name = #{testName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where system_config_id = #{systemConfigId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.SystemConfigInfo" >
+    update system_config_info
+    set test_name = #{testName,jdbcType=VARCHAR}
+    where system_config_id = #{systemConfigId,jdbcType=INTEGER}
   </update>
 </mapper>
