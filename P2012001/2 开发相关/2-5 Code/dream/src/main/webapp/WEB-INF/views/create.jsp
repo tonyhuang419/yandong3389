@@ -11,16 +11,20 @@
 <form method="get" action="/user/create">
     <table>
         <tr>
-            <td>Enter username:</td>
-            <td><input type="text" name="username" value=""/></td>
+            <td>userName:</td>
+            <td><input type="text" name="userName" value=""/></td>
         </tr>
         <tr>
-            <td>Enter first name:</td>
-            <td><input type="text" name="firstName" value=""/></td>
+            <td>loginName:</td>
+            <td><input type="text" name="loginName" value=""/></td>
         </tr>
         <tr>
-           <td> Enter last name: </td>
-            <td><input type="text" name="lastName" value=""/></td>
+           <td> loginPass: </td>
+            <td><input type="text" name="loginPass" value=""/></td>
+        </tr>
+        <tr>
+           <td> loginMail: </td>
+            <td><input type="text" name="userMail" value=""/></td>
         </tr>
         <tr>
             <td colspan="2" align="center"><input type="submit" value="Add User"></td>
@@ -37,11 +41,13 @@
 <tr>
 <td>ID</td>
 <td>姓名</td>
-<td>密码</td>
+<td>登陆名</td>
+<td>登陆密码</td>
+<td>注册邮箱</td>
 </tr>
 <c:forEach items="${userList}" var="user">
 <tr>
-<td>${user.id}</td><td>${user.name}</td><td>${user.password}</td>
+<td>${user.userId}</td><td>${user.userName}</td><td>${user.loginName}</td><td>${user.loginPass}</td><td>${user.userMail}</td>
 </tr>
 </c:forEach>
 </table>

@@ -37,6 +37,11 @@ public interface SystemConfigInfoMapper {
     List<SystemConfigInfo> selectByExample(Criteria example);
 
     /**
+     * 根据主键查询记录
+     */
+    SystemConfigInfo selectByPrimaryKey(Integer systemConfigId);
+
+    /**
      * 根据条件更新属性不为空的记录
      */
     int updateByExampleSelective(@Param("record") SystemConfigInfo record, @Param("example") Criteria example);
@@ -45,4 +50,14 @@ public interface SystemConfigInfoMapper {
      * 根据条件更新记录
      */
     int updateByExample(@Param("record") SystemConfigInfo record, @Param("example") Criteria example);
+
+    /**
+     * 根据主键更新属性不为空的记录
+     */
+    int updateByPrimaryKeySelective(SystemConfigInfo record);
+
+    /**
+     * 根据主键更新记录
+     */
+    int updateByPrimaryKey(SystemConfigInfo record);
 }

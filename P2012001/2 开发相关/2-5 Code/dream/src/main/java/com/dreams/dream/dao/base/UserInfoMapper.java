@@ -34,11 +34,6 @@ public interface UserInfoMapper {
     /**
      * 根据条件查询记录集
      */
-    List<UserInfo> selectByExampleWithBLOBs(Criteria example);
-
-    /**
-     * 根据条件查询记录集
-     */
     List<UserInfo> selectByExample(Criteria example);
 
     /**
@@ -54,22 +49,12 @@ public interface UserInfoMapper {
     /**
      * 根据条件更新记录
      */
-    int updateByExampleWithBLOBs(@Param("record") UserInfo record, @Param("example") Criteria example);
-
-    /**
-     * 根据条件更新记录
-     */
     int updateByExample(@Param("record") UserInfo record, @Param("example") Criteria example);
 
     /**
      * 根据主键更新属性不为空的记录
      */
     int updateByPrimaryKeySelective(UserInfo record);
-
-    /**
-     * 根据主键更新记录
-     */
-    int updateByPrimaryKeyWithBLOBs(UserInfo record);
 
     /**
      * 根据主键更新记录

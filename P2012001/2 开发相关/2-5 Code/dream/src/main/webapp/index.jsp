@@ -18,20 +18,19 @@
 	<br />
 	<br />
 	<br />
-	<table border="1">
-		<tr>
-			<td>ID</td>
-			<td>姓名</td>
-			<td>密码</td>
-		</tr>
-		<c:forEach items="${userList}" var="user">
-			<tr>
-				<td>${user.id}</td>
-				<td>${user.name}</td>
-				<td>${user.password}</td>
-			</tr>
-		</c:forEach>
-	</table>
-
+<table border="1">
+<tr>
+<td>ID</td>
+<td>姓名</td>
+<td>登陆名</td>
+<td>登陆密码</td>
+<td>注册邮箱</td>
+</tr>
+<c:forEach items="${userList}" var="user">
+<tr>
+<td>${user.userId}</td><td>${user.userName}</td><td>${user.loginName}</td><td>${user.loginPass}</td><td>${user.userMail}</td>
+</tr>
+</c:forEach>
+</table>
 </body>
 </html>
