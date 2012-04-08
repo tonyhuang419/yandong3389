@@ -7,11 +7,21 @@ public class SystemConfigInfo implements Serializable {
 
     private Integer systemConfigId;
 
+    private String testName;
+
     public Integer getSystemConfigId() {
         return systemConfigId;
     }
 
     public void setSystemConfigId(Integer systemConfigId) {
         this.systemConfigId = systemConfigId;
+    }
+
+    public String getTestName() {
+        return testName;
+    }
+
+    public void setTestName(String testName) {
+        this.testName = testName;
     }
 }

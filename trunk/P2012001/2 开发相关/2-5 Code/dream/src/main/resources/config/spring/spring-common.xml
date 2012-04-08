@@ -33,17 +33,17 @@
 
 	<!-- define the SqlSessionFactory -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="mysqlDataSource" />
 		<property name="configLocation" value="classpath:/config/ibatis/configuration.xml" />
-		<!-- <property name="typeAliasesPackage" value="com.dreams.dream.pojo" /> -->
-		<!-- <property name="mapperLocations" value="classpath:/sqlmap/*Mapper.xml" /> -->
+		<property name="dataSource" ref="mysqlDataSource" />
+<!-- 		<property name="typeAliasesPackage" value="com.dreams.dream.pojo" /> -->
+<!-- 		<property name="mapperLocations" value="classpath:/sqlmap/base/*Mapper.xml" /> -->
 	</bean>
 
 	<!-- mybatis接口 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.dreams.dream.dao" />
 	</bean>
-
+	
 	<!-- 连接事务的注解配置 -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	

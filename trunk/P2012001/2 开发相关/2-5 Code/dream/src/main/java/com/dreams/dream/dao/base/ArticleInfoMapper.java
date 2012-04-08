@@ -34,11 +34,6 @@ public interface ArticleInfoMapper {
     /**
      * 根据条件查询记录集
      */
-    List<ArticleInfo> selectByExampleWithBLOBs(Criteria example);
-
-    /**
-     * 根据条件查询记录集
-     */
     List<ArticleInfo> selectByExample(Criteria example);
 
     /**
@@ -54,22 +49,12 @@ public interface ArticleInfoMapper {
     /**
      * 根据条件更新记录
      */
-    int updateByExampleWithBLOBs(@Param("record") ArticleInfo record, @Param("example") Criteria example);
-
-    /**
-     * 根据条件更新记录
-     */
     int updateByExample(@Param("record") ArticleInfo record, @Param("example") Criteria example);
 
     /**
      * 根据主键更新属性不为空的记录
      */
     int updateByPrimaryKeySelective(ArticleInfo record);
-
-    /**
-     * 根据主键更新记录
-     */
-    int updateByPrimaryKeyWithBLOBs(ArticleInfo record);
 
     /**
      * 根据主键更新记录

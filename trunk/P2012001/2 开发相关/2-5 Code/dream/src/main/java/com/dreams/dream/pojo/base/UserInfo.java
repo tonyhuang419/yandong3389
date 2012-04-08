@@ -23,6 +23,8 @@ public class UserInfo implements Serializable {
 
     private Date userBirthday;
 
+    private String nation;
+
     private String aboutMyself;
 
     /**
@@ -36,8 +38,6 @@ public class UserInfo implements Serializable {
     private Integer isSendMail;
 
     private Date registerTime;
-
-    private byte[] nation;
 
     public Integer getUserId() {
         return userId;
@@ -102,6 +102,14 @@ public class UserInfo implements Serializable {
         this.userBirthday = userBirthday;
     }
 
+    public String getNation() {
+        return nation;
+    }
+
+    public void setNation(String nation) {
+        this.nation = nation;
+    }
+
     public String getAboutMyself() {
         return aboutMyself;
     }
@@ -146,13 +154,5 @@ public class UserInfo implements Serializable {
 
     public void setRegisterTime(Date registerTime) {
         this.registerTime = registerTime;
-    }
-
-    public byte[] getNation() {
-        return nation;
-    }
-
-    public void setNation(byte[] nation) {
-        this.nation = nation;
     }
 }

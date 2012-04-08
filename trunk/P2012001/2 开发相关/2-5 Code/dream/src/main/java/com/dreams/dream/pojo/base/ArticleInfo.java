@@ -8,6 +8,8 @@ public class ArticleInfo implements Serializable {
 
     private Integer articleId;
 
+    private String articleContent;
+
     private String articleImage;
 
     private Date publishTime;
@@ -25,14 +27,20 @@ public class ArticleInfo implements Serializable {
      */
     private Integer verifyState;
 
-    private String articleContent;
-
     public Integer getArticleId() {
         return articleId;
     }
 
     public void setArticleId(Integer articleId) {
         this.articleId = articleId;
+    }
+
+    public String getArticleContent() {
+        return articleContent;
+    }
+
+    public void setArticleContent(String articleContent) {
+        this.articleContent = articleContent;
     }
 
     public String getArticleImage() {
@@ -96,13 +104,5 @@ public class ArticleInfo implements Serializable {
      */
     public void setVerifyState(Integer verifyState) {
         this.verifyState = verifyState;
-    }
-
-    public String getArticleContent() {
-        return articleContent;
-    }
-
-    public void setArticleContent(String articleContent) {
-        this.articleContent = articleContent;
     }
 }

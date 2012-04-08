@@ -3,7 +3,7 @@
 
 <generatorConfiguration>
     <!-- 指定mysql 驱动包的路径 -->
-	<classPathEntry location="E:\WorkSpace\Source\workspace\dream\target\dream-1.0.0\WEB-INF\lib\mysql-connector-java-5.1.18.jar" />
+	<classPathEntry location="C:\Users\Lawliet\.m2\repository\mysql\mysql-connector-java\5.1.18\mysql-connector-java-5.1.18.jar" />
 
 	<context id="MyBatis3" targetRuntime="MyBatis3">
 
@@ -59,7 +59,7 @@
 		<table tableName="subscribe_info" ></table>
 		<table tableName="support_info" ></table>
 		<table tableName="system_config_info" ></table>
-		<table tableName="user_comment_info" ></table>
 		<table tableName="user_info" ></table>
+		<table tableName="user_comment_info" ></table>
 	</context>
 </generatorConfiguration>
