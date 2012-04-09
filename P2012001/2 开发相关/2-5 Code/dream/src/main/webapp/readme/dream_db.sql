@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2012/3/6 21:55:01                            */
+/* Created on:     2012/4/9 20:45:43                            */
 /*==============================================================*/
 
 
@@ -64,7 +64,7 @@ create table article_comment_info
 create table article_info
 (
    article_id           int not null auto_increment,
-   article_content      text,
+   article_content      varchar(2000),
    article_image        varchar(500),
    publish_time         datetime,
    user_id              int comment '对应用户表中的user_id',
@@ -220,7 +220,7 @@ create table user_info
    user_name            varchar(50),
    user_sex             int comment '0：女、1：男',
    user_birthday        datetime,
-   nation               varbinary(50),
+   nation               varchar(50),
    about_myself         varchar(500),
    is_public_mail       int comment '0：不公开、1：公开 ',
    is_send_mail         int comment '0：不接收、1：接收',
