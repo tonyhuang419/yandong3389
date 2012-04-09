@@ -29,11 +29,8 @@
         <tr>
             <td colspan="2" align="center"><input type="submit" value="Add User"></td>
         </tr>
-        <tr><td colspan="2" align="center">
-            <c:if test="${!empty message}">
-            <c:out value="${message}"/>
-            </c:if></td></tr> 
-        <tr><td colspan="2" align="center"><a href="greet">Greet a user!</a></td></tr>
+        <tr><td colspan="2" align="center"></td></tr> 
+        <tr><td colspan="2" align="center"></td></tr>
     </table>
 </form>
 
@@ -44,10 +41,12 @@
 <td>登陆名</td>
 <td>登陆密码</td>
 <td>注册邮箱</td>
+<td>操作</td>
 </tr>
 <c:forEach items="${userList}" var="user">
 <tr>
 <td>${user.userId}</td><td>${user.userName}</td><td>${user.loginName}</td><td>${user.loginPass}</td><td>${user.userMail}</td>
+<td><a href="/user/delete?userId=${user.userId}">删除</a></td>
 </tr>
 </c:forEach>
 </table>
