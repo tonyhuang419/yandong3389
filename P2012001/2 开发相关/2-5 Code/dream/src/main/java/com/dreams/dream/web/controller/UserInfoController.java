@@ -65,16 +65,32 @@ public class UserInfoController {
 		
 		userInfoService.insert(user);
 		
-		Criteria example = new Criteria();
-		List<UserInfo> userList =  userInfoService.selectByExample(example);
-		
-		for (UserInfo user2 : userList) {
-			System.out.println(user2.getLoginPass());
-			logger.debug(user2.getLoginPass());
-		}
-		request.setAttribute("userList", userList);
+//		Criteria example = new Criteria();
+//		List<UserInfo> userList =  userInfoService.selectByExample(example);
+//		
+//		for (UserInfo user2 : userList) {
+//			System.out.println(user2.getLoginPass());
+//			logger.debug(user2.getLoginPass());
+//		}
+//		request.setAttribute("userList", userList);
 		
 		logger.debug("test...create.........................");
-		return new ModelAndView("index");
+		return new ModelAndView("redirect:");
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	@RequestMapping("/delete")
+	public ModelAndView delete(HttpServletRequest request, HttpServletResponse response){
+		
+		
+		String userId = request.getParameter("userId");
+		
+		userInfoService.deleteByPrimaryKey(Integer.valueOf(userId));
+		
+		return new ModelAndView("redirect:");
+	}
+	
 }
