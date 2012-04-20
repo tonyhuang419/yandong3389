@@ -3,44 +3,38 @@
     <head>
         <meta charset="UTF-8">
         <title>主页</title>
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="resources/css/main.css">
 </head>
     
 <body>
-    	<header>
+    	<header class="header">
           <div class="topBar">
           	<div class="wrap">
-                <ul id="menu" class="menu">
-                    <li id="branding"><a href="index.htm"></a></li>
-                    <li><a href="index.htm">主页</a></li>
-                    <li><a href="community.htm" tppabs="http://www.lifepulp.com/community">Posts<span id="notificationCommunity" class="notifier"></span></a></li>
-                    <li><a href="members.htm" tppabs="http://www.lifepulp.com/members">Members</a></li>
-                    <li><a href="blog.htm" tppabs="http://www.lifepulp.com/blog">Blog<span id="notificationBlog" class="notifier"></span></a></li>
-                                    <li><a href="join.htm" tppabs="http://www.lifepulp.com/join" class="inverse">Join Now</a></li>	
-                        <li id="loginForm">
-                            <form action="http://www.lifepulp.com/index.php" method="POST">
-                                                        <label>E-mail:</label>
-                                <input type="text" class="input" name="_LOGIN_USERNAME" value="" id="user">							
-                                <label class="space">Pass:</label>
-                                <input type="password" class="input" name="_LOGIN_PASSWORD" id="pass">
-                                <input type="submit" value="Login" class="submit">
-                                <div class="clear"></div>
-                            </form>
-                        </li>		
-                    
-                                
+                <ul class="menu">
+                    <li><a href="login.html"></a></li>
+                    <li><a href="login.html">主页</a></li>
+                    <li><a href="" >帖子</a></li>
+                    <li><a href="members.html">会员</a></li>
+                    <li><a href="blog.html" >博客</a></li>
+                    <li><a href="join.html" class="join_text_color">加入我们</a></li>
                 </ul>
-                <div class="clear"></div>
-            
             </div>
+            <div class="loginForm">
+                <form action="" method="POST">
+                    <input type="text" id="userName" name="userName" class="text-input" value="" >	
+                    <!--<span>用户名或电子邮件地址</span>-->
+                   			
+                    <input id="password" name="password" type="password" class="text-input" >
+                    <a href="javascrip:void(0)" class="submit"></a>
+                    <div class="clear"></div>
+                </form>
+            </div>
+            <div class="clear"></div> 
           </div>
         </header>
        
         <div class="main" >
-        	
-            
-           
-            
+          
         </div>
         
         <footer class="footer">
