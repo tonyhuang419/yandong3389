@@ -21,13 +21,13 @@ h1, h2, ul.menu li a:link, ul.menu li a:visited {
 	background-color: #5fa4c7; 
 }
 
-.topBar {
+.wrap {
 	margin: 0 auto;
 	width: 960px;
 	text-align: center;
 }
 
-.wrap {
+.top-bar {
 	float: left;
 }
 
@@ -50,16 +50,16 @@ ul.menu li a {
 }
 
 /* .join_text_color 不好用 a.join_text_color 也不好用 ul.menu li a .join_text_color也不好用*/
-ul.menu li a.join_text_color {
+ul.menu li a.join-text-color {
 	color: #99ffff;
 }
 
-.loginForm {
+.login-form {
 	float: right;
 }
 
 /*确定设计图片中的圆角都是多少像素*/
-.loginForm form .text-input {
+.login-form form .text-input {
 	float: left;
 	font-size: 12px;
 	line-height: 30px;
@@ -71,7 +71,7 @@ ul.menu li a.join_text_color {
 	width: 160px;
 }
 
-.loginForm form .submit {
+.login-form form .submit {
 	margin-top: 3px;
 	display: inline-block;
 	width: 66px;
@@ -81,4 +81,10 @@ ul.menu li a.join_text_color {
 
 /*在左右两侧均不允许浮动元素*/
 .clear { clear: both; }
+
+.front-container {
+	background: url(../images/home_img.jpg) no-repeat;
+	height: 145px;
+	margin: 0 auto;
+}
 
