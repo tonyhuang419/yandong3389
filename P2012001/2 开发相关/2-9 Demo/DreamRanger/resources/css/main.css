@@ -112,6 +112,7 @@ ul.menu li a.join-text-color {
 .content-left {
 	border: 1px solid #c7ebf3;
 	width: 634px;
+	float: left;
 }
 
 .share-content {
@@ -191,9 +192,7 @@ footer {
 }
 
 .content-right {
-	margin-left: 28px;
-	width: 296px;
-	float: right;
+	margin-left: 664px;
 }
 
 .counter-intro {
