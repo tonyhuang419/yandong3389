@@ -63,7 +63,7 @@ ul.menu li a.join-text-color {
 }
 
 /*确定设计图片中的圆角都是多少像素*/
-.login-form form .text-input {
+.login-form form .text-input,  .search-bar-wrap form .text-input {
 	float: left;
 	font-size: 12px;
 	line-height: 30px;
@@ -102,6 +102,20 @@ ul.menu li a.join-text-color {
 	height: 54px;
 	background: url(../images/register_img.jpg) no-repeat;
 	margin-top: 4px;
+}
+
+.search-bar-wrap form .submit  {
+	display: inline-block;
+	background: url(../images/header_search_img.jpg) no-repeat;
+	width: 29px;
+	height: 32px;
+	margin-top: 6px; 
+}
+
+.top-bar .more {
+	background: url(../images/header_more_img.jpg) no-repeat;
+	width: 36px;
+	margin-top: 5px;
 }
 
 /*在左右两侧均不允许浮动元素*/
@@ -256,6 +270,15 @@ footer {
 .register-form h3 {
 	line-height: 40px;
 	margin-bottom: 0px;
+	color: white;
+}
+
+.title-area {
+	background: url(../images/home_title_img.jpg) no-repeat;
+	height: 41px;
+	line-height: 41px;
+	text-align: left;
+	padding-left: 10px;
 	color: white;
 }
 
