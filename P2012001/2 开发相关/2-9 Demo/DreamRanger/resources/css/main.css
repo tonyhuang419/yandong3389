@@ -63,7 +63,7 @@ ul.menu li a.join-text-color {
 }
 
 /*确定设计图片中的圆角都是多少像素*/
-.login-form form .text-input, .register-form .text-input {
+.login-form form .text-input {
 	float: left;
 	font-size: 12px;
 	line-height: 30px;
@@ -73,6 +73,19 @@ ul.menu li a.join-text-color {
 	border: 1px solid #ccc;
 	margin: 5px 5px;
 	width: 160px;
+}
+
+.register-form .text-input {
+	float: left;
+	font-size: 12px;
+	line-height: 30px;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border: 1px solid #ccc;
+	margin-left: 30px;
+	margin-bottom: 18px;
+	width: 233px;
 }
 
 .login-form form .submit {
@@ -88,6 +101,7 @@ ul.menu li a.join-text-color {
 	width: 160px;
 	height: 54px;
 	background: url(../images/register_img.jpg) no-repeat;
+	margin-top: 4px;
 }
 
 /*在左右两侧均不允许浮动元素*/
@@ -103,9 +117,11 @@ ul.menu li a.join-text-color {
 	padding-top: 41px;
 }
 
-.join-area {
+.join-area a {
 	background: url(../images/home_join.jpg) no-repeat;
+	width: 960px;
 	height: 106px;
+	display: inline-block;
 	margin-bottom: 16px;
 }
 
@@ -132,7 +148,7 @@ ul.menu li a.join-text-color {
 }
 
 .text-area {
-	width: 866px;
+	width: 614px;
 	text-align: left;
 	line-height: 72px;
 	color: #525252;
@@ -195,6 +211,10 @@ footer {
 	margin-left: 664px;
 }
 
+.inspiration-counter {
+	margin-bottom: 27px;
+}
+
 .counter-intro {
 	background: url(../images/inspritional_counter.jpg) no-repeat;
 	height: 15px;
@@ -206,14 +226,26 @@ footer {
 	height: 40px;
 }
 
-h2.register-free {
+.register {
+	height: 456px;
+}
+
+.register-free {
 	background-color: #c7ebf3;
 	text-align: left;
 	padding-left: 10px;
 	color: #5fa4c7;
+	line-height: 40px;
 }
 
 .register-form {
-	border: 1px solid green;
+	background-color: #5fa4c7;
+	height: 260px;
+}
+
+.register-form h3 {
+	line-height: 40px;
+	margin-bottom: 0px;
+	color: white;
 }
 
