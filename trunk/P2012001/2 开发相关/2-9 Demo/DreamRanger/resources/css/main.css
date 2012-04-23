@@ -199,7 +199,7 @@ ul.menu li a.join-text-color {
 .inspiration-info {
 	height: 30px;
 	line-height: 30px;
-	border-top: 1px solid #e6f2f5;
+	border-bottom: 1px solid #e6f2f5;
 }
 
 .info-item {
@@ -280,5 +280,11 @@ footer {
 	text-align: left;
 	padding-left: 10px;
 	color: white;
+}
+
+.page-number {
+	background: url(../images/page_num_img.jpg) no-repeat;
+	height: 11px;
+	margin: 10px 0px 20px 421px;
 }
 
