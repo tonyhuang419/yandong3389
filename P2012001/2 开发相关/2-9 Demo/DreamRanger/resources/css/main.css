@@ -145,8 +145,17 @@ ul.menu li a.join-text-color {
 	float: left;
 }
 
-.top-border {
-	border-top: 1px solid #c7ebf3;
+.content-left-no-border {
+	width: 634px;
+	float: left;
+}
+
+.page-num-div {
+	height: 31px; 
+	border-bottom: 1px solid #c7ebf3;
+	border-left: 1px solid #c7ebf3;
+	border-right: 1px solid #c7ebf3;
+	padding-top: 10px;
 }
 
 .left-right-border {
@@ -298,6 +307,33 @@ footer {
 .page-number {
 	background: url(../images/page_num_img.jpg) no-repeat;
 	height: 11px;
-	margin: 10px 0px 20px 421px;
+	margin: 0px 0px 20px 421px;
+}
+
+.share-type {
+	background: url(../images/type_img.jpg) no-repeat;
+	height: 40px;
+	line-height: 40px;
+    text-align: left;
+	padding-left: 10px;
+	color: white;
+}
+
+.share-type-item {
+	background-color: #e6f2f5;
+	height: 39px;
+	border-top: 1px solid #ffffff;	
+	text-align: left;
+	padding-left: 10px;
+	color: #5fa4c7;
+}
+
+.share-type-item-bg {
+	background: url(../images/type_item_img.jpg) no-repeat;
+	height: 41px;
+	border-top: 1px solid #ffffff;	
+	text-align: left;
+	padding-left: 10px;
+	color: #5fa4c7;
 }
 
