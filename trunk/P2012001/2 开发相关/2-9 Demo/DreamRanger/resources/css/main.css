@@ -145,6 +145,19 @@ ul.menu li a.join-text-color {
 	float: left;
 }
 
+.top-border {
+	border-top: 1px solid #c7ebf3;
+}
+
+.left-right-border {
+	border-left: 1px solid #c7ebf3;
+	border-right: 1px solid #c7ebf3;
+}
+
+.bottom-border {
+	border-bottom: 1px solid #c7ebf3;
+}
+
 .share-content {
 	padding: 10px;
 }
