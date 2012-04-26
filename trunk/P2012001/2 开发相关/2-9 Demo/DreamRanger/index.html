@@ -21,10 +21,10 @@
             </div>
             <div class="login-form">
                 <form action="" method="post">
-                    <input type="text" id="userName" name="userName" class="text-input" value="" >	
+                    <input type="text" id="userName" name="userName" class="text-input" value="" placeholder="邮箱或用户名" required>	
                     <!--<span>用户名或电子邮件地址</span>-->
                    			
-                    <input id="password" name="password" type="password" class="text-input" >
+                    <input id="password" name="password" type="password" class="text-input" placeholder="密码" required>
                     <a href="javascrip:void(0)" class="submit"></a>
                     <div class="clear"></div>
                 </form>
@@ -76,24 +76,28 @@
                         <div class="counter"></div>
                     </div>
                     <div class="register">
-                    	<div class="register-free">
-                        	<h2>免费注册</h2>
-                        </div>
-                            <div class="register-form">
+                    	<div class="register-free"></div>
+                        <div class="register-form">
+                            
+                            <form action="" method="post">
+                            	<div class="register-input">
                             	<h3>加入寻找灵感之旅</h3>
-                                <form action="" method="post">
-                                    <input type="text" id="userName" name="userName" class="text-input" value="" >	
-                                    <input type="text" id="email" name="email" class="text-input" value="" >	
-                                            
-                                    <input id="password" name="password" type="password" class="text-input" value="">
+                                <input type="text" id="registerUserName" name="registerUserName" class="text-input" value="" placeholder="用户名" required>	
+                                <input type="text" id="registerEmail" name="registerEmail" class="text-input" value="" placeholder="邮箱" required>	
+                                        
+                                <input id="registerPassword" name="registerPassword" type="password" class="text-input" value="" placeholder="密码" required>
+                            	</div>
+                            
+                                <div class="submit-div">
                                     <a href="javascrip:void(0)" class="submit"></a>
-                                    <div class="clear"></div>
-                                </form>
-                        </div>
+                                </div>
+                            </form>
+                    	</div>
                     </div>
                     
                     
                 </div>
+                <div class="clear"></div>
               </div>
               <footer>主页 | 关于我们 | 联系方式 | 使用条款 | 隐私政策 | Copyright2012</footer>
             </div>
