@@ -62,6 +62,34 @@ ul.menu li a.join-text-color {
 	float: right;
 }
 
+#userName {
+	background: #fff url(../images/email.jpg) no-repeat;
+	background-position: 5px 9px;
+}
+
+#password {
+	background: #ffffff url(../images/password_bg.jpg) no-repeat;
+	background-position: 5px 9px;
+}
+
+#registerUserName {
+	background-position: 5px 9px;
+}
+
+#registerPassword {
+	background: #ffffff url(../images/password_bg.jpg) no-repeat;
+	background-position: 5px 9px;
+}
+
+#registerEmail {
+	background: #ffffff url(../images/email.jpg) no-repeat;
+	background-position: 5px 9px;
+}
+
+#searchKey {
+	
+}
+
 /*确定设计图片中的圆角都是多少像素*/
 .login-form form .text-input,  .search-bar-wrap form .text-input {
 	float: left;
@@ -73,9 +101,20 @@ ul.menu li a.join-text-color {
 	border: 1px solid #ccc;
 	margin: 5px 5px;
 	width: 160px;
+	padding-left: 25px;
+}
+
+.login-form form input:focus, .register-form form input:focus {
+	background-color: #fff;
+	border-color: #e8c291;
+    outline: none;
+	-moz-box-shadow: 0 0 0 1px #e8c291 inset;
+	-webkit-box-shadow: 0 0 0 1px #e8c291 inset;
+	box-shadow: 0 0 0 1px #e8c291 inset;
 }
 
 .register-form .text-input {
+	background: #fff url(../images/user_name_bg.jpg) no-repeat;
 	float: left;
 	font-size: 12px;
 	line-height: 30px;
@@ -86,6 +125,7 @@ ul.menu li a.join-text-color {
 	margin-left: 30px;
 	margin-bottom: 18px;
 	width: 233px;
+	padding-left: 25px;
 }
 
 .login-form form .submit {
@@ -100,20 +140,19 @@ ul.menu li a.join-text-color {
 	display: inline-block;
 	width: 160px;
 	height: 54px;
-	background: url(../images/register_img.jpg) no-repeat;
-	margin-top: 4px;
+	background: url(../images/register_btn.jpg) no-repeat;
 }
 
 .search-bar-wrap form .submit  {
 	display: inline-block;
-	background: url(../images/header_search_img.jpg) no-repeat;
+	background: url(../images/header_search.jpg) no-repeat;
 	width: 29px;
 	height: 32px;
 	margin-top: 6px; 
 }
 
 .top-bar .more {
-	background: url(../images/header_more_img.jpg) no-repeat;
+	background: url(../images/header_more.jpg) no-repeat;
 	width: 36px;
 	margin-top: 5px;
 }
@@ -122,7 +161,7 @@ ul.menu li a.join-text-color {
 .clear { clear: both; }
 
 .front-container {
-	background: url(../images/home_img.jpg) no-repeat;
+	background: url(../images/home_bg.jpg) no-repeat;
 	height: 145px;
 	margin: 0 auto;
 }
@@ -176,7 +215,7 @@ ul.menu li a.join-text-color {
 }
 
 .user-img {
-	background: url(../images/user_img.jpg) no-repeat;
+	background: url(../images/user.jpg) no-repeat;
 	height: 72px;
 	width: 83px;
 	float: left;
@@ -208,7 +247,7 @@ ul.menu li a.join-text-color {
 
 .share-img {
 	border: 10px solid #e6f2f5;
-	background: url(../images/user_post_img.jpg) no-repeat;
+	background: url(../images/user_post.jpg) no-repeat;
 	width: 595px;
 	height: 280px;
 }
@@ -268,35 +307,38 @@ footer {
 }
 
 .counter {
-	background: url(../images/counter_img.jpg) no-repeat;
+	background: url(../images/counter.jpg) no-repeat;
 	height: 40px;
 }
 
-.register {
-	height: 456px;
-}
-
 .register-free {
-	background-color: #c7ebf3;
-	text-align: left;
-	padding-left: 10px;
-	color: #5fa4c7;
-	line-height: 40px;
+	background: url(../images/free.png) no-repeat;
+	height: 40px;
 }
 
 .register-form {
+	/*background-color: #5fa4c7;*/
+	/*height: 260px;*/
+}
+
+.register-input {
 	background-color: #5fa4c7;
-	height: 260px;
+	height: 205px;
+}
+
+.submit-div {
+	background: url(../images/register_but_bg.png) no-repeat;
+	height: 54px;
 }
 
 .register-form h3 {
 	line-height: 40px;
-	margin-bottom: 0px;
+	margin: 1px 0px 0px 1px;
 	color: white;
 }
 
 .title-area {
-	background: url(../images/home_title_img.jpg) no-repeat;
+	background: url(../images/home_title.jpg) no-repeat;
 	height: 41px;
 	line-height: 41px;
 	text-align: left;
@@ -305,13 +347,13 @@ footer {
 }
 
 .page-number {
-	background: url(../images/page_num_img.jpg) no-repeat;
+	background: url(../images/page_num.jpg) no-repeat;
 	height: 11px;
 	margin: 0px 0px 20px 421px;
 }
 
 .share-type {
-	background: url(../images/type_img.jpg) no-repeat;
+	background: url(../images/type_bg.jpg) no-repeat;
 	height: 40px;
 	line-height: 40px;
     text-align: left;
@@ -329,7 +371,7 @@ footer {
 }
 
 .share-type-item-bg {
-	background: url(../images/type_item_img.jpg) no-repeat;
+	background: url(../images/type_item_bg.jpg) no-repeat;
 	height: 41px;
 	border-top: 1px solid #ffffff;	
 	text-align: left;
