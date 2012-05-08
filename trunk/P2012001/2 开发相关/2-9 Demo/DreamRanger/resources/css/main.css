@@ -379,3 +379,17 @@ footer {
 	color: #5fa4c7;
 }
 
+.person-name {
+	font-size: 26px;
+	font-weight: bold;
+	color: #5fa4c7;
+	text-align: left;
+	display: block;
+}
+
+.person-img {
+	background: url(../images/profile_img_bg.jpg) no-repeat;
+	height: 335px;
+	padding: 5px 5px;
+}
+
