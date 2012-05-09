@@ -419,3 +419,27 @@ footer {
 	height: 36px;
 	margin-left: 30px;
 }
+
+.cdigit {
+	float: left;
+	margin: 3px 2px 0px 2px;
+	width: 29px;
+	line-height: 35px;
+	color: white;
+	font-size: 30px;
+	text-align: center;
+}
+
+.subscribe {
+	display: block;
+	width: 248px;
+	height: 74px;
+	background: url(../images/btSubscribe2.jpg) no-repeat bottom left;
+	position: relative;
+	left: 20px;
+	cursor: pointer;
+}
+
+a.subscribe:hover {
+	background-position: 0px -3px;
+}
