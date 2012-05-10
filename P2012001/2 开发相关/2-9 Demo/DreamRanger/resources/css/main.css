@@ -396,6 +396,7 @@ footer {
 .box {
 	border: 1px solid #EFF1F2;
 	padding: 5px;
+	text-align: left;
 }
 
 .box-no-top {
@@ -404,7 +405,7 @@ footer {
 	padding: 5px;
 }
 
-.inspiration-created {
+.font-18-bold-color {
 	font-weight: bold;
 	font-size: 18px;
 	color: #5FA4C7;
@@ -422,7 +423,7 @@ footer {
 
 .cdigit {
 	float: left;
-	margin: 3px 2px 0px 2px;
+	margin: 0 1px 0 2px;
 	width: 29px;
 	line-height: 35px;
 	color: white;
@@ -443,3 +444,41 @@ footer {
 a.subscribe:hover {
 	background-position: 0px -3px;
 }
+
+.subs-text {
+	font-size: 14px;
+	color: #707070;
+	text-align: left;
+	margin-left: 20px;
+}
+
+a.subs-img {
+	float: left;
+	width: 80px;
+	height: 80px;
+	margin: 2px;
+	border: 1px solid #EEE;
+}
+
+a:link {
+	text-decoration: none;
+	color: #5FA4C7
+}
+
+a:hover {
+	color: #9FF;
+}
+
+.font-14-bold {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+/*h2 {
+	border: 1px solid #EFF1F2;
+	color: #5FA4C7;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 5px;
+	text-align: left;
+}*/
