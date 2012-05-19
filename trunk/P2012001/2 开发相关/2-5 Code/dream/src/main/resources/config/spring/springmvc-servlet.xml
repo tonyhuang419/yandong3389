@@ -124,4 +124,14 @@
 		<!-- 一个类似懒加载的属性.可以定义该属性.让解析文件的时候再抛异常,然后Controller中定义异常处理的方法 -->
 		<property name="resolveLazily" value="true" />
 	</bean>
+	
+	<bean id="simpleUrlHandlerMapping"  
+        class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">  
+    <property name="mappings">  
+      <props>  
+        <prop key="/index.htm">indexController</prop>  
+      </props>  
+    </property>  
+  </bean>
+  <bean id="indexController" class="com.dreams.dream.web.controller.IndexController"></bean>
 </beans>
