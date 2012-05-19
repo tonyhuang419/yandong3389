@@ -5,9 +5,13 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          version="2.5">
 	
+<welcome-file-list>
+    <welcome-file>index.htm</welcome-file>
+</welcome-file-list>
+	
   <display-name>Archetype Created Web Application</display-name>
   	<session-config>
-		<session-timeout>20</session-timeout>
+		<session-timeout>-1</session-timeout>
 	</session-config>
 	<!-- Spring ApplicationContext配置文件的路径 ,可使用通配符，多个路径用,号分隔 -->
 	<context-param>
@@ -32,6 +36,12 @@
 		<servlet-name>SpringMVC</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+    <servlet-mapping>  
+        <servlet-name>SpringMVC</servlet-name>  
+        <url-pattern>/index.htm</url-pattern>  
+    </servlet-mapping> 
+	
 	<!-- Spring MVC end -->
 	<!-- Character Encoding filter -->
 	<filter>
@@ -64,10 +74,6 @@
 	<listener>
 		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
 	</listener>
-	<!-- 系统初始化监听器 -->
-<!-- 	<listener> -->
-<!-- 		<listener-class>com.chenxin.authority.web.listener.SystemInitListener</listener-class> -->
-<!-- 	</listener> -->
 	<!-- Error Page定义 -->
 	<error-page>
 		<error-code>500</error-code>
