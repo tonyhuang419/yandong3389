@@ -125,6 +125,9 @@
         <property name="resolveLazily" value="true" />
     </bean>
     
+<!--         表示当访问主页时自动转发到index控制器 -->
+<!--     <mvc:view-controller path="/" view-name="forward:/index"/> -->
+    
     <bean id="simpleUrlHandlerMapping"  
         class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">  
     <property name="mappings">  
