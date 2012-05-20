@@ -48,7 +48,10 @@
     <tx:annotation-driven transaction-manager="transactionManager" />
     
     <!-- 数据库连接池 -->
-    <import resource="classpath:/config/spring/spring-pool.xml" />
-    <import resource="classpath:/config/spring/spring-securitycode.xml" />
+<!--     <import resource="classpath:/config/spring/spring-pool.xml" /> -->
+    <!-- 安全验证配置 -->
+<!--     <import resource="classpath:/config/spring/spring-securitycode.xml" /> -->
+    <!-- 任务调度配置 -->
+<!--     <import resource="classpath:/config/spring/spring-quartz.xml" /> -->
 
 </beans>
