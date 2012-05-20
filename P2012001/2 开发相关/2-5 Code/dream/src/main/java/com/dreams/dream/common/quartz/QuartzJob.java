@@ -17,7 +17,11 @@ public class QuartzJob {
      * 任务调度
      */
     public void quartzStart() {
-        System.out.println("任务开始"+new Date().getTime());
+        
+        // TODO 定时处理任务
+        
+        
+        System.out.println("task starting...."+new Date().getTime());
     }
 
 }
