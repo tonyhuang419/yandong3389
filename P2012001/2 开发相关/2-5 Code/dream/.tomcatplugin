@@ -41,6 +41,7 @@
         <webClassPathEntry>/dream/src/main/webapp/WEB-INF/lib/mybatis-3.0.6.jar</webClassPathEntry>
         <webClassPathEntry>/dream/src/main/webapp/WEB-INF/lib/mybatis-spring-1.0.2.jar</webClassPathEntry>
         <webClassPathEntry>/dream/src/main/webapp/WEB-INF/lib/mysql-connector-java-5.1.18.jar</webClassPathEntry>
+        <webClassPathEntry>/dream/src/main/webapp/WEB-INF/lib/quartz-all-1.6.3.jar</webClassPathEntry>
         <webClassPathEntry>/dream/src/main/webapp/WEB-INF/lib/slf4j-api-1.6.3.jar</webClassPathEntry>
         <webClassPathEntry>/dream/src/main/webapp/WEB-INF/lib/spring-aop-3.1.0.RELEASE.jar</webClassPathEntry>
         <webClassPathEntry>/dream/src/main/webapp/WEB-INF/lib/spring-asm-3.1.0.RELEASE.jar</webClassPathEntry>
