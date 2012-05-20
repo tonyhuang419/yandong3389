@@ -57,6 +57,7 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-web-3.1.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-webmvc-3.1.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/spring-webmvc-portlet-3.1.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/quartz-all-1.6.3.jar"/>
 	<classpathentry kind="var" path="M2_REPO"/>
 	<classpathentry kind="var" path="TOMCAT_HOME/lib/servlet-api.jar"/>
 	<classpathentry kind="var" path="TOMCAT_HOME/lib/jasper.jar"/>
