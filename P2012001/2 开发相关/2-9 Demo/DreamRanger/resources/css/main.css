@@ -146,9 +146,9 @@ ul.menu li a.join-text-color {
 .search-bar-wrap form .submit  {
 	display: inline-block;
 	background: url(../images/header_search.jpg) no-repeat;
-	width: 29px;
-	height: 32px;
-	margin-top: 6px; 
+	width: 30px;
+	height: 30px;
+	margin-top: 6px;
 }
 
 .top-bar .more {
@@ -353,7 +353,7 @@ footer {
 }
 
 .share-type {
-	background: url(../images/type_bg.jpg) no-repeat;
+	background: url(../images/type_bg.png) no-repeat;
 	height: 40px;
 	line-height: 40px;
     text-align: left;
