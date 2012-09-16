@@ -1,0 +1,381 @@
+/* 
+Client: 
+Author: Adler
+*/
+
+body {
+	margin: 0 auto;
+	font-family: '宋体';
+	text-align: center;
+	font-size: 12px;
+	color: #707070;
+}
+
+header {
+	height: 45px;
+	background-color: #5fa4c7; 
+}
+
+.font-style {
+	font-weight: bold;
+	font-stretch: condensed;
+}
+
+.wrap {
+	margin: 0 auto;
+	width: 960px;
+	text-align: center;
+}
+
+.top-bar {
+	float: left;
+}
+
+.top-bar a:hover{
+	color: #99ffff;
+}
+
+ul.menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.menu li {
+	float: left;
+	font-size: 14px;
+	margin-right: 30px;
+}
+
+ul.menu li a {
+	line-height: 45px;
+	text-decoration: none;
+	color: white;
+}
+
+/* .join_text_color 不好用 a.join_text_color 也不好用 ul.menu li a .join_text_color也不好用*/
+ul.menu li a.join-text-color {
+	color: #99ffff;
+}
+
+.login-form {
+	float: right;
+}
+
+#userName {
+	background: #fff url(../images/email.jpg) no-repeat;
+	background-position: 5px 9px;
+}
+
+#password {
+	background: #ffffff url(../images/password_bg.jpg) no-repeat;
+	background-position: 5px 9px;
+}
+
+#registerUserName {
+	background-position: 5px 9px;
+}
+
+#registerPassword {
+	background: #ffffff url(../images/password_bg.jpg) no-repeat;
+	background-position: 5px 9px;
+}
+
+#registerEmail {
+	background: #ffffff url(../images/email.jpg) no-repeat;
+	background-position: 5px 9px;
+}
+
+#searchKey {
+	
+}
+
+/*确定设计图片中的圆角都是多少像素*/
+.login-form form .text-input,  .search-bar-wrap form .text-input {
+	float: left;
+	font-size: 12px;
+	line-height: 30px;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border: 1px solid #ccc;
+	margin: 5px 5px;
+	width: 160px;
+	padding-left: 25px;
+}
+
+.login-form form input:focus, .register-form form input:focus {
+	background-color: #fff;
+	border-color: #e8c291;
+    outline: none;
+	-moz-box-shadow: 0 0 0 1px #e8c291 inset;
+	-webkit-box-shadow: 0 0 0 1px #e8c291 inset;
+	box-shadow: 0 0 0 1px #e8c291 inset;
+}
+
+.register-form .text-input {
+	background: #fff url(../images/user_name_bg.jpg) no-repeat;
+	float: left;
+	font-size: 12px;
+	line-height: 30px;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border: 1px solid #ccc;
+	margin-left: 30px;
+	margin-bottom: 18px;
+	width: 233px;
+	padding-left: 25px;
+}
+
+.login-form form .submit {
+	margin-top: 3px;
+	display: inline-block;
+	width: 66px;
+	height: 38px;
+	background: url(../images/login.jpg) no-repeat;
+}
+
+.register-form .submit {
+	display: inline-block;
+	width: 160px;
+	height: 54px;
+	background: url(../images/register_btn.jpg) no-repeat;
+}
+
+.search-bar-wrap form .submit  {
+	display: inline-block;
+	background: url(../images/header_search.jpg) no-repeat;
+	width: 29px;
+	height: 32px;
+	margin-top: 6px; 
+}
+
+.top-bar .more {
+	background: url(../images/header_more.jpg) no-repeat;
+	width: 36px;
+	margin-top: 5px;
+}
+
+/*在左右两侧均不允许浮动元素*/
+.clear { clear: both; }
+
+.front-container {
+	background: url(../images/home_bg.jpg) no-repeat;
+	height: 145px;
+	margin: 0 auto;
+}
+
+.content {
+	padding-top: 41px;
+}
+
+.join-area a {
+	background: url(../images/home_join.jpg) no-repeat;
+	width: 960px;
+	height: 106px;
+	display: inline-block;
+	margin-bottom: 16px;
+}
+
+.content-left {
+	border: 1px solid #c7ebf3;
+	width: 634px;
+	float: left;
+}
+
+.content-left-no-border {
+	width: 634px;
+	float: left;
+}
+
+.page-num-div {
+	height: 31px; 
+	border-bottom: 1px solid #c7ebf3;
+	border-left: 1px solid #c7ebf3;
+	border-right: 1px solid #c7ebf3;
+	padding-top: 10px;
+}
+
+.left-right-border {
+	border-left: 1px solid #c7ebf3;
+	border-right: 1px solid #c7ebf3;
+}
+
+.bottom-border {
+	border-bottom: 1px solid #c7ebf3;
+}
+
+.share-content {
+	padding: 10px;
+}
+
+.share-intro {
+	margin-bottom: 10px;
+}
+
+.user-img {
+	background: url(../images/user.jpg) no-repeat;
+	height: 72px;
+	width: 83px;
+	float: left;
+	margin-right: 10px;
+}
+
+.text-area {
+	width: 614px;
+	text-align: left;
+	line-height: 72px;
+	/*color: #525252;*/
+}
+
+.text-area a {
+	text-decoration: none;
+	color: #5fa4c7;
+	margin-right: 3px;
+	font-weight: bold;
+	font-stretch: condensed;
+}
+
+.text-area a:hover, .info-item a:hover, .img-intro a:hover {
+	color: #9FF;
+}
+
+.text-area span {
+	margin-right:364px;
+}
+
+.share-img {
+	border: 10px solid #e6f2f5;
+	background: url(../images/user_post.jpg) no-repeat;
+	width: 595px;
+	height: 280px;
+}
+
+.img-intro {
+	line-height: 40px;
+	text-align: left;
+}
+
+.inspiration-info {
+	height: 30px;
+	line-height: 30px;
+	border-bottom: 1px solid #e6f2f5;
+}
+
+.info-item {
+	float: right;
+	margin-left: 30px;
+}
+
+.info-item a, .img-intro a {
+	font-weight: bold;
+	font-stretch: condensed;
+	text-decoration: none;
+	color: #5fa4c7;
+	margin-left: 3px;
+}
+
+.share-to {
+	background-color: #e6f2f5;
+	height: 36px;
+	line-height: 36px;
+	text-align: left;
+	margin: 1px;
+	padding-left: 9px;
+}
+
+footer {
+	line-height: 50px;
+	text-align: center;
+	color: #ff6600;
+	font-stretch: condensed;
+}
+
+.content-right {
+	margin-left: 664px;
+}
+
+.inspiration-counter {
+	margin-bottom: 27px;
+}
+
+.counter-intro {
+	background: url(../images/inspritional_counter.jpg) no-repeat;
+	height: 15px;
+	margin-bottom: 10px;
+}
+
+.counter {
+	background: url(../images/counter.jpg) no-repeat;
+	height: 40px;
+}
+
+.register-free {
+	background: url(../images/free.png) no-repeat;
+	height: 40px;
+}
+
+.register-form {
+	/*background-color: #5fa4c7;*/
+	/*height: 260px;*/
+}
+
+.register-input {
+	background-color: #5fa4c7;
+	height: 205px;
+}
+
+.submit-div {
+	background: url(../images/register_but_bg.png) no-repeat;
+	height: 54px;
+}
+
+.register-form h3 {
+	line-height: 40px;
+	margin: 1px 0px 0px 1px;
+	color: white;
+}
+
+.title-area {
+	background: url(../images/home_title.jpg) no-repeat;
+	height: 41px;
+	line-height: 41px;
+	text-align: left;
+	padding-left: 10px;
+	color: white;
+}
+
+.page-number {
+	background: url(../images/page_num.jpg) no-repeat;
+	height: 11px;
+	margin: 0px 0px 20px 421px;
+}
+
+.share-type {
+	background: url(../images/type_bg.jpg) no-repeat;
+	height: 40px;
+	line-height: 40px;
+    text-align: left;
+	padding-left: 10px;
+	color: white;
+}
+
+.share-type-item {
+	background-color: #e6f2f5;
+	height: 39px;
+	border-top: 1px solid #ffffff;	
+	text-align: left;
+	padding-left: 10px;
+	color: #5fa4c7;
+}
+
+.share-type-item-bg {
+	background: url(../images/type_item_bg.jpg) no-repeat;
+	height: 41px;
+	border-top: 1px solid #ffffff;	
+	text-align: left;
+	padding-left: 10px;
+	color: #5fa4c7;
+}
+

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomcatProjectProperties>
+    <rootDir>/src/main/webapp</rootDir>
+    <exportSource>false</exportSource>
+    <reloadable>true</reloadable>
+    <redirectLogger>false</redirectLogger>
+    <updateXml>true</updateXml>
+    <warLocation></warLocation>
+    <extraInfo></extraInfo>
+    <webPath>/d_freamwork</webPath>
+    <webClassPathEntries>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/classes</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/activation-1.1.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/aopalliance-1.0.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/asm-3.3.1.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/aspectjrt-1.6.11.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/aspectjweaver-1.6.11.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/bonecp-0.7.1.RELEASE.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/bonecp-spring-0.7.1.RELEASE.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/c3p0-0.9.1.2.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/cglib-2.2.2.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/commons-beanutils-1.8.3.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/commons-codec-1.6.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/commons-collections-3.2.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/commons-dbcp-1.4.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/commons-fileupload-1.2.2.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/commons-io-2.1.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/commons-lang-2.6.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/commons-logging-1.1.1.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/commons-pool-1.5.4.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/guava-r08.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/jackson-core-lgpl-1.9.3.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/jackson-mapper-lgpl-1.9.3.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/jcl-over-slf4j-1.6.3.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/joda-time-2.0.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/jstl-1.2.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/logback-access-1.0.0.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/logback-classic-1.0.0.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/logback-core-1.0.0.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/mail-1.4.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/mysql-connector-java-5.1.18.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/quartz-all-1.6.3.jar</webClassPathEntry>
+        <webClassPathEntry>/d_freamwork/src/main/webapp/WEB-INF/lib/slf4j-api-1.6.3.jar</webClassPathEntry>
+        <webClassPathEntry>C:/Program Files/Java/jdk1.7.0_05/jre/lib/charsets.jar</webClassPathEntry>
+        <webClassPathEntry>C:/Program Files/Java/jdk1.7.0_05/jre/lib/ext/dnsns.jar</webClassPathEntry>
+        <webClassPathEntry>C:/Program Files/Java/jdk1.7.0_05/jre/lib/ext/localedata.jar</webClassPathEntry>
+        <webClassPathEntry>C:/Program Files/Java/jdk1.7.0_05/jre/lib/ext/sunec.jar</webClassPathEntry>
+        <webClassPathEntry>C:/Program Files/Java/jdk1.7.0_05/jre/lib/ext/sunjce_provider.jar</webClassPathEntry>
+        <webClassPathEntry>C:/Program Files/Java/jdk1.7.0_05/jre/lib/ext/sunmscapi.jar</webClassPathEntry>
+        <webClassPathEntry>C:/Program Files/Java/jdk1.7.0_05/jre/lib/ext/zipfs.jar</webClassPathEntry>
+        <webClassPathEntry>C:/Program Files/Java/jdk1.7.0_05/jre/lib/jce.jar</webClassPathEntry>
+        <webClassPathEntry>C:/Program Files/Java/jdk1.7.0_05/jre/lib/jsse.jar</webClassPathEntry>
+        <webClassPathEntry>C:/Program Files/Java/jdk1.7.0_05/jre/lib/resources.jar</webClassPathEntry>
+        <webClassPathEntry>C:/Program Files/Java/jdk1.7.0_05/jre/lib/rt.jar</webClassPathEntry>
+    </webClassPathEntries>
+</tomcatProjectProperties>

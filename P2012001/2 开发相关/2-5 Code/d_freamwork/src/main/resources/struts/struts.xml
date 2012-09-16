@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Constants -->
+<!--     <constant name="struts.devMode" value="true"/> -->
+<!--     <constant name="struts.i18n.encoding" value="UTF-8"/> -->
+<!--     <constant name="struts.action.extension" value="action,"/> -->
+<!--     <constant name="struts.objectFactory" value="spring"/> -->
+<!--     <constant name="struts.custom.i18n.resources" value="ApplicationResources,errors"/> -->
+<!--     <constant name="struts.multipart.maxSize" value="2097152"/> -->
+<!--     <constant name="struts.ui.theme" value="css_xhtml"/> -->
+<!--     <constant name="struts.enable.SlashesInActionNames" value="true"/> -->
+<!--     <constant name="struts.convention.action.disableScanning" value="true"/> -->
+<!--     <constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/> -->
+    <package name="admin" extends="struts-default">
+        <action name="helloAction_*" class="com.tony.jee.web.action.HelloAction" method="{1}" >
+            <result name="success">/index.jsp</result>
+        </action>
+    </package>
+</struts>
