@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.dreams</groupId>
+	<artifactId>d_freamwork</artifactId>
+	<packaging>war</packaging>
+	<version>1.0.0</version>
+	<description>hello world ~</description>
+
+	<properties>
+		<java.version>1.6</java.version>
+		<slf4j.version>1.6.3</slf4j.version>
+		<logback.version>1.0.0</logback.version>
+		<aspectj.version>1.6.11</aspectj.version>
+		<jackson.version>1.9.3</jackson.version>
+		<shiro.version>1.1.0</shiro.version>
+		<mybatis.version>3.0.6</mybatis.version>
+		<mybatis-spring.version>1.0.2</mybatis-spring.version>
+		<proxool.version>0.9.1</proxool.version>
+		<bonecp.version>0.7.1.RELEASE</bonecp.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.easymock</groupId>
+			<artifactId>easymock</artifactId>
+			<version>3.1</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- web -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<!-- spring -->
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2.2</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>aopalliance</groupId>
+			<artifactId>aopalliance</artifactId>
+			<version>1.0</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${aspectj.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${aspectj.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring</artifactId>  
+            <version>2.5.6</version>  
+        </dependency>  
+		<dependency>
+			<groupId>org.apache.ibatis</groupId>
+			<artifactId>ibatis-sqlmap</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-core</artifactId>
+			<version>2.2.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-spring-plugin</artifactId>
+			<version>2.2.3.1</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-lgpl</artifactId>
+			<version>${jackson.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-lgpl</artifactId>
+			<version>${jackson.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.0</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<!-- log4j -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-access</artifactId>
+			<version>${logback.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<!-- commons -->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.6</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.1</version>
+		</dependency>
+
+		<!-- jdbc -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.18</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.jolbox</groupId>
+			<artifactId>bonecp-spring</artifactId>
+			<version>${bonecp.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.jolbox</groupId>
+			<artifactId>bonecp</artifactId>
+			<version>${bonecp.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>proxool</groupId> -->
+		<!-- <artifactId>proxool</artifactId> -->
+		<!-- <version>${proxool.version}</version> -->
+		<!-- <type>jar</type> -->
+		<!-- <scope>compile</scope> -->
+		<!-- </dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId>proxool</groupId> -->
+		<!-- <artifactId>proxool-cglib</artifactId> -->
+		<!-- <version>${proxool.version}</version> -->
+		<!-- <type>jar</type> -->
+		<!-- <scope>compile</scope> -->
+		<!-- </dependency> -->
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.1.2</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.4</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.8.3</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>opensymphony</groupId>
+			<artifactId>quartz-all</artifactId>
+			<version>1.6.3</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+	<build>
+<!-- 指定打包的名称	 -->
+	 <finalName>ROOT</finalName>
+<!--     <sourceDirectory>${basedir}/src</sourceDirectory> -->
+<!--     <outputDirectory>${basedir}/webapp/WEB-INF/classes</outputDirectory> -->
+<!--     <resources> -->
+<!--       <resource> -->
+<!--         <directory>${basedir}/src</directory> -->
+<!--         <excludes> -->
+<!--           <exclude>**/*.java</exclude> -->
+<!--         </excludes> -->
+<!--       </resource> -->
+<!--     </resources> -->
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.7</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<!-- 编译插件 -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<!-- 打war包插件 -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+			</plugin>
+			<!-- tomcat插件 -->
+			<plugin>
+				<groupId>com.googlecode.t7mp</groupId>
+				<artifactId>maven-t7-plugin</artifactId>
+				<version>0.9.8</version>
+				<configuration>
+					<tomcatHttpPort>8080</tomcatHttpPort>
+					<tomcatVersion>7.0.22.A</tomcatVersion>
+				</configuration>
+			</plugin>
+
+			<!-- <plugin> -->
+			<!-- 运行mvn test时执行测试的插件 -->
+			<!-- <groupId>org.apache.maven.plugins</groupId> -->
+			<!-- <artifactId>maven-surefire-plugin</artifactId> -->
+			<!-- <version>2.11</version> -->
+			<!-- <configuration> -->
+			<!-- <argLine>-Dfile.encoding=UTF-8</argLine> -->
+			<!-- <excludes> -->
+			<!-- 不包含 -->
+			<!-- <exclude>**/ControllerTest.java</exclude> -->
+			<!-- <exclude>**/ServicesTest.java</exclude> -->
+			<!-- </excludes> -->
+			<!-- 忽略单元测试失败 -->
+			<!-- 命令：mvn package -Dmaven.test.failure.ignore=true <testFailureIgnore>true</testFailureIgnore> -->
+			<!-- 跳过单元测试 -->
+			<!-- 命令：mvn -package -Dmaven.test.skip=true <skip>true</skip> -->
+			<!-- <skip>true</skip> -->
+			<!-- </configuration> -->
+			<!-- </plugin> -->
+			<!-- <plugin> -->
+			<!-- <groupId>org.sonatype.maven.archetype</groupId> -->
+			<!-- <artifactId>archetype-plugin</artifactId> -->
+			<!-- <version>0.8.5</version> -->
+			<!-- </plugin> -->
+
+			<!-- 自动部署web项目插件 -->
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<version>1.2.0</version>
+				<configuration>
+					<container>
+						<containerId>tomcat7x</containerId>
+						<home>C:\apache-tomcat-7.0.23</home>
+					</container>
+					<configuration>
+						<type>existing</type>
+						<home>${project.build.directory}/tomcat</home>
+					</configuration>
+					<!-- <configuration> -->
+					<!-- <type>existing</type> -->
+					<!-- <home>C:\apache-tomcat-7.0.23</home> -->
+					<!-- </configuration> -->
+				</configuration>
+			</plugin>
+			<!-- 生成mybatis代码 [官方插件]-->
+			<plugin>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-maven-plugin</artifactId>
+				<version>1.3.1</version>
+				<configuration>
+					<verbose>true</verbose>
+					<overwrite>true</overwrite>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
