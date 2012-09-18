@@ -21,7 +21,7 @@ public class QuartzJob {
         // TODO 定时处理任务
         
         
-       // System.out.println("task starting...."+new Date().getTime());
+        System.out.println("task starting...."+new Date().getTime());
     }
 
 }
