@@ -5,22 +5,20 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 数据库操作工具类
- * 
  * @version 2012-05-20
  * @author Lawliet
  */
 public class DBUtils {
-    
+
     private static final Logger logger = LoggerFactory.getLogger(DBUtils.class);
 
-//    public static void main(String[] args) {
-//  backupDatebase("localhost", "root", "root", "dream_db", "E:/test2.sql");
-//  restoreDatebase("localhost", "root", "root", "dream_db", "E:/test.sql");
-//    }
-    
+    // public static void main(String[] args) {
+    // backupDatebase("localhost", "root", "root", "dream_db", "E:/test2.sql");
+    // restoreDatebase("localhost", "root", "root", "dream_db", "E:/test.sql");
+    // }
+
     /**
      * 备份数据库
-     * 
      * @param host 备份数据库的IP地址
      * @param username 数据库的用户名
      * @param password 数据库的密码
@@ -28,8 +26,12 @@ public class DBUtils {
      * @param filePath 备份文件存放的位置(含文件名称)
      * @return boolean 备份成功标识
      */
-    public static boolean backupDatebase(String host, String username,
-            String password, String datebaseName, String filePath) {
+    public static boolean backupDatebase(
+        String host,
+        String username,
+        String password,
+        String datebaseName,
+        String filePath) {
 
         // 命令字符串
         StringBuilder commandBuilder = new StringBuilder();
@@ -52,13 +54,12 @@ public class DBUtils {
         String result = CommandUtils.execCmd(commandBuilder.toString());
         // 打印执行结果
         logger.debug(result);
-        
+
         return true;
     }
-    
+
     /**
      * 还原数据库
-     * 
      * @param host 备份数据库的IP地址
      * @param username 数据库的用户名
      * @param password 数据库的密码
@@ -66,8 +67,12 @@ public class DBUtils {
      * @param filePath 备份文件存放的位置(含文件名称)
      * @return boolean 备份成功标识
      */
-    public static boolean restoreDatebase(String host, String username,
-            String password, String datebaseName, String filePath) {
+    public static boolean restoreDatebase(
+        String host,
+        String username,
+        String password,
+        String datebaseName,
+        String filePath) {
 
         // 命令字符串
         StringBuilder commandBuilder = new StringBuilder();
@@ -90,7 +95,7 @@ public class DBUtils {
         String result = CommandUtils.execCmd(commandBuilder.toString());
         // 打印执行结果
         logger.debug(result);
-        
+
         return true;
     }
 
