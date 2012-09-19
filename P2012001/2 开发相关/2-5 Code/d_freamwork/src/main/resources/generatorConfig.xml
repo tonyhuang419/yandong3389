@@ -4,7 +4,7 @@
 <generatorConfiguration>
     <!-- 指定mysql 驱动包的路径 -->
 <!-- 	<classPathEntry location="C:\Users\Lawliet\.m2\repository\mysql\mysql-connector-java\5.1.18\mysql-connector-java-5.1.18.jar" /> -->
-
+    <!-- 指oracle 驱动包的路径 -->
 	<classPathEntry location="C:\Users\Lawliet\.m2\repository\oracle\ojdbc\14\ojdbc-14.jar" />
 
 	<context id="Mybatis3" targetRuntime="Mybatis3">
@@ -53,26 +53,14 @@
 		<javaClientGenerator type="XMLMAPPER" targetPackage="com.tony.jee.dao.base" targetProject="../d_freamwork/src/main/java">
 		</javaClientGenerator>
 
-
         <!-- 数据库表名列表 -->
-		<table tableName="base_fields"></table>
+		<table tableName="base_fields">
+		    <generatedKey column="field_id" sqlStatement="select sys_guid() from dual"/>
+		</table>
 		<table tableName="base_modules"></table>
 		<table tableName="base_role_module"></table>
 		<table tableName="base_roles"></table>
 		<table tableName="base_user_role"></table>
 		<table tableName="base_users"></table>
-<!-- 		<table tableName="article_comment_info" ></table> -->
-<!-- 		<table tableName="article_info" ></table> -->
-<!-- 		<table tableName="article_type_info" ></table> -->
-<!-- 		<table tableName="browsing_history" ></table> -->
-<!-- 		<table tableName="comment_reply_info" ></table> -->
-<!-- 		<table tableName="gift_info" ></table> -->
-<!-- 		<table tableName="login_log" ></table> -->
-<!-- 		<table tableName="operate_log" ></table> -->
-<!-- 		<table tableName="subscribe_info" ></table> -->
-<!-- 		<table tableName="support_info" ></table> -->
-<!-- 		<table tableName="system_config_info" ></table> -->
-<!-- 		<table tableName="user_info" ></table> -->
-<!-- 		<table tableName="user_comment_info" ></table> -->
 	</context>
 </generatorConfiguration>

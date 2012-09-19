@@ -15,8 +15,9 @@
 <!--     <constant name="struts.convention.action.disableScanning" value="true"/> -->
 <!--     <constant name="struts.mapper.alwaysSelectFullNamespace" value="false"/> -->
     <package name="admin" extends="struts-default">
-        <action name="helloAction_*" class="com.tony.jee.web.action.HelloAction" method="{1}" >
+        <action name="HelloAction_*" class="com.tony.jee.web.action.HelloAction" method="{1}" >
             <result name="success">/index.jsp</result>
+            <result name="toIndex" type="redirect">HelloAction_toIndex.action</result>
         </action>
     </package>
 </struts>
