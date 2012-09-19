@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tony.jee.dao.FieldsMapper">
+  <resultMap id="BaseResultMap" type="com.tony.jee.pojo.base.BaseFields">
+    <id column="FIELD_ID" jdbcType="VARCHAR" property="fieldId" />
+    <result column="FIELD" jdbcType="VARCHAR" property="field" />
+    <result column="FIELD_NAME" jdbcType="VARCHAR" property="fieldName" />
+    <result column="VALUE_FIELD" jdbcType="VARCHAR" property="valueField" />
+    <result column="DISPLAY_FIELD" jdbcType="VARCHAR" property="displayField" />
+    <result column="ENABLED" jdbcType="DECIMAL" property="enabled" />
+    <result column="SORT" jdbcType="DECIMAL" property="sort" />
+  </resultMap>
+  
+  
+</mapper>

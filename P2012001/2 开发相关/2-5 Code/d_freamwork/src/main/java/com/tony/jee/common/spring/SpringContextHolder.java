@@ -1,4 +1,4 @@
-package com.tony.jee.common.springmvc;
+package com.tony.jee.common.spring;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
