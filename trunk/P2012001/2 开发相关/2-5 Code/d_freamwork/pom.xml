@@ -16,6 +16,7 @@
 		<jackson.version>1.9.3</jackson.version>
 		<shiro.version>1.1.0</shiro.version>
 		<mybatis.version>3.0.6</mybatis.version>
+		<org.springframework.version>3.0.5.RELEASE</org.springframework.version>
 		<mybatis-spring.version>1.0.2</mybatis-spring.version>
 		<proxool.version>0.9.1</proxool.version>
 		<bonecp.version>0.7.1.RELEASE</bonecp.version>
@@ -83,15 +84,97 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-		        <dependency>  
-            <groupId>org.springframework</groupId>  
-            <artifactId>spring</artifactId>  
-            <version>2.5.6</version>  
-        </dependency>  
+		<!-- <dependency> -->
+		<!-- <groupId>org.springframework</groupId> -->
+		<!-- <artifactId>spring</artifactId> -->
+		<!-- <version>2.5.6</version> -->
+		<!-- </dependency> -->
+
 		<dependency>
-			<groupId>org.apache.ibatis</groupId>
-			<artifactId>ibatis-sqlmap</artifactId>
-			<version>2.3.0</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<!-- Bean Factory and JavaBeans utilities (depends on spring-core) Define 
+			this if you use Spring Bean APIs (org.springframework.beans.*) -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<!-- Application Context (depends on spring-core, spring-expression, spring-aop, 
+			spring-beans) This is the central artifact for Spring's Dependency Injection 
+			Container and is generally always defined -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<!-- Various Application Context utilities, including EhCache, JavaMail, 
+			Quartz, and Freemarker integration Define this if you need any of these integrations -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<!-- Core utilities used by other modules. Define this if you use Spring 
+			Utility APIs (org.springframework.core.*/org.springframework.util.*) -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<!-- Expression Language (depends on spring-core) Define this if you use 
+			Spring Expression APIs (org.springframework.expression.*) -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<!-- Transaction Management Abstraction (depends on spring-core, spring-beans, 
+			spring-aop, spring-context) Define this if you use Spring Transactions or 
+			DAO Exception Hierarchy (org.springframework.transaction.*/org.springframework.dao.*) -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<!-- <dependency> -->
+		<!-- <groupId>org.apache.ibatis</groupId> -->
+		<!-- <artifactId>ibatis-sqlmap</artifactId> -->
+		<!-- <version>2.3.0</version> -->
+		<!-- </dependency> -->
+
+		<!-- mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>${mybatis.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>${mybatis-spring.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.struts</groupId>
@@ -197,13 +280,6 @@
 
 		<!-- jdbc -->
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.18</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
 			<groupId>com.jolbox</groupId>
 			<artifactId>bonecp-spring</artifactId>
 			<version>${bonecp.version}</version>
@@ -273,20 +349,26 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>ojdbc</groupId> -->
+<!-- 			<artifactId>ojdbc</artifactId> -->
+<!-- 			<version>14</version> -->
+<!-- 			<scope>compile</scope> -->
+<!-- 		</dependency> -->
 	</dependencies>
 	<build>
-<!-- 指定打包的名称	 -->
-	 <finalName>ROOT</finalName>
-<!--     <sourceDirectory>${basedir}/src</sourceDirectory> -->
-<!--     <outputDirectory>${basedir}/webapp/WEB-INF/classes</outputDirectory> -->
-<!--     <resources> -->
-<!--       <resource> -->
-<!--         <directory>${basedir}/src</directory> -->
-<!--         <excludes> -->
-<!--           <exclude>**/*.java</exclude> -->
-<!--         </excludes> -->
-<!--       </resource> -->
-<!--     </resources> -->
+		<!-- 指定打包的名称 -->
+		<finalName>ROOT</finalName>
+		<!-- <sourceDirectory>${basedir}/src</sourceDirectory> -->
+		<!-- <outputDirectory>${basedir}/webapp/WEB-INF/classes</outputDirectory> -->
+		<!-- <resources> -->
+		<!-- <resource> -->
+		<!-- <directory>${basedir}/src</directory> -->
+		<!-- <excludes> -->
+		<!-- <exclude>**/*.java</exclude> -->
+		<!-- </excludes> -->
+		<!-- </resource> -->
+		<!-- </resources> -->
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -379,7 +461,7 @@
 					<!-- </configuration> -->
 				</configuration>
 			</plugin>
-			<!-- 生成mybatis代码 [官方插件]-->
+			<!-- 生成mybatis代码 [官方插件] -->
 			<plugin>
 				<groupId>org.mybatis.generator</groupId>
 				<artifactId>mybatis-generator-maven-plugin</artifactId>

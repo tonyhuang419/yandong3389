@@ -1,4 +1,4 @@
-package com.tony.jee.common.springmvc;
+package com.tony.jee.common.spring;
 
 import java.beans.PropertyEditorSupport;
 import java.text.DateFormat;

@@ -21,7 +21,7 @@
     <!-- Spring ApplicationContext配置文件的路径 ,可使用通配符，多个路径用,号分隔 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:/spring/spring-*.xml</param-value>
+        <param-value>classpath:/spring/spring-common.xml</param-value>
     </context-param>
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
