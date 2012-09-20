@@ -6,3 +6,11 @@ package cargo:redeploy
 
 mybatis生成代码：
 org.mybatis.generator:mybatis-generator-maven-plugin:1.3.1:generate
+
+
+待办：
+
+1、数据库事务处理
+2、分页检索
+3、开发环境
+4、
