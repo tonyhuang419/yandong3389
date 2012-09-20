@@ -9,6 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class BaseFieldsServiceImpl implements BaseFieldsService {
@@ -31,34 +33,43 @@ public class BaseFieldsServiceImpl implements BaseFieldsService {
         return this.baseFieldsMapper.selectByExample(example);
     }
 
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
     public int deleteByPrimaryKey(String fieldId) {
         return this.baseFieldsMapper.deleteByPrimaryKey(fieldId);
     }
 
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
     public int updateByPrimaryKeySelective(BaseFields record) {
         return this.baseFieldsMapper.updateByPrimaryKeySelective(record);
     }
 
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
     public int updateByPrimaryKey(BaseFields record) {
         return this.baseFieldsMapper.updateByPrimaryKey(record);
     }
 
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
     public int deleteByExample(Criteria example) {
         return this.baseFieldsMapper.deleteByExample(example);
     }
 
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
     public int updateByExampleSelective(BaseFields record, Criteria example) {
         return this.baseFieldsMapper.updateByExampleSelective(record, example);
     }
 
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
     public int updateByExample(BaseFields record, Criteria example) {
         return this.baseFieldsMapper.updateByExample(record, example);
     }
 
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
     public int insert(BaseFields record) {
-        return this.baseFieldsMapper.insert(record);
+        int result = this.baseFieldsMapper.insert(record);
+        return result;
     }
 
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = { Exception.class })
     public int insertSelective(BaseFields record) {
         return this.baseFieldsMapper.insertSelective(record);
     }
