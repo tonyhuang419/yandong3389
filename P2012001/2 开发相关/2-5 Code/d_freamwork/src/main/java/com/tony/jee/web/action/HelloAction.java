@@ -15,12 +15,12 @@ import com.tony.jee.service.BaseFieldsService;
 public class HelloAction extends BaseActionImpl implements BaseAction {
 
     Logger logger = LoggerFactory.getLogger(getClass());
-    
+
     @Autowired
     private BaseFieldsService baseFieldsService;
-    
+
     private BaseFields baseFields;
-    
+
     public BaseFields getBaseFields() {
         return baseFields;
     }
@@ -38,70 +38,78 @@ public class HelloAction extends BaseActionImpl implements BaseAction {
         // example.put("fieldId", value);
         //
 
-        List<BaseFields> baseFieldsList = baseFieldsService.selectByExample(null);
+        List<BaseFields> baseFieldsList = baseFieldsService
+                .selectByExample(null);
 
         setAttribute("baseFieldsList", baseFieldsList);
 
         return "success";
     }
-    
+
     /**
      * 新增一条数据
+     * 
      * @return
      */
-    public String insert(){
-        
+    public String insert() {
+
         int result = baseFieldsService.insert(baseFields);
-        
+
         logger.info("插入数据返回结果:" + result);
-        
+
         return "toIndex";
     }
-    
+
     /**
      * 取得修改内容显示到画面上
+     * 
      * @return
      */
-    public String toUpdata(){
-        
+    public String toUpdata() {
+
         String pkid = getStringValue("pkid");
-        
+
+        // 根据主键取得数据
         BaseFields baseFields = baseFieldsService.selectByPrimaryKey(pkid);
-        
+
         setAttribute("baseFields", baseFields);
-        
-        List<BaseFields> baseFieldsList = baseFieldsService.selectByExample(null);
+
+        // 取得所有数据
+        List<BaseFields> baseFieldsList = baseFieldsService
+                .selectByExample(null);
 
         setAttribute("baseFieldsList", baseFieldsList);
-        
+
         return "success";
     }
-     
+
     /**
      * 修改一条数据
+     * 
      * @return
      */
-    public String updata(){
-        
+    public String updata() {
+
         int result = baseFieldsService.updateByPrimaryKey(baseFields);
-        
+
         logger.info("修改数据返回结果:" + result);
-        
+
         return "toIndex";
     }
-    
+
     /**
-     *  删除一条数据
+     * 删除一条数据
+     * 
      * @return
      */
-    public String delete(){
-        
+    public String delete() {
+
         String pkid = getStringValue("pkid");
-        
+
         int result = baseFieldsService.deleteByPrimaryKey(pkid);
-        
+
         logger.info("删除数据返回结果:" + result);
-        
+
         return "toIndex";
     }
 }
