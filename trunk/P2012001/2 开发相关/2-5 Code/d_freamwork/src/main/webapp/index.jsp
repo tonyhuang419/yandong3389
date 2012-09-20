@@ -24,7 +24,7 @@
 	</head>
 	<body>
 		hello
-		<form id="myform" action="HelloAction_insert.action" method="get">
+		<form id="myform" action="HelloAction_insert.action" method="post">
 			FIELD_ID：<input name="baseFields.fieldId" value="${baseFields.fieldId}" ${baseFields != null ? 'readonly="readonly"' :''} /><br/>
 			FIELD：<input name="baseFields.field" value="${baseFields.field}"/><br/>
 			FIELD_NAME：<input name="baseFields.fieldName" value="${baseFields.fieldName}"/><br/>
