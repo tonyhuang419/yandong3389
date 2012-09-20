@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.tony.jee.common.action.BaseAction;
 import com.tony.jee.common.action.BaseActionImpl;
+import com.tony.jee.common.utils.PageUtil;
 import com.tony.jee.pojo.base.BaseFields;
+import com.tony.jee.pojo.base.Criteria;
 import com.tony.jee.service.BaseFieldsService;
 
 @SuppressWarnings("serial")
@@ -32,14 +34,42 @@ public class HelloAction extends BaseActionImpl implements BaseAction {
     public String toIndex() {
 
         System.out.println("toIndex....");
+        
+        
+        // 取得当前页数
+        int currentPage = getIntValue("currentPage");
+        
+        // 当前页为0 查询所有
+        if(currentPage == 0){
+            List<BaseFields> baseFieldsList = baseFieldsService
+                    .selectByExample(null);
 
-        // Criteria example = new Criteria();
-        //
-        // example.put("fieldId", value);
-        //
+            setAttribute("baseFieldsList", baseFieldsList);
 
+            return "success";
+        }
+        
+        // 每页显示条数
+        int perPage = 5;
+        
+        // 分页查询起始条数
+        int startRecord = PageUtil.getStartRecord(currentPage, perPage);
+        
+        // 分页查询截止条数
+        int endRecord = PageUtil.getEndRecord(startRecord, perPage);
+
+        
+        Criteria example = new Criteria();
+           
+        example.setOracleStart(startRecord);
+        
+        example.setOracleEnd(endRecord);
+        
+        example.setOrderByClause("SORT ASC");
+        
+        
         List<BaseFields> baseFieldsList = baseFieldsService
-                .selectByExample(null);
+                .selectByExample(example);
 
         setAttribute("baseFieldsList", baseFieldsList);
 
