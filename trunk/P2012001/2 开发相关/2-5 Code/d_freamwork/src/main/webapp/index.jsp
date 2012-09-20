@@ -1,4 +1,4 @@
-<%@ page language="java" pageEncoding="utf-8" isELIgnored="false"%>
+<%@ page language="java" pageEncoding="utf-8" isELIgnored="false" contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="clbus" uri="/WEB-INF/struts-tony.tld"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt"%>
 <html>
@@ -24,7 +24,7 @@
 	</head>
 	<body>
 		hello
-		<form id="myform" action="HelloAction_insert.action">
+		<form id="myform" action="HelloAction_insert.action" method="get">
 			FIELD_ID：<input name="baseFields.fieldId" value="${baseFields.fieldId}" ${baseFields != null ? 'readonly="readonly"' :''} /><br/>
 			FIELD：<input name="baseFields.field" value="${baseFields.field}"/><br/>
 			FIELD_NAME：<input name="baseFields.fieldName" value="${baseFields.fieldName}"/><br/>

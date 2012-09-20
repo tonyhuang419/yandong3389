@@ -23,7 +23,7 @@ public interface BaseFieldsService {
 
     int updateByExample(BaseFields record, Criteria example);
 
-    int insert(BaseFields record);
+    int insert(BaseFields record) ;
 
     int insertSelective(BaseFields record);
 }
