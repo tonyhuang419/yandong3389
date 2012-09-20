@@ -19,7 +19,7 @@
 
 	<!-- service层的属性和配置文件读入 ,多个用逗号隔开 -->
 	<!-- controller层的属性和配置文件读入 ,多个用逗号隔开-->
-	<context:property-placeholder location="classpath:/ibatis/jdbc.properties"/>
+	<context:property-placeholder location="classpath:/mybatis/jdbc.properties"/>
 	
 	<!-- 用于持有ApplicationContext,可以使用SpringContextHolder.getBean('xxxx')的静态方法得到spring bean对象 -->
 	<bean class="com.tony.jee.common.spring.SpringContextHolder" lazy-init="false" />
@@ -32,7 +32,7 @@
 	<!-- define the SqlSessionFactory -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="oracleDataSource" />
-		<property name="configLocation" value="classpath:/ibatis/mybatis-config.xml" />
+		<property name="configLocation" value="classpath:/mybatis/mybatis-config.xml" />
 		<property name="typeAliasesPackage" value="com.tony.jee.pojo.base" />
 		<!-- <property name="mapperLocations" value="classpath:/sqlmap/*Mapper.xml" /> -->
 	</bean>
@@ -52,7 +52,7 @@
 			<list>
 				<!-- 标准配置 -->
 				<value>classpath:/config.properties</value>
-				<value>classpath:/ibatis/jdbc.properties</value>
+				<value>classpath:/mybatis/jdbc.properties</value>
 			</list>
 		</property>
 	</bean>
