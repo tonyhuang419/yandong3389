@@ -36,6 +36,12 @@
 		</form>
 	
 		<b>Data List</b><input type="button" id="search_btn" value="查询"/>
+		
+		<a href="HelloAction_toIndex.action?currentPage=1">第一页</a>
+		<a href="HelloAction_toIndex.action?currentPage=2">第二页</a>
+		<a href="HelloAction_toIndex.action?currentPage=3">第三页</a>
+		<a href="HelloAction_toIndex.action?currentPage=4">第四页</a>
+		
 		<table border="1">
 			<tr>
 				<td>FIELD_ID</td>
