@@ -1,4 +1,4 @@
-package com.tony.jee.web.interseptor;
+package com.tony.jee.web.interceptor;
 
 import java.io.IOException;
 import java.util.Map;
