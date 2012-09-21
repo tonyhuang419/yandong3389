@@ -35,7 +35,7 @@
 			<input type="submit" ${baseFields != null ? 'disabled="disabled"' :''}  value="新增数据"/>&nbsp;<input type="button" ${baseFields == null ? 'disabled="disabled"' :''} id="updata_btn" value="保存修改"/>
 		</form>
 	
-		<b>Data List</b><input type="button" id="search_btn" value="查询"/>
+		<b>Data List</b><input type="button" id="search_btn" value="查询所有"/>
 		
 		<a href="HelloAction_toIndex.action?currentPage=1">第一页</a>
 		<a href="HelloAction_toIndex.action?currentPage=2">第二页</a>
