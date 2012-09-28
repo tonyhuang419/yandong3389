@@ -1,0 +1,1064 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tony.jee.dao.base.AgQuestionInfoMapper">
+  <resultMap id="BaseResultMap" type="com.tony.jee.pojo.base.AgQuestionInfo">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="Q_ID" jdbcType="VARCHAR" property="qId" />
+    <result column="Q_NAME" jdbcType="VARCHAR" property="qName" />
+    <result column="Q_DESCRIPTION" jdbcType="VARCHAR" property="qDescription" />
+    <result column="Q_STATE" jdbcType="VARCHAR" property="qState" />
+    <result column="DISH_NAME" jdbcType="VARCHAR" property="dishName" />
+    <result column="DISH_CONTACT" jdbcType="VARCHAR" property="dishContact" />
+    <result column="CREATE_TIME" jdbcType="DATE" property="createTime" />
+    <result column="DISH_DEPT" jdbcType="VARCHAR" property="dishDept" />
+    <result column="OTHEN_DISH" jdbcType="VARCHAR" property="othenDish" />
+    <result column="INIT_PROGRAM" jdbcType="VARCHAR" property="initProgram" />
+    <result column="RES_ID" jdbcType="VARCHAR" property="resId" />
+    <result column="ISSHARE" jdbcType="VARCHAR" property="isshare" />
+    <result column="CREATE_PERSON_ID" jdbcType="VARCHAR" property="createPersonId" />
+    <result column="MAKE_EMP" jdbcType="VARCHAR" property="makeEmp" />
+    <result column="MAKE_DATE" jdbcType="DATE" property="makeDate" />
+    <result column="MODIFY_EMP" jdbcType="VARCHAR" property="modifyEmp" />
+    <result column="MODIFY_DATE" jdbcType="DATE" property="modifyDate" />
+    <result column="COMP_CODE" jdbcType="VARCHAR" property="compCode" />
+    <result column="SYS_CODE" jdbcType="VARCHAR" property="sysCode" />
+    <result column="ALLCOUNT" jdbcType="VARCHAR" property="allcount" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.qId != null">
+         and Q_ID = #{condition.qId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.qName != null">
+         and Q_NAME = #{condition.qName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.qDescription != null">
+         and Q_DESCRIPTION = #{condition.qDescription,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.qState != null">
+         and Q_STATE = #{condition.qState,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.dishName != null">
+         and DISH_NAME = #{condition.dishName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.dishContact != null">
+         and DISH_CONTACT = #{condition.dishContact,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.createTime != null">
+         and CREATE_TIME = #{condition.createTime,jdbcType=DATE}
+      </if>
+      <if test="condition.dishDept != null">
+         and DISH_DEPT = #{condition.dishDept,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.othenDish != null">
+         and OTHEN_DISH = #{condition.othenDish,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.initProgram != null">
+         and INIT_PROGRAM = #{condition.initProgram,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.resId != null">
+         and RES_ID = #{condition.resId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.isshare != null">
+         and ISSHARE = #{condition.isshare,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.createPersonId != null">
+         and CREATE_PERSON_ID = #{condition.createPersonId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.makeEmp != null">
+         and MAKE_EMP = #{condition.makeEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.makeDate != null">
+         and MAKE_DATE = #{condition.makeDate,jdbcType=DATE}
+      </if>
+      <if test="condition.modifyEmp != null">
+         and MODIFY_EMP = #{condition.modifyEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.modifyDate != null">
+         and MODIFY_DATE = #{condition.modifyDate,jdbcType=DATE}
+      </if>
+      <if test="condition.compCode != null">
+         and COMP_CODE = #{condition.compCode,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.sysCode != null">
+         and SYS_CODE = #{condition.sysCode,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.allcount != null">
+         and ALLCOUNT = #{condition.allcount,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.qId != null">
+         and Q_ID = #{example.condition.qId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.qName != null">
+         and Q_NAME = #{example.condition.qName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.qDescription != null">
+         and Q_DESCRIPTION = #{example.condition.qDescription,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.qState != null">
+         and Q_STATE = #{example.condition.qState,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.dishName != null">
+         and DISH_NAME = #{example.condition.dishName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.dishContact != null">
+         and DISH_CONTACT = #{example.condition.dishContact,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.createTime != null">
+         and CREATE_TIME = #{example.condition.createTime,jdbcType=DATE}
+      </if>
+      <if test="example.condition.dishDept != null">
+         and DISH_DEPT = #{example.condition.dishDept,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.othenDish != null">
+         and OTHEN_DISH = #{example.condition.othenDish,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.initProgram != null">
+         and INIT_PROGRAM = #{example.condition.initProgram,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.resId != null">
+         and RES_ID = #{example.condition.resId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.isshare != null">
+         and ISSHARE = #{example.condition.isshare,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.createPersonId != null">
+         and CREATE_PERSON_ID = #{example.condition.createPersonId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.makeEmp != null">
+         and MAKE_EMP = #{example.condition.makeEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.makeDate != null">
+         and MAKE_DATE = #{example.condition.makeDate,jdbcType=DATE}
+      </if>
+      <if test="example.condition.modifyEmp != null">
+         and MODIFY_EMP = #{example.condition.modifyEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.modifyDate != null">
+         and MODIFY_DATE = #{example.condition.modifyDate,jdbcType=DATE}
+      </if>
+      <if test="example.condition.compCode != null">
+         and COMP_CODE = #{example.condition.compCode,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.sysCode != null">
+         and SYS_CODE = #{example.condition.sysCode,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.allcount != null">
+         and ALLCOUNT = #{example.condition.allcount,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    PK_ID, Q_ID, Q_NAME, Q_DESCRIPTION, Q_STATE, DISH_NAME, DISH_CONTACT, CREATE_TIME, 
+    DISH_DEPT, OTHEN_DISH, INIT_PROGRAM, RES_ID, ISSHARE, CREATE_PERSON_ID, MAKE_EMP, 
+    MAKE_DATE, MODIFY_EMP, MODIFY_DATE, COMP_CODE, SYS_CODE, ALLCOUNT
+  </sql>
+  <select id="selectByExample" parameterType="com.tony.jee.pojo.base.Criteria" resultMap="BaseResultMap">
+    <include refid="common.Oracle_Pagination_Head" />
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from AG_QUESTION_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Oracle_Pagination_Tail" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from AG_QUESTION_INFO
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from AG_QUESTION_INFO
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.tony.jee.pojo.base.Criteria">
+    delete from AG_QUESTION_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.tony.jee.pojo.base.AgQuestionInfo">
+    insert into AG_QUESTION_INFO (PK_ID, Q_ID, Q_NAME, 
+      Q_DESCRIPTION, Q_STATE, DISH_NAME, 
+      DISH_CONTACT, CREATE_TIME, DISH_DEPT, 
+      OTHEN_DISH, INIT_PROGRAM, RES_ID, 
+      ISSHARE, CREATE_PERSON_ID, MAKE_EMP, 
+      MAKE_DATE, MODIFY_EMP, MODIFY_DATE, 
+      COMP_CODE, SYS_CODE, ALLCOUNT
+      )
+    values (#{pkId,jdbcType=VARCHAR}, #{qId,jdbcType=VARCHAR}, #{qName,jdbcType=VARCHAR}, 
+      #{qDescription,jdbcType=VARCHAR}, #{qState,jdbcType=VARCHAR}, #{dishName,jdbcType=VARCHAR}, 
+      #{dishContact,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, #{dishDept,jdbcType=VARCHAR}, 
+      #{othenDish,jdbcType=VARCHAR}, #{initProgram,jdbcType=VARCHAR}, #{resId,jdbcType=VARCHAR}, 
+      #{isshare,jdbcType=VARCHAR}, #{createPersonId,jdbcType=VARCHAR}, #{makeEmp,jdbcType=VARCHAR}, 
+      #{makeDate,jdbcType=DATE}, #{modifyEmp,jdbcType=VARCHAR}, #{modifyDate,jdbcType=DATE}, 
+      #{compCode,jdbcType=VARCHAR}, #{sysCode,jdbcType=VARCHAR}, #{allcount,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.tony.jee.pojo.base.AgQuestionInfo">
+    insert into AG_QUESTION_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="qId != null">
+        Q_ID,
+      </if>
+      <if test="qName != null">
+        Q_NAME,
+      </if>
+      <if test="qDescription != null">
+        Q_DESCRIPTION,
+      </if>
+      <if test="qState != null">
+        Q_STATE,
+      </if>
+      <if test="dishName != null">
+        DISH_NAME,
+      </if>
+      <if test="dishContact != null">
+        DISH_CONTACT,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="dishDept != null">
+        DISH_DEPT,
+      </if>
+      <if test="othenDish != null">
+        OTHEN_DISH,
+      </if>
+      <if test="initProgram != null">
+        INIT_PROGRAM,
+      </if>
+      <if test="resId != null">
+        RES_ID,
+      </if>
+      <if test="isshare != null">
+        ISSHARE,
+      </if>
+      <if test="createPersonId != null">
+        CREATE_PERSON_ID,
+      </if>
+      <if test="makeEmp != null">
+        MAKE_EMP,
+      </if>
+      <if test="makeDate != null">
+        MAKE_DATE,
+      </if>
+      <if test="modifyEmp != null">
+        MODIFY_EMP,
+      </if>
+      <if test="modifyDate != null">
+        MODIFY_DATE,
+      </if>
+      <if test="compCode != null">
+        COMP_CODE,
+      </if>
+      <if test="sysCode != null">
+        SYS_CODE,
+      </if>
+      <if test="allcount != null">
+        ALLCOUNT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="qId != null">
+        #{qId,jdbcType=VARCHAR},
+      </if>
+      <if test="qName != null">
+        #{qName,jdbcType=VARCHAR},
+      </if>
+      <if test="qDescription != null">
+        #{qDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="qState != null">
+        #{qState,jdbcType=VARCHAR},
+      </if>
+      <if test="dishName != null">
+        #{dishName,jdbcType=VARCHAR},
+      </if>
+      <if test="dishContact != null">
+        #{dishContact,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="dishDept != null">
+        #{dishDept,jdbcType=VARCHAR},
+      </if>
+      <if test="othenDish != null">
+        #{othenDish,jdbcType=VARCHAR},
+      </if>
+      <if test="initProgram != null">
+        #{initProgram,jdbcType=VARCHAR},
+      </if>
+      <if test="resId != null">
+        #{resId,jdbcType=VARCHAR},
+      </if>
+      <if test="isshare != null">
+        #{isshare,jdbcType=VARCHAR},
+      </if>
+      <if test="createPersonId != null">
+        #{createPersonId,jdbcType=VARCHAR},
+      </if>
+      <if test="makeEmp != null">
+        #{makeEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="makeDate != null">
+        #{makeDate,jdbcType=DATE},
+      </if>
+      <if test="modifyEmp != null">
+        #{modifyEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyDate != null">
+        #{modifyDate,jdbcType=DATE},
+      </if>
+      <if test="compCode != null">
+        #{compCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCode != null">
+        #{sysCode,jdbcType=VARCHAR},
+      </if>
+      <if test="allcount != null">
+        #{allcount,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.tony.jee.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from AG_QUESTION_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update AG_QUESTION_INFO
+    <set>
+      <if test="record.pkId != null">
+        PK_ID = #{record.pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qId != null">
+        Q_ID = #{record.qId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qName != null">
+        Q_NAME = #{record.qName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qDescription != null">
+        Q_DESCRIPTION = #{record.qDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qState != null">
+        Q_STATE = #{record.qState,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dishName != null">
+        DISH_NAME = #{record.dishName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dishContact != null">
+        DISH_CONTACT = #{record.dishContact,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=DATE},
+      </if>
+      <if test="record.dishDept != null">
+        DISH_DEPT = #{record.dishDept,jdbcType=VARCHAR},
+      </if>
+      <if test="record.othenDish != null">
+        OTHEN_DISH = #{record.othenDish,jdbcType=VARCHAR},
+      </if>
+      <if test="record.initProgram != null">
+        INIT_PROGRAM = #{record.initProgram,jdbcType=VARCHAR},
+      </if>
+      <if test="record.resId != null">
+        RES_ID = #{record.resId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isshare != null">
+        ISSHARE = #{record.isshare,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createPersonId != null">
+        CREATE_PERSON_ID = #{record.createPersonId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.makeEmp != null">
+        MAKE_EMP = #{record.makeEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.makeDate != null">
+        MAKE_DATE = #{record.makeDate,jdbcType=DATE},
+      </if>
+      <if test="record.modifyEmp != null">
+        MODIFY_EMP = #{record.modifyEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifyDate != null">
+        MODIFY_DATE = #{record.modifyDate,jdbcType=DATE},
+      </if>
+      <if test="record.compCode != null">
+        COMP_CODE = #{record.compCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysCode != null">
+        SYS_CODE = #{record.sysCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.allcount != null">
+        ALLCOUNT = #{record.allcount,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update AG_QUESTION_INFO
+    set PK_ID = #{record.pkId,jdbcType=VARCHAR},
+      Q_ID = #{record.qId,jdbcType=VARCHAR},
+      Q_NAME = #{record.qName,jdbcType=VARCHAR},
+      Q_DESCRIPTION = #{record.qDescription,jdbcType=VARCHAR},
+      Q_STATE = #{record.qState,jdbcType=VARCHAR},
+      DISH_NAME = #{record.dishName,jdbcType=VARCHAR},
+      DISH_CONTACT = #{record.dishContact,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=DATE},
+      DISH_DEPT = #{record.dishDept,jdbcType=VARCHAR},
+      OTHEN_DISH = #{record.othenDish,jdbcType=VARCHAR},
+      INIT_PROGRAM = #{record.initProgram,jdbcType=VARCHAR},
+      RES_ID = #{record.resId,jdbcType=VARCHAR},
+      ISSHARE = #{record.isshare,jdbcType=VARCHAR},
+      CREATE_PERSON_ID = #{record.createPersonId,jdbcType=VARCHAR},
+      MAKE_EMP = #{record.makeEmp,jdbcType=VARCHAR},
+      MAKE_DATE = #{record.makeDate,jdbcType=DATE},
+      MODIFY_EMP = #{record.modifyEmp,jdbcType=VARCHAR},
+      MODIFY_DATE = #{record.modifyDate,jdbcType=DATE},
+      COMP_CODE = #{record.compCode,jdbcType=VARCHAR},
+      SYS_CODE = #{record.sysCode,jdbcType=VARCHAR},
+      ALLCOUNT = #{record.allcount,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tony.jee.pojo.base.AgQuestionInfo">
+    update AG_QUESTION_INFO
+    <set>
+      <if test="qId != null">
+        Q_ID = #{qId,jdbcType=VARCHAR},
+      </if>
+      <if test="qName != null">
+        Q_NAME = #{qName,jdbcType=VARCHAR},
+      </if>
+      <if test="qDescription != null">
+        Q_DESCRIPTION = #{qDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="qState != null">
+        Q_STATE = #{qState,jdbcType=VARCHAR},
+      </if>
+      <if test="dishName != null">
+        DISH_NAME = #{dishName,jdbcType=VARCHAR},
+      </if>
+      <if test="dishContact != null">
+        DISH_CONTACT = #{dishContact,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=DATE},
+      </if>
+      <if test="dishDept != null">
+        DISH_DEPT = #{dishDept,jdbcType=VARCHAR},
+      </if>
+      <if test="othenDish != null">
+        OTHEN_DISH = #{othenDish,jdbcType=VARCHAR},
+      </if>
+      <if test="initProgram != null">
+        INIT_PROGRAM = #{initProgram,jdbcType=VARCHAR},
+      </if>
+      <if test="resId != null">
+        RES_ID = #{resId,jdbcType=VARCHAR},
+      </if>
+      <if test="isshare != null">
+        ISSHARE = #{isshare,jdbcType=VARCHAR},
+      </if>
+      <if test="createPersonId != null">
+        CREATE_PERSON_ID = #{createPersonId,jdbcType=VARCHAR},
+      </if>
+      <if test="makeEmp != null">
+        MAKE_EMP = #{makeEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="makeDate != null">
+        MAKE_DATE = #{makeDate,jdbcType=DATE},
+      </if>
+      <if test="modifyEmp != null">
+        MODIFY_EMP = #{modifyEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyDate != null">
+        MODIFY_DATE = #{modifyDate,jdbcType=DATE},
+      </if>
+      <if test="compCode != null">
+        COMP_CODE = #{compCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCode != null">
+        SYS_CODE = #{sysCode,jdbcType=VARCHAR},
+      </if>
+      <if test="allcount != null">
+        ALLCOUNT = #{allcount,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tony.jee.pojo.base.AgQuestionInfo">
+    update AG_QUESTION_INFO
+    set Q_ID = #{qId,jdbcType=VARCHAR},
+      Q_NAME = #{qName,jdbcType=VARCHAR},
+      Q_DESCRIPTION = #{qDescription,jdbcType=VARCHAR},
+      Q_STATE = #{qState,jdbcType=VARCHAR},
+      DISH_NAME = #{dishName,jdbcType=VARCHAR},
+      DISH_CONTACT = #{dishContact,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=DATE},
+      DISH_DEPT = #{dishDept,jdbcType=VARCHAR},
+      OTHEN_DISH = #{othenDish,jdbcType=VARCHAR},
+      INIT_PROGRAM = #{initProgram,jdbcType=VARCHAR},
+      RES_ID = #{resId,jdbcType=VARCHAR},
+      ISSHARE = #{isshare,jdbcType=VARCHAR},
+      CREATE_PERSON_ID = #{createPersonId,jdbcType=VARCHAR},
+      MAKE_EMP = #{makeEmp,jdbcType=VARCHAR},
+      MAKE_DATE = #{makeDate,jdbcType=DATE},
+      MODIFY_EMP = #{modifyEmp,jdbcType=VARCHAR},
+      MODIFY_DATE = #{modifyDate,jdbcType=DATE},
+      COMP_CODE = #{compCode,jdbcType=VARCHAR},
+      SYS_CODE = #{sysCode,jdbcType=VARCHAR},
+      ALLCOUNT = #{allcount,jdbcType=VARCHAR}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.tony.jee.pojo.base.AgQuestionInfo">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <id column="Q_ID" jdbcType="VARCHAR" property="qId" />
+    <result column="Q_NAME" jdbcType="VARCHAR" property="qName" />
+    <result column="Q_DESCRIPTION" jdbcType="VARCHAR" property="qDescription" />
+    <result column="Q_STATE" jdbcType="VARCHAR" property="qState" />
+    <result column="DISH_NAME" jdbcType="VARCHAR" property="dishName" />
+    <result column="DISH_CONTACT" jdbcType="VARCHAR" property="dishContact" />
+    <result column="CREATE_TIME" jdbcType="DATE" property="createTime" />
+    <result column="DISH_DEPT" jdbcType="VARCHAR" property="dishDept" />
+    <result column="OTHEN_DISH" jdbcType="VARCHAR" property="othenDish" />
+    <result column="INIT_PROGRAM" jdbcType="VARCHAR" property="initProgram" />
+    <result column="RES_ID" jdbcType="VARCHAR" property="resId" />
+    <result column="ISSHARE" jdbcType="VARCHAR" property="isshare" />
+    <result column="CREATE_PERSON_ID" jdbcType="VARCHAR" property="createPersonId" />
+    <result column="MAKE_EMP" jdbcType="VARCHAR" property="makeEmp" />
+    <result column="MAKE_DATE" jdbcType="DATE" property="makeDate" />
+    <result column="MODIFY_EMP" jdbcType="VARCHAR" property="modifyEmp" />
+    <result column="MODIFY_DATE" jdbcType="DATE" property="modifyDate" />
+    <result column="COMP_CODE" jdbcType="VARCHAR" property="compCode" />
+    <result column="SYS_CODE" jdbcType="VARCHAR" property="sysCode" />
+    <result column="ALLCOUNT" jdbcType="VARCHAR" property="allcount" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.qName != null">
+         and Q_NAME = #{condition.qName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.qDescription != null">
+         and Q_DESCRIPTION = #{condition.qDescription,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.qState != null">
+         and Q_STATE = #{condition.qState,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.dishName != null">
+         and DISH_NAME = #{condition.dishName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.dishContact != null">
+         and DISH_CONTACT = #{condition.dishContact,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.createTime != null">
+         and CREATE_TIME = #{condition.createTime,jdbcType=DATE}
+      </if>
+      <if test="condition.dishDept != null">
+         and DISH_DEPT = #{condition.dishDept,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.othenDish != null">
+         and OTHEN_DISH = #{condition.othenDish,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.initProgram != null">
+         and INIT_PROGRAM = #{condition.initProgram,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.resId != null">
+         and RES_ID = #{condition.resId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.isshare != null">
+         and ISSHARE = #{condition.isshare,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.createPersonId != null">
+         and CREATE_PERSON_ID = #{condition.createPersonId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.makeEmp != null">
+         and MAKE_EMP = #{condition.makeEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.makeDate != null">
+         and MAKE_DATE = #{condition.makeDate,jdbcType=DATE}
+      </if>
+      <if test="condition.modifyEmp != null">
+         and MODIFY_EMP = #{condition.modifyEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.modifyDate != null">
+         and MODIFY_DATE = #{condition.modifyDate,jdbcType=DATE}
+      </if>
+      <if test="condition.compCode != null">
+         and COMP_CODE = #{condition.compCode,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.sysCode != null">
+         and SYS_CODE = #{condition.sysCode,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.allcount != null">
+         and ALLCOUNT = #{condition.allcount,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.qName != null">
+         and Q_NAME = #{example.condition.qName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.qDescription != null">
+         and Q_DESCRIPTION = #{example.condition.qDescription,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.qState != null">
+         and Q_STATE = #{example.condition.qState,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.dishName != null">
+         and DISH_NAME = #{example.condition.dishName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.dishContact != null">
+         and DISH_CONTACT = #{example.condition.dishContact,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.createTime != null">
+         and CREATE_TIME = #{example.condition.createTime,jdbcType=DATE}
+      </if>
+      <if test="example.condition.dishDept != null">
+         and DISH_DEPT = #{example.condition.dishDept,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.othenDish != null">
+         and OTHEN_DISH = #{example.condition.othenDish,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.initProgram != null">
+         and INIT_PROGRAM = #{example.condition.initProgram,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.resId != null">
+         and RES_ID = #{example.condition.resId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.isshare != null">
+         and ISSHARE = #{example.condition.isshare,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.createPersonId != null">
+         and CREATE_PERSON_ID = #{example.condition.createPersonId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.makeEmp != null">
+         and MAKE_EMP = #{example.condition.makeEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.makeDate != null">
+         and MAKE_DATE = #{example.condition.makeDate,jdbcType=DATE}
+      </if>
+      <if test="example.condition.modifyEmp != null">
+         and MODIFY_EMP = #{example.condition.modifyEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.modifyDate != null">
+         and MODIFY_DATE = #{example.condition.modifyDate,jdbcType=DATE}
+      </if>
+      <if test="example.condition.compCode != null">
+         and COMP_CODE = #{example.condition.compCode,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.sysCode != null">
+         and SYS_CODE = #{example.condition.sysCode,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.allcount != null">
+         and ALLCOUNT = #{example.condition.allcount,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    PK_ID, Q_ID, Q_NAME, Q_DESCRIPTION, Q_STATE, DISH_NAME, DISH_CONTACT, CREATE_TIME, 
+    DISH_DEPT, OTHEN_DISH, INIT_PROGRAM, RES_ID, ISSHARE, CREATE_PERSON_ID, MAKE_EMP, 
+    MAKE_DATE, MODIFY_EMP, MODIFY_DATE, COMP_CODE, SYS_CODE, ALLCOUNT
+  </sql>
+  <select id="selectByExample" parameterType="com.tony.jee.pojo.base.Criteria" resultMap="BaseResultMap">
+    <include refid="common.Oracle_Pagination_Head" />
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from AG_QUESTION_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Oracle_Pagination_Tail" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="com.tony.jee.pojo.base.AgQuestionInfoKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from AG_QUESTION_INFO
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+      and Q_ID = #{qId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.tony.jee.pojo.base.AgQuestionInfoKey">
+    delete from AG_QUESTION_INFO
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+      and Q_ID = #{qId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.tony.jee.pojo.base.Criteria">
+    delete from AG_QUESTION_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.tony.jee.pojo.base.AgQuestionInfo">
+    insert into AG_QUESTION_INFO (PK_ID, Q_ID, Q_NAME, 
+      Q_DESCRIPTION, Q_STATE, DISH_NAME, 
+      DISH_CONTACT, CREATE_TIME, DISH_DEPT, 
+      OTHEN_DISH, INIT_PROGRAM, RES_ID, 
+      ISSHARE, CREATE_PERSON_ID, MAKE_EMP, 
+      MAKE_DATE, MODIFY_EMP, MODIFY_DATE, 
+      COMP_CODE, SYS_CODE, ALLCOUNT
+      )
+    values (#{pkId,jdbcType=VARCHAR}, #{qId,jdbcType=VARCHAR}, #{qName,jdbcType=VARCHAR}, 
+      #{qDescription,jdbcType=VARCHAR}, #{qState,jdbcType=VARCHAR}, #{dishName,jdbcType=VARCHAR}, 
+      #{dishContact,jdbcType=VARCHAR}, #{createTime,jdbcType=DATE}, #{dishDept,jdbcType=VARCHAR}, 
+      #{othenDish,jdbcType=VARCHAR}, #{initProgram,jdbcType=VARCHAR}, #{resId,jdbcType=VARCHAR}, 
+      #{isshare,jdbcType=VARCHAR}, #{createPersonId,jdbcType=VARCHAR}, #{makeEmp,jdbcType=VARCHAR}, 
+      #{makeDate,jdbcType=DATE}, #{modifyEmp,jdbcType=VARCHAR}, #{modifyDate,jdbcType=DATE}, 
+      #{compCode,jdbcType=VARCHAR}, #{sysCode,jdbcType=VARCHAR}, #{allcount,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.tony.jee.pojo.base.AgQuestionInfo">
+    insert into AG_QUESTION_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="qId != null">
+        Q_ID,
+      </if>
+      <if test="qName != null">
+        Q_NAME,
+      </if>
+      <if test="qDescription != null">
+        Q_DESCRIPTION,
+      </if>
+      <if test="qState != null">
+        Q_STATE,
+      </if>
+      <if test="dishName != null">
+        DISH_NAME,
+      </if>
+      <if test="dishContact != null">
+        DISH_CONTACT,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="dishDept != null">
+        DISH_DEPT,
+      </if>
+      <if test="othenDish != null">
+        OTHEN_DISH,
+      </if>
+      <if test="initProgram != null">
+        INIT_PROGRAM,
+      </if>
+      <if test="resId != null">
+        RES_ID,
+      </if>
+      <if test="isshare != null">
+        ISSHARE,
+      </if>
+      <if test="createPersonId != null">
+        CREATE_PERSON_ID,
+      </if>
+      <if test="makeEmp != null">
+        MAKE_EMP,
+      </if>
+      <if test="makeDate != null">
+        MAKE_DATE,
+      </if>
+      <if test="modifyEmp != null">
+        MODIFY_EMP,
+      </if>
+      <if test="modifyDate != null">
+        MODIFY_DATE,
+      </if>
+      <if test="compCode != null">
+        COMP_CODE,
+      </if>
+      <if test="sysCode != null">
+        SYS_CODE,
+      </if>
+      <if test="allcount != null">
+        ALLCOUNT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="qId != null">
+        #{qId,jdbcType=VARCHAR},
+      </if>
+      <if test="qName != null">
+        #{qName,jdbcType=VARCHAR},
+      </if>
+      <if test="qDescription != null">
+        #{qDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="qState != null">
+        #{qState,jdbcType=VARCHAR},
+      </if>
+      <if test="dishName != null">
+        #{dishName,jdbcType=VARCHAR},
+      </if>
+      <if test="dishContact != null">
+        #{dishContact,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=DATE},
+      </if>
+      <if test="dishDept != null">
+        #{dishDept,jdbcType=VARCHAR},
+      </if>
+      <if test="othenDish != null">
+        #{othenDish,jdbcType=VARCHAR},
+      </if>
+      <if test="initProgram != null">
+        #{initProgram,jdbcType=VARCHAR},
+      </if>
+      <if test="resId != null">
+        #{resId,jdbcType=VARCHAR},
+      </if>
+      <if test="isshare != null">
+        #{isshare,jdbcType=VARCHAR},
+      </if>
+      <if test="createPersonId != null">
+        #{createPersonId,jdbcType=VARCHAR},
+      </if>
+      <if test="makeEmp != null">
+        #{makeEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="makeDate != null">
+        #{makeDate,jdbcType=DATE},
+      </if>
+      <if test="modifyEmp != null">
+        #{modifyEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyDate != null">
+        #{modifyDate,jdbcType=DATE},
+      </if>
+      <if test="compCode != null">
+        #{compCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCode != null">
+        #{sysCode,jdbcType=VARCHAR},
+      </if>
+      <if test="allcount != null">
+        #{allcount,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.tony.jee.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from AG_QUESTION_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update AG_QUESTION_INFO
+    <set>
+      <if test="record.pkId != null">
+        PK_ID = #{record.pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qId != null">
+        Q_ID = #{record.qId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qName != null">
+        Q_NAME = #{record.qName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qDescription != null">
+        Q_DESCRIPTION = #{record.qDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qState != null">
+        Q_STATE = #{record.qState,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dishName != null">
+        DISH_NAME = #{record.dishName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dishContact != null">
+        DISH_CONTACT = #{record.dishContact,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=DATE},
+      </if>
+      <if test="record.dishDept != null">
+        DISH_DEPT = #{record.dishDept,jdbcType=VARCHAR},
+      </if>
+      <if test="record.othenDish != null">
+        OTHEN_DISH = #{record.othenDish,jdbcType=VARCHAR},
+      </if>
+      <if test="record.initProgram != null">
+        INIT_PROGRAM = #{record.initProgram,jdbcType=VARCHAR},
+      </if>
+      <if test="record.resId != null">
+        RES_ID = #{record.resId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isshare != null">
+        ISSHARE = #{record.isshare,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createPersonId != null">
+        CREATE_PERSON_ID = #{record.createPersonId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.makeEmp != null">
+        MAKE_EMP = #{record.makeEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.makeDate != null">
+        MAKE_DATE = #{record.makeDate,jdbcType=DATE},
+      </if>
+      <if test="record.modifyEmp != null">
+        MODIFY_EMP = #{record.modifyEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifyDate != null">
+        MODIFY_DATE = #{record.modifyDate,jdbcType=DATE},
+      </if>
+      <if test="record.compCode != null">
+        COMP_CODE = #{record.compCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysCode != null">
+        SYS_CODE = #{record.sysCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.allcount != null">
+        ALLCOUNT = #{record.allcount,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update AG_QUESTION_INFO
+    set PK_ID = #{record.pkId,jdbcType=VARCHAR},
+      Q_ID = #{record.qId,jdbcType=VARCHAR},
+      Q_NAME = #{record.qName,jdbcType=VARCHAR},
+      Q_DESCRIPTION = #{record.qDescription,jdbcType=VARCHAR},
+      Q_STATE = #{record.qState,jdbcType=VARCHAR},
+      DISH_NAME = #{record.dishName,jdbcType=VARCHAR},
+      DISH_CONTACT = #{record.dishContact,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=DATE},
+      DISH_DEPT = #{record.dishDept,jdbcType=VARCHAR},
+      OTHEN_DISH = #{record.othenDish,jdbcType=VARCHAR},
+      INIT_PROGRAM = #{record.initProgram,jdbcType=VARCHAR},
+      RES_ID = #{record.resId,jdbcType=VARCHAR},
+      ISSHARE = #{record.isshare,jdbcType=VARCHAR},
+      CREATE_PERSON_ID = #{record.createPersonId,jdbcType=VARCHAR},
+      MAKE_EMP = #{record.makeEmp,jdbcType=VARCHAR},
+      MAKE_DATE = #{record.makeDate,jdbcType=DATE},
+      MODIFY_EMP = #{record.modifyEmp,jdbcType=VARCHAR},
+      MODIFY_DATE = #{record.modifyDate,jdbcType=DATE},
+      COMP_CODE = #{record.compCode,jdbcType=VARCHAR},
+      SYS_CODE = #{record.sysCode,jdbcType=VARCHAR},
+      ALLCOUNT = #{record.allcount,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tony.jee.pojo.base.AgQuestionInfo">
+    update AG_QUESTION_INFO
+    <set>
+      <if test="qName != null">
+        Q_NAME = #{qName,jdbcType=VARCHAR},
+      </if>
+      <if test="qDescription != null">
+        Q_DESCRIPTION = #{qDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="qState != null">
+        Q_STATE = #{qState,jdbcType=VARCHAR},
+      </if>
+      <if test="dishName != null">
+        DISH_NAME = #{dishName,jdbcType=VARCHAR},
+      </if>
+      <if test="dishContact != null">
+        DISH_CONTACT = #{dishContact,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=DATE},
+      </if>
+      <if test="dishDept != null">
+        DISH_DEPT = #{dishDept,jdbcType=VARCHAR},
+      </if>
+      <if test="othenDish != null">
+        OTHEN_DISH = #{othenDish,jdbcType=VARCHAR},
+      </if>
+      <if test="initProgram != null">
+        INIT_PROGRAM = #{initProgram,jdbcType=VARCHAR},
+      </if>
+      <if test="resId != null">
+        RES_ID = #{resId,jdbcType=VARCHAR},
+      </if>
+      <if test="isshare != null">
+        ISSHARE = #{isshare,jdbcType=VARCHAR},
+      </if>
+      <if test="createPersonId != null">
+        CREATE_PERSON_ID = #{createPersonId,jdbcType=VARCHAR},
+      </if>
+      <if test="makeEmp != null">
+        MAKE_EMP = #{makeEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="makeDate != null">
+        MAKE_DATE = #{makeDate,jdbcType=DATE},
+      </if>
+      <if test="modifyEmp != null">
+        MODIFY_EMP = #{modifyEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyDate != null">
+        MODIFY_DATE = #{modifyDate,jdbcType=DATE},
+      </if>
+      <if test="compCode != null">
+        COMP_CODE = #{compCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCode != null">
+        SYS_CODE = #{sysCode,jdbcType=VARCHAR},
+      </if>
+      <if test="allcount != null">
+        ALLCOUNT = #{allcount,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+      and Q_ID = #{qId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tony.jee.pojo.base.AgQuestionInfo">
+    update AG_QUESTION_INFO
+    set Q_NAME = #{qName,jdbcType=VARCHAR},
+      Q_DESCRIPTION = #{qDescription,jdbcType=VARCHAR},
+      Q_STATE = #{qState,jdbcType=VARCHAR},
+      DISH_NAME = #{dishName,jdbcType=VARCHAR},
+      DISH_CONTACT = #{dishContact,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=DATE},
+      DISH_DEPT = #{dishDept,jdbcType=VARCHAR},
+      OTHEN_DISH = #{othenDish,jdbcType=VARCHAR},
+      INIT_PROGRAM = #{initProgram,jdbcType=VARCHAR},
+      RES_ID = #{resId,jdbcType=VARCHAR},
+      ISSHARE = #{isshare,jdbcType=VARCHAR},
+      CREATE_PERSON_ID = #{createPersonId,jdbcType=VARCHAR},
+      MAKE_EMP = #{makeEmp,jdbcType=VARCHAR},
+      MAKE_DATE = #{makeDate,jdbcType=DATE},
+      MODIFY_EMP = #{modifyEmp,jdbcType=VARCHAR},
+      MODIFY_DATE = #{modifyDate,jdbcType=DATE},
+      COMP_CODE = #{compCode,jdbcType=VARCHAR},
+      SYS_CODE = #{sysCode,jdbcType=VARCHAR},
+      ALLCOUNT = #{allcount,jdbcType=VARCHAR}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+      and Q_ID = #{qId,jdbcType=VARCHAR}
+  </update>
+</mapper>

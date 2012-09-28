@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tony.jee.dao.base.AgConferenceNoteMapper">
+  <resultMap id="BaseResultMap" type="com.tony.jee.pojo.base.AgConferenceNote">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="CONFERENCE_ID" jdbcType="VARCHAR" property="conferenceId" />
+    <result column="DOC_NAME" jdbcType="VARCHAR" property="docName" />
+    <result column="SORT_TYPE" jdbcType="VARCHAR" property="sortType" />
+    <result column="PROVIDER" jdbcType="VARCHAR" property="provider" />
+    <result column="CONF_CONTENT" jdbcType="VARCHAR" property="confContent" />
+    <result column="FILE_ID" jdbcType="VARCHAR" property="fileId" />
+    <result column="SECURITY_CLASS" jdbcType="VARCHAR" property="securityClass" />
+    <result column="PROVIDE_TIME" jdbcType="DATE" property="provideTime" />
+    <result column="MAKE_EMP" jdbcType="VARCHAR" property="makeEmp" />
+    <result column="MAKE_DATE" jdbcType="DATE" property="makeDate" />
+    <result column="MODIFY_EMP" jdbcType="VARCHAR" property="modifyEmp" />
+    <result column="MODIFY_DATE" jdbcType="DATE" property="modifyDate" />
+    <result column="COMP_CODE" jdbcType="VARCHAR" property="compCode" />
+    <result column="SYS_CODE" jdbcType="VARCHAR" property="sysCode" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.conferenceId != null">
+         and CONFERENCE_ID = #{condition.conferenceId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.docName != null">
+         and DOC_NAME = #{condition.docName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.sortType != null">
+         and SORT_TYPE = #{condition.sortType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.provider != null">
+         and PROVIDER = #{condition.provider,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.confContent != null">
+         and CONF_CONTENT = #{condition.confContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.fileId != null">
+         and FILE_ID = #{condition.fileId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.securityClass != null">
+         and SECURITY_CLASS = #{condition.securityClass,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.provideTime != null">
+         and PROVIDE_TIME = #{condition.provideTime,jdbcType=DATE}
+      </if>
+      <if test="condition.makeEmp != null">
+         and MAKE_EMP = #{condition.makeEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.makeDate != null">
+         and MAKE_DATE = #{condition.makeDate,jdbcType=DATE}
+      </if>
+      <if test="condition.modifyEmp != null">
+         and MODIFY_EMP = #{condition.modifyEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.modifyDate != null">
+         and MODIFY_DATE = #{condition.modifyDate,jdbcType=DATE}
+      </if>
+      <if test="condition.compCode != null">
+         and COMP_CODE = #{condition.compCode,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.sysCode != null">
+         and SYS_CODE = #{condition.sysCode,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.conferenceId != null">
+         and CONFERENCE_ID = #{example.condition.conferenceId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.docName != null">
+         and DOC_NAME = #{example.condition.docName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.sortType != null">
+         and SORT_TYPE = #{example.condition.sortType,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.provider != null">
+         and PROVIDER = #{example.condition.provider,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.confContent != null">
+         and CONF_CONTENT = #{example.condition.confContent,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.fileId != null">
+         and FILE_ID = #{example.condition.fileId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.securityClass != null">
+         and SECURITY_CLASS = #{example.condition.securityClass,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.provideTime != null">
+         and PROVIDE_TIME = #{example.condition.provideTime,jdbcType=DATE}
+      </if>
+      <if test="example.condition.makeEmp != null">
+         and MAKE_EMP = #{example.condition.makeEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.makeDate != null">
+         and MAKE_DATE = #{example.condition.makeDate,jdbcType=DATE}
+      </if>
+      <if test="example.condition.modifyEmp != null">
+         and MODIFY_EMP = #{example.condition.modifyEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.modifyDate != null">
+         and MODIFY_DATE = #{example.condition.modifyDate,jdbcType=DATE}
+      </if>
+      <if test="example.condition.compCode != null">
+         and COMP_CODE = #{example.condition.compCode,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.sysCode != null">
+         and SYS_CODE = #{example.condition.sysCode,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    PK_ID, CONFERENCE_ID, DOC_NAME, SORT_TYPE, PROVIDER, CONF_CONTENT, FILE_ID, SECURITY_CLASS, 
+    PROVIDE_TIME, MAKE_EMP, MAKE_DATE, MODIFY_EMP, MODIFY_DATE, COMP_CODE, SYS_CODE
+  </sql>
+  <select id="selectByExample" parameterType="com.tony.jee.pojo.base.Criteria" resultMap="BaseResultMap">
+    <include refid="common.Oracle_Pagination_Head" />
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from AG_CONFERENCE_NOTE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Oracle_Pagination_Tail" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from AG_CONFERENCE_NOTE
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from AG_CONFERENCE_NOTE
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.tony.jee.pojo.base.Criteria">
+    delete from AG_CONFERENCE_NOTE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.tony.jee.pojo.base.AgConferenceNote">
+    insert into AG_CONFERENCE_NOTE (PK_ID, CONFERENCE_ID, DOC_NAME, 
+      SORT_TYPE, PROVIDER, CONF_CONTENT, 
+      FILE_ID, SECURITY_CLASS, PROVIDE_TIME, 
+      MAKE_EMP, MAKE_DATE, MODIFY_EMP, 
+      MODIFY_DATE, COMP_CODE, SYS_CODE
+      )
+    values (#{pkId,jdbcType=VARCHAR}, #{conferenceId,jdbcType=VARCHAR}, #{docName,jdbcType=VARCHAR}, 
+      #{sortType,jdbcType=VARCHAR}, #{provider,jdbcType=VARCHAR}, #{confContent,jdbcType=VARCHAR}, 
+      #{fileId,jdbcType=VARCHAR}, #{securityClass,jdbcType=VARCHAR}, #{provideTime,jdbcType=DATE}, 
+      #{makeEmp,jdbcType=VARCHAR}, #{makeDate,jdbcType=DATE}, #{modifyEmp,jdbcType=VARCHAR}, 
+      #{modifyDate,jdbcType=DATE}, #{compCode,jdbcType=VARCHAR}, #{sysCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.tony.jee.pojo.base.AgConferenceNote">
+    insert into AG_CONFERENCE_NOTE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="conferenceId != null">
+        CONFERENCE_ID,
+      </if>
+      <if test="docName != null">
+        DOC_NAME,
+      </if>
+      <if test="sortType != null">
+        SORT_TYPE,
+      </if>
+      <if test="provider != null">
+        PROVIDER,
+      </if>
+      <if test="confContent != null">
+        CONF_CONTENT,
+      </if>
+      <if test="fileId != null">
+        FILE_ID,
+      </if>
+      <if test="securityClass != null">
+        SECURITY_CLASS,
+      </if>
+      <if test="provideTime != null">
+        PROVIDE_TIME,
+      </if>
+      <if test="makeEmp != null">
+        MAKE_EMP,
+      </if>
+      <if test="makeDate != null">
+        MAKE_DATE,
+      </if>
+      <if test="modifyEmp != null">
+        MODIFY_EMP,
+      </if>
+      <if test="modifyDate != null">
+        MODIFY_DATE,
+      </if>
+      <if test="compCode != null">
+        COMP_CODE,
+      </if>
+      <if test="sysCode != null">
+        SYS_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="conferenceId != null">
+        #{conferenceId,jdbcType=VARCHAR},
+      </if>
+      <if test="docName != null">
+        #{docName,jdbcType=VARCHAR},
+      </if>
+      <if test="sortType != null">
+        #{sortType,jdbcType=VARCHAR},
+      </if>
+      <if test="provider != null">
+        #{provider,jdbcType=VARCHAR},
+      </if>
+      <if test="confContent != null">
+        #{confContent,jdbcType=VARCHAR},
+      </if>
+      <if test="fileId != null">
+        #{fileId,jdbcType=VARCHAR},
+      </if>
+      <if test="securityClass != null">
+        #{securityClass,jdbcType=VARCHAR},
+      </if>
+      <if test="provideTime != null">
+        #{provideTime,jdbcType=DATE},
+      </if>
+      <if test="makeEmp != null">
+        #{makeEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="makeDate != null">
+        #{makeDate,jdbcType=DATE},
+      </if>
+      <if test="modifyEmp != null">
+        #{modifyEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyDate != null">
+        #{modifyDate,jdbcType=DATE},
+      </if>
+      <if test="compCode != null">
+        #{compCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCode != null">
+        #{sysCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.tony.jee.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from AG_CONFERENCE_NOTE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update AG_CONFERENCE_NOTE
+    <set>
+      <if test="record.pkId != null">
+        PK_ID = #{record.pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.conferenceId != null">
+        CONFERENCE_ID = #{record.conferenceId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.docName != null">
+        DOC_NAME = #{record.docName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sortType != null">
+        SORT_TYPE = #{record.sortType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.provider != null">
+        PROVIDER = #{record.provider,jdbcType=VARCHAR},
+      </if>
+      <if test="record.confContent != null">
+        CONF_CONTENT = #{record.confContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fileId != null">
+        FILE_ID = #{record.fileId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.securityClass != null">
+        SECURITY_CLASS = #{record.securityClass,jdbcType=VARCHAR},
+      </if>
+      <if test="record.provideTime != null">
+        PROVIDE_TIME = #{record.provideTime,jdbcType=DATE},
+      </if>
+      <if test="record.makeEmp != null">
+        MAKE_EMP = #{record.makeEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.makeDate != null">
+        MAKE_DATE = #{record.makeDate,jdbcType=DATE},
+      </if>
+      <if test="record.modifyEmp != null">
+        MODIFY_EMP = #{record.modifyEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifyDate != null">
+        MODIFY_DATE = #{record.modifyDate,jdbcType=DATE},
+      </if>
+      <if test="record.compCode != null">
+        COMP_CODE = #{record.compCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysCode != null">
+        SYS_CODE = #{record.sysCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update AG_CONFERENCE_NOTE
+    set PK_ID = #{record.pkId,jdbcType=VARCHAR},
+      CONFERENCE_ID = #{record.conferenceId,jdbcType=VARCHAR},
+      DOC_NAME = #{record.docName,jdbcType=VARCHAR},
+      SORT_TYPE = #{record.sortType,jdbcType=VARCHAR},
+      PROVIDER = #{record.provider,jdbcType=VARCHAR},
+      CONF_CONTENT = #{record.confContent,jdbcType=VARCHAR},
+      FILE_ID = #{record.fileId,jdbcType=VARCHAR},
+      SECURITY_CLASS = #{record.securityClass,jdbcType=VARCHAR},
+      PROVIDE_TIME = #{record.provideTime,jdbcType=DATE},
+      MAKE_EMP = #{record.makeEmp,jdbcType=VARCHAR},
+      MAKE_DATE = #{record.makeDate,jdbcType=DATE},
+      MODIFY_EMP = #{record.modifyEmp,jdbcType=VARCHAR},
+      MODIFY_DATE = #{record.modifyDate,jdbcType=DATE},
+      COMP_CODE = #{record.compCode,jdbcType=VARCHAR},
+      SYS_CODE = #{record.sysCode,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tony.jee.pojo.base.AgConferenceNote">
+    update AG_CONFERENCE_NOTE
+    <set>
+      <if test="conferenceId != null">
+        CONFERENCE_ID = #{conferenceId,jdbcType=VARCHAR},
+      </if>
+      <if test="docName != null">
+        DOC_NAME = #{docName,jdbcType=VARCHAR},
+      </if>
+      <if test="sortType != null">
+        SORT_TYPE = #{sortType,jdbcType=VARCHAR},
+      </if>
+      <if test="provider != null">
+        PROVIDER = #{provider,jdbcType=VARCHAR},
+      </if>
+      <if test="confContent != null">
+        CONF_CONTENT = #{confContent,jdbcType=VARCHAR},
+      </if>
+      <if test="fileId != null">
+        FILE_ID = #{fileId,jdbcType=VARCHAR},
+      </if>
+      <if test="securityClass != null">
+        SECURITY_CLASS = #{securityClass,jdbcType=VARCHAR},
+      </if>
+      <if test="provideTime != null">
+        PROVIDE_TIME = #{provideTime,jdbcType=DATE},
+      </if>
+      <if test="makeEmp != null">
+        MAKE_EMP = #{makeEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="makeDate != null">
+        MAKE_DATE = #{makeDate,jdbcType=DATE},
+      </if>
+      <if test="modifyEmp != null">
+        MODIFY_EMP = #{modifyEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyDate != null">
+        MODIFY_DATE = #{modifyDate,jdbcType=DATE},
+      </if>
+      <if test="compCode != null">
+        COMP_CODE = #{compCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCode != null">
+        SYS_CODE = #{sysCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tony.jee.pojo.base.AgConferenceNote">
+    update AG_CONFERENCE_NOTE
+    set CONFERENCE_ID = #{conferenceId,jdbcType=VARCHAR},
+      DOC_NAME = #{docName,jdbcType=VARCHAR},
+      SORT_TYPE = #{sortType,jdbcType=VARCHAR},
+      PROVIDER = #{provider,jdbcType=VARCHAR},
+      CONF_CONTENT = #{confContent,jdbcType=VARCHAR},
+      FILE_ID = #{fileId,jdbcType=VARCHAR},
+      SECURITY_CLASS = #{securityClass,jdbcType=VARCHAR},
+      PROVIDE_TIME = #{provideTime,jdbcType=DATE},
+      MAKE_EMP = #{makeEmp,jdbcType=VARCHAR},
+      MAKE_DATE = #{makeDate,jdbcType=DATE},
+      MODIFY_EMP = #{modifyEmp,jdbcType=VARCHAR},
+      MODIFY_DATE = #{modifyDate,jdbcType=DATE},
+      COMP_CODE = #{compCode,jdbcType=VARCHAR},
+      SYS_CODE = #{sysCode,jdbcType=VARCHAR}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.tony.jee.pojo.base.AgConferenceNote">
+    <id column="CONFERENCE_ID" jdbcType="VARCHAR" property="conferenceId" />
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="DOC_NAME" jdbcType="VARCHAR" property="docName" />
+    <result column="SORT_TYPE" jdbcType="VARCHAR" property="sortType" />
+    <result column="PROVIDER" jdbcType="VARCHAR" property="provider" />
+    <result column="CONF_CONTENT" jdbcType="VARCHAR" property="confContent" />
+    <result column="FILE_ID" jdbcType="VARCHAR" property="fileId" />
+    <result column="SECURITY_CLASS" jdbcType="VARCHAR" property="securityClass" />
+    <result column="PROVIDE_TIME" jdbcType="DATE" property="provideTime" />
+    <result column="MAKE_EMP" jdbcType="VARCHAR" property="makeEmp" />
+    <result column="MAKE_DATE" jdbcType="DATE" property="makeDate" />
+    <result column="MODIFY_EMP" jdbcType="VARCHAR" property="modifyEmp" />
+    <result column="MODIFY_DATE" jdbcType="DATE" property="modifyDate" />
+    <result column="COMP_CODE" jdbcType="VARCHAR" property="compCode" />
+    <result column="SYS_CODE" jdbcType="VARCHAR" property="sysCode" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.docName != null">
+         and DOC_NAME = #{condition.docName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.sortType != null">
+         and SORT_TYPE = #{condition.sortType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.provider != null">
+         and PROVIDER = #{condition.provider,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.confContent != null">
+         and CONF_CONTENT = #{condition.confContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.fileId != null">
+         and FILE_ID = #{condition.fileId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.securityClass != null">
+         and SECURITY_CLASS = #{condition.securityClass,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.provideTime != null">
+         and PROVIDE_TIME = #{condition.provideTime,jdbcType=DATE}
+      </if>
+      <if test="condition.makeEmp != null">
+         and MAKE_EMP = #{condition.makeEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.makeDate != null">
+         and MAKE_DATE = #{condition.makeDate,jdbcType=DATE}
+      </if>
+      <if test="condition.modifyEmp != null">
+         and MODIFY_EMP = #{condition.modifyEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.modifyDate != null">
+         and MODIFY_DATE = #{condition.modifyDate,jdbcType=DATE}
+      </if>
+      <if test="condition.compCode != null">
+         and COMP_CODE = #{condition.compCode,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.sysCode != null">
+         and SYS_CODE = #{condition.sysCode,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.docName != null">
+         and DOC_NAME = #{example.condition.docName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.sortType != null">
+         and SORT_TYPE = #{example.condition.sortType,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.provider != null">
+         and PROVIDER = #{example.condition.provider,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.confContent != null">
+         and CONF_CONTENT = #{example.condition.confContent,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.fileId != null">
+         and FILE_ID = #{example.condition.fileId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.securityClass != null">
+         and SECURITY_CLASS = #{example.condition.securityClass,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.provideTime != null">
+         and PROVIDE_TIME = #{example.condition.provideTime,jdbcType=DATE}
+      </if>
+      <if test="example.condition.makeEmp != null">
+         and MAKE_EMP = #{example.condition.makeEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.makeDate != null">
+         and MAKE_DATE = #{example.condition.makeDate,jdbcType=DATE}
+      </if>
+      <if test="example.condition.modifyEmp != null">
+         and MODIFY_EMP = #{example.condition.modifyEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.modifyDate != null">
+         and MODIFY_DATE = #{example.condition.modifyDate,jdbcType=DATE}
+      </if>
+      <if test="example.condition.compCode != null">
+         and COMP_CODE = #{example.condition.compCode,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.sysCode != null">
+         and SYS_CODE = #{example.condition.sysCode,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    CONFERENCE_ID, PK_ID, DOC_NAME, SORT_TYPE, PROVIDER, CONF_CONTENT, FILE_ID, SECURITY_CLASS, 
+    PROVIDE_TIME, MAKE_EMP, MAKE_DATE, MODIFY_EMP, MODIFY_DATE, COMP_CODE, SYS_CODE
+  </sql>
+  <select id="selectByExample" parameterType="com.tony.jee.pojo.base.Criteria" resultMap="BaseResultMap">
+    <include refid="common.Oracle_Pagination_Head" />
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from AG_CONFERENCE_NOTE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Oracle_Pagination_Tail" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="com.tony.jee.pojo.base.AgConferenceNoteKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from AG_CONFERENCE_NOTE
+    where CONFERENCE_ID = #{conferenceId,jdbcType=VARCHAR}
+      and PK_ID = #{pkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.tony.jee.pojo.base.AgConferenceNoteKey">
+    delete from AG_CONFERENCE_NOTE
+    where CONFERENCE_ID = #{conferenceId,jdbcType=VARCHAR}
+      and PK_ID = #{pkId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.tony.jee.pojo.base.Criteria">
+    delete from AG_CONFERENCE_NOTE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.tony.jee.pojo.base.AgConferenceNote">
+    insert into AG_CONFERENCE_NOTE (CONFERENCE_ID, PK_ID, DOC_NAME, 
+      SORT_TYPE, PROVIDER, CONF_CONTENT, 
+      FILE_ID, SECURITY_CLASS, PROVIDE_TIME, 
+      MAKE_EMP, MAKE_DATE, MODIFY_EMP, 
+      MODIFY_DATE, COMP_CODE, SYS_CODE
+      )
+    values (#{conferenceId,jdbcType=VARCHAR}, #{pkId,jdbcType=VARCHAR}, #{docName,jdbcType=VARCHAR}, 
+      #{sortType,jdbcType=VARCHAR}, #{provider,jdbcType=VARCHAR}, #{confContent,jdbcType=VARCHAR}, 
+      #{fileId,jdbcType=VARCHAR}, #{securityClass,jdbcType=VARCHAR}, #{provideTime,jdbcType=DATE}, 
+      #{makeEmp,jdbcType=VARCHAR}, #{makeDate,jdbcType=DATE}, #{modifyEmp,jdbcType=VARCHAR}, 
+      #{modifyDate,jdbcType=DATE}, #{compCode,jdbcType=VARCHAR}, #{sysCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.tony.jee.pojo.base.AgConferenceNote">
+    insert into AG_CONFERENCE_NOTE
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="conferenceId != null">
+        CONFERENCE_ID,
+      </if>
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="docName != null">
+        DOC_NAME,
+      </if>
+      <if test="sortType != null">
+        SORT_TYPE,
+      </if>
+      <if test="provider != null">
+        PROVIDER,
+      </if>
+      <if test="confContent != null">
+        CONF_CONTENT,
+      </if>
+      <if test="fileId != null">
+        FILE_ID,
+      </if>
+      <if test="securityClass != null">
+        SECURITY_CLASS,
+      </if>
+      <if test="provideTime != null">
+        PROVIDE_TIME,
+      </if>
+      <if test="makeEmp != null">
+        MAKE_EMP,
+      </if>
+      <if test="makeDate != null">
+        MAKE_DATE,
+      </if>
+      <if test="modifyEmp != null">
+        MODIFY_EMP,
+      </if>
+      <if test="modifyDate != null">
+        MODIFY_DATE,
+      </if>
+      <if test="compCode != null">
+        COMP_CODE,
+      </if>
+      <if test="sysCode != null">
+        SYS_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="conferenceId != null">
+        #{conferenceId,jdbcType=VARCHAR},
+      </if>
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="docName != null">
+        #{docName,jdbcType=VARCHAR},
+      </if>
+      <if test="sortType != null">
+        #{sortType,jdbcType=VARCHAR},
+      </if>
+      <if test="provider != null">
+        #{provider,jdbcType=VARCHAR},
+      </if>
+      <if test="confContent != null">
+        #{confContent,jdbcType=VARCHAR},
+      </if>
+      <if test="fileId != null">
+        #{fileId,jdbcType=VARCHAR},
+      </if>
+      <if test="securityClass != null">
+        #{securityClass,jdbcType=VARCHAR},
+      </if>
+      <if test="provideTime != null">
+        #{provideTime,jdbcType=DATE},
+      </if>
+      <if test="makeEmp != null">
+        #{makeEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="makeDate != null">
+        #{makeDate,jdbcType=DATE},
+      </if>
+      <if test="modifyEmp != null">
+        #{modifyEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyDate != null">
+        #{modifyDate,jdbcType=DATE},
+      </if>
+      <if test="compCode != null">
+        #{compCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCode != null">
+        #{sysCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.tony.jee.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from AG_CONFERENCE_NOTE
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update AG_CONFERENCE_NOTE
+    <set>
+      <if test="record.conferenceId != null">
+        CONFERENCE_ID = #{record.conferenceId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pkId != null">
+        PK_ID = #{record.pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.docName != null">
+        DOC_NAME = #{record.docName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sortType != null">
+        SORT_TYPE = #{record.sortType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.provider != null">
+        PROVIDER = #{record.provider,jdbcType=VARCHAR},
+      </if>
+      <if test="record.confContent != null">
+        CONF_CONTENT = #{record.confContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fileId != null">
+        FILE_ID = #{record.fileId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.securityClass != null">
+        SECURITY_CLASS = #{record.securityClass,jdbcType=VARCHAR},
+      </if>
+      <if test="record.provideTime != null">
+        PROVIDE_TIME = #{record.provideTime,jdbcType=DATE},
+      </if>
+      <if test="record.makeEmp != null">
+        MAKE_EMP = #{record.makeEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.makeDate != null">
+        MAKE_DATE = #{record.makeDate,jdbcType=DATE},
+      </if>
+      <if test="record.modifyEmp != null">
+        MODIFY_EMP = #{record.modifyEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifyDate != null">
+        MODIFY_DATE = #{record.modifyDate,jdbcType=DATE},
+      </if>
+      <if test="record.compCode != null">
+        COMP_CODE = #{record.compCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysCode != null">
+        SYS_CODE = #{record.sysCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update AG_CONFERENCE_NOTE
+    set CONFERENCE_ID = #{record.conferenceId,jdbcType=VARCHAR},
+      PK_ID = #{record.pkId,jdbcType=VARCHAR},
+      DOC_NAME = #{record.docName,jdbcType=VARCHAR},
+      SORT_TYPE = #{record.sortType,jdbcType=VARCHAR},
+      PROVIDER = #{record.provider,jdbcType=VARCHAR},
+      CONF_CONTENT = #{record.confContent,jdbcType=VARCHAR},
+      FILE_ID = #{record.fileId,jdbcType=VARCHAR},
+      SECURITY_CLASS = #{record.securityClass,jdbcType=VARCHAR},
+      PROVIDE_TIME = #{record.provideTime,jdbcType=DATE},
+      MAKE_EMP = #{record.makeEmp,jdbcType=VARCHAR},
+      MAKE_DATE = #{record.makeDate,jdbcType=DATE},
+      MODIFY_EMP = #{record.modifyEmp,jdbcType=VARCHAR},
+      MODIFY_DATE = #{record.modifyDate,jdbcType=DATE},
+      COMP_CODE = #{record.compCode,jdbcType=VARCHAR},
+      SYS_CODE = #{record.sysCode,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tony.jee.pojo.base.AgConferenceNote">
+    update AG_CONFERENCE_NOTE
+    <set>
+      <if test="docName != null">
+        DOC_NAME = #{docName,jdbcType=VARCHAR},
+      </if>
+      <if test="sortType != null">
+        SORT_TYPE = #{sortType,jdbcType=VARCHAR},
+      </if>
+      <if test="provider != null">
+        PROVIDER = #{provider,jdbcType=VARCHAR},
+      </if>
+      <if test="confContent != null">
+        CONF_CONTENT = #{confContent,jdbcType=VARCHAR},
+      </if>
+      <if test="fileId != null">
+        FILE_ID = #{fileId,jdbcType=VARCHAR},
+      </if>
+      <if test="securityClass != null">
+        SECURITY_CLASS = #{securityClass,jdbcType=VARCHAR},
+      </if>
+      <if test="provideTime != null">
+        PROVIDE_TIME = #{provideTime,jdbcType=DATE},
+      </if>
+      <if test="makeEmp != null">
+        MAKE_EMP = #{makeEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="makeDate != null">
+        MAKE_DATE = #{makeDate,jdbcType=DATE},
+      </if>
+      <if test="modifyEmp != null">
+        MODIFY_EMP = #{modifyEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyDate != null">
+        MODIFY_DATE = #{modifyDate,jdbcType=DATE},
+      </if>
+      <if test="compCode != null">
+        COMP_CODE = #{compCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCode != null">
+        SYS_CODE = #{sysCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CONFERENCE_ID = #{conferenceId,jdbcType=VARCHAR}
+      and PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tony.jee.pojo.base.AgConferenceNote">
+    update AG_CONFERENCE_NOTE
+    set DOC_NAME = #{docName,jdbcType=VARCHAR},
+      SORT_TYPE = #{sortType,jdbcType=VARCHAR},
+      PROVIDER = #{provider,jdbcType=VARCHAR},
+      CONF_CONTENT = #{confContent,jdbcType=VARCHAR},
+      FILE_ID = #{fileId,jdbcType=VARCHAR},
+      SECURITY_CLASS = #{securityClass,jdbcType=VARCHAR},
+      PROVIDE_TIME = #{provideTime,jdbcType=DATE},
+      MAKE_EMP = #{makeEmp,jdbcType=VARCHAR},
+      MAKE_DATE = #{makeDate,jdbcType=DATE},
+      MODIFY_EMP = #{modifyEmp,jdbcType=VARCHAR},
+      MODIFY_DATE = #{modifyDate,jdbcType=DATE},
+      COMP_CODE = #{compCode,jdbcType=VARCHAR},
+      SYS_CODE = #{sysCode,jdbcType=VARCHAR}
+    where CONFERENCE_ID = #{conferenceId,jdbcType=VARCHAR}
+      and PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+</mapper>
