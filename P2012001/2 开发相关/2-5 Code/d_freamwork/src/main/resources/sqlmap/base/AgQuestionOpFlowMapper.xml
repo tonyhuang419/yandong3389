@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tony.jee.dao.base.AgQuestionOpFlowMapper">
+  <resultMap id="BaseResultMap" type="com.tony.jee.pojo.base.AgQuestionOpFlow">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="Q_ID" jdbcType="VARCHAR" property="qId" />
+    <result column="OP_TYPE" jdbcType="VARCHAR" property="opType" />
+    <result column="OP_PERSON" jdbcType="VARCHAR" property="opPerson" />
+    <result column="OP_TIME" jdbcType="DATE" property="opTime" />
+    <result column="MAKE_EMP" jdbcType="VARCHAR" property="makeEmp" />
+    <result column="MAKE_DATE" jdbcType="DATE" property="makeDate" />
+    <result column="MODIFY_EMP" jdbcType="VARCHAR" property="modifyEmp" />
+    <result column="MODIFY_DATE" jdbcType="DATE" property="modifyDate" />
+    <result column="COMP_CODE" jdbcType="VARCHAR" property="compCode" />
+    <result column="SYS_CODE" jdbcType="VARCHAR" property="sysCode" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.qId != null">
+         and Q_ID = #{condition.qId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.opType != null">
+         and OP_TYPE = #{condition.opType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.opPerson != null">
+         and OP_PERSON = #{condition.opPerson,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.opTime != null">
+         and OP_TIME = #{condition.opTime,jdbcType=DATE}
+      </if>
+      <if test="condition.makeEmp != null">
+         and MAKE_EMP = #{condition.makeEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.makeDate != null">
+         and MAKE_DATE = #{condition.makeDate,jdbcType=DATE}
+      </if>
+      <if test="condition.modifyEmp != null">
+         and MODIFY_EMP = #{condition.modifyEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.modifyDate != null">
+         and MODIFY_DATE = #{condition.modifyDate,jdbcType=DATE}
+      </if>
+      <if test="condition.compCode != null">
+         and COMP_CODE = #{condition.compCode,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.sysCode != null">
+         and SYS_CODE = #{condition.sysCode,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.qId != null">
+         and Q_ID = #{example.condition.qId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.opType != null">
+         and OP_TYPE = #{example.condition.opType,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.opPerson != null">
+         and OP_PERSON = #{example.condition.opPerson,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.opTime != null">
+         and OP_TIME = #{example.condition.opTime,jdbcType=DATE}
+      </if>
+      <if test="example.condition.makeEmp != null">
+         and MAKE_EMP = #{example.condition.makeEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.makeDate != null">
+         and MAKE_DATE = #{example.condition.makeDate,jdbcType=DATE}
+      </if>
+      <if test="example.condition.modifyEmp != null">
+         and MODIFY_EMP = #{example.condition.modifyEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.modifyDate != null">
+         and MODIFY_DATE = #{example.condition.modifyDate,jdbcType=DATE}
+      </if>
+      <if test="example.condition.compCode != null">
+         and COMP_CODE = #{example.condition.compCode,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.sysCode != null">
+         and SYS_CODE = #{example.condition.sysCode,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    PK_ID, Q_ID, OP_TYPE, OP_PERSON, OP_TIME, MAKE_EMP, MAKE_DATE, MODIFY_EMP, MODIFY_DATE, 
+    COMP_CODE, SYS_CODE
+  </sql>
+  <select id="selectByExample" parameterType="com.tony.jee.pojo.base.Criteria" resultMap="BaseResultMap">
+    <include refid="common.Oracle_Pagination_Head" />
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from AG_QUESTION_OP_FLOW
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Oracle_Pagination_Tail" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from AG_QUESTION_OP_FLOW
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from AG_QUESTION_OP_FLOW
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.tony.jee.pojo.base.Criteria">
+    delete from AG_QUESTION_OP_FLOW
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.tony.jee.pojo.base.AgQuestionOpFlow">
+    insert into AG_QUESTION_OP_FLOW (PK_ID, Q_ID, OP_TYPE, 
+      OP_PERSON, OP_TIME, MAKE_EMP, 
+      MAKE_DATE, MODIFY_EMP, MODIFY_DATE, 
+      COMP_CODE, SYS_CODE)
+    values (#{pkId,jdbcType=VARCHAR}, #{qId,jdbcType=VARCHAR}, #{opType,jdbcType=VARCHAR}, 
+      #{opPerson,jdbcType=VARCHAR}, #{opTime,jdbcType=DATE}, #{makeEmp,jdbcType=VARCHAR}, 
+      #{makeDate,jdbcType=DATE}, #{modifyEmp,jdbcType=VARCHAR}, #{modifyDate,jdbcType=DATE}, 
+      #{compCode,jdbcType=VARCHAR}, #{sysCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tony.jee.pojo.base.AgQuestionOpFlow">
+    insert into AG_QUESTION_OP_FLOW
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="qId != null">
+        Q_ID,
+      </if>
+      <if test="opType != null">
+        OP_TYPE,
+      </if>
+      <if test="opPerson != null">
+        OP_PERSON,
+      </if>
+      <if test="opTime != null">
+        OP_TIME,
+      </if>
+      <if test="makeEmp != null">
+        MAKE_EMP,
+      </if>
+      <if test="makeDate != null">
+        MAKE_DATE,
+      </if>
+      <if test="modifyEmp != null">
+        MODIFY_EMP,
+      </if>
+      <if test="modifyDate != null">
+        MODIFY_DATE,
+      </if>
+      <if test="compCode != null">
+        COMP_CODE,
+      </if>
+      <if test="sysCode != null">
+        SYS_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="qId != null">
+        #{qId,jdbcType=VARCHAR},
+      </if>
+      <if test="opType != null">
+        #{opType,jdbcType=VARCHAR},
+      </if>
+      <if test="opPerson != null">
+        #{opPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="opTime != null">
+        #{opTime,jdbcType=DATE},
+      </if>
+      <if test="makeEmp != null">
+        #{makeEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="makeDate != null">
+        #{makeDate,jdbcType=DATE},
+      </if>
+      <if test="modifyEmp != null">
+        #{modifyEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyDate != null">
+        #{modifyDate,jdbcType=DATE},
+      </if>
+      <if test="compCode != null">
+        #{compCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCode != null">
+        #{sysCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.tony.jee.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from AG_QUESTION_OP_FLOW
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update AG_QUESTION_OP_FLOW
+    <set>
+      <if test="record.pkId != null">
+        PK_ID = #{record.pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qId != null">
+        Q_ID = #{record.qId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opType != null">
+        OP_TYPE = #{record.opType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opPerson != null">
+        OP_PERSON = #{record.opPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opTime != null">
+        OP_TIME = #{record.opTime,jdbcType=DATE},
+      </if>
+      <if test="record.makeEmp != null">
+        MAKE_EMP = #{record.makeEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.makeDate != null">
+        MAKE_DATE = #{record.makeDate,jdbcType=DATE},
+      </if>
+      <if test="record.modifyEmp != null">
+        MODIFY_EMP = #{record.modifyEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifyDate != null">
+        MODIFY_DATE = #{record.modifyDate,jdbcType=DATE},
+      </if>
+      <if test="record.compCode != null">
+        COMP_CODE = #{record.compCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysCode != null">
+        SYS_CODE = #{record.sysCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update AG_QUESTION_OP_FLOW
+    set PK_ID = #{record.pkId,jdbcType=VARCHAR},
+      Q_ID = #{record.qId,jdbcType=VARCHAR},
+      OP_TYPE = #{record.opType,jdbcType=VARCHAR},
+      OP_PERSON = #{record.opPerson,jdbcType=VARCHAR},
+      OP_TIME = #{record.opTime,jdbcType=DATE},
+      MAKE_EMP = #{record.makeEmp,jdbcType=VARCHAR},
+      MAKE_DATE = #{record.makeDate,jdbcType=DATE},
+      MODIFY_EMP = #{record.modifyEmp,jdbcType=VARCHAR},
+      MODIFY_DATE = #{record.modifyDate,jdbcType=DATE},
+      COMP_CODE = #{record.compCode,jdbcType=VARCHAR},
+      SYS_CODE = #{record.sysCode,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tony.jee.pojo.base.AgQuestionOpFlow">
+    update AG_QUESTION_OP_FLOW
+    <set>
+      <if test="qId != null">
+        Q_ID = #{qId,jdbcType=VARCHAR},
+      </if>
+      <if test="opType != null">
+        OP_TYPE = #{opType,jdbcType=VARCHAR},
+      </if>
+      <if test="opPerson != null">
+        OP_PERSON = #{opPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="opTime != null">
+        OP_TIME = #{opTime,jdbcType=DATE},
+      </if>
+      <if test="makeEmp != null">
+        MAKE_EMP = #{makeEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="makeDate != null">
+        MAKE_DATE = #{makeDate,jdbcType=DATE},
+      </if>
+      <if test="modifyEmp != null">
+        MODIFY_EMP = #{modifyEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyDate != null">
+        MODIFY_DATE = #{modifyDate,jdbcType=DATE},
+      </if>
+      <if test="compCode != null">
+        COMP_CODE = #{compCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCode != null">
+        SYS_CODE = #{sysCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tony.jee.pojo.base.AgQuestionOpFlow">
+    update AG_QUESTION_OP_FLOW
+    set Q_ID = #{qId,jdbcType=VARCHAR},
+      OP_TYPE = #{opType,jdbcType=VARCHAR},
+      OP_PERSON = #{opPerson,jdbcType=VARCHAR},
+      OP_TIME = #{opTime,jdbcType=DATE},
+      MAKE_EMP = #{makeEmp,jdbcType=VARCHAR},
+      MAKE_DATE = #{makeDate,jdbcType=DATE},
+      MODIFY_EMP = #{modifyEmp,jdbcType=VARCHAR},
+      MODIFY_DATE = #{modifyDate,jdbcType=DATE},
+      COMP_CODE = #{compCode,jdbcType=VARCHAR},
+      SYS_CODE = #{sysCode,jdbcType=VARCHAR}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.tony.jee.pojo.base.AgQuestionOpFlow">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <id column="Q_ID" jdbcType="VARCHAR" property="qId" />
+    <result column="OP_TYPE" jdbcType="VARCHAR" property="opType" />
+    <result column="OP_PERSON" jdbcType="VARCHAR" property="opPerson" />
+    <result column="OP_TIME" jdbcType="DATE" property="opTime" />
+    <result column="MAKE_EMP" jdbcType="VARCHAR" property="makeEmp" />
+    <result column="MAKE_DATE" jdbcType="DATE" property="makeDate" />
+    <result column="MODIFY_EMP" jdbcType="VARCHAR" property="modifyEmp" />
+    <result column="MODIFY_DATE" jdbcType="DATE" property="modifyDate" />
+    <result column="COMP_CODE" jdbcType="VARCHAR" property="compCode" />
+    <result column="SYS_CODE" jdbcType="VARCHAR" property="sysCode" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.opType != null">
+         and OP_TYPE = #{condition.opType,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.opPerson != null">
+         and OP_PERSON = #{condition.opPerson,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.opTime != null">
+         and OP_TIME = #{condition.opTime,jdbcType=DATE}
+      </if>
+      <if test="condition.makeEmp != null">
+         and MAKE_EMP = #{condition.makeEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.makeDate != null">
+         and MAKE_DATE = #{condition.makeDate,jdbcType=DATE}
+      </if>
+      <if test="condition.modifyEmp != null">
+         and MODIFY_EMP = #{condition.modifyEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.modifyDate != null">
+         and MODIFY_DATE = #{condition.modifyDate,jdbcType=DATE}
+      </if>
+      <if test="condition.compCode != null">
+         and COMP_CODE = #{condition.compCode,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.sysCode != null">
+         and SYS_CODE = #{condition.sysCode,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.opType != null">
+         and OP_TYPE = #{example.condition.opType,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.opPerson != null">
+         and OP_PERSON = #{example.condition.opPerson,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.opTime != null">
+         and OP_TIME = #{example.condition.opTime,jdbcType=DATE}
+      </if>
+      <if test="example.condition.makeEmp != null">
+         and MAKE_EMP = #{example.condition.makeEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.makeDate != null">
+         and MAKE_DATE = #{example.condition.makeDate,jdbcType=DATE}
+      </if>
+      <if test="example.condition.modifyEmp != null">
+         and MODIFY_EMP = #{example.condition.modifyEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.modifyDate != null">
+         and MODIFY_DATE = #{example.condition.modifyDate,jdbcType=DATE}
+      </if>
+      <if test="example.condition.compCode != null">
+         and COMP_CODE = #{example.condition.compCode,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.sysCode != null">
+         and SYS_CODE = #{example.condition.sysCode,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    PK_ID, Q_ID, OP_TYPE, OP_PERSON, OP_TIME, MAKE_EMP, MAKE_DATE, MODIFY_EMP, MODIFY_DATE, 
+    COMP_CODE, SYS_CODE
+  </sql>
+  <select id="selectByExample" parameterType="com.tony.jee.pojo.base.Criteria" resultMap="BaseResultMap">
+    <include refid="common.Oracle_Pagination_Head" />
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from AG_QUESTION_OP_FLOW
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Oracle_Pagination_Tail" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="com.tony.jee.pojo.base.AgQuestionOpFlowKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from AG_QUESTION_OP_FLOW
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+      and Q_ID = #{qId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.tony.jee.pojo.base.AgQuestionOpFlowKey">
+    delete from AG_QUESTION_OP_FLOW
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+      and Q_ID = #{qId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.tony.jee.pojo.base.Criteria">
+    delete from AG_QUESTION_OP_FLOW
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.tony.jee.pojo.base.AgQuestionOpFlow">
+    insert into AG_QUESTION_OP_FLOW (PK_ID, Q_ID, OP_TYPE, 
+      OP_PERSON, OP_TIME, MAKE_EMP, 
+      MAKE_DATE, MODIFY_EMP, MODIFY_DATE, 
+      COMP_CODE, SYS_CODE)
+    values (#{pkId,jdbcType=VARCHAR}, #{qId,jdbcType=VARCHAR}, #{opType,jdbcType=VARCHAR}, 
+      #{opPerson,jdbcType=VARCHAR}, #{opTime,jdbcType=DATE}, #{makeEmp,jdbcType=VARCHAR}, 
+      #{makeDate,jdbcType=DATE}, #{modifyEmp,jdbcType=VARCHAR}, #{modifyDate,jdbcType=DATE}, 
+      #{compCode,jdbcType=VARCHAR}, #{sysCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tony.jee.pojo.base.AgQuestionOpFlow">
+    insert into AG_QUESTION_OP_FLOW
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="qId != null">
+        Q_ID,
+      </if>
+      <if test="opType != null">
+        OP_TYPE,
+      </if>
+      <if test="opPerson != null">
+        OP_PERSON,
+      </if>
+      <if test="opTime != null">
+        OP_TIME,
+      </if>
+      <if test="makeEmp != null">
+        MAKE_EMP,
+      </if>
+      <if test="makeDate != null">
+        MAKE_DATE,
+      </if>
+      <if test="modifyEmp != null">
+        MODIFY_EMP,
+      </if>
+      <if test="modifyDate != null">
+        MODIFY_DATE,
+      </if>
+      <if test="compCode != null">
+        COMP_CODE,
+      </if>
+      <if test="sysCode != null">
+        SYS_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="qId != null">
+        #{qId,jdbcType=VARCHAR},
+      </if>
+      <if test="opType != null">
+        #{opType,jdbcType=VARCHAR},
+      </if>
+      <if test="opPerson != null">
+        #{opPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="opTime != null">
+        #{opTime,jdbcType=DATE},
+      </if>
+      <if test="makeEmp != null">
+        #{makeEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="makeDate != null">
+        #{makeDate,jdbcType=DATE},
+      </if>
+      <if test="modifyEmp != null">
+        #{modifyEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyDate != null">
+        #{modifyDate,jdbcType=DATE},
+      </if>
+      <if test="compCode != null">
+        #{compCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCode != null">
+        #{sysCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.tony.jee.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from AG_QUESTION_OP_FLOW
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update AG_QUESTION_OP_FLOW
+    <set>
+      <if test="record.pkId != null">
+        PK_ID = #{record.pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qId != null">
+        Q_ID = #{record.qId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opType != null">
+        OP_TYPE = #{record.opType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opPerson != null">
+        OP_PERSON = #{record.opPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="record.opTime != null">
+        OP_TIME = #{record.opTime,jdbcType=DATE},
+      </if>
+      <if test="record.makeEmp != null">
+        MAKE_EMP = #{record.makeEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.makeDate != null">
+        MAKE_DATE = #{record.makeDate,jdbcType=DATE},
+      </if>
+      <if test="record.modifyEmp != null">
+        MODIFY_EMP = #{record.modifyEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifyDate != null">
+        MODIFY_DATE = #{record.modifyDate,jdbcType=DATE},
+      </if>
+      <if test="record.compCode != null">
+        COMP_CODE = #{record.compCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysCode != null">
+        SYS_CODE = #{record.sysCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update AG_QUESTION_OP_FLOW
+    set PK_ID = #{record.pkId,jdbcType=VARCHAR},
+      Q_ID = #{record.qId,jdbcType=VARCHAR},
+      OP_TYPE = #{record.opType,jdbcType=VARCHAR},
+      OP_PERSON = #{record.opPerson,jdbcType=VARCHAR},
+      OP_TIME = #{record.opTime,jdbcType=DATE},
+      MAKE_EMP = #{record.makeEmp,jdbcType=VARCHAR},
+      MAKE_DATE = #{record.makeDate,jdbcType=DATE},
+      MODIFY_EMP = #{record.modifyEmp,jdbcType=VARCHAR},
+      MODIFY_DATE = #{record.modifyDate,jdbcType=DATE},
+      COMP_CODE = #{record.compCode,jdbcType=VARCHAR},
+      SYS_CODE = #{record.sysCode,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tony.jee.pojo.base.AgQuestionOpFlow">
+    update AG_QUESTION_OP_FLOW
+    <set>
+      <if test="opType != null">
+        OP_TYPE = #{opType,jdbcType=VARCHAR},
+      </if>
+      <if test="opPerson != null">
+        OP_PERSON = #{opPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="opTime != null">
+        OP_TIME = #{opTime,jdbcType=DATE},
+      </if>
+      <if test="makeEmp != null">
+        MAKE_EMP = #{makeEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="makeDate != null">
+        MAKE_DATE = #{makeDate,jdbcType=DATE},
+      </if>
+      <if test="modifyEmp != null">
+        MODIFY_EMP = #{modifyEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyDate != null">
+        MODIFY_DATE = #{modifyDate,jdbcType=DATE},
+      </if>
+      <if test="compCode != null">
+        COMP_CODE = #{compCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCode != null">
+        SYS_CODE = #{sysCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+      and Q_ID = #{qId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tony.jee.pojo.base.AgQuestionOpFlow">
+    update AG_QUESTION_OP_FLOW
+    set OP_TYPE = #{opType,jdbcType=VARCHAR},
+      OP_PERSON = #{opPerson,jdbcType=VARCHAR},
+      OP_TIME = #{opTime,jdbcType=DATE},
+      MAKE_EMP = #{makeEmp,jdbcType=VARCHAR},
+      MAKE_DATE = #{makeDate,jdbcType=DATE},
+      MODIFY_EMP = #{modifyEmp,jdbcType=VARCHAR},
+      MODIFY_DATE = #{modifyDate,jdbcType=DATE},
+      COMP_CODE = #{compCode,jdbcType=VARCHAR},
+      SYS_CODE = #{sysCode,jdbcType=VARCHAR}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+      and Q_ID = #{qId,jdbcType=VARCHAR}
+  </update>
+</mapper>

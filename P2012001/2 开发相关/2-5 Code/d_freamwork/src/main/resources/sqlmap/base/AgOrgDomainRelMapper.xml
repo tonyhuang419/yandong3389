@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tony.jee.dao.base.AgOrgDomainRelMapper">
+  <resultMap id="BaseResultMap" type="com.tony.jee.pojo.base.AgOrgDomainRel">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="ORG_ID" jdbcType="VARCHAR" property="orgId" />
+    <result column="ORG_DOMAIN" jdbcType="VARCHAR" property="orgDomain" />
+    <result column="MAKE_EMP" jdbcType="VARCHAR" property="makeEmp" />
+    <result column="MAKE_DATE" jdbcType="DATE" property="makeDate" />
+    <result column="MODIFY_EMP" jdbcType="VARCHAR" property="modifyEmp" />
+    <result column="MODIFY_DATE" jdbcType="DATE" property="modifyDate" />
+    <result column="COMP_CODE" jdbcType="VARCHAR" property="compCode" />
+    <result column="SYS_CODE" jdbcType="VARCHAR" property="sysCode" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.orgId != null">
+         and ORG_ID = #{condition.orgId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.orgDomain != null">
+         and ORG_DOMAIN = #{condition.orgDomain,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.makeEmp != null">
+         and MAKE_EMP = #{condition.makeEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.makeDate != null">
+         and MAKE_DATE = #{condition.makeDate,jdbcType=DATE}
+      </if>
+      <if test="condition.modifyEmp != null">
+         and MODIFY_EMP = #{condition.modifyEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.modifyDate != null">
+         and MODIFY_DATE = #{condition.modifyDate,jdbcType=DATE}
+      </if>
+      <if test="condition.compCode != null">
+         and COMP_CODE = #{condition.compCode,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.sysCode != null">
+         and SYS_CODE = #{condition.sysCode,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.orgId != null">
+         and ORG_ID = #{example.condition.orgId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.orgDomain != null">
+         and ORG_DOMAIN = #{example.condition.orgDomain,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.makeEmp != null">
+         and MAKE_EMP = #{example.condition.makeEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.makeDate != null">
+         and MAKE_DATE = #{example.condition.makeDate,jdbcType=DATE}
+      </if>
+      <if test="example.condition.modifyEmp != null">
+         and MODIFY_EMP = #{example.condition.modifyEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.modifyDate != null">
+         and MODIFY_DATE = #{example.condition.modifyDate,jdbcType=DATE}
+      </if>
+      <if test="example.condition.compCode != null">
+         and COMP_CODE = #{example.condition.compCode,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.sysCode != null">
+         and SYS_CODE = #{example.condition.sysCode,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    PK_ID, ORG_ID, ORG_DOMAIN, MAKE_EMP, MAKE_DATE, MODIFY_EMP, MODIFY_DATE, COMP_CODE, 
+    SYS_CODE
+  </sql>
+  <select id="selectByExample" parameterType="com.tony.jee.pojo.base.Criteria" resultMap="BaseResultMap">
+    <include refid="common.Oracle_Pagination_Head" />
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from AG_ORG_DOMAIN_REL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Oracle_Pagination_Tail" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from AG_ORG_DOMAIN_REL
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from AG_ORG_DOMAIN_REL
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.tony.jee.pojo.base.Criteria">
+    delete from AG_ORG_DOMAIN_REL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.tony.jee.pojo.base.AgOrgDomainRel">
+    insert into AG_ORG_DOMAIN_REL (PK_ID, ORG_ID, ORG_DOMAIN, 
+      MAKE_EMP, MAKE_DATE, MODIFY_EMP, 
+      MODIFY_DATE, COMP_CODE, SYS_CODE
+      )
+    values (#{pkId,jdbcType=VARCHAR}, #{orgId,jdbcType=VARCHAR}, #{orgDomain,jdbcType=VARCHAR}, 
+      #{makeEmp,jdbcType=VARCHAR}, #{makeDate,jdbcType=DATE}, #{modifyEmp,jdbcType=VARCHAR}, 
+      #{modifyDate,jdbcType=DATE}, #{compCode,jdbcType=VARCHAR}, #{sysCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.tony.jee.pojo.base.AgOrgDomainRel">
+    insert into AG_ORG_DOMAIN_REL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="orgId != null">
+        ORG_ID,
+      </if>
+      <if test="orgDomain != null">
+        ORG_DOMAIN,
+      </if>
+      <if test="makeEmp != null">
+        MAKE_EMP,
+      </if>
+      <if test="makeDate != null">
+        MAKE_DATE,
+      </if>
+      <if test="modifyEmp != null">
+        MODIFY_EMP,
+      </if>
+      <if test="modifyDate != null">
+        MODIFY_DATE,
+      </if>
+      <if test="compCode != null">
+        COMP_CODE,
+      </if>
+      <if test="sysCode != null">
+        SYS_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgId != null">
+        #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgDomain != null">
+        #{orgDomain,jdbcType=VARCHAR},
+      </if>
+      <if test="makeEmp != null">
+        #{makeEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="makeDate != null">
+        #{makeDate,jdbcType=DATE},
+      </if>
+      <if test="modifyEmp != null">
+        #{modifyEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyDate != null">
+        #{modifyDate,jdbcType=DATE},
+      </if>
+      <if test="compCode != null">
+        #{compCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCode != null">
+        #{sysCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.tony.jee.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from AG_ORG_DOMAIN_REL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update AG_ORG_DOMAIN_REL
+    <set>
+      <if test="record.pkId != null">
+        PK_ID = #{record.pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orgId != null">
+        ORG_ID = #{record.orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orgDomain != null">
+        ORG_DOMAIN = #{record.orgDomain,jdbcType=VARCHAR},
+      </if>
+      <if test="record.makeEmp != null">
+        MAKE_EMP = #{record.makeEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.makeDate != null">
+        MAKE_DATE = #{record.makeDate,jdbcType=DATE},
+      </if>
+      <if test="record.modifyEmp != null">
+        MODIFY_EMP = #{record.modifyEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifyDate != null">
+        MODIFY_DATE = #{record.modifyDate,jdbcType=DATE},
+      </if>
+      <if test="record.compCode != null">
+        COMP_CODE = #{record.compCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysCode != null">
+        SYS_CODE = #{record.sysCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update AG_ORG_DOMAIN_REL
+    set PK_ID = #{record.pkId,jdbcType=VARCHAR},
+      ORG_ID = #{record.orgId,jdbcType=VARCHAR},
+      ORG_DOMAIN = #{record.orgDomain,jdbcType=VARCHAR},
+      MAKE_EMP = #{record.makeEmp,jdbcType=VARCHAR},
+      MAKE_DATE = #{record.makeDate,jdbcType=DATE},
+      MODIFY_EMP = #{record.modifyEmp,jdbcType=VARCHAR},
+      MODIFY_DATE = #{record.modifyDate,jdbcType=DATE},
+      COMP_CODE = #{record.compCode,jdbcType=VARCHAR},
+      SYS_CODE = #{record.sysCode,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tony.jee.pojo.base.AgOrgDomainRel">
+    update AG_ORG_DOMAIN_REL
+    <set>
+      <if test="orgId != null">
+        ORG_ID = #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgDomain != null">
+        ORG_DOMAIN = #{orgDomain,jdbcType=VARCHAR},
+      </if>
+      <if test="makeEmp != null">
+        MAKE_EMP = #{makeEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="makeDate != null">
+        MAKE_DATE = #{makeDate,jdbcType=DATE},
+      </if>
+      <if test="modifyEmp != null">
+        MODIFY_EMP = #{modifyEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyDate != null">
+        MODIFY_DATE = #{modifyDate,jdbcType=DATE},
+      </if>
+      <if test="compCode != null">
+        COMP_CODE = #{compCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCode != null">
+        SYS_CODE = #{sysCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tony.jee.pojo.base.AgOrgDomainRel">
+    update AG_ORG_DOMAIN_REL
+    set ORG_ID = #{orgId,jdbcType=VARCHAR},
+      ORG_DOMAIN = #{orgDomain,jdbcType=VARCHAR},
+      MAKE_EMP = #{makeEmp,jdbcType=VARCHAR},
+      MAKE_DATE = #{makeDate,jdbcType=DATE},
+      MODIFY_EMP = #{modifyEmp,jdbcType=VARCHAR},
+      MODIFY_DATE = #{modifyDate,jdbcType=DATE},
+      COMP_CODE = #{compCode,jdbcType=VARCHAR},
+      SYS_CODE = #{sysCode,jdbcType=VARCHAR}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.tony.jee.pojo.base.AgOrgDomainRel">
+    <id column="PK_ID" jdbcType="VARCHAR" property="pkId" />
+    <result column="ORG_ID" jdbcType="VARCHAR" property="orgId" />
+    <result column="ORG_DOMAIN" jdbcType="VARCHAR" property="orgDomain" />
+    <result column="MAKE_EMP" jdbcType="VARCHAR" property="makeEmp" />
+    <result column="MAKE_DATE" jdbcType="DATE" property="makeDate" />
+    <result column="MODIFY_EMP" jdbcType="VARCHAR" property="modifyEmp" />
+    <result column="MODIFY_DATE" jdbcType="DATE" property="modifyDate" />
+    <result column="COMP_CODE" jdbcType="VARCHAR" property="compCode" />
+    <result column="SYS_CODE" jdbcType="VARCHAR" property="sysCode" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.orgId != null">
+         and ORG_ID = #{condition.orgId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.orgDomain != null">
+         and ORG_DOMAIN = #{condition.orgDomain,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.makeEmp != null">
+         and MAKE_EMP = #{condition.makeEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.makeDate != null">
+         and MAKE_DATE = #{condition.makeDate,jdbcType=DATE}
+      </if>
+      <if test="condition.modifyEmp != null">
+         and MODIFY_EMP = #{condition.modifyEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.modifyDate != null">
+         and MODIFY_DATE = #{condition.modifyDate,jdbcType=DATE}
+      </if>
+      <if test="condition.compCode != null">
+         and COMP_CODE = #{condition.compCode,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.sysCode != null">
+         and SYS_CODE = #{condition.sysCode,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.orgId != null">
+         and ORG_ID = #{example.condition.orgId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.orgDomain != null">
+         and ORG_DOMAIN = #{example.condition.orgDomain,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.makeEmp != null">
+         and MAKE_EMP = #{example.condition.makeEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.makeDate != null">
+         and MAKE_DATE = #{example.condition.makeDate,jdbcType=DATE}
+      </if>
+      <if test="example.condition.modifyEmp != null">
+         and MODIFY_EMP = #{example.condition.modifyEmp,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.modifyDate != null">
+         and MODIFY_DATE = #{example.condition.modifyDate,jdbcType=DATE}
+      </if>
+      <if test="example.condition.compCode != null">
+         and COMP_CODE = #{example.condition.compCode,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.sysCode != null">
+         and SYS_CODE = #{example.condition.sysCode,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    PK_ID, ORG_ID, ORG_DOMAIN, MAKE_EMP, MAKE_DATE, MODIFY_EMP, MODIFY_DATE, COMP_CODE, 
+    SYS_CODE
+  </sql>
+  <select id="selectByExample" parameterType="com.tony.jee.pojo.base.Criteria" resultMap="BaseResultMap">
+    <include refid="common.Oracle_Pagination_Head" />
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from AG_ORG_DOMAIN_REL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Oracle_Pagination_Tail" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from AG_ORG_DOMAIN_REL
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from AG_ORG_DOMAIN_REL
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.tony.jee.pojo.base.Criteria">
+    delete from AG_ORG_DOMAIN_REL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.tony.jee.pojo.base.AgOrgDomainRel">
+    insert into AG_ORG_DOMAIN_REL (PK_ID, ORG_ID, ORG_DOMAIN, 
+      MAKE_EMP, MAKE_DATE, MODIFY_EMP, 
+      MODIFY_DATE, COMP_CODE, SYS_CODE
+      )
+    values (#{pkId,jdbcType=VARCHAR}, #{orgId,jdbcType=VARCHAR}, #{orgDomain,jdbcType=VARCHAR}, 
+      #{makeEmp,jdbcType=VARCHAR}, #{makeDate,jdbcType=DATE}, #{modifyEmp,jdbcType=VARCHAR}, 
+      #{modifyDate,jdbcType=DATE}, #{compCode,jdbcType=VARCHAR}, #{sysCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.tony.jee.pojo.base.AgOrgDomainRel">
+    insert into AG_ORG_DOMAIN_REL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        PK_ID,
+      </if>
+      <if test="orgId != null">
+        ORG_ID,
+      </if>
+      <if test="orgDomain != null">
+        ORG_DOMAIN,
+      </if>
+      <if test="makeEmp != null">
+        MAKE_EMP,
+      </if>
+      <if test="makeDate != null">
+        MAKE_DATE,
+      </if>
+      <if test="modifyEmp != null">
+        MODIFY_EMP,
+      </if>
+      <if test="modifyDate != null">
+        MODIFY_DATE,
+      </if>
+      <if test="compCode != null">
+        COMP_CODE,
+      </if>
+      <if test="sysCode != null">
+        SYS_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkId != null">
+        #{pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgId != null">
+        #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgDomain != null">
+        #{orgDomain,jdbcType=VARCHAR},
+      </if>
+      <if test="makeEmp != null">
+        #{makeEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="makeDate != null">
+        #{makeDate,jdbcType=DATE},
+      </if>
+      <if test="modifyEmp != null">
+        #{modifyEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyDate != null">
+        #{modifyDate,jdbcType=DATE},
+      </if>
+      <if test="compCode != null">
+        #{compCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCode != null">
+        #{sysCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.tony.jee.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from AG_ORG_DOMAIN_REL
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update AG_ORG_DOMAIN_REL
+    <set>
+      <if test="record.pkId != null">
+        PK_ID = #{record.pkId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orgId != null">
+        ORG_ID = #{record.orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orgDomain != null">
+        ORG_DOMAIN = #{record.orgDomain,jdbcType=VARCHAR},
+      </if>
+      <if test="record.makeEmp != null">
+        MAKE_EMP = #{record.makeEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.makeDate != null">
+        MAKE_DATE = #{record.makeDate,jdbcType=DATE},
+      </if>
+      <if test="record.modifyEmp != null">
+        MODIFY_EMP = #{record.modifyEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modifyDate != null">
+        MODIFY_DATE = #{record.modifyDate,jdbcType=DATE},
+      </if>
+      <if test="record.compCode != null">
+        COMP_CODE = #{record.compCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sysCode != null">
+        SYS_CODE = #{record.sysCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update AG_ORG_DOMAIN_REL
+    set PK_ID = #{record.pkId,jdbcType=VARCHAR},
+      ORG_ID = #{record.orgId,jdbcType=VARCHAR},
+      ORG_DOMAIN = #{record.orgDomain,jdbcType=VARCHAR},
+      MAKE_EMP = #{record.makeEmp,jdbcType=VARCHAR},
+      MAKE_DATE = #{record.makeDate,jdbcType=DATE},
+      MODIFY_EMP = #{record.modifyEmp,jdbcType=VARCHAR},
+      MODIFY_DATE = #{record.modifyDate,jdbcType=DATE},
+      COMP_CODE = #{record.compCode,jdbcType=VARCHAR},
+      SYS_CODE = #{record.sysCode,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tony.jee.pojo.base.AgOrgDomainRel">
+    update AG_ORG_DOMAIN_REL
+    <set>
+      <if test="orgId != null">
+        ORG_ID = #{orgId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgDomain != null">
+        ORG_DOMAIN = #{orgDomain,jdbcType=VARCHAR},
+      </if>
+      <if test="makeEmp != null">
+        MAKE_EMP = #{makeEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="makeDate != null">
+        MAKE_DATE = #{makeDate,jdbcType=DATE},
+      </if>
+      <if test="modifyEmp != null">
+        MODIFY_EMP = #{modifyEmp,jdbcType=VARCHAR},
+      </if>
+      <if test="modifyDate != null">
+        MODIFY_DATE = #{modifyDate,jdbcType=DATE},
+      </if>
+      <if test="compCode != null">
+        COMP_CODE = #{compCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCode != null">
+        SYS_CODE = #{sysCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tony.jee.pojo.base.AgOrgDomainRel">
+    update AG_ORG_DOMAIN_REL
+    set ORG_ID = #{orgId,jdbcType=VARCHAR},
+      ORG_DOMAIN = #{orgDomain,jdbcType=VARCHAR},
+      MAKE_EMP = #{makeEmp,jdbcType=VARCHAR},
+      MAKE_DATE = #{makeDate,jdbcType=DATE},
+      MODIFY_EMP = #{modifyEmp,jdbcType=VARCHAR},
+      MODIFY_DATE = #{modifyDate,jdbcType=DATE},
+      COMP_CODE = #{compCode,jdbcType=VARCHAR},
+      SYS_CODE = #{sysCode,jdbcType=VARCHAR}
+    where PK_ID = #{pkId,jdbcType=VARCHAR}
+  </update>
+</mapper>
