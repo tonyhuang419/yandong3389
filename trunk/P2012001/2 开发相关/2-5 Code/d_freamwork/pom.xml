@@ -90,6 +90,24 @@
 		<!-- <version>2.5.6</version> -->
 		<!-- </dependency> -->
 
+		<!-- Spring Security 3 -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>3.1.2.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>3.1.2.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>3.1.2.RELEASE</version>
+		</dependency>
+
+        <!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aop</artifactId>
@@ -100,45 +118,59 @@
 			<artifactId>spring-aspects</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
-		<!-- Bean Factory and JavaBeans utilities (depends on spring-core) Define 
-			this if you use Spring Bean APIs (org.springframework.beans.*) -->
+		<!--
+			Bean Factory and JavaBeans utilities (depends on spring-core) Define
+			this if you use Spring Bean APIs (org.springframework.beans.*)
+		-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
-		<!-- Application Context (depends on spring-core, spring-expression, spring-aop, 
-			spring-beans) This is the central artifact for Spring's Dependency Injection 
-			Container and is generally always defined -->
+		<!--
+			Application Context (depends on spring-core, spring-expression,
+			spring-aop, spring-beans) This is the central artifact for Spring's
+			Dependency Injection Container and is generally always defined
+		-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
-		<!-- Various Application Context utilities, including EhCache, JavaMail, 
-			Quartz, and Freemarker integration Define this if you need any of these integrations -->
+		<!--
+			Various Application Context utilities, including EhCache, JavaMail,
+			Quartz, and Freemarker integration Define this if you need any of
+			these integrations
+		-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
-		<!-- Core utilities used by other modules. Define this if you use Spring 
-			Utility APIs (org.springframework.core.*/org.springframework.util.*) -->
+		<!--
+			Core utilities used by other modules. Define this if you use Spring
+			Utility APIs (org.springframework.core.*/org.springframework.util.*)
+		-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
-		<!-- Expression Language (depends on spring-core) Define this if you use 
-			Spring Expression APIs (org.springframework.expression.*) -->
+		<!--
+			Expression Language (depends on spring-core) Define this if you use
+			Spring Expression APIs (org.springframework.expression.*)
+		-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-expression</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
-		<!-- Transaction Management Abstraction (depends on spring-core, spring-beans, 
-			spring-aop, spring-context) Define this if you use Spring Transactions or 
-			DAO Exception Hierarchy (org.springframework.transaction.*/org.springframework.dao.*) -->
+		<!--
+			Transaction Management Abstraction (depends on spring-core,
+			spring-beans, spring-aop, spring-context) Define this if you use
+			Spring Transactions or DAO Exception Hierarchy
+			(org.springframework.transaction.*/org.springframework.dao.*)
+		-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
@@ -176,18 +208,18 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.apache.struts</groupId> -->
-<!-- 			<artifactId>struts2-core</artifactId> -->
-<!-- 			<version>2.2.3.1</version> -->
-<!-- 		</dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.apache.struts</groupId> -->
-<!-- 			<artifactId>struts2-spring-plugin</artifactId> -->
-<!-- 			<version>2.2.3.1</version> -->
-<!-- 			<type>jar</type> -->
-<!-- 			<scope>compile</scope> -->
-<!-- 		</dependency> -->
+		<!-- 		<dependency> -->
+		<!-- 			<groupId>org.apache.struts</groupId> -->
+		<!-- 			<artifactId>struts2-core</artifactId> -->
+		<!-- 			<version>2.2.3.1</version> -->
+		<!-- 		</dependency> -->
+		<!-- 		<dependency> -->
+		<!-- 			<groupId>org.apache.struts</groupId> -->
+		<!-- 			<artifactId>struts2-spring-plugin</artifactId> -->
+		<!-- 			<version>2.2.3.1</version> -->
+		<!-- 			<type>jar</type> -->
+		<!-- 			<scope>compile</scope> -->
+		<!-- 		</dependency> -->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-core-lgpl</artifactId>
@@ -349,18 +381,20 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>ojdbc</groupId> -->
-<!-- 			<artifactId>ojdbc</artifactId> -->
-<!-- 			<version>14</version> -->
-<!-- 			<scope>compile</scope> -->
-<!-- 		</dependency> -->
+		<!-- 		<dependency> -->
+		<!-- 			<groupId>ojdbc</groupId> -->
+		<!-- 			<artifactId>ojdbc</artifactId> -->
+		<!-- 			<version>14</version> -->
+		<!-- 			<scope>compile</scope> -->
+		<!-- 		</dependency> -->
 	</dependencies>
 	<build>
 		<!-- 指定打包的名称 -->
 		<finalName>ROOT</finalName>
 		<!-- <sourceDirectory>${basedir}/src</sourceDirectory> -->
-		<!-- <outputDirectory>${basedir}/webapp/WEB-INF/classes</outputDirectory> -->
+		<!--
+			<outputDirectory>${basedir}/webapp/WEB-INF/classes</outputDirectory>
+		-->
 		<!-- <resources> -->
 		<!-- <resource> -->
 		<!-- <directory>${basedir}/src</directory> -->
@@ -429,7 +463,10 @@
 			<!-- <exclude>**/ServicesTest.java</exclude> -->
 			<!-- </excludes> -->
 			<!-- 忽略单元测试失败 -->
-			<!-- 命令：mvn package -Dmaven.test.failure.ignore=true <testFailureIgnore>true</testFailureIgnore> -->
+			<!--
+				命令：mvn package -Dmaven.test.failure.ignore=true
+				<testFailureIgnore>true</testFailureIgnore>
+			-->
 			<!-- 跳过单元测试 -->
 			<!-- 命令：mvn -package -Dmaven.test.skip=true <skip>true</skip> -->
 			<!-- <skip>true</skip> -->
