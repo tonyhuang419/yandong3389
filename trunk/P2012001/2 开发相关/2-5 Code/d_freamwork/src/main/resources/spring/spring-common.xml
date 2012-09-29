@@ -33,13 +33,13 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="oracleDataSource" />
 		<property name="configLocation" value="classpath:/mybatis/mybatis-config.xml" />
-		<property name="typeAliasesPackage" value="com.tony.jee.pojo.base" />
+		<property name="typeAliasesPackage" value="com.tony.jee.pojo.base;com.tony.jee.pojo" />
 		<!-- <property name="mapperLocations" value="classpath:/sqlmap/*Mapper.xml" /> -->
 	</bean>
 
 	<!-- mybatis接口 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.tony.jee.dao.base" />
+		<property name="basePackage" value="com.tony.jee.dao.base;com.tony.jee.dao" />
 	</bean>
 
 	<!-- 连接事务的注解配置 -->
