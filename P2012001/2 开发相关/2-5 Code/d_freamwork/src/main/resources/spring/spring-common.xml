@@ -9,7 +9,10 @@
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd"
 	default-lazy-init="true">
-
+	
+	<!-- 数据库连接池 -->
+	<import resource="classpath:/spring/spring-pool.xml" />
+	
 	<!-- 自动搜索@Component , @Service , @Repository等标注的类 -->
 	<context:component-scan base-package="com.tony.jee" annotation-config="true">
 	</context:component-scan>
@@ -33,13 +36,13 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="oracleDataSource" />
 		<property name="configLocation" value="classpath:/mybatis/mybatis-config.xml" />
-		<property name="typeAliasesPackage" value="com.tony.jee.pojo.base;com.tony.jee.pojo" />
+		<property name="typeAliasesPackage" value="com.tony.jee.pojo.base" />
 		<!-- <property name="mapperLocations" value="classpath:/sqlmap/*Mapper.xml" /> -->
 	</bean>
 
 	<!-- mybatis接口 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.tony.jee.dao.base;com.tony.jee.dao" />
+		<property name="basePackage" value="com.tony.jee.dao.base" />
 	</bean>
 
 	<!-- 连接事务的注解配置 -->
@@ -68,8 +71,6 @@
 		<property name="properties" ref="applicationProperties" />
 	</bean>
 	
-	<!-- 数据库连接池 -->
-	<import resource="classpath:/spring/spring-pool.xml" />
 	<!-- 任务调度 -->
 <!-- 	<import resource="classpath:/spring/spring-quartz.xml" /> -->
 </beans>
