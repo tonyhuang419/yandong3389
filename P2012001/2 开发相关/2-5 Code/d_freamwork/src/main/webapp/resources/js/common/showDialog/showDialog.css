@@ -3,7 +3,7 @@
 }
 /*前台弹出层 样式*/
 .tanTopM{
-	background:url(../../../images/popup/tanTopM.png) repeat-x;
+	background:url(img/tanTopM.png) repeat-x;
 	line-height:44px;
 	padding-top:10px;
 	color:#ffffff;
@@ -12,37 +12,37 @@
 	font-weight: bold;
 }
 .tanCenterL{
-	background:url(../../../images/popup/tanCenterL.png) repeat-y
+	background:url(img/tanCenterL.png) repeat-y
 }
 .tanCenterM{
 	background:#f5f5f5;
 	padding:15px 0 15px 17px;
 }
 .tanCenterR{
-	background:url(../../../images/popup/tanCenterR.png) repeat-y right;
+	background:url(img/tanCenterR.png) repeat-y right;
 }
 .tanBotM{
-	background:url(../../../images/popup/tanBotM.png) repeat-x;
+	background:url(img/tanBotM.png) repeat-x;
 }
 .tanTopR,.htanTopR{
-	background:url(../../../images/popup/tanTopR.png) no-repeat;
+	background:url(img/tanTopR.png) no-repeat;
 	display:block;
 	width:44px;
 	height:54px;
 }
 .tanTopR:hover{
-	background:url(../../../images/popup/tanTopRHover.png) no-repeat;
+	background:url(img/tanTopRHover.png) no-repeat;
 }
 .htanTopR{
-	background:url(../../../images/popup/htanTopR.png) no-repeat;
+	background:url(img/htanTopR.png) no-repeat;
 }
 .htanTopR:hover{
-	background:url(../../../images/popup/htanTopRHover.png) no-repeat;
+	background:url(img/htanTopRHover.png) no-repeat;
 }
 
 /*后台弹出层 样式*/
 .htanTopM{
-	background:url(../../../images/popup/htanTopM.png) repeat-x;
+	background:url(img/htanTopM.png) repeat-x;
 	line-height:44px;
 	padding-top:10px;
 	color:#ffffff;
@@ -51,15 +51,15 @@
 	font-weight: bold;
 }
 .htanCenterL{
-	background:url(../../../images/popup/htanCenterL.png) repeat-y
+	background:url(img/htanCenterL.png) repeat-y
 }
 .htanCenterM{
 	background:#fbfbfb;
 	padding:15px 0 15px 17px;
 }
 .htanCenterR{
-	background:url(../../../images/popup/htanCenterR.png) repeat-y right;
+	background:url(img/htanCenterR.png) repeat-y right;
 }
 .htanBotM{
-	background:url(../../../images/popup/htanBotM.png) repeat-x;
+	background:url(img/htanBotM.png) repeat-x;
 }
