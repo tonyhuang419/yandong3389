@@ -48,7 +48,7 @@ function showMessageBox(wTitle, content, wWidth, top) {
     var tempHtml = '';
     tempHtml += '<div class="mesWindowTop">';
     tempHtml += '<table cellpadding="0" cellspacing="0"><tr>';
-    tempHtml += '<td width="16" height="54"><img src="web/images/popup/tanTopL.png"></td>';
+    tempHtml += '<td width="16" height="54"><img src="resources/js/common/showDialog/img/tanTopL.png"></td>';
     tempHtml += '<td class="tanTopM">'+wTitle+'</td>';
     tempHtml += '<td width="44" height="54"><a href="javascript:closeWindow();" class="tanTopR"></a></td>';
     tempHtml += '</tr>';
@@ -58,9 +58,9 @@ function showMessageBox(wTitle, content, wWidth, top) {
     tempHtml += '<td width="44" class="tanCenterR">&nbsp;</td>';
     tempHtml += '</tr>';
     tempHtml += '<tr>';
-    tempHtml += '<td width="16" height="21"><img src="web/images/popup/tanBotL.png"></td>';
+    tempHtml += '<td width="16" height="21"><img src="resources/js/common/showDialog/img/tanBotL.png"></td>';
     tempHtml += '<td class="tanBotM">&nbsp;</td>';
-    tempHtml += '<td width="44" height="21"><img src="web/images/popup/tanBotR.png" border="0"></td>';
+    tempHtml += '<td width="44" height="21"><img src="resources/js/common/showDialog/img/tanBotR.png" border="0"></td>';
     tempHtml += '</tr>';
     tempHtml += '</table>';
     tempHtml += '</div>';
@@ -106,7 +106,7 @@ function showMessageBoxForZZ(wTitle, content, wWidth, top) {
     var tempHtml = '';
     tempHtml += '<div class="mesWindowTop">';
     tempHtml += '<table cellpadding="0" cellspacing="0"><tr>';
-    tempHtml += '<td width="16" height="54"><img src="web/images/popup/htanTopL.png"></td>';
+    tempHtml += '<td width="16" height="54"><img src="resources/js/common/showDialog/img/htanTopL.png"></td>';
     tempHtml += '<td class="htanTopM">'+wTitle+'</td>';
     tempHtml += '<td width="44" height="54"><a href="javascript:closeWindow();" class="htanTopR"></a></td>';
     tempHtml += '</tr>';
@@ -116,9 +116,9 @@ function showMessageBoxForZZ(wTitle, content, wWidth, top) {
     tempHtml += '<td width="44" class="htanCenterR">&nbsp;</td>';
     tempHtml += '</tr>';
     tempHtml += '<tr>';
-    tempHtml += '<td width="16" height="21"><img src="web/images/popup/htanBotL.png"></td>';
+    tempHtml += '<td width="16" height="21"><img src="resources/js/common/showDialog/img/htanBotL.png"></td>';
     tempHtml += '<td class="htanBotM">&nbsp;</td>';
-    tempHtml += '<td width="44" height="21"><img src="web/images/popup/htanBotR.png" border="0"></td>';
+    tempHtml += '<td width="44" height="21"><img src="resources/js/common/showDialog/img/htanBotR.png" border="0"></td>';
     tempHtml += '</tr>';
     tempHtml += '</table>';
     tempHtml += '</div>';
