@@ -1,4 +1,4 @@
-package com.rstco.frame.pub.security.service;
+package com.tony.jee.common.security.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

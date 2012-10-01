@@ -1,4 +1,4 @@
-package com.rstco.frame.pub.security.entity;
+package com.tony.jee.common.security.pojo;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,11 +12,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
+import com.rstco.frame.pub.security.entity.PubAuthoritiesResources;
+
 /**
  * PubAuthorities entity. @author MyEclipse Persistence Tools
  */
-@Entity
-@Table(name = "pub_authorities")
 public class PubAuthorities implements java.io.Serializable {
 
 	// Fields

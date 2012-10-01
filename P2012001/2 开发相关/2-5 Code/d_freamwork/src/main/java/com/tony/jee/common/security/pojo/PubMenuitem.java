@@ -1,19 +1,9 @@
-package com.rstco.frame.pub.security.entity;
+package com.tony.jee.common.security.pojo;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-// default package
-
-import org.hibernate.annotations.GenericGenerator;
 
 /**
  * PubMenuitem entity. @author MyEclipse Persistence Tools
  */
-@Entity
-@Table(name = "pub_menuitem")
 public class PubMenuitem implements java.io.Serializable {
 
 	// Fields

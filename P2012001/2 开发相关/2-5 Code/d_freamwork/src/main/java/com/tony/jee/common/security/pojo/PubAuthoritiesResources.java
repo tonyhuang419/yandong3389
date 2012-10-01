@@ -1,4 +1,4 @@
-package com.rstco.frame.pub.security.entity;
+package com.tony.jee.common.security.pojo;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -16,9 +16,6 @@ import org.hibernate.annotations.Proxy;
 /**
  * PubAuthoritiesResources entity. @author MyEclipse Persistence Tools
  */
-@Entity
-@Proxy(lazy = false)
-@Table(name = "pub_authorities_resources")
 public class PubAuthoritiesResources implements java.io.Serializable {
 
 	// Fields

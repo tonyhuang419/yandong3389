@@ -1,4 +1,4 @@
-package com.rstco.frame.pub.security.entity;
+package com.tony.jee.common.security.pojo;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -15,8 +15,6 @@ import org.hibernate.annotations.GenericGenerator;
 /**
  * PubResources entity. @author MyEclipse Persistence Tools
  */
-@Entity
-@Table(name = "pub_resources")
 public class PubResources implements java.io.Serializable {
 
 	// Fields
