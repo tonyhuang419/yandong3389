@@ -27,8 +27,8 @@
 
 		<!-- ORACLE数据库连接信息 -->
 		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
-		                       connectionURL="jdbc:oracle:thin:@192.168.0.171:1521:orcl"
-			                   userId="scott"
+		                       connectionURL="jdbc:oracle:thin:@192.168.1.190:1521:testdb"
+			                   userId="root"
 			                   password="root" />
 
         <!-- java实体类 -->
