@@ -4,9 +4,9 @@
 <HTML>
    <HEAD>
       <TITLE>FusionCharts - Simple Column 3D Chart</TITLE>
-<script type="text/javascript" src="fc/FusionCharts.js"></script>
+<script type="text/javascript" src="FusionCharts/FusionCharts.js"></script>
 <script type="text/javascript" src="resources/js/common/jquery-1.6.2.min.js"></script>
-<script type="text/javascript" src="fc/FusionChartsExportComponent.js"></script>
+<script type="text/javascript" src="FusionCharts/FusionChartsExportComponent.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -30,30 +30,28 @@ $(document).ready(function(){
         // 放置图表的DIV的ID
         chart.render("myFusion");
    } 
-
-    
  });
 
-function FC_Exported(objRtn){
-	if(objRtn.statusCode == "1"){
-		alert("The chart was successfully saved on server. The file can be accessed from " + objRtn.fileName);
-	} else {
-		alert("The chart could not be saved on server. There was an error. Description : " + objRtn.statusMessage);
-	}
-}
+// function FC_Exported(objRtn){
+// 	if(objRtn.statusCode == "1"){
+// 		alert("The chart was successfully saved on server. The file can be accessed from " + objRtn.fileName);
+// 	} else {
+// 		alert("The chart could not be saved on server. There was an error. Description : " + objRtn.statusMessage);
+// 	}
+// }
 
-function saveChart(){
-	var chartObject = getChartFromId("myFusion");
-	// chartToSave.saveAsImage();
-	if(chartObject.hasRendered()){
-		chartObject.exportChart();
-	}
-}
+// function saveChart(){
+// 	var chartObject = getChartFromId("myFusion");
+// 	// chartToSave.saveAsImage();
+// 	if(chartObject.hasRendered()){
+// 		chartObject.exportChart();
+// 	}
+// }
 
-function printChart(){
-	var chartToPrint = getChartFromId("myFusion");
-	chartToPrint.print();
-}
+// function printChart(){
+// 	var chartToPrint = getChartFromId("myFusion");
+// 	chartToPrint.print();
+// }
 </script>
    </HEAD>
    <BODY>
