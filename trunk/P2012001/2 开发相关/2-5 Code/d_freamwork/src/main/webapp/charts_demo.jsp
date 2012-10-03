@@ -23,9 +23,9 @@ $(document).ready(function(){
                  "numberPrefix" : "$",
                  "exportEnabled" : '1' ,
                  "exportAtClient" : '1' ,
-                 "exportHandler" :'fcExporter1',
-                 "exportAction" : 'download',
-                 "exportTargetWindow" : '_self'
+                 "exportHandler" :'FCExporter'
+//                  "exportAction" : 'download',
+//                  "exportTargetWindow" : '_self',
 	       },
 	               
 	       "data" : 
@@ -392,6 +392,25 @@ $(document).ready(function(){
         height: "300", 
         id: "myChartId"
    }); 
+    
+    $("#show").click(function(){
+    	
+    	showFusionCharts();
+    });
+    
+    function showFusionCharts(){  
+        var xmlData = "<chart palette='2' caption='按地市统计报表-不达标数' xAxisName='地市' yAxisName='' showToolTip='0' showValues='1'" +
+                             "formatNumberScale='0' rotateNames='0' decimals='0' useRoundEdges='1' exportEnabled='1' exportAtClient='0' exportAction='save' exportFileName='weeksnotsucced'" +
+                             "exportDialogMessage='正在导出，请稍候...' exportHandler='http://localhost/d_freamwork/FusionCharts/ExportHandlers/FCExporter_PDF.jsp'" +
+                             "exportShowMenuItem='1'>" +
+        "<set name='Jan' value='462' color='AFD8F8' />" +
+        "<set name='Feb' value='857' color='F6BD0F' />" +
+        "<set name='Mar' value='671' color='8BBA00' />" + "</chart>";  
+        var chart = new FusionCharts("FusionCharts/Charts/Column3D.swf", "myFusionExport", "450", "280", "0", "0");  
+        chart.setDataXML(xmlData);  
+        chart.render("myFusion");  //放置图表的DIV的ID  
+   } 
+    
  });
 </script>
    </HEAD>
@@ -402,5 +421,7 @@ $(document).ready(function(){
          <div id="chartContainer4" style="float: left;">FusionCharts 将加载显示到这里!</div> 
          <div id="chartContainer5" style="float: left;">FusionCharts 将加载显示到这里!</div> 
          <div id="chartContainer6" style="float: left;">FusionCharts 将加载显示到这里!</div> 
+         <div id="myFusion" style="float: left;">myFusion</div>
+         <input type="button" style="float: left;" id="show" value="显示" />
    </BODY>
 </HTML>

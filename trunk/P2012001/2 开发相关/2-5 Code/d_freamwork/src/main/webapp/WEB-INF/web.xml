@@ -15,7 +15,7 @@
 	</filter>
 	<filter-mapping>
 		<filter-name>struts2</filter-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>*.action</url-pattern>
 	</filter-mapping>
 	
     <!-- Spring ApplicationContext配置文件的路径 ,可使用通配符，多个路径用,号分隔 -->
@@ -43,7 +43,7 @@
         <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
     </listener>
     
-    <servlet>   
+     <servlet>   
         <display-name>FCExporter</display-name>  
         <servlet-name>FCExporter</servlet-name>  
         <servlet-class>com.fusioncharts.exporter.servlet.FCExporter</servlet-class>  
@@ -51,5 +51,5 @@
      <servlet-mapping>  
         <servlet-name>FCExporter</servlet-name>  
         <url-pattern>/FCExporter</url-pattern>  
-     </servlet-mapping> 
+     </servlet-mapping>
 </web-app>
