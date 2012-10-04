@@ -36,7 +36,7 @@ public class PageUtil {
         int startRecord = 0;
         currentPage--;
         // 如果当前为0则开始条数是0 否则每页开始条数为当前页减1乘每页显示条数
-        if (currentPage == 0) {
+        if (currentPage <= 0) {
             startRecord = 0;
         }
         else {
