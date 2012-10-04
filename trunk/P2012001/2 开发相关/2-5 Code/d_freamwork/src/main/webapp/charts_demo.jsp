@@ -22,10 +22,15 @@ $(document).ready(function(){
                  "yAxisName" : "Sales",
                  "numberPrefix" : "$",
                  "exportEnabled" : '1' ,
-                 "exportAtClient" : '1' ,
-                 "exportHandler" :'FCExporter'
-//                  "exportAction" : 'download',
-//                  "exportTargetWindow" : '_self',
+
+                 // 导出图片及PDF设置(可选参数)
+                 // download:客户端下载 save:服务端保存
+                 "exportAction" : 'save',
+                 "exportFileName" : 'MyFileName',
+                 "exportCallback" : 'FC_Exported',
+                 "exportDialogMessage" : '正在导出，请稍候...',
+                 "exportHandler" : 'FCExporter',
+                 "exportShowMenuItem" : '1'
 	       },
 	               
 	       "data" : 
