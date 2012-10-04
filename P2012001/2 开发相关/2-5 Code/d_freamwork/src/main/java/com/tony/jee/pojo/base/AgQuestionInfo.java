@@ -35,9 +35,9 @@ public class AgQuestionInfo implements Serializable {
     private String qState;
 
     /**
-     * 提出人姓名
+     * 提出人ID
      */
-    private String dishName;
+    private String dishId;
 
     /**
      * 提出人联系方式
@@ -50,7 +50,7 @@ public class AgQuestionInfo implements Serializable {
     private Date createTime;
 
     /**
-     * 提出人部门及职务
+     * 提出人部门
      */
     private String dishDept;
 
@@ -113,6 +113,11 @@ public class AgQuestionInfo implements Serializable {
      * 总评分
      */
     private String allcount;
+
+    /**
+     * 提出人职务
+     */
+    private String dishDuty;
 
     /**
      * @return 系统主键
@@ -190,18 +195,18 @@ public class AgQuestionInfo implements Serializable {
     }
 
     /**
-     * @return 提出人姓名
+     * @return 提出人ID
      */
-    public String getDishName() {
-        return dishName;
+    public String getDishId() {
+        return dishId;
     }
 
     /**
-     * @param dishName 
-	 *            提出人姓名
+     * @param dishId 
+	 *            提出人ID
      */
-    public void setDishName(String dishName) {
-        this.dishName = dishName;
+    public void setDishId(String dishId) {
+        this.dishId = dishId;
     }
 
     /**
@@ -235,7 +240,7 @@ public class AgQuestionInfo implements Serializable {
     }
 
     /**
-     * @return 提出人部门及职务
+     * @return 提出人部门
      */
     public String getDishDept() {
         return dishDept;
@@ -243,7 +248,7 @@ public class AgQuestionInfo implements Serializable {
 
     /**
      * @param dishDept 
-	 *            提出人部门及职务
+	 *            提出人部门
      */
     public void setDishDept(String dishDept) {
         this.dishDept = dishDept;
@@ -427,5 +432,20 @@ public class AgQuestionInfo implements Serializable {
      */
     public void setAllcount(String allcount) {
         this.allcount = allcount;
+    }
+
+    /**
+     * @return 提出人职务
+     */
+    public String getDishDuty() {
+        return dishDuty;
+    }
+
+    /**
+     * @param dishDuty 
+	 *            提出人职务
+     */
+    public void setDishDuty(String dishDuty) {
+        this.dishDuty = dishDuty;
     }
 }
