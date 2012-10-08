@@ -1,10 +1,14 @@
 package com.tony.jee.service;
 
+import com.tony.jee.common.pager.PagerModel;
 import com.tony.jee.pojo.base.AgDomain;
 import com.tony.jee.pojo.base.Criteria;
 import java.util.List;
 
 public interface AgDomainService {
+    
+    PagerModel<AgDomain> findPageModel(Criteria example);
+    
     int countByExample(Criteria example);
 
     AgDomain selectByPrimaryKey(String pkId);
