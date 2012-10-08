@@ -1,5 +1,6 @@
 package com.tony.jee.service.impl;
 
+import com.tony.jee.common.pager.PagerModel;
 import com.tony.jee.dao.base.AgDomainMapper;
 import com.tony.jee.pojo.base.AgDomain;
 import com.tony.jee.pojo.base.Criteria;
@@ -17,6 +18,20 @@ public class AgDomainServiceImpl implements AgDomainService {
 
     private static final Logger logger = LoggerFactory.getLogger(AgDomainServiceImpl.class);
 
+    public PagerModel<AgDomain> findPageModel(Criteria example){
+        
+        int count = this.agDomainMapper.countByExample(null);
+        
+        List<AgDomain> datas = this.agDomainMapper.selectByExample(example);
+        
+        PagerModel<AgDomain> pagerModel = new PagerModel<AgDomain>();
+        
+        pagerModel.setDatas(datas);
+        pagerModel.setTotal(count);
+        
+        return pagerModel;
+    }
+    
     public int countByExample(Criteria example) {
         int count = this.agDomainMapper.countByExample(example);
         logger.debug("count: {}", count);

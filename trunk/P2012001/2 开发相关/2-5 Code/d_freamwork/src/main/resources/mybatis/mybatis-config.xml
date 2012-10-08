@@ -13,5 +13,7 @@
 	<mappers>
 		<mapper resource="sqlmap/base/common_SqlMap.xml" />
 		<mapper resource="sqlmap/base/AgAuditPersonMapper.xml" />
+		<mapper resource="sqlmap/base/AgDomainMapper.xml" />
+		
 	</mappers>
 </configuration>

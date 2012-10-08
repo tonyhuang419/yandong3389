@@ -1,5 +1,7 @@
+#Mon Oct 01 11:38:36 CST 2012
 eclipse.preferences.version=1
 encoding//src/main/resources/ibatis/jdbc.properties=UTF-8
 encoding//src/main/resources/mybatis/jdbc.properties=UTF-8
+encoding//src/main/webapp/dialog_demo.jsp=UTF-8
 encoding//src/main/webapp/index.jsp=UTF-8
 encoding/<project>=UTF-8

@@ -12,6 +12,11 @@
             <result name="success">/index.jsp</result>
             <result name="toIndex" type="redirect">HelloAction_toIndex.action</result>
         </action>
+        
+         <action name="PagerAction_*" class="com.tony.jee.web.action.PagerAction" method="{1}" >
+            <result name="success">/pager_demo.jsp</result>
+            <result name="toIndex" type="redirect">HelloAction_toIndex.action</result>
+        </action>
     </package>
     
 </struts>
