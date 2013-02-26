@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dreams.dream.dao.base.GameInfoMapper">
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.GameInfo">
+    <id column="game_id" jdbcType="VARCHAR" property="gameId" />
+    <result column="game_name" jdbcType="VARCHAR" property="gameName" />
+    <result column="game_logo_min" jdbcType="VARCHAR" property="gameLogoMin" />
+    <result column="game_logo_max" jdbcType="VARCHAR" property="gameLogoMax" />
+    <result column="game_url" jdbcType="VARCHAR" property="gameUrl" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.gameName != null">
+         and game_name = #{condition.gameName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.gameLogoMin != null">
+         and game_logo_min = #{condition.gameLogoMin,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.gameLogoMax != null">
+         and game_logo_max = #{condition.gameLogoMax,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.gameUrl != null">
+         and game_url = #{condition.gameUrl,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.gameName != null">
+         and game_name = #{example.condition.gameName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.gameLogoMin != null">
+         and game_logo_min = #{example.condition.gameLogoMin,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.gameLogoMax != null">
+         and game_logo_max = #{example.condition.gameLogoMax,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.gameUrl != null">
+         and game_url = #{example.condition.gameUrl,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    game_id, game_name, game_logo_min, game_logo_max, game_url
+  </sql>
+  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from game_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from game_info
+    where game_id = #{gameId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from game_info
+    where game_id = #{gameId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
+    delete from game_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.GameInfo">
+    insert into game_info (game_id, game_name, game_logo_min, 
+      game_logo_max, game_url)
+    values (#{gameId,jdbcType=VARCHAR}, #{gameName,jdbcType=VARCHAR}, #{gameLogoMin,jdbcType=VARCHAR}, 
+      #{gameLogoMax,jdbcType=VARCHAR}, #{gameUrl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.GameInfo">
+    insert into game_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="gameId != null">
+        game_id,
+      </if>
+      <if test="gameName != null">
+        game_name,
+      </if>
+      <if test="gameLogoMin != null">
+        game_logo_min,
+      </if>
+      <if test="gameLogoMax != null">
+        game_logo_max,
+      </if>
+      <if test="gameUrl != null">
+        game_url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="gameId != null">
+        #{gameId,jdbcType=VARCHAR},
+      </if>
+      <if test="gameName != null">
+        #{gameName,jdbcType=VARCHAR},
+      </if>
+      <if test="gameLogoMin != null">
+        #{gameLogoMin,jdbcType=VARCHAR},
+      </if>
+      <if test="gameLogoMax != null">
+        #{gameLogoMax,jdbcType=VARCHAR},
+      </if>
+      <if test="gameUrl != null">
+        #{gameUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from game_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update game_info
+    <set>
+      <if test="record.gameId != null">
+        game_id = #{record.gameId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gameName != null">
+        game_name = #{record.gameName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gameLogoMin != null">
+        game_logo_min = #{record.gameLogoMin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gameLogoMax != null">
+        game_logo_max = #{record.gameLogoMax,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gameUrl != null">
+        game_url = #{record.gameUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update game_info
+    set game_id = #{record.gameId,jdbcType=VARCHAR},
+      game_name = #{record.gameName,jdbcType=VARCHAR},
+      game_logo_min = #{record.gameLogoMin,jdbcType=VARCHAR},
+      game_logo_max = #{record.gameLogoMax,jdbcType=VARCHAR},
+      game_url = #{record.gameUrl,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.GameInfo">
+    update game_info
+    <set>
+      <if test="gameName != null">
+        game_name = #{gameName,jdbcType=VARCHAR},
+      </if>
+      <if test="gameLogoMin != null">
+        game_logo_min = #{gameLogoMin,jdbcType=VARCHAR},
+      </if>
+      <if test="gameLogoMax != null">
+        game_logo_max = #{gameLogoMax,jdbcType=VARCHAR},
+      </if>
+      <if test="gameUrl != null">
+        game_url = #{gameUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where game_id = #{gameId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.GameInfo">
+    update game_info
+    set game_name = #{gameName,jdbcType=VARCHAR},
+      game_logo_min = #{gameLogoMin,jdbcType=VARCHAR},
+      game_logo_max = #{gameLogoMax,jdbcType=VARCHAR},
+      game_url = #{gameUrl,jdbcType=VARCHAR}
+    where game_id = #{gameId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.GameInfo">
+    <id column="game_id" jdbcType="VARCHAR" property="gameId" />
+    <result column="game_name" jdbcType="VARCHAR" property="gameName" />
+    <result column="game_logo_min" jdbcType="VARCHAR" property="gameLogoMin" />
+    <result column="game_logo_max" jdbcType="VARCHAR" property="gameLogoMax" />
+    <result column="game_url" jdbcType="VARCHAR" property="gameUrl" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.gameName != null">
+         and game_name = #{condition.gameName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.gameLogoMin != null">
+         and game_logo_min = #{condition.gameLogoMin,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.gameLogoMax != null">
+         and game_logo_max = #{condition.gameLogoMax,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.gameUrl != null">
+         and game_url = #{condition.gameUrl,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.gameName != null">
+         and game_name = #{example.condition.gameName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.gameLogoMin != null">
+         and game_logo_min = #{example.condition.gameLogoMin,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.gameLogoMax != null">
+         and game_logo_max = #{example.condition.gameLogoMax,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.gameUrl != null">
+         and game_url = #{example.condition.gameUrl,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    game_id, game_name, game_logo_min, game_logo_max, game_url
+  </sql>
+  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from game_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from game_info
+    where game_id = #{gameId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from game_info
+    where game_id = #{gameId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
+    delete from game_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.GameInfo">
+    insert into game_info (game_id, game_name, game_logo_min, 
+      game_logo_max, game_url)
+    values (#{gameId,jdbcType=VARCHAR}, #{gameName,jdbcType=VARCHAR}, #{gameLogoMin,jdbcType=VARCHAR}, 
+      #{gameLogoMax,jdbcType=VARCHAR}, #{gameUrl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.GameInfo">
+    insert into game_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="gameId != null">
+        game_id,
+      </if>
+      <if test="gameName != null">
+        game_name,
+      </if>
+      <if test="gameLogoMin != null">
+        game_logo_min,
+      </if>
+      <if test="gameLogoMax != null">
+        game_logo_max,
+      </if>
+      <if test="gameUrl != null">
+        game_url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="gameId != null">
+        #{gameId,jdbcType=VARCHAR},
+      </if>
+      <if test="gameName != null">
+        #{gameName,jdbcType=VARCHAR},
+      </if>
+      <if test="gameLogoMin != null">
+        #{gameLogoMin,jdbcType=VARCHAR},
+      </if>
+      <if test="gameLogoMax != null">
+        #{gameLogoMax,jdbcType=VARCHAR},
+      </if>
+      <if test="gameUrl != null">
+        #{gameUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from game_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update game_info
+    <set>
+      <if test="record.gameId != null">
+        game_id = #{record.gameId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gameName != null">
+        game_name = #{record.gameName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gameLogoMin != null">
+        game_logo_min = #{record.gameLogoMin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gameLogoMax != null">
+        game_logo_max = #{record.gameLogoMax,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gameUrl != null">
+        game_url = #{record.gameUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update game_info
+    set game_id = #{record.gameId,jdbcType=VARCHAR},
+      game_name = #{record.gameName,jdbcType=VARCHAR},
+      game_logo_min = #{record.gameLogoMin,jdbcType=VARCHAR},
+      game_logo_max = #{record.gameLogoMax,jdbcType=VARCHAR},
+      game_url = #{record.gameUrl,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.GameInfo">
+    update game_info
+    <set>
+      <if test="gameName != null">
+        game_name = #{gameName,jdbcType=VARCHAR},
+      </if>
+      <if test="gameLogoMin != null">
+        game_logo_min = #{gameLogoMin,jdbcType=VARCHAR},
+      </if>
+      <if test="gameLogoMax != null">
+        game_logo_max = #{gameLogoMax,jdbcType=VARCHAR},
+      </if>
+      <if test="gameUrl != null">
+        game_url = #{gameUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where game_id = #{gameId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.GameInfo">
+    update game_info
+    set game_name = #{gameName,jdbcType=VARCHAR},
+      game_logo_min = #{gameLogoMin,jdbcType=VARCHAR},
+      game_logo_max = #{gameLogoMax,jdbcType=VARCHAR},
+      game_url = #{gameUrl,jdbcType=VARCHAR}
+    where game_id = #{gameId,jdbcType=VARCHAR}
+  </update>
+</mapper>

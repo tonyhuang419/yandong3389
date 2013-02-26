@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dreams.dream.dao.base.WeiboInfoMapper">
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.WeiboInfo">
+    <id column="weibo_id" jdbcType="VARCHAR" property="weiboId" />
+    <result column="weibo_content" jdbcType="VARCHAR" property="weiboContent" />
+    <result column="weibo_browse_count" jdbcType="INTEGER" property="weiboBrowseCount" />
+    <result column="weibo_comment_count" jdbcType="INTEGER" property="weiboCommentCount" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="weibo_create_date" jdbcType="TIMESTAMP" property="weiboCreateDate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.weiboContent != null">
+         and weibo_content = #{condition.weiboContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.weiboBrowseCount != null">
+         and weibo_browse_count = #{condition.weiboBrowseCount,jdbcType=INTEGER}
+      </if>
+      <if test="condition.weiboCommentCount != null">
+         and weibo_comment_count = #{condition.weiboCommentCount,jdbcType=INTEGER}
+      </if>
+      <if test="condition.userId != null">
+         and user_id = #{condition.userId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.weiboCreateDate != null">
+         and weibo_create_date = #{condition.weiboCreateDate,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.weiboContent != null">
+         and weibo_content = #{example.condition.weiboContent,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.weiboBrowseCount != null">
+         and weibo_browse_count = #{example.condition.weiboBrowseCount,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.weiboCommentCount != null">
+         and weibo_comment_count = #{example.condition.weiboCommentCount,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.userId != null">
+         and user_id = #{example.condition.userId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.weiboCreateDate != null">
+         and weibo_create_date = #{example.condition.weiboCreateDate,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    weibo_id, weibo_content, weibo_browse_count, weibo_comment_count, user_id, weibo_create_date
+  </sql>
+  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from weibo_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from weibo_info
+    where weibo_id = #{weiboId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from weibo_info
+    where weibo_id = #{weiboId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
+    delete from weibo_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.WeiboInfo">
+    insert into weibo_info (weibo_id, weibo_content, weibo_browse_count, 
+      weibo_comment_count, user_id, weibo_create_date
+      )
+    values (#{weiboId,jdbcType=VARCHAR}, #{weiboContent,jdbcType=VARCHAR}, #{weiboBrowseCount,jdbcType=INTEGER}, 
+      #{weiboCommentCount,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, #{weiboCreateDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.WeiboInfo">
+    insert into weibo_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="weiboId != null">
+        weibo_id,
+      </if>
+      <if test="weiboContent != null">
+        weibo_content,
+      </if>
+      <if test="weiboBrowseCount != null">
+        weibo_browse_count,
+      </if>
+      <if test="weiboCommentCount != null">
+        weibo_comment_count,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="weiboCreateDate != null">
+        weibo_create_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="weiboId != null">
+        #{weiboId,jdbcType=VARCHAR},
+      </if>
+      <if test="weiboContent != null">
+        #{weiboContent,jdbcType=VARCHAR},
+      </if>
+      <if test="weiboBrowseCount != null">
+        #{weiboBrowseCount,jdbcType=INTEGER},
+      </if>
+      <if test="weiboCommentCount != null">
+        #{weiboCommentCount,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="weiboCreateDate != null">
+        #{weiboCreateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from weibo_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update weibo_info
+    <set>
+      <if test="record.weiboId != null">
+        weibo_id = #{record.weiboId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.weiboContent != null">
+        weibo_content = #{record.weiboContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.weiboBrowseCount != null">
+        weibo_browse_count = #{record.weiboBrowseCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.weiboCommentCount != null">
+        weibo_comment_count = #{record.weiboCommentCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.weiboCreateDate != null">
+        weibo_create_date = #{record.weiboCreateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update weibo_info
+    set weibo_id = #{record.weiboId,jdbcType=VARCHAR},
+      weibo_content = #{record.weiboContent,jdbcType=VARCHAR},
+      weibo_browse_count = #{record.weiboBrowseCount,jdbcType=INTEGER},
+      weibo_comment_count = #{record.weiboCommentCount,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      weibo_create_date = #{record.weiboCreateDate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.WeiboInfo">
+    update weibo_info
+    <set>
+      <if test="weiboContent != null">
+        weibo_content = #{weiboContent,jdbcType=VARCHAR},
+      </if>
+      <if test="weiboBrowseCount != null">
+        weibo_browse_count = #{weiboBrowseCount,jdbcType=INTEGER},
+      </if>
+      <if test="weiboCommentCount != null">
+        weibo_comment_count = #{weiboCommentCount,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="weiboCreateDate != null">
+        weibo_create_date = #{weiboCreateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where weibo_id = #{weiboId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.WeiboInfo">
+    update weibo_info
+    set weibo_content = #{weiboContent,jdbcType=VARCHAR},
+      weibo_browse_count = #{weiboBrowseCount,jdbcType=INTEGER},
+      weibo_comment_count = #{weiboCommentCount,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=VARCHAR},
+      weibo_create_date = #{weiboCreateDate,jdbcType=TIMESTAMP}
+    where weibo_id = #{weiboId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.WeiboInfo">
+    <id column="weibo_id" jdbcType="VARCHAR" property="weiboId" />
+    <result column="weibo_content" jdbcType="VARCHAR" property="weiboContent" />
+    <result column="weibo_browse_count" jdbcType="INTEGER" property="weiboBrowseCount" />
+    <result column="weibo_comment_count" jdbcType="INTEGER" property="weiboCommentCount" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="weibo_create_date" jdbcType="TIMESTAMP" property="weiboCreateDate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.weiboContent != null">
+         and weibo_content = #{condition.weiboContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.weiboBrowseCount != null">
+         and weibo_browse_count = #{condition.weiboBrowseCount,jdbcType=INTEGER}
+      </if>
+      <if test="condition.weiboCommentCount != null">
+         and weibo_comment_count = #{condition.weiboCommentCount,jdbcType=INTEGER}
+      </if>
+      <if test="condition.userId != null">
+         and user_id = #{condition.userId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.weiboCreateDate != null">
+         and weibo_create_date = #{condition.weiboCreateDate,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.weiboContent != null">
+         and weibo_content = #{example.condition.weiboContent,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.weiboBrowseCount != null">
+         and weibo_browse_count = #{example.condition.weiboBrowseCount,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.weiboCommentCount != null">
+         and weibo_comment_count = #{example.condition.weiboCommentCount,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.userId != null">
+         and user_id = #{example.condition.userId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.weiboCreateDate != null">
+         and weibo_create_date = #{example.condition.weiboCreateDate,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    weibo_id, weibo_content, weibo_browse_count, weibo_comment_count, user_id, weibo_create_date
+  </sql>
+  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from weibo_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from weibo_info
+    where weibo_id = #{weiboId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from weibo_info
+    where weibo_id = #{weiboId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
+    delete from weibo_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.WeiboInfo">
+    insert into weibo_info (weibo_id, weibo_content, weibo_browse_count, 
+      weibo_comment_count, user_id, weibo_create_date
+      )
+    values (#{weiboId,jdbcType=VARCHAR}, #{weiboContent,jdbcType=VARCHAR}, #{weiboBrowseCount,jdbcType=INTEGER}, 
+      #{weiboCommentCount,jdbcType=INTEGER}, #{userId,jdbcType=VARCHAR}, #{weiboCreateDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.WeiboInfo">
+    insert into weibo_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="weiboId != null">
+        weibo_id,
+      </if>
+      <if test="weiboContent != null">
+        weibo_content,
+      </if>
+      <if test="weiboBrowseCount != null">
+        weibo_browse_count,
+      </if>
+      <if test="weiboCommentCount != null">
+        weibo_comment_count,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="weiboCreateDate != null">
+        weibo_create_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="weiboId != null">
+        #{weiboId,jdbcType=VARCHAR},
+      </if>
+      <if test="weiboContent != null">
+        #{weiboContent,jdbcType=VARCHAR},
+      </if>
+      <if test="weiboBrowseCount != null">
+        #{weiboBrowseCount,jdbcType=INTEGER},
+      </if>
+      <if test="weiboCommentCount != null">
+        #{weiboCommentCount,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="weiboCreateDate != null">
+        #{weiboCreateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from weibo_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update weibo_info
+    <set>
+      <if test="record.weiboId != null">
+        weibo_id = #{record.weiboId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.weiboContent != null">
+        weibo_content = #{record.weiboContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.weiboBrowseCount != null">
+        weibo_browse_count = #{record.weiboBrowseCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.weiboCommentCount != null">
+        weibo_comment_count = #{record.weiboCommentCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.weiboCreateDate != null">
+        weibo_create_date = #{record.weiboCreateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update weibo_info
+    set weibo_id = #{record.weiboId,jdbcType=VARCHAR},
+      weibo_content = #{record.weiboContent,jdbcType=VARCHAR},
+      weibo_browse_count = #{record.weiboBrowseCount,jdbcType=INTEGER},
+      weibo_comment_count = #{record.weiboCommentCount,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      weibo_create_date = #{record.weiboCreateDate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.WeiboInfo">
+    update weibo_info
+    <set>
+      <if test="weiboContent != null">
+        weibo_content = #{weiboContent,jdbcType=VARCHAR},
+      </if>
+      <if test="weiboBrowseCount != null">
+        weibo_browse_count = #{weiboBrowseCount,jdbcType=INTEGER},
+      </if>
+      <if test="weiboCommentCount != null">
+        weibo_comment_count = #{weiboCommentCount,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="weiboCreateDate != null">
+        weibo_create_date = #{weiboCreateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where weibo_id = #{weiboId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.WeiboInfo">
+    update weibo_info
+    set weibo_content = #{weiboContent,jdbcType=VARCHAR},
+      weibo_browse_count = #{weiboBrowseCount,jdbcType=INTEGER},
+      weibo_comment_count = #{weiboCommentCount,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=VARCHAR},
+      weibo_create_date = #{weiboCreateDate,jdbcType=TIMESTAMP}
+    where weibo_id = #{weiboId,jdbcType=VARCHAR}
+  </update>
+</mapper>

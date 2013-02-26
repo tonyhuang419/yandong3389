@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dreams.dream.dao.base.PowerInfoMapper">
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.PowerInfo">
+    <id column="power_id" jdbcType="VARCHAR" property="powerId" />
+    <result column="power_url" jdbcType="VARCHAR" property="powerUrl" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.powerUrl != null">
+         and power_url = #{condition.powerUrl,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.powerUrl != null">
+         and power_url = #{example.condition.powerUrl,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    power_id, power_url
+  </sql>
+  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from power_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from power_info
+    where power_id = #{powerId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from power_info
+    where power_id = #{powerId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
+    delete from power_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.PowerInfo">
+    insert into power_info (power_id, power_url)
+    values (#{powerId,jdbcType=VARCHAR}, #{powerUrl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.PowerInfo">
+    insert into power_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="powerId != null">
+        power_id,
+      </if>
+      <if test="powerUrl != null">
+        power_url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="powerId != null">
+        #{powerId,jdbcType=VARCHAR},
+      </if>
+      <if test="powerUrl != null">
+        #{powerUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from power_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update power_info
+    <set>
+      <if test="record.powerId != null">
+        power_id = #{record.powerId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.powerUrl != null">
+        power_url = #{record.powerUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update power_info
+    set power_id = #{record.powerId,jdbcType=VARCHAR},
+      power_url = #{record.powerUrl,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.PowerInfo">
+    update power_info
+    <set>
+      <if test="powerUrl != null">
+        power_url = #{powerUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where power_id = #{powerId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.PowerInfo">
+    update power_info
+    set power_url = #{powerUrl,jdbcType=VARCHAR}
+    where power_id = #{powerId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.PowerInfo">
+    <id column="power_id" jdbcType="VARCHAR" property="powerId" />
+    <result column="power_url" jdbcType="VARCHAR" property="powerUrl" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.powerUrl != null">
+         and power_url = #{condition.powerUrl,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.powerUrl != null">
+         and power_url = #{example.condition.powerUrl,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    power_id, power_url
+  </sql>
+  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from power_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from power_info
+    where power_id = #{powerId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from power_info
+    where power_id = #{powerId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
+    delete from power_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.PowerInfo">
+    insert into power_info (power_id, power_url)
+    values (#{powerId,jdbcType=VARCHAR}, #{powerUrl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.PowerInfo">
+    insert into power_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="powerId != null">
+        power_id,
+      </if>
+      <if test="powerUrl != null">
+        power_url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="powerId != null">
+        #{powerId,jdbcType=VARCHAR},
+      </if>
+      <if test="powerUrl != null">
+        #{powerUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from power_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update power_info
+    <set>
+      <if test="record.powerId != null">
+        power_id = #{record.powerId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.powerUrl != null">
+        power_url = #{record.powerUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update power_info
+    set power_id = #{record.powerId,jdbcType=VARCHAR},
+      power_url = #{record.powerUrl,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.PowerInfo">
+    update power_info
+    <set>
+      <if test="powerUrl != null">
+        power_url = #{powerUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where power_id = #{powerId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.PowerInfo">
+    update power_info
+    set power_url = #{powerUrl,jdbcType=VARCHAR}
+    where power_id = #{powerId,jdbcType=VARCHAR}
+  </update>
+</mapper>

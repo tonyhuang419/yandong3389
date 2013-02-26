@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dreams.dream.dao.base.UserLoginHisMapper">
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.UserLoginHis">
+    <id column="login_his_id" jdbcType="VARCHAR" property="loginHisId" />
+    <result column="login_date" jdbcType="TIMESTAMP" property="loginDate" />
+    <result column="login_ip" jdbcType="VARCHAR" property="loginIp" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.loginDate != null">
+         and login_date = #{condition.loginDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.loginIp != null">
+         and login_ip = #{condition.loginIp,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.userId != null">
+         and user_id = #{condition.userId,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.loginDate != null">
+         and login_date = #{example.condition.loginDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.loginIp != null">
+         and login_ip = #{example.condition.loginIp,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.userId != null">
+         and user_id = #{example.condition.userId,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    login_his_id, login_date, login_ip, user_id
+  </sql>
+  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user_login_his
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_login_his
+    where login_his_id = #{loginHisId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from user_login_his
+    where login_his_id = #{loginHisId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
+    delete from user_login_his
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.UserLoginHis">
+    insert into user_login_his (login_his_id, login_date, login_ip, 
+      user_id)
+    values (#{loginHisId,jdbcType=VARCHAR}, #{loginDate,jdbcType=TIMESTAMP}, #{loginIp,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.UserLoginHis">
+    insert into user_login_his
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loginHisId != null">
+        login_his_id,
+      </if>
+      <if test="loginDate != null">
+        login_date,
+      </if>
+      <if test="loginIp != null">
+        login_ip,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loginHisId != null">
+        #{loginHisId,jdbcType=VARCHAR},
+      </if>
+      <if test="loginDate != null">
+        #{loginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginIp != null">
+        #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from user_login_his
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update user_login_his
+    <set>
+      <if test="record.loginHisId != null">
+        login_his_id = #{record.loginHisId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loginDate != null">
+        login_date = #{record.loginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.loginIp != null">
+        login_ip = #{record.loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update user_login_his
+    set login_his_id = #{record.loginHisId,jdbcType=VARCHAR},
+      login_date = #{record.loginDate,jdbcType=TIMESTAMP},
+      login_ip = #{record.loginIp,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.UserLoginHis">
+    update user_login_his
+    <set>
+      <if test="loginDate != null">
+        login_date = #{loginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginIp != null">
+        login_ip = #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where login_his_id = #{loginHisId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.UserLoginHis">
+    update user_login_his
+    set login_date = #{loginDate,jdbcType=TIMESTAMP},
+      login_ip = #{loginIp,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR}
+    where login_his_id = #{loginHisId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.UserLoginHis">
+    <id column="login_his_id" jdbcType="VARCHAR" property="loginHisId" />
+    <result column="login_date" jdbcType="TIMESTAMP" property="loginDate" />
+    <result column="login_ip" jdbcType="VARCHAR" property="loginIp" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.loginDate != null">
+         and login_date = #{condition.loginDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.loginIp != null">
+         and login_ip = #{condition.loginIp,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.userId != null">
+         and user_id = #{condition.userId,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.loginDate != null">
+         and login_date = #{example.condition.loginDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.loginIp != null">
+         and login_ip = #{example.condition.loginIp,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.userId != null">
+         and user_id = #{example.condition.userId,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    login_his_id, login_date, login_ip, user_id
+  </sql>
+  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user_login_his
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_login_his
+    where login_his_id = #{loginHisId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from user_login_his
+    where login_his_id = #{loginHisId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
+    delete from user_login_his
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.UserLoginHis">
+    insert into user_login_his (login_his_id, login_date, login_ip, 
+      user_id)
+    values (#{loginHisId,jdbcType=VARCHAR}, #{loginDate,jdbcType=TIMESTAMP}, #{loginIp,jdbcType=VARCHAR}, 
+      #{userId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.UserLoginHis">
+    insert into user_login_his
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="loginHisId != null">
+        login_his_id,
+      </if>
+      <if test="loginDate != null">
+        login_date,
+      </if>
+      <if test="loginIp != null">
+        login_ip,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="loginHisId != null">
+        #{loginHisId,jdbcType=VARCHAR},
+      </if>
+      <if test="loginDate != null">
+        #{loginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginIp != null">
+        #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from user_login_his
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update user_login_his
+    <set>
+      <if test="record.loginHisId != null">
+        login_his_id = #{record.loginHisId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loginDate != null">
+        login_date = #{record.loginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.loginIp != null">
+        login_ip = #{record.loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update user_login_his
+    set login_his_id = #{record.loginHisId,jdbcType=VARCHAR},
+      login_date = #{record.loginDate,jdbcType=TIMESTAMP},
+      login_ip = #{record.loginIp,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.UserLoginHis">
+    update user_login_his
+    <set>
+      <if test="loginDate != null">
+        login_date = #{loginDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginIp != null">
+        login_ip = #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where login_his_id = #{loginHisId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.UserLoginHis">
+    update user_login_his
+    set login_date = #{loginDate,jdbcType=TIMESTAMP},
+      login_ip = #{loginIp,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR}
+    where login_his_id = #{loginHisId,jdbcType=VARCHAR}
+  </update>
+</mapper>

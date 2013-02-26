@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dreams.dream.dao.base.SocietyDutyInfoMapper">
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.SocietyDutyInfo">
+    <id column="society_duty_id" jdbcType="VARCHAR" property="societyDutyId" />
+    <result column="society_duty_name" jdbcType="VARCHAR" property="societyDutyName" />
+    <result column="power_id" jdbcType="VARCHAR" property="powerId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.societyDutyName != null">
+         and society_duty_name = #{condition.societyDutyName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.powerId != null">
+         and power_id = #{condition.powerId,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.societyDutyName != null">
+         and society_duty_name = #{example.condition.societyDutyName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.powerId != null">
+         and power_id = #{example.condition.powerId,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    society_duty_id, society_duty_name, power_id
+  </sql>
+  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from society_duty_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from society_duty_info
+    where society_duty_id = #{societyDutyId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from society_duty_info
+    where society_duty_id = #{societyDutyId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
+    delete from society_duty_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.SocietyDutyInfo">
+    insert into society_duty_info (society_duty_id, society_duty_name, power_id
+      )
+    values (#{societyDutyId,jdbcType=VARCHAR}, #{societyDutyName,jdbcType=VARCHAR}, #{powerId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.SocietyDutyInfo">
+    insert into society_duty_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="societyDutyId != null">
+        society_duty_id,
+      </if>
+      <if test="societyDutyName != null">
+        society_duty_name,
+      </if>
+      <if test="powerId != null">
+        power_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="societyDutyId != null">
+        #{societyDutyId,jdbcType=VARCHAR},
+      </if>
+      <if test="societyDutyName != null">
+        #{societyDutyName,jdbcType=VARCHAR},
+      </if>
+      <if test="powerId != null">
+        #{powerId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from society_duty_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update society_duty_info
+    <set>
+      <if test="record.societyDutyId != null">
+        society_duty_id = #{record.societyDutyId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.societyDutyName != null">
+        society_duty_name = #{record.societyDutyName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.powerId != null">
+        power_id = #{record.powerId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update society_duty_info
+    set society_duty_id = #{record.societyDutyId,jdbcType=VARCHAR},
+      society_duty_name = #{record.societyDutyName,jdbcType=VARCHAR},
+      power_id = #{record.powerId,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.SocietyDutyInfo">
+    update society_duty_info
+    <set>
+      <if test="societyDutyName != null">
+        society_duty_name = #{societyDutyName,jdbcType=VARCHAR},
+      </if>
+      <if test="powerId != null">
+        power_id = #{powerId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where society_duty_id = #{societyDutyId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.SocietyDutyInfo">
+    update society_duty_info
+    set society_duty_name = #{societyDutyName,jdbcType=VARCHAR},
+      power_id = #{powerId,jdbcType=VARCHAR}
+    where society_duty_id = #{societyDutyId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.SocietyDutyInfo">
+    <id column="society_duty_id" jdbcType="VARCHAR" property="societyDutyId" />
+    <result column="society_duty_name" jdbcType="VARCHAR" property="societyDutyName" />
+    <result column="power_id" jdbcType="VARCHAR" property="powerId" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.societyDutyName != null">
+         and society_duty_name = #{condition.societyDutyName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.powerId != null">
+         and power_id = #{condition.powerId,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.societyDutyName != null">
+         and society_duty_name = #{example.condition.societyDutyName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.powerId != null">
+         and power_id = #{example.condition.powerId,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    society_duty_id, society_duty_name, power_id
+  </sql>
+  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from society_duty_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from society_duty_info
+    where society_duty_id = #{societyDutyId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from society_duty_info
+    where society_duty_id = #{societyDutyId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
+    delete from society_duty_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.SocietyDutyInfo">
+    insert into society_duty_info (society_duty_id, society_duty_name, power_id
+      )
+    values (#{societyDutyId,jdbcType=VARCHAR}, #{societyDutyName,jdbcType=VARCHAR}, #{powerId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.SocietyDutyInfo">
+    insert into society_duty_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="societyDutyId != null">
+        society_duty_id,
+      </if>
+      <if test="societyDutyName != null">
+        society_duty_name,
+      </if>
+      <if test="powerId != null">
+        power_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="societyDutyId != null">
+        #{societyDutyId,jdbcType=VARCHAR},
+      </if>
+      <if test="societyDutyName != null">
+        #{societyDutyName,jdbcType=VARCHAR},
+      </if>
+      <if test="powerId != null">
+        #{powerId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from society_duty_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update society_duty_info
+    <set>
+      <if test="record.societyDutyId != null">
+        society_duty_id = #{record.societyDutyId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.societyDutyName != null">
+        society_duty_name = #{record.societyDutyName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.powerId != null">
+        power_id = #{record.powerId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update society_duty_info
+    set society_duty_id = #{record.societyDutyId,jdbcType=VARCHAR},
+      society_duty_name = #{record.societyDutyName,jdbcType=VARCHAR},
+      power_id = #{record.powerId,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.SocietyDutyInfo">
+    update society_duty_info
+    <set>
+      <if test="societyDutyName != null">
+        society_duty_name = #{societyDutyName,jdbcType=VARCHAR},
+      </if>
+      <if test="powerId != null">
+        power_id = #{powerId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where society_duty_id = #{societyDutyId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.SocietyDutyInfo">
+    update society_duty_info
+    set society_duty_name = #{societyDutyName,jdbcType=VARCHAR},
+      power_id = #{powerId,jdbcType=VARCHAR}
+    where society_duty_id = #{societyDutyId,jdbcType=VARCHAR}
+  </update>
+</mapper>

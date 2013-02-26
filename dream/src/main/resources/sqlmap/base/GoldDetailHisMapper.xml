@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dreams.dream.dao.base.GoldDetailHisMapper">
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.GoldDetailHis">
+    <id column="gold_detail_id" jdbcType="VARCHAR" property="goldDetailId" />
+    <result column="gold" jdbcType="INTEGER" property="gold" />
+    <result column="gold_detail_date" jdbcType="TIMESTAMP" property="goldDetailDate" />
+    <result column="gold_detail_type" jdbcType="VARCHAR" property="goldDetailType" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.gold != null">
+         and gold = #{condition.gold,jdbcType=INTEGER}
+      </if>
+      <if test="condition.goldDetailDate != null">
+         and gold_detail_date = #{condition.goldDetailDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.goldDetailType != null">
+         and gold_detail_type = #{condition.goldDetailType,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.gold != null">
+         and gold = #{example.condition.gold,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.goldDetailDate != null">
+         and gold_detail_date = #{example.condition.goldDetailDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.goldDetailType != null">
+         and gold_detail_type = #{example.condition.goldDetailType,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    gold_detail_id, gold, gold_detail_date, gold_detail_type
+  </sql>
+  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from gold_detail_his
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from gold_detail_his
+    where gold_detail_id = #{goldDetailId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from gold_detail_his
+    where gold_detail_id = #{goldDetailId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
+    delete from gold_detail_his
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.GoldDetailHis">
+    insert into gold_detail_his (gold_detail_id, gold, gold_detail_date, 
+      gold_detail_type)
+    values (#{goldDetailId,jdbcType=VARCHAR}, #{gold,jdbcType=INTEGER}, #{goldDetailDate,jdbcType=TIMESTAMP}, 
+      #{goldDetailType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.GoldDetailHis">
+    insert into gold_detail_his
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="goldDetailId != null">
+        gold_detail_id,
+      </if>
+      <if test="gold != null">
+        gold,
+      </if>
+      <if test="goldDetailDate != null">
+        gold_detail_date,
+      </if>
+      <if test="goldDetailType != null">
+        gold_detail_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="goldDetailId != null">
+        #{goldDetailId,jdbcType=VARCHAR},
+      </if>
+      <if test="gold != null">
+        #{gold,jdbcType=INTEGER},
+      </if>
+      <if test="goldDetailDate != null">
+        #{goldDetailDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="goldDetailType != null">
+        #{goldDetailType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from gold_detail_his
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update gold_detail_his
+    <set>
+      <if test="record.goldDetailId != null">
+        gold_detail_id = #{record.goldDetailId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gold != null">
+        gold = #{record.gold,jdbcType=INTEGER},
+      </if>
+      <if test="record.goldDetailDate != null">
+        gold_detail_date = #{record.goldDetailDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.goldDetailType != null">
+        gold_detail_type = #{record.goldDetailType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update gold_detail_his
+    set gold_detail_id = #{record.goldDetailId,jdbcType=VARCHAR},
+      gold = #{record.gold,jdbcType=INTEGER},
+      gold_detail_date = #{record.goldDetailDate,jdbcType=TIMESTAMP},
+      gold_detail_type = #{record.goldDetailType,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.GoldDetailHis">
+    update gold_detail_his
+    <set>
+      <if test="gold != null">
+        gold = #{gold,jdbcType=INTEGER},
+      </if>
+      <if test="goldDetailDate != null">
+        gold_detail_date = #{goldDetailDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="goldDetailType != null">
+        gold_detail_type = #{goldDetailType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where gold_detail_id = #{goldDetailId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.GoldDetailHis">
+    update gold_detail_his
+    set gold = #{gold,jdbcType=INTEGER},
+      gold_detail_date = #{goldDetailDate,jdbcType=TIMESTAMP},
+      gold_detail_type = #{goldDetailType,jdbcType=VARCHAR}
+    where gold_detail_id = #{goldDetailId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.GoldDetailHis">
+    <id column="gold_detail_id" jdbcType="VARCHAR" property="goldDetailId" />
+    <result column="gold" jdbcType="INTEGER" property="gold" />
+    <result column="gold_detail_date" jdbcType="TIMESTAMP" property="goldDetailDate" />
+    <result column="gold_detail_type" jdbcType="VARCHAR" property="goldDetailType" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.gold != null">
+         and gold = #{condition.gold,jdbcType=INTEGER}
+      </if>
+      <if test="condition.goldDetailDate != null">
+         and gold_detail_date = #{condition.goldDetailDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.goldDetailType != null">
+         and gold_detail_type = #{condition.goldDetailType,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.gold != null">
+         and gold = #{example.condition.gold,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.goldDetailDate != null">
+         and gold_detail_date = #{example.condition.goldDetailDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.goldDetailType != null">
+         and gold_detail_type = #{example.condition.goldDetailType,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    gold_detail_id, gold, gold_detail_date, gold_detail_type
+  </sql>
+  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from gold_detail_his
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from gold_detail_his
+    where gold_detail_id = #{goldDetailId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from gold_detail_his
+    where gold_detail_id = #{goldDetailId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
+    delete from gold_detail_his
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.GoldDetailHis">
+    insert into gold_detail_his (gold_detail_id, gold, gold_detail_date, 
+      gold_detail_type)
+    values (#{goldDetailId,jdbcType=VARCHAR}, #{gold,jdbcType=INTEGER}, #{goldDetailDate,jdbcType=TIMESTAMP}, 
+      #{goldDetailType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.GoldDetailHis">
+    insert into gold_detail_his
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="goldDetailId != null">
+        gold_detail_id,
+      </if>
+      <if test="gold != null">
+        gold,
+      </if>
+      <if test="goldDetailDate != null">
+        gold_detail_date,
+      </if>
+      <if test="goldDetailType != null">
+        gold_detail_type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="goldDetailId != null">
+        #{goldDetailId,jdbcType=VARCHAR},
+      </if>
+      <if test="gold != null">
+        #{gold,jdbcType=INTEGER},
+      </if>
+      <if test="goldDetailDate != null">
+        #{goldDetailDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="goldDetailType != null">
+        #{goldDetailType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from gold_detail_his
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update gold_detail_his
+    <set>
+      <if test="record.goldDetailId != null">
+        gold_detail_id = #{record.goldDetailId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gold != null">
+        gold = #{record.gold,jdbcType=INTEGER},
+      </if>
+      <if test="record.goldDetailDate != null">
+        gold_detail_date = #{record.goldDetailDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.goldDetailType != null">
+        gold_detail_type = #{record.goldDetailType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update gold_detail_his
+    set gold_detail_id = #{record.goldDetailId,jdbcType=VARCHAR},
+      gold = #{record.gold,jdbcType=INTEGER},
+      gold_detail_date = #{record.goldDetailDate,jdbcType=TIMESTAMP},
+      gold_detail_type = #{record.goldDetailType,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.GoldDetailHis">
+    update gold_detail_his
+    <set>
+      <if test="gold != null">
+        gold = #{gold,jdbcType=INTEGER},
+      </if>
+      <if test="goldDetailDate != null">
+        gold_detail_date = #{goldDetailDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="goldDetailType != null">
+        gold_detail_type = #{goldDetailType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where gold_detail_id = #{goldDetailId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.GoldDetailHis">
+    update gold_detail_his
+    set gold = #{gold,jdbcType=INTEGER},
+      gold_detail_date = #{goldDetailDate,jdbcType=TIMESTAMP},
+      gold_detail_type = #{goldDetailType,jdbcType=VARCHAR}
+    where gold_detail_id = #{goldDetailId,jdbcType=VARCHAR}
+  </update>
+</mapper>

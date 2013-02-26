@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dreams.dream.dao.base.SocietyAnnouncementHisMapper">
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.SocietyAnnouncementHis">
+    <id column="announcement_id" jdbcType="VARCHAR" property="announcementId" />
+    <result column="announcement_content" jdbcType="VARCHAR" property="announcementContent" />
+    <result column="announcement_create_user_id" jdbcType="VARCHAR" property="announcementCreateUserId" />
+    <result column="announcement_create_date" jdbcType="TIMESTAMP" property="announcementCreateDate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.announcementContent != null">
+         and announcement_content = #{condition.announcementContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.announcementCreateUserId != null">
+         and announcement_create_user_id = #{condition.announcementCreateUserId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.announcementCreateDate != null">
+         and announcement_create_date = #{condition.announcementCreateDate,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.announcementContent != null">
+         and announcement_content = #{example.condition.announcementContent,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.announcementCreateUserId != null">
+         and announcement_create_user_id = #{example.condition.announcementCreateUserId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.announcementCreateDate != null">
+         and announcement_create_date = #{example.condition.announcementCreateDate,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    announcement_id, announcement_content, announcement_create_user_id, announcement_create_date
+  </sql>
+  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from society_announcement_his
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from society_announcement_his
+    where announcement_id = #{announcementId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from society_announcement_his
+    where announcement_id = #{announcementId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
+    delete from society_announcement_his
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.SocietyAnnouncementHis">
+    insert into society_announcement_his (announcement_id, announcement_content, 
+      announcement_create_user_id, announcement_create_date
+      )
+    values (#{announcementId,jdbcType=VARCHAR}, #{announcementContent,jdbcType=VARCHAR}, 
+      #{announcementCreateUserId,jdbcType=VARCHAR}, #{announcementCreateDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.SocietyAnnouncementHis">
+    insert into society_announcement_his
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="announcementId != null">
+        announcement_id,
+      </if>
+      <if test="announcementContent != null">
+        announcement_content,
+      </if>
+      <if test="announcementCreateUserId != null">
+        announcement_create_user_id,
+      </if>
+      <if test="announcementCreateDate != null">
+        announcement_create_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="announcementId != null">
+        #{announcementId,jdbcType=VARCHAR},
+      </if>
+      <if test="announcementContent != null">
+        #{announcementContent,jdbcType=VARCHAR},
+      </if>
+      <if test="announcementCreateUserId != null">
+        #{announcementCreateUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="announcementCreateDate != null">
+        #{announcementCreateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from society_announcement_his
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update society_announcement_his
+    <set>
+      <if test="record.announcementId != null">
+        announcement_id = #{record.announcementId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.announcementContent != null">
+        announcement_content = #{record.announcementContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.announcementCreateUserId != null">
+        announcement_create_user_id = #{record.announcementCreateUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.announcementCreateDate != null">
+        announcement_create_date = #{record.announcementCreateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update society_announcement_his
+    set announcement_id = #{record.announcementId,jdbcType=VARCHAR},
+      announcement_content = #{record.announcementContent,jdbcType=VARCHAR},
+      announcement_create_user_id = #{record.announcementCreateUserId,jdbcType=VARCHAR},
+      announcement_create_date = #{record.announcementCreateDate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.SocietyAnnouncementHis">
+    update society_announcement_his
+    <set>
+      <if test="announcementContent != null">
+        announcement_content = #{announcementContent,jdbcType=VARCHAR},
+      </if>
+      <if test="announcementCreateUserId != null">
+        announcement_create_user_id = #{announcementCreateUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="announcementCreateDate != null">
+        announcement_create_date = #{announcementCreateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where announcement_id = #{announcementId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.SocietyAnnouncementHis">
+    update society_announcement_his
+    set announcement_content = #{announcementContent,jdbcType=VARCHAR},
+      announcement_create_user_id = #{announcementCreateUserId,jdbcType=VARCHAR},
+      announcement_create_date = #{announcementCreateDate,jdbcType=TIMESTAMP}
+    where announcement_id = #{announcementId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.SocietyAnnouncementHis">
+    <id column="announcement_id" jdbcType="VARCHAR" property="announcementId" />
+    <result column="announcement_content" jdbcType="VARCHAR" property="announcementContent" />
+    <result column="announcement_create_user_id" jdbcType="VARCHAR" property="announcementCreateUserId" />
+    <result column="announcement_create_date" jdbcType="TIMESTAMP" property="announcementCreateDate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.announcementContent != null">
+         and announcement_content = #{condition.announcementContent,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.announcementCreateUserId != null">
+         and announcement_create_user_id = #{condition.announcementCreateUserId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.announcementCreateDate != null">
+         and announcement_create_date = #{condition.announcementCreateDate,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.announcementContent != null">
+         and announcement_content = #{example.condition.announcementContent,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.announcementCreateUserId != null">
+         and announcement_create_user_id = #{example.condition.announcementCreateUserId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.announcementCreateDate != null">
+         and announcement_create_date = #{example.condition.announcementCreateDate,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    announcement_id, announcement_content, announcement_create_user_id, announcement_create_date
+  </sql>
+  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from society_announcement_his
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from society_announcement_his
+    where announcement_id = #{announcementId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from society_announcement_his
+    where announcement_id = #{announcementId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
+    delete from society_announcement_his
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.SocietyAnnouncementHis">
+    insert into society_announcement_his (announcement_id, announcement_content, 
+      announcement_create_user_id, announcement_create_date
+      )
+    values (#{announcementId,jdbcType=VARCHAR}, #{announcementContent,jdbcType=VARCHAR}, 
+      #{announcementCreateUserId,jdbcType=VARCHAR}, #{announcementCreateDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.SocietyAnnouncementHis">
+    insert into society_announcement_his
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="announcementId != null">
+        announcement_id,
+      </if>
+      <if test="announcementContent != null">
+        announcement_content,
+      </if>
+      <if test="announcementCreateUserId != null">
+        announcement_create_user_id,
+      </if>
+      <if test="announcementCreateDate != null">
+        announcement_create_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="announcementId != null">
+        #{announcementId,jdbcType=VARCHAR},
+      </if>
+      <if test="announcementContent != null">
+        #{announcementContent,jdbcType=VARCHAR},
+      </if>
+      <if test="announcementCreateUserId != null">
+        #{announcementCreateUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="announcementCreateDate != null">
+        #{announcementCreateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from society_announcement_his
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update society_announcement_his
+    <set>
+      <if test="record.announcementId != null">
+        announcement_id = #{record.announcementId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.announcementContent != null">
+        announcement_content = #{record.announcementContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.announcementCreateUserId != null">
+        announcement_create_user_id = #{record.announcementCreateUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.announcementCreateDate != null">
+        announcement_create_date = #{record.announcementCreateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update society_announcement_his
+    set announcement_id = #{record.announcementId,jdbcType=VARCHAR},
+      announcement_content = #{record.announcementContent,jdbcType=VARCHAR},
+      announcement_create_user_id = #{record.announcementCreateUserId,jdbcType=VARCHAR},
+      announcement_create_date = #{record.announcementCreateDate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.SocietyAnnouncementHis">
+    update society_announcement_his
+    <set>
+      <if test="announcementContent != null">
+        announcement_content = #{announcementContent,jdbcType=VARCHAR},
+      </if>
+      <if test="announcementCreateUserId != null">
+        announcement_create_user_id = #{announcementCreateUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="announcementCreateDate != null">
+        announcement_create_date = #{announcementCreateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where announcement_id = #{announcementId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.SocietyAnnouncementHis">
+    update society_announcement_his
+    set announcement_content = #{announcementContent,jdbcType=VARCHAR},
+      announcement_create_user_id = #{announcementCreateUserId,jdbcType=VARCHAR},
+      announcement_create_date = #{announcementCreateDate,jdbcType=TIMESTAMP}
+    where announcement_id = #{announcementId,jdbcType=VARCHAR}
+  </update>
+</mapper>

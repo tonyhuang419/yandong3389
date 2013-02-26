@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dreams.dream.dao.base.UserListenInfoMapper">
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.UserListenInfo">
+    <id column="user_listen_id" jdbcType="VARCHAR" property="userListenId" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="listen_user_id" jdbcType="VARCHAR" property="listenUserId" />
+    <result column="listen_date" jdbcType="TIMESTAMP" property="listenDate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.userId != null">
+         and user_id = #{condition.userId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.listenUserId != null">
+         and listen_user_id = #{condition.listenUserId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.listenDate != null">
+         and listen_date = #{condition.listenDate,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.userId != null">
+         and user_id = #{example.condition.userId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.listenUserId != null">
+         and listen_user_id = #{example.condition.listenUserId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.listenDate != null">
+         and listen_date = #{example.condition.listenDate,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    user_listen_id, user_id, listen_user_id, listen_date
+  </sql>
+  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user_listen_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_listen_info
+    where user_listen_id = #{userListenId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from user_listen_info
+    where user_listen_id = #{userListenId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
+    delete from user_listen_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.UserListenInfo">
+    insert into user_listen_info (user_listen_id, user_id, listen_user_id, 
+      listen_date)
+    values (#{userListenId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{listenUserId,jdbcType=VARCHAR}, 
+      #{listenDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.UserListenInfo">
+    insert into user_listen_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userListenId != null">
+        user_listen_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="listenUserId != null">
+        listen_user_id,
+      </if>
+      <if test="listenDate != null">
+        listen_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userListenId != null">
+        #{userListenId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="listenUserId != null">
+        #{listenUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="listenDate != null">
+        #{listenDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from user_listen_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update user_listen_info
+    <set>
+      <if test="record.userListenId != null">
+        user_listen_id = #{record.userListenId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.listenUserId != null">
+        listen_user_id = #{record.listenUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.listenDate != null">
+        listen_date = #{record.listenDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update user_listen_info
+    set user_listen_id = #{record.userListenId,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      listen_user_id = #{record.listenUserId,jdbcType=VARCHAR},
+      listen_date = #{record.listenDate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.UserListenInfo">
+    update user_listen_info
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="listenUserId != null">
+        listen_user_id = #{listenUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="listenDate != null">
+        listen_date = #{listenDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where user_listen_id = #{userListenId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.UserListenInfo">
+    update user_listen_info
+    set user_id = #{userId,jdbcType=VARCHAR},
+      listen_user_id = #{listenUserId,jdbcType=VARCHAR},
+      listen_date = #{listenDate,jdbcType=TIMESTAMP}
+    where user_listen_id = #{userListenId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.UserListenInfo">
+    <id column="user_listen_id" jdbcType="VARCHAR" property="userListenId" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="listen_user_id" jdbcType="VARCHAR" property="listenUserId" />
+    <result column="listen_date" jdbcType="TIMESTAMP" property="listenDate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.userId != null">
+         and user_id = #{condition.userId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.listenUserId != null">
+         and listen_user_id = #{condition.listenUserId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.listenDate != null">
+         and listen_date = #{condition.listenDate,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.userId != null">
+         and user_id = #{example.condition.userId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.listenUserId != null">
+         and listen_user_id = #{example.condition.listenUserId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.listenDate != null">
+         and listen_date = #{example.condition.listenDate,jdbcType=TIMESTAMP}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    user_listen_id, user_id, listen_user_id, listen_date
+  </sql>
+  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user_listen_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_listen_info
+    where user_listen_id = #{userListenId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from user_listen_info
+    where user_listen_id = #{userListenId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
+    delete from user_listen_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.UserListenInfo">
+    insert into user_listen_info (user_listen_id, user_id, listen_user_id, 
+      listen_date)
+    values (#{userListenId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{listenUserId,jdbcType=VARCHAR}, 
+      #{listenDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.UserListenInfo">
+    insert into user_listen_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userListenId != null">
+        user_listen_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="listenUserId != null">
+        listen_user_id,
+      </if>
+      <if test="listenDate != null">
+        listen_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userListenId != null">
+        #{userListenId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="listenUserId != null">
+        #{listenUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="listenDate != null">
+        #{listenDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from user_listen_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update user_listen_info
+    <set>
+      <if test="record.userListenId != null">
+        user_listen_id = #{record.userListenId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.listenUserId != null">
+        listen_user_id = #{record.listenUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.listenDate != null">
+        listen_date = #{record.listenDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update user_listen_info
+    set user_listen_id = #{record.userListenId,jdbcType=VARCHAR},
+      user_id = #{record.userId,jdbcType=VARCHAR},
+      listen_user_id = #{record.listenUserId,jdbcType=VARCHAR},
+      listen_date = #{record.listenDate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.UserListenInfo">
+    update user_listen_info
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="listenUserId != null">
+        listen_user_id = #{listenUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="listenDate != null">
+        listen_date = #{listenDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where user_listen_id = #{userListenId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.UserListenInfo">
+    update user_listen_info
+    set user_id = #{userId,jdbcType=VARCHAR},
+      listen_user_id = #{listenUserId,jdbcType=VARCHAR},
+      listen_date = #{listenDate,jdbcType=TIMESTAMP}
+    where user_listen_id = #{userListenId,jdbcType=VARCHAR}
+  </update>
+</mapper>

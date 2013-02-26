@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dreams.dream.dao.base.UserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.UserInfo">
+    <id column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_sex" jdbcType="VARCHAR" property="userSex" />
+    <result column="user_account_id" jdbcType="VARCHAR" property="userAccountId" />
+    <result column="user_intro" jdbcType="VARCHAR" property="userIntro" />
+    <result column="user_level" jdbcType="INTEGER" property="userLevel" />
+    <result column="user_level_detail" jdbcType="INTEGER" property="userLevelDetail" />
+    <result column="user_gold" jdbcType="INTEGER" property="userGold" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.userName != null">
+         and user_name = #{condition.userName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.userSex != null">
+         and user_sex = #{condition.userSex,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.userAccountId != null">
+         and user_account_id = #{condition.userAccountId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.userIntro != null">
+         and user_intro = #{condition.userIntro,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.userLevel != null">
+         and user_level = #{condition.userLevel,jdbcType=INTEGER}
+      </if>
+      <if test="condition.userLevelDetail != null">
+         and user_level_detail = #{condition.userLevelDetail,jdbcType=INTEGER}
+      </if>
+      <if test="condition.userGold != null">
+         and user_gold = #{condition.userGold,jdbcType=INTEGER}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.userName != null">
+         and user_name = #{example.condition.userName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.userSex != null">
+         and user_sex = #{example.condition.userSex,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.userAccountId != null">
+         and user_account_id = #{example.condition.userAccountId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.userIntro != null">
+         and user_intro = #{example.condition.userIntro,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.userLevel != null">
+         and user_level = #{example.condition.userLevel,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.userLevelDetail != null">
+         and user_level_detail = #{example.condition.userLevelDetail,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.userGold != null">
+         and user_gold = #{example.condition.userGold,jdbcType=INTEGER}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    user_id, user_name, user_sex, user_account_id, user_intro, user_level, user_level_detail, 
+    user_gold
+  </sql>
+  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_info
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from user_info
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
+    delete from user_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.UserInfo">
+    insert into user_info (user_id, user_name, user_sex, 
+      user_account_id, user_intro, user_level, 
+      user_level_detail, user_gold)
+    values (#{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{userSex,jdbcType=VARCHAR}, 
+      #{userAccountId,jdbcType=VARCHAR}, #{userIntro,jdbcType=VARCHAR}, #{userLevel,jdbcType=INTEGER}, 
+      #{userLevelDetail,jdbcType=INTEGER}, #{userGold,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.UserInfo">
+    insert into user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="userSex != null">
+        user_sex,
+      </if>
+      <if test="userAccountId != null">
+        user_account_id,
+      </if>
+      <if test="userIntro != null">
+        user_intro,
+      </if>
+      <if test="userLevel != null">
+        user_level,
+      </if>
+      <if test="userLevelDetail != null">
+        user_level_detail,
+      </if>
+      <if test="userGold != null">
+        user_gold,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null">
+        #{userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="userAccountId != null">
+        #{userAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="userIntro != null">
+        #{userIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="userLevel != null">
+        #{userLevel,jdbcType=INTEGER},
+      </if>
+      <if test="userLevelDetail != null">
+        #{userLevelDetail,jdbcType=INTEGER},
+      </if>
+      <if test="userGold != null">
+        #{userGold,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from user_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update user_info
+    <set>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userName != null">
+        user_name = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userSex != null">
+        user_sex = #{record.userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userAccountId != null">
+        user_account_id = #{record.userAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userIntro != null">
+        user_intro = #{record.userIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userLevel != null">
+        user_level = #{record.userLevel,jdbcType=INTEGER},
+      </if>
+      <if test="record.userLevelDetail != null">
+        user_level_detail = #{record.userLevelDetail,jdbcType=INTEGER},
+      </if>
+      <if test="record.userGold != null">
+        user_gold = #{record.userGold,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update user_info
+    set user_id = #{record.userId,jdbcType=VARCHAR},
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      user_sex = #{record.userSex,jdbcType=VARCHAR},
+      user_account_id = #{record.userAccountId,jdbcType=VARCHAR},
+      user_intro = #{record.userIntro,jdbcType=VARCHAR},
+      user_level = #{record.userLevel,jdbcType=INTEGER},
+      user_level_detail = #{record.userLevelDetail,jdbcType=INTEGER},
+      user_gold = #{record.userGold,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.UserInfo">
+    update user_info
+    <set>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null">
+        user_sex = #{userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="userAccountId != null">
+        user_account_id = #{userAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="userIntro != null">
+        user_intro = #{userIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="userLevel != null">
+        user_level = #{userLevel,jdbcType=INTEGER},
+      </if>
+      <if test="userLevelDetail != null">
+        user_level_detail = #{userLevelDetail,jdbcType=INTEGER},
+      </if>
+      <if test="userGold != null">
+        user_gold = #{userGold,jdbcType=INTEGER},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.UserInfo">
+    update user_info
+    set user_name = #{userName,jdbcType=VARCHAR},
+      user_sex = #{userSex,jdbcType=VARCHAR},
+      user_account_id = #{userAccountId,jdbcType=VARCHAR},
+      user_intro = #{userIntro,jdbcType=VARCHAR},
+      user_level = #{userLevel,jdbcType=INTEGER},
+      user_level_detail = #{userLevelDetail,jdbcType=INTEGER},
+      user_gold = #{userGold,jdbcType=INTEGER}
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.UserInfo">
+    <id column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_sex" jdbcType="VARCHAR" property="userSex" />
+    <result column="user_account_id" jdbcType="VARCHAR" property="userAccountId" />
+    <result column="user_intro" jdbcType="VARCHAR" property="userIntro" />
+    <result column="user_level" jdbcType="INTEGER" property="userLevel" />
+    <result column="user_level_detail" jdbcType="INTEGER" property="userLevelDetail" />
+    <result column="user_gold" jdbcType="INTEGER" property="userGold" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="condition.userName != null">
+         and user_name = #{condition.userName,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.userSex != null">
+         and user_sex = #{condition.userSex,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.userAccountId != null">
+         and user_account_id = #{condition.userAccountId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.userIntro != null">
+         and user_intro = #{condition.userIntro,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.userLevel != null">
+         and user_level = #{condition.userLevel,jdbcType=INTEGER}
+      </if>
+      <if test="condition.userLevelDetail != null">
+         and user_level_detail = #{condition.userLevelDetail,jdbcType=INTEGER}
+      </if>
+      <if test="condition.userGold != null">
+         and user_gold = #{condition.userGold,jdbcType=INTEGER}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <trim prefix="where" prefixOverrides="and|or">
+      <if test="example.condition.userName != null">
+         and user_name = #{example.condition.userName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.userSex != null">
+         and user_sex = #{example.condition.userSex,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.userAccountId != null">
+         and user_account_id = #{example.condition.userAccountId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.userIntro != null">
+         and user_intro = #{example.condition.userIntro,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.userLevel != null">
+         and user_level = #{example.condition.userLevel,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.userLevelDetail != null">
+         and user_level_detail = #{example.condition.userLevelDetail,jdbcType=INTEGER}
+      </if>
+      <if test="example.condition.userGold != null">
+         and user_gold = #{example.condition.userGold,jdbcType=INTEGER}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List">
+    user_id, user_name, user_sex, user_account_id, user_intro, user_level, user_level_detail, 
+    user_gold
+  </sql>
+  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_info
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from user_info
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
+    delete from user_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.UserInfo">
+    insert into user_info (user_id, user_name, user_sex, 
+      user_account_id, user_intro, user_level, 
+      user_level_detail, user_gold)
+    values (#{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{userSex,jdbcType=VARCHAR}, 
+      #{userAccountId,jdbcType=VARCHAR}, #{userIntro,jdbcType=VARCHAR}, #{userLevel,jdbcType=INTEGER}, 
+      #{userLevelDetail,jdbcType=INTEGER}, #{userGold,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.UserInfo">
+    insert into user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="userSex != null">
+        user_sex,
+      </if>
+      <if test="userAccountId != null">
+        user_account_id,
+      </if>
+      <if test="userIntro != null">
+        user_intro,
+      </if>
+      <if test="userLevel != null">
+        user_level,
+      </if>
+      <if test="userLevelDetail != null">
+        user_level_detail,
+      </if>
+      <if test="userGold != null">
+        user_gold,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null">
+        #{userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="userAccountId != null">
+        #{userAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="userIntro != null">
+        #{userIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="userLevel != null">
+        #{userLevel,jdbcType=INTEGER},
+      </if>
+      <if test="userLevelDetail != null">
+        #{userLevelDetail,jdbcType=INTEGER},
+      </if>
+      <if test="userGold != null">
+        #{userGold,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
+    select count(*) from user_info
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update user_info
+    <set>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userName != null">
+        user_name = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userSex != null">
+        user_sex = #{record.userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userAccountId != null">
+        user_account_id = #{record.userAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userIntro != null">
+        user_intro = #{record.userIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userLevel != null">
+        user_level = #{record.userLevel,jdbcType=INTEGER},
+      </if>
+      <if test="record.userLevelDetail != null">
+        user_level_detail = #{record.userLevelDetail,jdbcType=INTEGER},
+      </if>
+      <if test="record.userGold != null">
+        user_gold = #{record.userGold,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update user_info
+    set user_id = #{record.userId,jdbcType=VARCHAR},
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      user_sex = #{record.userSex,jdbcType=VARCHAR},
+      user_account_id = #{record.userAccountId,jdbcType=VARCHAR},
+      user_intro = #{record.userIntro,jdbcType=VARCHAR},
+      user_level = #{record.userLevel,jdbcType=INTEGER},
+      user_level_detail = #{record.userLevelDetail,jdbcType=INTEGER},
+      user_gold = #{record.userGold,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.UserInfo">
+    update user_info
+    <set>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null">
+        user_sex = #{userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="userAccountId != null">
+        user_account_id = #{userAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="userIntro != null">
+        user_intro = #{userIntro,jdbcType=VARCHAR},
+      </if>
+      <if test="userLevel != null">
+        user_level = #{userLevel,jdbcType=INTEGER},
+      </if>
+      <if test="userLevelDetail != null">
+        user_level_detail = #{userLevelDetail,jdbcType=INTEGER},
+      </if>
+      <if test="userGold != null">
+        user_gold = #{userGold,jdbcType=INTEGER},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.UserInfo">
+    update user_info
+    set user_name = #{userName,jdbcType=VARCHAR},
+      user_sex = #{userSex,jdbcType=VARCHAR},
+      user_account_id = #{userAccountId,jdbcType=VARCHAR},
+      user_intro = #{userIntro,jdbcType=VARCHAR},
+      user_level = #{userLevel,jdbcType=INTEGER},
+      user_level_detail = #{userLevelDetail,jdbcType=INTEGER},
+      user_gold = #{userGold,jdbcType=INTEGER}
+    where user_id = #{userId,jdbcType=VARCHAR}
+  </update>
+</mapper>
