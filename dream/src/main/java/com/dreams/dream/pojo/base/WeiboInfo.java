@@ -18,6 +18,14 @@ public class WeiboInfo implements Serializable {
 
     private Date weiboCreateDate;
 
+    private Date createDate;
+
+    private Date updateDate;
+
+    private String createUserId;
+
+    private String updateUserId;
+
     public String getWeiboId() {
         return weiboId;
     }
@@ -64,5 +72,37 @@ public class WeiboInfo implements Serializable {
 
     public void setWeiboCreateDate(Date weiboCreateDate) {
         this.weiboCreateDate = weiboCreateDate;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    public String getCreateUserId() {
+        return createUserId;
+    }
+
+    public void setCreateUserId(String createUserId) {
+        this.createUserId = createUserId;
+    }
+
+    public String getUpdateUserId() {
+        return updateUserId;
+    }
+
+    public void setUpdateUserId(String updateUserId) {
+        this.updateUserId = updateUserId;
     }
 }

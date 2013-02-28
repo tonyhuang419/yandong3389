@@ -1,368 +1,275 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dreams.dream.dao.base.LevelInfoMapper">
-  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.LevelInfo">
-    <id column="level_id" jdbcType="VARCHAR" property="levelId" />
-    <result column="level" jdbcType="INTEGER" property="level" />
-    <result column="level_detail_start" jdbcType="INTEGER" property="levelDetailStart" />
-    <result column="level_detail_end" jdbcType="INTEGER" property="levelDetailEnd" />
-    <result column="level_name" jdbcType="VARCHAR" property="levelName" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dreams.dream.dao.base.LevelInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.LevelInfo" >
+    <id column="level_id" property="levelId" jdbcType="VARCHAR" />
+    <result column="level" property="level" jdbcType="INTEGER" />
+    <result column="level_detail_start" property="levelDetailStart" jdbcType="INTEGER" />
+    <result column="level_detail_end" property="levelDetailEnd" jdbcType="INTEGER" />
+    <result column="level_name" property="levelName" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="create_user_id" property="createUserId" jdbcType="VARCHAR" />
+    <result column="update_user_id" property="updateUserId" jdbcType="VARCHAR" />
   </resultMap>
-  <sql id="Example_Where_Clause">
-    <trim prefix="where" prefixOverrides="and|or">
-      <if test="condition.level != null">
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.level != null" >
          and level = #{condition.level,jdbcType=INTEGER}
       </if>
-      <if test="condition.levelDetailStart != null">
+      <if test="condition.levelDetailStart != null" >
          and level_detail_start = #{condition.levelDetailStart,jdbcType=INTEGER}
       </if>
-      <if test="condition.levelDetailEnd != null">
+      <if test="condition.levelDetailEnd != null" >
          and level_detail_end = #{condition.levelDetailEnd,jdbcType=INTEGER}
       </if>
-      <if test="condition.levelName != null">
+      <if test="condition.levelName != null" >
          and level_name = #{condition.levelName,jdbcType=VARCHAR}
       </if>
+      <if test="condition.createDate != null" >
+         and create_date = #{condition.createDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.updateDate != null" >
+         and update_date = #{condition.updateDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.createUserId != null" >
+         and create_user_id = #{condition.createUserId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.updateUserId != null" >
+         and update_user_id = #{condition.updateUserId,jdbcType=VARCHAR}
+      </if>
     </trim>
   </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <trim prefix="where" prefixOverrides="and|or">
-      <if test="example.condition.level != null">
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.level != null" >
          and level = #{example.condition.level,jdbcType=INTEGER}
       </if>
-      <if test="example.condition.levelDetailStart != null">
+      <if test="example.condition.levelDetailStart != null" >
          and level_detail_start = #{example.condition.levelDetailStart,jdbcType=INTEGER}
       </if>
-      <if test="example.condition.levelDetailEnd != null">
+      <if test="example.condition.levelDetailEnd != null" >
          and level_detail_end = #{example.condition.levelDetailEnd,jdbcType=INTEGER}
       </if>
-      <if test="example.condition.levelName != null">
+      <if test="example.condition.levelName != null" >
          and level_name = #{example.condition.levelName,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.createDate != null" >
+         and create_date = #{example.condition.createDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.updateDate != null" >
+         and update_date = #{example.condition.updateDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.createUserId != null" >
+         and create_user_id = #{example.condition.createUserId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.updateUserId != null" >
+         and update_user_id = #{example.condition.updateUserId,jdbcType=VARCHAR}
       </if>
     </trim>
   </sql>
-  <sql id="Base_Column_List">
-    level_id, level, level_detail_start, level_detail_end, level_name
+  <sql id="Base_Column_List" >
+    level_id, level, level_detail_start, level_detail_end, level_name, create_date, update_date, 
+    create_user_id, update_user_id
   </sql>
-  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dreams.dream.pojo.base.Criteria" >
     select
-    <if test="distinct">
+    <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
     from level_info
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null">
+    <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
     <include refid="common.Mysql_Pagination_Limit" />
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from level_info
     where level_id = #{levelId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from level_info
     where level_id = #{levelId,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria" >
     delete from level_info
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.dreams.dream.pojo.base.LevelInfo">
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.LevelInfo" >
     insert into level_info (level_id, level, level_detail_start, 
-      level_detail_end, level_name)
+      level_detail_end, level_name, create_date, 
+      update_date, create_user_id, update_user_id
+      )
     values (#{levelId,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER}, #{levelDetailStart,jdbcType=INTEGER}, 
-      #{levelDetailEnd,jdbcType=INTEGER}, #{levelName,jdbcType=VARCHAR})
+      #{levelDetailEnd,jdbcType=INTEGER}, #{levelName,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{updateDate,jdbcType=TIMESTAMP}, #{createUserId,jdbcType=VARCHAR}, #{updateUserId,jdbcType=VARCHAR}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.LevelInfo">
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.LevelInfo" >
     insert into level_info
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="levelId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="levelId != null" >
         level_id,
       </if>
-      <if test="level != null">
+      <if test="level != null" >
         level,
       </if>
-      <if test="levelDetailStart != null">
+      <if test="levelDetailStart != null" >
         level_detail_start,
       </if>
-      <if test="levelDetailEnd != null">
+      <if test="levelDetailEnd != null" >
         level_detail_end,
       </if>
-      <if test="levelName != null">
+      <if test="levelName != null" >
         level_name,
       </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="createUserId != null" >
+        create_user_id,
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id,
+      </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="levelId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="levelId != null" >
         #{levelId,jdbcType=VARCHAR},
       </if>
-      <if test="level != null">
+      <if test="level != null" >
         #{level,jdbcType=INTEGER},
       </if>
-      <if test="levelDetailStart != null">
+      <if test="levelDetailStart != null" >
         #{levelDetailStart,jdbcType=INTEGER},
       </if>
-      <if test="levelDetailEnd != null">
+      <if test="levelDetailEnd != null" >
         #{levelDetailEnd,jdbcType=INTEGER},
       </if>
-      <if test="levelName != null">
+      <if test="levelName != null" >
         #{levelName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserId != null" >
+        #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserId != null" >
+        #{updateUserId,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer" >
     select count(*) from level_info
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+  <update id="updateByExampleSelective" parameterType="map" >
     update level_info
-    <set>
-      <if test="record.levelId != null">
+    <set >
+      <if test="record.levelId != null" >
         level_id = #{record.levelId,jdbcType=VARCHAR},
       </if>
-      <if test="record.level != null">
+      <if test="record.level != null" >
         level = #{record.level,jdbcType=INTEGER},
       </if>
-      <if test="record.levelDetailStart != null">
+      <if test="record.levelDetailStart != null" >
         level_detail_start = #{record.levelDetailStart,jdbcType=INTEGER},
       </if>
-      <if test="record.levelDetailEnd != null">
+      <if test="record.levelDetailEnd != null" >
         level_detail_end = #{record.levelDetailEnd,jdbcType=INTEGER},
       </if>
-      <if test="record.levelName != null">
+      <if test="record.levelName != null" >
         level_name = #{record.levelName,jdbcType=VARCHAR},
       </if>
+      <if test="record.createDate != null" >
+        create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateDate != null" >
+        update_date = #{record.updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createUserId != null" >
+        create_user_id = #{record.createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateUserId != null" >
+        update_user_id = #{record.updateUserId,jdbcType=VARCHAR},
+      </if>
     </set>
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExample" parameterType="map">
+  <update id="updateByExample" parameterType="map" >
     update level_info
     set level_id = #{record.levelId,jdbcType=VARCHAR},
       level = #{record.level,jdbcType=INTEGER},
       level_detail_start = #{record.levelDetailStart,jdbcType=INTEGER},
       level_detail_end = #{record.levelDetailEnd,jdbcType=INTEGER},
-      level_name = #{record.levelName,jdbcType=VARCHAR}
-    <if test="_parameter != null">
+      level_name = #{record.levelName,jdbcType=VARCHAR},
+      create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      update_date = #{record.updateDate,jdbcType=TIMESTAMP},
+      create_user_id = #{record.createUserId,jdbcType=VARCHAR},
+      update_user_id = #{record.updateUserId,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.LevelInfo">
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.LevelInfo" >
     update level_info
-    <set>
-      <if test="level != null">
+    <set >
+      <if test="level != null" >
         level = #{level,jdbcType=INTEGER},
       </if>
-      <if test="levelDetailStart != null">
+      <if test="levelDetailStart != null" >
         level_detail_start = #{levelDetailStart,jdbcType=INTEGER},
       </if>
-      <if test="levelDetailEnd != null">
+      <if test="levelDetailEnd != null" >
         level_detail_end = #{levelDetailEnd,jdbcType=INTEGER},
       </if>
-      <if test="levelName != null">
+      <if test="levelName != null" >
         level_name = #{levelName,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserId != null" >
+        create_user_id = #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id = #{updateUserId,jdbcType=VARCHAR},
       </if>
     </set>
     where level_id = #{levelId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.LevelInfo">
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.LevelInfo" >
     update level_info
     set level = #{level,jdbcType=INTEGER},
       level_detail_start = #{levelDetailStart,jdbcType=INTEGER},
       level_detail_end = #{levelDetailEnd,jdbcType=INTEGER},
-      level_name = #{levelName,jdbcType=VARCHAR}
-    where level_id = #{levelId,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.LevelInfo">
-    <id column="level_id" jdbcType="VARCHAR" property="levelId" />
-    <result column="level" jdbcType="INTEGER" property="level" />
-    <result column="level_detail_start" jdbcType="INTEGER" property="levelDetailStart" />
-    <result column="level_detail_end" jdbcType="INTEGER" property="levelDetailEnd" />
-    <result column="level_name" jdbcType="VARCHAR" property="levelName" />
-  </resultMap>
-  <sql id="Example_Where_Clause">
-    <trim prefix="where" prefixOverrides="and|or">
-      <if test="condition.level != null">
-         and level = #{condition.level,jdbcType=INTEGER}
-      </if>
-      <if test="condition.levelDetailStart != null">
-         and level_detail_start = #{condition.levelDetailStart,jdbcType=INTEGER}
-      </if>
-      <if test="condition.levelDetailEnd != null">
-         and level_detail_end = #{condition.levelDetailEnd,jdbcType=INTEGER}
-      </if>
-      <if test="condition.levelName != null">
-         and level_name = #{condition.levelName,jdbcType=VARCHAR}
-      </if>
-    </trim>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <trim prefix="where" prefixOverrides="and|or">
-      <if test="example.condition.level != null">
-         and level = #{example.condition.level,jdbcType=INTEGER}
-      </if>
-      <if test="example.condition.levelDetailStart != null">
-         and level_detail_start = #{example.condition.levelDetailStart,jdbcType=INTEGER}
-      </if>
-      <if test="example.condition.levelDetailEnd != null">
-         and level_detail_end = #{example.condition.levelDetailEnd,jdbcType=INTEGER}
-      </if>
-      <if test="example.condition.levelName != null">
-         and level_name = #{example.condition.levelName,jdbcType=VARCHAR}
-      </if>
-    </trim>
-  </sql>
-  <sql id="Base_Column_List">
-    level_id, level, level_detail_start, level_detail_end, level_name
-  </sql>
-  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from level_info
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-    <include refid="common.Mysql_Pagination_Limit" />
-  </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from level_info
-    where level_id = #{levelId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from level_info
-    where level_id = #{levelId,jdbcType=VARCHAR}
-  </delete>
-  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
-    delete from level_info
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.dreams.dream.pojo.base.LevelInfo">
-    insert into level_info (level_id, level, level_detail_start, 
-      level_detail_end, level_name)
-    values (#{levelId,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER}, #{levelDetailStart,jdbcType=INTEGER}, 
-      #{levelDetailEnd,jdbcType=INTEGER}, #{levelName,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.LevelInfo">
-    insert into level_info
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="levelId != null">
-        level_id,
-      </if>
-      <if test="level != null">
-        level,
-      </if>
-      <if test="levelDetailStart != null">
-        level_detail_start,
-      </if>
-      <if test="levelDetailEnd != null">
-        level_detail_end,
-      </if>
-      <if test="levelName != null">
-        level_name,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="levelId != null">
-        #{levelId,jdbcType=VARCHAR},
-      </if>
-      <if test="level != null">
-        #{level,jdbcType=INTEGER},
-      </if>
-      <if test="levelDetailStart != null">
-        #{levelDetailStart,jdbcType=INTEGER},
-      </if>
-      <if test="levelDetailEnd != null">
-        #{levelDetailEnd,jdbcType=INTEGER},
-      </if>
-      <if test="levelName != null">
-        #{levelName,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
-    select count(*) from level_info
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update level_info
-    <set>
-      <if test="record.levelId != null">
-        level_id = #{record.levelId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.level != null">
-        level = #{record.level,jdbcType=INTEGER},
-      </if>
-      <if test="record.levelDetailStart != null">
-        level_detail_start = #{record.levelDetailStart,jdbcType=INTEGER},
-      </if>
-      <if test="record.levelDetailEnd != null">
-        level_detail_end = #{record.levelDetailEnd,jdbcType=INTEGER},
-      </if>
-      <if test="record.levelName != null">
-        level_name = #{record.levelName,jdbcType=VARCHAR},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update level_info
-    set level_id = #{record.levelId,jdbcType=VARCHAR},
-      level = #{record.level,jdbcType=INTEGER},
-      level_detail_start = #{record.levelDetailStart,jdbcType=INTEGER},
-      level_detail_end = #{record.levelDetailEnd,jdbcType=INTEGER},
-      level_name = #{record.levelName,jdbcType=VARCHAR}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.LevelInfo">
-    update level_info
-    <set>
-      <if test="level != null">
-        level = #{level,jdbcType=INTEGER},
-      </if>
-      <if test="levelDetailStart != null">
-        level_detail_start = #{levelDetailStart,jdbcType=INTEGER},
-      </if>
-      <if test="levelDetailEnd != null">
-        level_detail_end = #{levelDetailEnd,jdbcType=INTEGER},
-      </if>
-      <if test="levelName != null">
-        level_name = #{levelName,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where level_id = #{levelId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.LevelInfo">
-    update level_info
-    set level = #{level,jdbcType=INTEGER},
-      level_detail_start = #{levelDetailStart,jdbcType=INTEGER},
-      level_detail_end = #{levelDetailEnd,jdbcType=INTEGER},
-      level_name = #{levelName,jdbcType=VARCHAR}
+      level_name = #{levelName,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      create_user_id = #{createUserId,jdbcType=VARCHAR},
+      update_user_id = #{updateUserId,jdbcType=VARCHAR}
     where level_id = #{levelId,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -14,6 +14,14 @@ public class SocietyAnnouncementHis implements Serializable {
 
     private Date announcementCreateDate;
 
+    private Date createDate;
+
+    private Date updateDate;
+
+    private String createUserId;
+
+    private String updateUserId;
+
     public String getAnnouncementId() {
         return announcementId;
     }
@@ -44,5 +52,37 @@ public class SocietyAnnouncementHis implements Serializable {
 
     public void setAnnouncementCreateDate(Date announcementCreateDate) {
         this.announcementCreateDate = announcementCreateDate;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    public String getCreateUserId() {
+        return createUserId;
+    }
+
+    public void setCreateUserId(String createUserId) {
+        this.createUserId = createUserId;
+    }
+
+    public String getUpdateUserId() {
+        return updateUserId;
+    }
+
+    public void setUpdateUserId(String updateUserId) {
+        this.updateUserId = updateUserId;
     }
 }

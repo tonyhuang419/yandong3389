@@ -1,368 +1,296 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dreams.dream.dao.base.GameInfoMapper">
-  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.GameInfo">
-    <id column="game_id" jdbcType="VARCHAR" property="gameId" />
-    <result column="game_name" jdbcType="VARCHAR" property="gameName" />
-    <result column="game_logo_min" jdbcType="VARCHAR" property="gameLogoMin" />
-    <result column="game_logo_max" jdbcType="VARCHAR" property="gameLogoMax" />
-    <result column="game_url" jdbcType="VARCHAR" property="gameUrl" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dreams.dream.dao.base.GameInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.GameInfo" >
+    <id column="game_id" property="gameId" jdbcType="VARCHAR" />
+    <result column="game_name" property="gameName" jdbcType="VARCHAR" />
+    <result column="game_name_en" property="gameNameEn" jdbcType="VARCHAR" />
+    <result column="game_logo_min" property="gameLogoMin" jdbcType="VARCHAR" />
+    <result column="game_logo_max" property="gameLogoMax" jdbcType="VARCHAR" />
+    <result column="game_url" property="gameUrl" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="create_user_id" property="createUserId" jdbcType="VARCHAR" />
+    <result column="update_user_id" property="updateUserId" jdbcType="VARCHAR" />
   </resultMap>
-  <sql id="Example_Where_Clause">
-    <trim prefix="where" prefixOverrides="and|or">
-      <if test="condition.gameName != null">
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.gameName != null" >
          and game_name = #{condition.gameName,jdbcType=VARCHAR}
       </if>
-      <if test="condition.gameLogoMin != null">
+      <if test="condition.gameNameEn != null" >
+         and game_name_en = #{condition.gameNameEn,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.gameLogoMin != null" >
          and game_logo_min = #{condition.gameLogoMin,jdbcType=VARCHAR}
       </if>
-      <if test="condition.gameLogoMax != null">
+      <if test="condition.gameLogoMax != null" >
          and game_logo_max = #{condition.gameLogoMax,jdbcType=VARCHAR}
       </if>
-      <if test="condition.gameUrl != null">
+      <if test="condition.gameUrl != null" >
          and game_url = #{condition.gameUrl,jdbcType=VARCHAR}
       </if>
+      <if test="condition.createDate != null" >
+         and create_date = #{condition.createDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.updateDate != null" >
+         and update_date = #{condition.updateDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.createUserId != null" >
+         and create_user_id = #{condition.createUserId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.updateUserId != null" >
+         and update_user_id = #{condition.updateUserId,jdbcType=VARCHAR}
+      </if>
     </trim>
   </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <trim prefix="where" prefixOverrides="and|or">
-      <if test="example.condition.gameName != null">
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.gameName != null" >
          and game_name = #{example.condition.gameName,jdbcType=VARCHAR}
       </if>
-      <if test="example.condition.gameLogoMin != null">
+      <if test="example.condition.gameNameEn != null" >
+         and game_name_en = #{example.condition.gameNameEn,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.gameLogoMin != null" >
          and game_logo_min = #{example.condition.gameLogoMin,jdbcType=VARCHAR}
       </if>
-      <if test="example.condition.gameLogoMax != null">
+      <if test="example.condition.gameLogoMax != null" >
          and game_logo_max = #{example.condition.gameLogoMax,jdbcType=VARCHAR}
       </if>
-      <if test="example.condition.gameUrl != null">
+      <if test="example.condition.gameUrl != null" >
          and game_url = #{example.condition.gameUrl,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.createDate != null" >
+         and create_date = #{example.condition.createDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.updateDate != null" >
+         and update_date = #{example.condition.updateDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.createUserId != null" >
+         and create_user_id = #{example.condition.createUserId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.updateUserId != null" >
+         and update_user_id = #{example.condition.updateUserId,jdbcType=VARCHAR}
       </if>
     </trim>
   </sql>
-  <sql id="Base_Column_List">
-    game_id, game_name, game_logo_min, game_logo_max, game_url
+  <sql id="Base_Column_List" >
+    game_id, game_name, game_name_en, game_logo_min, game_logo_max, game_url, create_date, 
+    update_date, create_user_id, update_user_id
   </sql>
-  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dreams.dream.pojo.base.Criteria" >
     select
-    <if test="distinct">
+    <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
     from game_info
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null">
+    <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
     <include refid="common.Mysql_Pagination_Limit" />
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from game_info
     where game_id = #{gameId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from game_info
     where game_id = #{gameId,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria" >
     delete from game_info
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.dreams.dream.pojo.base.GameInfo">
-    insert into game_info (game_id, game_name, game_logo_min, 
-      game_logo_max, game_url)
-    values (#{gameId,jdbcType=VARCHAR}, #{gameName,jdbcType=VARCHAR}, #{gameLogoMin,jdbcType=VARCHAR}, 
-      #{gameLogoMax,jdbcType=VARCHAR}, #{gameUrl,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.GameInfo" >
+    insert into game_info (game_id, game_name, game_name_en, 
+      game_logo_min, game_logo_max, game_url, 
+      create_date, update_date, create_user_id, 
+      update_user_id)
+    values (#{gameId,jdbcType=VARCHAR}, #{gameName,jdbcType=VARCHAR}, #{gameNameEn,jdbcType=VARCHAR}, 
+      #{gameLogoMin,jdbcType=VARCHAR}, #{gameLogoMax,jdbcType=VARCHAR}, #{gameUrl,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{createUserId,jdbcType=VARCHAR}, 
+      #{updateUserId,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.GameInfo">
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.GameInfo" >
     insert into game_info
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="gameId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="gameId != null" >
         game_id,
       </if>
-      <if test="gameName != null">
+      <if test="gameName != null" >
         game_name,
       </if>
-      <if test="gameLogoMin != null">
+      <if test="gameNameEn != null" >
+        game_name_en,
+      </if>
+      <if test="gameLogoMin != null" >
         game_logo_min,
       </if>
-      <if test="gameLogoMax != null">
+      <if test="gameLogoMax != null" >
         game_logo_max,
       </if>
-      <if test="gameUrl != null">
+      <if test="gameUrl != null" >
         game_url,
       </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="createUserId != null" >
+        create_user_id,
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id,
+      </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="gameId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="gameId != null" >
         #{gameId,jdbcType=VARCHAR},
       </if>
-      <if test="gameName != null">
+      <if test="gameName != null" >
         #{gameName,jdbcType=VARCHAR},
       </if>
-      <if test="gameLogoMin != null">
+      <if test="gameNameEn != null" >
+        #{gameNameEn,jdbcType=VARCHAR},
+      </if>
+      <if test="gameLogoMin != null" >
         #{gameLogoMin,jdbcType=VARCHAR},
       </if>
-      <if test="gameLogoMax != null">
+      <if test="gameLogoMax != null" >
         #{gameLogoMax,jdbcType=VARCHAR},
       </if>
-      <if test="gameUrl != null">
+      <if test="gameUrl != null" >
         #{gameUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserId != null" >
+        #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserId != null" >
+        #{updateUserId,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer" >
     select count(*) from game_info
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+  <update id="updateByExampleSelective" parameterType="map" >
     update game_info
-    <set>
-      <if test="record.gameId != null">
+    <set >
+      <if test="record.gameId != null" >
         game_id = #{record.gameId,jdbcType=VARCHAR},
       </if>
-      <if test="record.gameName != null">
+      <if test="record.gameName != null" >
         game_name = #{record.gameName,jdbcType=VARCHAR},
       </if>
-      <if test="record.gameLogoMin != null">
+      <if test="record.gameNameEn != null" >
+        game_name_en = #{record.gameNameEn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gameLogoMin != null" >
         game_logo_min = #{record.gameLogoMin,jdbcType=VARCHAR},
       </if>
-      <if test="record.gameLogoMax != null">
+      <if test="record.gameLogoMax != null" >
         game_logo_max = #{record.gameLogoMax,jdbcType=VARCHAR},
       </if>
-      <if test="record.gameUrl != null">
+      <if test="record.gameUrl != null" >
         game_url = #{record.gameUrl,jdbcType=VARCHAR},
       </if>
+      <if test="record.createDate != null" >
+        create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateDate != null" >
+        update_date = #{record.updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createUserId != null" >
+        create_user_id = #{record.createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateUserId != null" >
+        update_user_id = #{record.updateUserId,jdbcType=VARCHAR},
+      </if>
     </set>
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExample" parameterType="map">
+  <update id="updateByExample" parameterType="map" >
     update game_info
     set game_id = #{record.gameId,jdbcType=VARCHAR},
       game_name = #{record.gameName,jdbcType=VARCHAR},
+      game_name_en = #{record.gameNameEn,jdbcType=VARCHAR},
       game_logo_min = #{record.gameLogoMin,jdbcType=VARCHAR},
       game_logo_max = #{record.gameLogoMax,jdbcType=VARCHAR},
-      game_url = #{record.gameUrl,jdbcType=VARCHAR}
-    <if test="_parameter != null">
+      game_url = #{record.gameUrl,jdbcType=VARCHAR},
+      create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      update_date = #{record.updateDate,jdbcType=TIMESTAMP},
+      create_user_id = #{record.createUserId,jdbcType=VARCHAR},
+      update_user_id = #{record.updateUserId,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.GameInfo">
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.GameInfo" >
     update game_info
-    <set>
-      <if test="gameName != null">
+    <set >
+      <if test="gameName != null" >
         game_name = #{gameName,jdbcType=VARCHAR},
       </if>
-      <if test="gameLogoMin != null">
+      <if test="gameNameEn != null" >
+        game_name_en = #{gameNameEn,jdbcType=VARCHAR},
+      </if>
+      <if test="gameLogoMin != null" >
         game_logo_min = #{gameLogoMin,jdbcType=VARCHAR},
       </if>
-      <if test="gameLogoMax != null">
+      <if test="gameLogoMax != null" >
         game_logo_max = #{gameLogoMax,jdbcType=VARCHAR},
       </if>
-      <if test="gameUrl != null">
+      <if test="gameUrl != null" >
         game_url = #{gameUrl,jdbcType=VARCHAR},
       </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserId != null" >
+        create_user_id = #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id = #{updateUserId,jdbcType=VARCHAR},
+      </if>
     </set>
     where game_id = #{gameId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.GameInfo">
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.GameInfo" >
     update game_info
     set game_name = #{gameName,jdbcType=VARCHAR},
+      game_name_en = #{gameNameEn,jdbcType=VARCHAR},
       game_logo_min = #{gameLogoMin,jdbcType=VARCHAR},
       game_logo_max = #{gameLogoMax,jdbcType=VARCHAR},
-      game_url = #{gameUrl,jdbcType=VARCHAR}
-    where game_id = #{gameId,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.GameInfo">
-    <id column="game_id" jdbcType="VARCHAR" property="gameId" />
-    <result column="game_name" jdbcType="VARCHAR" property="gameName" />
-    <result column="game_logo_min" jdbcType="VARCHAR" property="gameLogoMin" />
-    <result column="game_logo_max" jdbcType="VARCHAR" property="gameLogoMax" />
-    <result column="game_url" jdbcType="VARCHAR" property="gameUrl" />
-  </resultMap>
-  <sql id="Example_Where_Clause">
-    <trim prefix="where" prefixOverrides="and|or">
-      <if test="condition.gameName != null">
-         and game_name = #{condition.gameName,jdbcType=VARCHAR}
-      </if>
-      <if test="condition.gameLogoMin != null">
-         and game_logo_min = #{condition.gameLogoMin,jdbcType=VARCHAR}
-      </if>
-      <if test="condition.gameLogoMax != null">
-         and game_logo_max = #{condition.gameLogoMax,jdbcType=VARCHAR}
-      </if>
-      <if test="condition.gameUrl != null">
-         and game_url = #{condition.gameUrl,jdbcType=VARCHAR}
-      </if>
-    </trim>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <trim prefix="where" prefixOverrides="and|or">
-      <if test="example.condition.gameName != null">
-         and game_name = #{example.condition.gameName,jdbcType=VARCHAR}
-      </if>
-      <if test="example.condition.gameLogoMin != null">
-         and game_logo_min = #{example.condition.gameLogoMin,jdbcType=VARCHAR}
-      </if>
-      <if test="example.condition.gameLogoMax != null">
-         and game_logo_max = #{example.condition.gameLogoMax,jdbcType=VARCHAR}
-      </if>
-      <if test="example.condition.gameUrl != null">
-         and game_url = #{example.condition.gameUrl,jdbcType=VARCHAR}
-      </if>
-    </trim>
-  </sql>
-  <sql id="Base_Column_List">
-    game_id, game_name, game_logo_min, game_logo_max, game_url
-  </sql>
-  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from game_info
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-    <include refid="common.Mysql_Pagination_Limit" />
-  </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from game_info
-    where game_id = #{gameId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from game_info
-    where game_id = #{gameId,jdbcType=VARCHAR}
-  </delete>
-  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
-    delete from game_info
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.dreams.dream.pojo.base.GameInfo">
-    insert into game_info (game_id, game_name, game_logo_min, 
-      game_logo_max, game_url)
-    values (#{gameId,jdbcType=VARCHAR}, #{gameName,jdbcType=VARCHAR}, #{gameLogoMin,jdbcType=VARCHAR}, 
-      #{gameLogoMax,jdbcType=VARCHAR}, #{gameUrl,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.GameInfo">
-    insert into game_info
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="gameId != null">
-        game_id,
-      </if>
-      <if test="gameName != null">
-        game_name,
-      </if>
-      <if test="gameLogoMin != null">
-        game_logo_min,
-      </if>
-      <if test="gameLogoMax != null">
-        game_logo_max,
-      </if>
-      <if test="gameUrl != null">
-        game_url,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="gameId != null">
-        #{gameId,jdbcType=VARCHAR},
-      </if>
-      <if test="gameName != null">
-        #{gameName,jdbcType=VARCHAR},
-      </if>
-      <if test="gameLogoMin != null">
-        #{gameLogoMin,jdbcType=VARCHAR},
-      </if>
-      <if test="gameLogoMax != null">
-        #{gameLogoMax,jdbcType=VARCHAR},
-      </if>
-      <if test="gameUrl != null">
-        #{gameUrl,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
-    select count(*) from game_info
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update game_info
-    <set>
-      <if test="record.gameId != null">
-        game_id = #{record.gameId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.gameName != null">
-        game_name = #{record.gameName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.gameLogoMin != null">
-        game_logo_min = #{record.gameLogoMin,jdbcType=VARCHAR},
-      </if>
-      <if test="record.gameLogoMax != null">
-        game_logo_max = #{record.gameLogoMax,jdbcType=VARCHAR},
-      </if>
-      <if test="record.gameUrl != null">
-        game_url = #{record.gameUrl,jdbcType=VARCHAR},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update game_info
-    set game_id = #{record.gameId,jdbcType=VARCHAR},
-      game_name = #{record.gameName,jdbcType=VARCHAR},
-      game_logo_min = #{record.gameLogoMin,jdbcType=VARCHAR},
-      game_logo_max = #{record.gameLogoMax,jdbcType=VARCHAR},
-      game_url = #{record.gameUrl,jdbcType=VARCHAR}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.GameInfo">
-    update game_info
-    <set>
-      <if test="gameName != null">
-        game_name = #{gameName,jdbcType=VARCHAR},
-      </if>
-      <if test="gameLogoMin != null">
-        game_logo_min = #{gameLogoMin,jdbcType=VARCHAR},
-      </if>
-      <if test="gameLogoMax != null">
-        game_logo_max = #{gameLogoMax,jdbcType=VARCHAR},
-      </if>
-      <if test="gameUrl != null">
-        game_url = #{gameUrl,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where game_id = #{gameId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.GameInfo">
-    update game_info
-    set game_name = #{gameName,jdbcType=VARCHAR},
-      game_logo_min = #{gameLogoMin,jdbcType=VARCHAR},
-      game_logo_max = #{gameLogoMax,jdbcType=VARCHAR},
-      game_url = #{gameUrl,jdbcType=VARCHAR}
+      game_url = #{gameUrl,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      create_user_id = #{createUserId,jdbcType=VARCHAR},
+      update_user_id = #{updateUserId,jdbcType=VARCHAR}
     where game_id = #{gameId,jdbcType=VARCHAR}
   </update>
 </mapper>

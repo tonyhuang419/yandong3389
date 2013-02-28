@@ -1,284 +1,231 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dreams.dream.dao.base.SocietyDutyInfoMapper">
-  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.SocietyDutyInfo">
-    <id column="society_duty_id" jdbcType="VARCHAR" property="societyDutyId" />
-    <result column="society_duty_name" jdbcType="VARCHAR" property="societyDutyName" />
-    <result column="power_id" jdbcType="VARCHAR" property="powerId" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dreams.dream.dao.base.SocietyDutyInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.SocietyDutyInfo" >
+    <id column="society_duty_id" property="societyDutyId" jdbcType="VARCHAR" />
+    <result column="society_duty_name" property="societyDutyName" jdbcType="VARCHAR" />
+    <result column="power_id" property="powerId" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="create_user_id" property="createUserId" jdbcType="VARCHAR" />
+    <result column="update_user_id" property="updateUserId" jdbcType="VARCHAR" />
   </resultMap>
-  <sql id="Example_Where_Clause">
-    <trim prefix="where" prefixOverrides="and|or">
-      <if test="condition.societyDutyName != null">
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.societyDutyName != null" >
          and society_duty_name = #{condition.societyDutyName,jdbcType=VARCHAR}
       </if>
-      <if test="condition.powerId != null">
+      <if test="condition.powerId != null" >
          and power_id = #{condition.powerId,jdbcType=VARCHAR}
       </if>
+      <if test="condition.createDate != null" >
+         and create_date = #{condition.createDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.updateDate != null" >
+         and update_date = #{condition.updateDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.createUserId != null" >
+         and create_user_id = #{condition.createUserId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.updateUserId != null" >
+         and update_user_id = #{condition.updateUserId,jdbcType=VARCHAR}
+      </if>
     </trim>
   </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <trim prefix="where" prefixOverrides="and|or">
-      <if test="example.condition.societyDutyName != null">
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.societyDutyName != null" >
          and society_duty_name = #{example.condition.societyDutyName,jdbcType=VARCHAR}
       </if>
-      <if test="example.condition.powerId != null">
+      <if test="example.condition.powerId != null" >
          and power_id = #{example.condition.powerId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.createDate != null" >
+         and create_date = #{example.condition.createDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.updateDate != null" >
+         and update_date = #{example.condition.updateDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.createUserId != null" >
+         and create_user_id = #{example.condition.createUserId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.updateUserId != null" >
+         and update_user_id = #{example.condition.updateUserId,jdbcType=VARCHAR}
       </if>
     </trim>
   </sql>
-  <sql id="Base_Column_List">
-    society_duty_id, society_duty_name, power_id
+  <sql id="Base_Column_List" >
+    society_duty_id, society_duty_name, power_id, create_date, update_date, create_user_id, 
+    update_user_id
   </sql>
-  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dreams.dream.pojo.base.Criteria" >
     select
-    <if test="distinct">
+    <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
     from society_duty_info
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null">
+    <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
     <include refid="common.Mysql_Pagination_Limit" />
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from society_duty_info
     where society_duty_id = #{societyDutyId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from society_duty_info
     where society_duty_id = #{societyDutyId,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria" >
     delete from society_duty_info
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.dreams.dream.pojo.base.SocietyDutyInfo">
-    insert into society_duty_info (society_duty_id, society_duty_name, power_id
-      )
-    values (#{societyDutyId,jdbcType=VARCHAR}, #{societyDutyName,jdbcType=VARCHAR}, #{powerId,jdbcType=VARCHAR}
-      )
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.SocietyDutyInfo" >
+    insert into society_duty_info (society_duty_id, society_duty_name, power_id, 
+      create_date, update_date, create_user_id, 
+      update_user_id)
+    values (#{societyDutyId,jdbcType=VARCHAR}, #{societyDutyName,jdbcType=VARCHAR}, #{powerId,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{createUserId,jdbcType=VARCHAR}, 
+      #{updateUserId,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.SocietyDutyInfo">
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.SocietyDutyInfo" >
     insert into society_duty_info
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="societyDutyId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="societyDutyId != null" >
         society_duty_id,
       </if>
-      <if test="societyDutyName != null">
+      <if test="societyDutyName != null" >
         society_duty_name,
       </if>
-      <if test="powerId != null">
+      <if test="powerId != null" >
         power_id,
       </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="createUserId != null" >
+        create_user_id,
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id,
+      </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="societyDutyId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="societyDutyId != null" >
         #{societyDutyId,jdbcType=VARCHAR},
       </if>
-      <if test="societyDutyName != null">
+      <if test="societyDutyName != null" >
         #{societyDutyName,jdbcType=VARCHAR},
       </if>
-      <if test="powerId != null">
+      <if test="powerId != null" >
         #{powerId,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserId != null" >
+        #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserId != null" >
+        #{updateUserId,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer" >
     select count(*) from society_duty_info
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+  <update id="updateByExampleSelective" parameterType="map" >
     update society_duty_info
-    <set>
-      <if test="record.societyDutyId != null">
+    <set >
+      <if test="record.societyDutyId != null" >
         society_duty_id = #{record.societyDutyId,jdbcType=VARCHAR},
       </if>
-      <if test="record.societyDutyName != null">
+      <if test="record.societyDutyName != null" >
         society_duty_name = #{record.societyDutyName,jdbcType=VARCHAR},
       </if>
-      <if test="record.powerId != null">
+      <if test="record.powerId != null" >
         power_id = #{record.powerId,jdbcType=VARCHAR},
       </if>
+      <if test="record.createDate != null" >
+        create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateDate != null" >
+        update_date = #{record.updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createUserId != null" >
+        create_user_id = #{record.createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateUserId != null" >
+        update_user_id = #{record.updateUserId,jdbcType=VARCHAR},
+      </if>
     </set>
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExample" parameterType="map">
+  <update id="updateByExample" parameterType="map" >
     update society_duty_info
     set society_duty_id = #{record.societyDutyId,jdbcType=VARCHAR},
       society_duty_name = #{record.societyDutyName,jdbcType=VARCHAR},
-      power_id = #{record.powerId,jdbcType=VARCHAR}
-    <if test="_parameter != null">
+      power_id = #{record.powerId,jdbcType=VARCHAR},
+      create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      update_date = #{record.updateDate,jdbcType=TIMESTAMP},
+      create_user_id = #{record.createUserId,jdbcType=VARCHAR},
+      update_user_id = #{record.updateUserId,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.SocietyDutyInfo">
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.SocietyDutyInfo" >
     update society_duty_info
-    <set>
-      <if test="societyDutyName != null">
+    <set >
+      <if test="societyDutyName != null" >
         society_duty_name = #{societyDutyName,jdbcType=VARCHAR},
       </if>
-      <if test="powerId != null">
+      <if test="powerId != null" >
         power_id = #{powerId,jdbcType=VARCHAR},
       </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserId != null" >
+        create_user_id = #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id = #{updateUserId,jdbcType=VARCHAR},
+      </if>
     </set>
     where society_duty_id = #{societyDutyId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.SocietyDutyInfo">
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.SocietyDutyInfo" >
     update society_duty_info
     set society_duty_name = #{societyDutyName,jdbcType=VARCHAR},
-      power_id = #{powerId,jdbcType=VARCHAR}
-    where society_duty_id = #{societyDutyId,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.SocietyDutyInfo">
-    <id column="society_duty_id" jdbcType="VARCHAR" property="societyDutyId" />
-    <result column="society_duty_name" jdbcType="VARCHAR" property="societyDutyName" />
-    <result column="power_id" jdbcType="VARCHAR" property="powerId" />
-  </resultMap>
-  <sql id="Example_Where_Clause">
-    <trim prefix="where" prefixOverrides="and|or">
-      <if test="condition.societyDutyName != null">
-         and society_duty_name = #{condition.societyDutyName,jdbcType=VARCHAR}
-      </if>
-      <if test="condition.powerId != null">
-         and power_id = #{condition.powerId,jdbcType=VARCHAR}
-      </if>
-    </trim>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <trim prefix="where" prefixOverrides="and|or">
-      <if test="example.condition.societyDutyName != null">
-         and society_duty_name = #{example.condition.societyDutyName,jdbcType=VARCHAR}
-      </if>
-      <if test="example.condition.powerId != null">
-         and power_id = #{example.condition.powerId,jdbcType=VARCHAR}
-      </if>
-    </trim>
-  </sql>
-  <sql id="Base_Column_List">
-    society_duty_id, society_duty_name, power_id
-  </sql>
-  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from society_duty_info
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-    <include refid="common.Mysql_Pagination_Limit" />
-  </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from society_duty_info
-    where society_duty_id = #{societyDutyId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from society_duty_info
-    where society_duty_id = #{societyDutyId,jdbcType=VARCHAR}
-  </delete>
-  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
-    delete from society_duty_info
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.dreams.dream.pojo.base.SocietyDutyInfo">
-    insert into society_duty_info (society_duty_id, society_duty_name, power_id
-      )
-    values (#{societyDutyId,jdbcType=VARCHAR}, #{societyDutyName,jdbcType=VARCHAR}, #{powerId,jdbcType=VARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.SocietyDutyInfo">
-    insert into society_duty_info
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="societyDutyId != null">
-        society_duty_id,
-      </if>
-      <if test="societyDutyName != null">
-        society_duty_name,
-      </if>
-      <if test="powerId != null">
-        power_id,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="societyDutyId != null">
-        #{societyDutyId,jdbcType=VARCHAR},
-      </if>
-      <if test="societyDutyName != null">
-        #{societyDutyName,jdbcType=VARCHAR},
-      </if>
-      <if test="powerId != null">
-        #{powerId,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
-    select count(*) from society_duty_info
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update society_duty_info
-    <set>
-      <if test="record.societyDutyId != null">
-        society_duty_id = #{record.societyDutyId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.societyDutyName != null">
-        society_duty_name = #{record.societyDutyName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.powerId != null">
-        power_id = #{record.powerId,jdbcType=VARCHAR},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update society_duty_info
-    set society_duty_id = #{record.societyDutyId,jdbcType=VARCHAR},
-      society_duty_name = #{record.societyDutyName,jdbcType=VARCHAR},
-      power_id = #{record.powerId,jdbcType=VARCHAR}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.SocietyDutyInfo">
-    update society_duty_info
-    <set>
-      <if test="societyDutyName != null">
-        society_duty_name = #{societyDutyName,jdbcType=VARCHAR},
-      </if>
-      <if test="powerId != null">
-        power_id = #{powerId,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where society_duty_id = #{societyDutyId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.SocietyDutyInfo">
-    update society_duty_info
-    set society_duty_name = #{societyDutyName,jdbcType=VARCHAR},
-      power_id = #{powerId,jdbcType=VARCHAR}
+      power_id = #{powerId,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      create_user_id = #{createUserId,jdbcType=VARCHAR},
+      update_user_id = #{updateUserId,jdbcType=VARCHAR}
     where society_duty_id = #{societyDutyId,jdbcType=VARCHAR}
   </update>
 </mapper>

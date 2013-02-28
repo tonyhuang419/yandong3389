@@ -34,6 +34,14 @@ public class SocietyInfo implements Serializable {
 
     private String gameServer;
 
+    private Date createDate;
+
+    private Date updateDate;
+
+    private String createUserId;
+
+    private String updateUserId;
+
     public String getSocietyId() {
         return societyId;
     }
@@ -144,5 +152,37 @@ public class SocietyInfo implements Serializable {
 
     public void setGameServer(String gameServer) {
         this.gameServer = gameServer;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    public String getCreateUserId() {
+        return createUserId;
+    }
+
+    public void setCreateUserId(String createUserId) {
+        this.createUserId = createUserId;
+    }
+
+    public String getUpdateUserId() {
+        return updateUserId;
+    }
+
+    public void setUpdateUserId(String updateUserId) {
+        this.updateUserId = updateUserId;
     }
 }

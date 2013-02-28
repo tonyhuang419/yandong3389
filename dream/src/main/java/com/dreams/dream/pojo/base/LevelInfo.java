@@ -1,6 +1,7 @@
 package com.dreams.dream.pojo.base;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class LevelInfo implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -14,6 +15,14 @@ public class LevelInfo implements Serializable {
     private Integer levelDetailEnd;
 
     private String levelName;
+
+    private Date createDate;
+
+    private Date updateDate;
+
+    private String createUserId;
+
+    private String updateUserId;
 
     public String getLevelId() {
         return levelId;
@@ -53,5 +62,37 @@ public class LevelInfo implements Serializable {
 
     public void setLevelName(String levelName) {
         this.levelName = levelName;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    public String getCreateUserId() {
+        return createUserId;
+    }
+
+    public void setCreateUserId(String createUserId) {
+        this.createUserId = createUserId;
+    }
+
+    public String getUpdateUserId() {
+        return updateUserId;
+    }
+
+    public void setUpdateUserId(String updateUserId) {
+        this.updateUserId = updateUserId;
     }
 }

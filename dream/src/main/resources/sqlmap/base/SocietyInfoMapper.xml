@@ -1,306 +1,373 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dreams.dream.dao.base.SocietyInfoMapper">
-  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.SocietyInfo">
-    <id column="society_id" jdbcType="VARCHAR" property="societyId" />
-    <result column="society_name" jdbcType="VARCHAR" property="societyName" />
-    <result column="society_create_user_id" jdbcType="VARCHAR" property="societyCreateUserId" />
-    <result column="society_create_date" jdbcType="TIMESTAMP" property="societyCreateDate" />
-    <result column="society_intro" jdbcType="VARCHAR" property="societyIntro" />
-    <result column="society_announcement" jdbcType="VARCHAR" property="societyAnnouncement" />
-    <result column="society_logo" jdbcType="VARCHAR" property="societyLogo" />
-    <result column="society_user_count" jdbcType="INTEGER" property="societyUserCount" />
-    <result column="society_active" jdbcType="INTEGER" property="societyActive" />
-    <result column="society_active_ranking" jdbcType="INTEGER" property="societyActiveRanking" />
-    <result column="society_user_count_ranking" jdbcType="INTEGER" property="societyUserCountRanking" />
-    <result column="parent_society_id" jdbcType="VARCHAR" property="parentSocietyId" />
-    <result column="game_id" jdbcType="VARCHAR" property="gameId" />
-    <result column="game_server" jdbcType="VARCHAR" property="gameServer" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dreams.dream.dao.base.SocietyInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.SocietyInfo" >
+    <id column="society_id" property="societyId" jdbcType="VARCHAR" />
+    <result column="society_name" property="societyName" jdbcType="VARCHAR" />
+    <result column="society_create_user_id" property="societyCreateUserId" jdbcType="VARCHAR" />
+    <result column="society_create_date" property="societyCreateDate" jdbcType="TIMESTAMP" />
+    <result column="society_intro" property="societyIntro" jdbcType="VARCHAR" />
+    <result column="society_announcement" property="societyAnnouncement" jdbcType="VARCHAR" />
+    <result column="society_logo" property="societyLogo" jdbcType="VARCHAR" />
+    <result column="society_user_count" property="societyUserCount" jdbcType="INTEGER" />
+    <result column="society_active" property="societyActive" jdbcType="INTEGER" />
+    <result column="society_active_ranking" property="societyActiveRanking" jdbcType="INTEGER" />
+    <result column="society_user_count_ranking" property="societyUserCountRanking" jdbcType="INTEGER" />
+    <result column="parent_society_id" property="parentSocietyId" jdbcType="VARCHAR" />
+    <result column="game_id" property="gameId" jdbcType="VARCHAR" />
+    <result column="game_server" property="gameServer" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="create_user_id" property="createUserId" jdbcType="VARCHAR" />
+    <result column="update_user_id" property="updateUserId" jdbcType="VARCHAR" />
   </resultMap>
-  <sql id="Example_Where_Clause">
-    <trim prefix="where" prefixOverrides="and|or">
-      <if test="condition.societyName != null">
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.societyName != null" >
          and society_name = #{condition.societyName,jdbcType=VARCHAR}
       </if>
-      <if test="condition.societyCreateUserId != null">
+      <if test="condition.societyCreateUserId != null" >
          and society_create_user_id = #{condition.societyCreateUserId,jdbcType=VARCHAR}
       </if>
-      <if test="condition.societyCreateDate != null">
+      <if test="condition.societyCreateDate != null" >
          and society_create_date = #{condition.societyCreateDate,jdbcType=TIMESTAMP}
       </if>
-      <if test="condition.societyIntro != null">
+      <if test="condition.societyIntro != null" >
          and society_intro = #{condition.societyIntro,jdbcType=VARCHAR}
       </if>
-      <if test="condition.societyAnnouncement != null">
+      <if test="condition.societyAnnouncement != null" >
          and society_announcement = #{condition.societyAnnouncement,jdbcType=VARCHAR}
       </if>
-      <if test="condition.societyLogo != null">
+      <if test="condition.societyLogo != null" >
          and society_logo = #{condition.societyLogo,jdbcType=VARCHAR}
       </if>
-      <if test="condition.societyUserCount != null">
+      <if test="condition.societyUserCount != null" >
          and society_user_count = #{condition.societyUserCount,jdbcType=INTEGER}
       </if>
-      <if test="condition.societyActive != null">
+      <if test="condition.societyActive != null" >
          and society_active = #{condition.societyActive,jdbcType=INTEGER}
       </if>
-      <if test="condition.societyActiveRanking != null">
+      <if test="condition.societyActiveRanking != null" >
          and society_active_ranking = #{condition.societyActiveRanking,jdbcType=INTEGER}
       </if>
-      <if test="condition.societyUserCountRanking != null">
+      <if test="condition.societyUserCountRanking != null" >
          and society_user_count_ranking = #{condition.societyUserCountRanking,jdbcType=INTEGER}
       </if>
-      <if test="condition.parentSocietyId != null">
+      <if test="condition.parentSocietyId != null" >
          and parent_society_id = #{condition.parentSocietyId,jdbcType=VARCHAR}
       </if>
-      <if test="condition.gameId != null">
+      <if test="condition.gameId != null" >
          and game_id = #{condition.gameId,jdbcType=VARCHAR}
       </if>
-      <if test="condition.gameServer != null">
+      <if test="condition.gameServer != null" >
          and game_server = #{condition.gameServer,jdbcType=VARCHAR}
       </if>
+      <if test="condition.createDate != null" >
+         and create_date = #{condition.createDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.updateDate != null" >
+         and update_date = #{condition.updateDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="condition.createUserId != null" >
+         and create_user_id = #{condition.createUserId,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.updateUserId != null" >
+         and update_user_id = #{condition.updateUserId,jdbcType=VARCHAR}
+      </if>
     </trim>
   </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <trim prefix="where" prefixOverrides="and|or">
-      <if test="example.condition.societyName != null">
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.societyName != null" >
          and society_name = #{example.condition.societyName,jdbcType=VARCHAR}
       </if>
-      <if test="example.condition.societyCreateUserId != null">
+      <if test="example.condition.societyCreateUserId != null" >
          and society_create_user_id = #{example.condition.societyCreateUserId,jdbcType=VARCHAR}
       </if>
-      <if test="example.condition.societyCreateDate != null">
+      <if test="example.condition.societyCreateDate != null" >
          and society_create_date = #{example.condition.societyCreateDate,jdbcType=TIMESTAMP}
       </if>
-      <if test="example.condition.societyIntro != null">
+      <if test="example.condition.societyIntro != null" >
          and society_intro = #{example.condition.societyIntro,jdbcType=VARCHAR}
       </if>
-      <if test="example.condition.societyAnnouncement != null">
+      <if test="example.condition.societyAnnouncement != null" >
          and society_announcement = #{example.condition.societyAnnouncement,jdbcType=VARCHAR}
       </if>
-      <if test="example.condition.societyLogo != null">
+      <if test="example.condition.societyLogo != null" >
          and society_logo = #{example.condition.societyLogo,jdbcType=VARCHAR}
       </if>
-      <if test="example.condition.societyUserCount != null">
+      <if test="example.condition.societyUserCount != null" >
          and society_user_count = #{example.condition.societyUserCount,jdbcType=INTEGER}
       </if>
-      <if test="example.condition.societyActive != null">
+      <if test="example.condition.societyActive != null" >
          and society_active = #{example.condition.societyActive,jdbcType=INTEGER}
       </if>
-      <if test="example.condition.societyActiveRanking != null">
+      <if test="example.condition.societyActiveRanking != null" >
          and society_active_ranking = #{example.condition.societyActiveRanking,jdbcType=INTEGER}
       </if>
-      <if test="example.condition.societyUserCountRanking != null">
+      <if test="example.condition.societyUserCountRanking != null" >
          and society_user_count_ranking = #{example.condition.societyUserCountRanking,jdbcType=INTEGER}
       </if>
-      <if test="example.condition.parentSocietyId != null">
+      <if test="example.condition.parentSocietyId != null" >
          and parent_society_id = #{example.condition.parentSocietyId,jdbcType=VARCHAR}
       </if>
-      <if test="example.condition.gameId != null">
+      <if test="example.condition.gameId != null" >
          and game_id = #{example.condition.gameId,jdbcType=VARCHAR}
       </if>
-      <if test="example.condition.gameServer != null">
+      <if test="example.condition.gameServer != null" >
          and game_server = #{example.condition.gameServer,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.createDate != null" >
+         and create_date = #{example.condition.createDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.updateDate != null" >
+         and update_date = #{example.condition.updateDate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="example.condition.createUserId != null" >
+         and create_user_id = #{example.condition.createUserId,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.updateUserId != null" >
+         and update_user_id = #{example.condition.updateUserId,jdbcType=VARCHAR}
       </if>
     </trim>
   </sql>
-  <sql id="Base_Column_List">
+  <sql id="Base_Column_List" >
     society_id, society_name, society_create_user_id, society_create_date, society_intro, 
     society_announcement, society_logo, society_user_count, society_active, society_active_ranking, 
-    society_user_count_ranking, parent_society_id, game_id, game_server
+    society_user_count_ranking, parent_society_id, game_id, game_server, create_date, 
+    update_date, create_user_id, update_user_id
   </sql>
-  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dreams.dream.pojo.base.Criteria" >
     select
-    <if test="distinct">
+    <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
     from society_info
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null">
+    <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
     <include refid="common.Mysql_Pagination_Limit" />
   </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from society_info
     where society_id = #{societyId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from society_info
     where society_id = #{societyId,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria" >
     delete from society_info
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.dreams.dream.pojo.base.SocietyInfo">
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.SocietyInfo" >
     insert into society_info (society_id, society_name, society_create_user_id, 
       society_create_date, society_intro, society_announcement, 
       society_logo, society_user_count, society_active, 
       society_active_ranking, society_user_count_ranking, 
-      parent_society_id, game_id, game_server
-      )
+      parent_society_id, game_id, game_server, 
+      create_date, update_date, create_user_id, 
+      update_user_id)
     values (#{societyId,jdbcType=VARCHAR}, #{societyName,jdbcType=VARCHAR}, #{societyCreateUserId,jdbcType=VARCHAR}, 
       #{societyCreateDate,jdbcType=TIMESTAMP}, #{societyIntro,jdbcType=VARCHAR}, #{societyAnnouncement,jdbcType=VARCHAR}, 
       #{societyLogo,jdbcType=VARCHAR}, #{societyUserCount,jdbcType=INTEGER}, #{societyActive,jdbcType=INTEGER}, 
       #{societyActiveRanking,jdbcType=INTEGER}, #{societyUserCountRanking,jdbcType=INTEGER}, 
-      #{parentSocietyId,jdbcType=VARCHAR}, #{gameId,jdbcType=VARCHAR}, #{gameServer,jdbcType=VARCHAR}
-      )
+      #{parentSocietyId,jdbcType=VARCHAR}, #{gameId,jdbcType=VARCHAR}, #{gameServer,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{createUserId,jdbcType=VARCHAR}, 
+      #{updateUserId,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.SocietyInfo">
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.SocietyInfo" >
     insert into society_info
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="societyId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="societyId != null" >
         society_id,
       </if>
-      <if test="societyName != null">
+      <if test="societyName != null" >
         society_name,
       </if>
-      <if test="societyCreateUserId != null">
+      <if test="societyCreateUserId != null" >
         society_create_user_id,
       </if>
-      <if test="societyCreateDate != null">
+      <if test="societyCreateDate != null" >
         society_create_date,
       </if>
-      <if test="societyIntro != null">
+      <if test="societyIntro != null" >
         society_intro,
       </if>
-      <if test="societyAnnouncement != null">
+      <if test="societyAnnouncement != null" >
         society_announcement,
       </if>
-      <if test="societyLogo != null">
+      <if test="societyLogo != null" >
         society_logo,
       </if>
-      <if test="societyUserCount != null">
+      <if test="societyUserCount != null" >
         society_user_count,
       </if>
-      <if test="societyActive != null">
+      <if test="societyActive != null" >
         society_active,
       </if>
-      <if test="societyActiveRanking != null">
+      <if test="societyActiveRanking != null" >
         society_active_ranking,
       </if>
-      <if test="societyUserCountRanking != null">
+      <if test="societyUserCountRanking != null" >
         society_user_count_ranking,
       </if>
-      <if test="parentSocietyId != null">
+      <if test="parentSocietyId != null" >
         parent_society_id,
       </if>
-      <if test="gameId != null">
+      <if test="gameId != null" >
         game_id,
       </if>
-      <if test="gameServer != null">
+      <if test="gameServer != null" >
         game_server,
       </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="createUserId != null" >
+        create_user_id,
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id,
+      </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="societyId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="societyId != null" >
         #{societyId,jdbcType=VARCHAR},
       </if>
-      <if test="societyName != null">
+      <if test="societyName != null" >
         #{societyName,jdbcType=VARCHAR},
       </if>
-      <if test="societyCreateUserId != null">
+      <if test="societyCreateUserId != null" >
         #{societyCreateUserId,jdbcType=VARCHAR},
       </if>
-      <if test="societyCreateDate != null">
+      <if test="societyCreateDate != null" >
         #{societyCreateDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="societyIntro != null">
+      <if test="societyIntro != null" >
         #{societyIntro,jdbcType=VARCHAR},
       </if>
-      <if test="societyAnnouncement != null">
+      <if test="societyAnnouncement != null" >
         #{societyAnnouncement,jdbcType=VARCHAR},
       </if>
-      <if test="societyLogo != null">
+      <if test="societyLogo != null" >
         #{societyLogo,jdbcType=VARCHAR},
       </if>
-      <if test="societyUserCount != null">
+      <if test="societyUserCount != null" >
         #{societyUserCount,jdbcType=INTEGER},
       </if>
-      <if test="societyActive != null">
+      <if test="societyActive != null" >
         #{societyActive,jdbcType=INTEGER},
       </if>
-      <if test="societyActiveRanking != null">
+      <if test="societyActiveRanking != null" >
         #{societyActiveRanking,jdbcType=INTEGER},
       </if>
-      <if test="societyUserCountRanking != null">
+      <if test="societyUserCountRanking != null" >
         #{societyUserCountRanking,jdbcType=INTEGER},
       </if>
-      <if test="parentSocietyId != null">
+      <if test="parentSocietyId != null" >
         #{parentSocietyId,jdbcType=VARCHAR},
       </if>
-      <if test="gameId != null">
+      <if test="gameId != null" >
         #{gameId,jdbcType=VARCHAR},
       </if>
-      <if test="gameServer != null">
+      <if test="gameServer != null" >
         #{gameServer,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserId != null" >
+        #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserId != null" >
+        #{updateUserId,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer" >
     select count(*) from society_info
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map">
+  <update id="updateByExampleSelective" parameterType="map" >
     update society_info
-    <set>
-      <if test="record.societyId != null">
+    <set >
+      <if test="record.societyId != null" >
         society_id = #{record.societyId,jdbcType=VARCHAR},
       </if>
-      <if test="record.societyName != null">
+      <if test="record.societyName != null" >
         society_name = #{record.societyName,jdbcType=VARCHAR},
       </if>
-      <if test="record.societyCreateUserId != null">
+      <if test="record.societyCreateUserId != null" >
         society_create_user_id = #{record.societyCreateUserId,jdbcType=VARCHAR},
       </if>
-      <if test="record.societyCreateDate != null">
+      <if test="record.societyCreateDate != null" >
         society_create_date = #{record.societyCreateDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.societyIntro != null">
+      <if test="record.societyIntro != null" >
         society_intro = #{record.societyIntro,jdbcType=VARCHAR},
       </if>
-      <if test="record.societyAnnouncement != null">
+      <if test="record.societyAnnouncement != null" >
         society_announcement = #{record.societyAnnouncement,jdbcType=VARCHAR},
       </if>
-      <if test="record.societyLogo != null">
+      <if test="record.societyLogo != null" >
         society_logo = #{record.societyLogo,jdbcType=VARCHAR},
       </if>
-      <if test="record.societyUserCount != null">
+      <if test="record.societyUserCount != null" >
         society_user_count = #{record.societyUserCount,jdbcType=INTEGER},
       </if>
-      <if test="record.societyActive != null">
+      <if test="record.societyActive != null" >
         society_active = #{record.societyActive,jdbcType=INTEGER},
       </if>
-      <if test="record.societyActiveRanking != null">
+      <if test="record.societyActiveRanking != null" >
         society_active_ranking = #{record.societyActiveRanking,jdbcType=INTEGER},
       </if>
-      <if test="record.societyUserCountRanking != null">
+      <if test="record.societyUserCountRanking != null" >
         society_user_count_ranking = #{record.societyUserCountRanking,jdbcType=INTEGER},
       </if>
-      <if test="record.parentSocietyId != null">
+      <if test="record.parentSocietyId != null" >
         parent_society_id = #{record.parentSocietyId,jdbcType=VARCHAR},
       </if>
-      <if test="record.gameId != null">
+      <if test="record.gameId != null" >
         game_id = #{record.gameId,jdbcType=VARCHAR},
       </if>
-      <if test="record.gameServer != null">
+      <if test="record.gameServer != null" >
         game_server = #{record.gameServer,jdbcType=VARCHAR},
       </if>
+      <if test="record.createDate != null" >
+        create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateDate != null" >
+        update_date = #{record.updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createUserId != null" >
+        create_user_id = #{record.createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateUserId != null" >
+        update_user_id = #{record.updateUserId,jdbcType=VARCHAR},
+      </if>
     </set>
-    <if test="_parameter != null">
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExample" parameterType="map">
+  <update id="updateByExample" parameterType="map" >
     update society_info
     set society_id = #{record.societyId,jdbcType=VARCHAR},
       society_name = #{record.societyName,jdbcType=VARCHAR},
@@ -315,57 +382,73 @@
       society_user_count_ranking = #{record.societyUserCountRanking,jdbcType=INTEGER},
       parent_society_id = #{record.parentSocietyId,jdbcType=VARCHAR},
       game_id = #{record.gameId,jdbcType=VARCHAR},
-      game_server = #{record.gameServer,jdbcType=VARCHAR}
-    <if test="_parameter != null">
+      game_server = #{record.gameServer,jdbcType=VARCHAR},
+      create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      update_date = #{record.updateDate,jdbcType=TIMESTAMP},
+      create_user_id = #{record.createUserId,jdbcType=VARCHAR},
+      update_user_id = #{record.updateUserId,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.SocietyInfo">
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.SocietyInfo" >
     update society_info
-    <set>
-      <if test="societyName != null">
+    <set >
+      <if test="societyName != null" >
         society_name = #{societyName,jdbcType=VARCHAR},
       </if>
-      <if test="societyCreateUserId != null">
+      <if test="societyCreateUserId != null" >
         society_create_user_id = #{societyCreateUserId,jdbcType=VARCHAR},
       </if>
-      <if test="societyCreateDate != null">
+      <if test="societyCreateDate != null" >
         society_create_date = #{societyCreateDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="societyIntro != null">
+      <if test="societyIntro != null" >
         society_intro = #{societyIntro,jdbcType=VARCHAR},
       </if>
-      <if test="societyAnnouncement != null">
+      <if test="societyAnnouncement != null" >
         society_announcement = #{societyAnnouncement,jdbcType=VARCHAR},
       </if>
-      <if test="societyLogo != null">
+      <if test="societyLogo != null" >
         society_logo = #{societyLogo,jdbcType=VARCHAR},
       </if>
-      <if test="societyUserCount != null">
+      <if test="societyUserCount != null" >
         society_user_count = #{societyUserCount,jdbcType=INTEGER},
       </if>
-      <if test="societyActive != null">
+      <if test="societyActive != null" >
         society_active = #{societyActive,jdbcType=INTEGER},
       </if>
-      <if test="societyActiveRanking != null">
+      <if test="societyActiveRanking != null" >
         society_active_ranking = #{societyActiveRanking,jdbcType=INTEGER},
       </if>
-      <if test="societyUserCountRanking != null">
+      <if test="societyUserCountRanking != null" >
         society_user_count_ranking = #{societyUserCountRanking,jdbcType=INTEGER},
       </if>
-      <if test="parentSocietyId != null">
+      <if test="parentSocietyId != null" >
         parent_society_id = #{parentSocietyId,jdbcType=VARCHAR},
       </if>
-      <if test="gameId != null">
+      <if test="gameId != null" >
         game_id = #{gameId,jdbcType=VARCHAR},
       </if>
-      <if test="gameServer != null">
+      <if test="gameServer != null" >
         game_server = #{gameServer,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUserId != null" >
+        create_user_id = #{createUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUserId != null" >
+        update_user_id = #{updateUserId,jdbcType=VARCHAR},
       </if>
     </set>
     where society_id = #{societyId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.SocietyInfo">
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.SocietyInfo" >
     update society_info
     set society_name = #{societyName,jdbcType=VARCHAR},
       society_create_user_id = #{societyCreateUserId,jdbcType=VARCHAR},
@@ -379,388 +462,11 @@
       society_user_count_ranking = #{societyUserCountRanking,jdbcType=INTEGER},
       parent_society_id = #{parentSocietyId,jdbcType=VARCHAR},
       game_id = #{gameId,jdbcType=VARCHAR},
-      game_server = #{gameServer,jdbcType=VARCHAR}
-    where society_id = #{societyId,jdbcType=VARCHAR}
-  </update>
-  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.SocietyInfo">
-    <id column="society_id" jdbcType="VARCHAR" property="societyId" />
-    <result column="society_name" jdbcType="VARCHAR" property="societyName" />
-    <result column="society_create_user_id" jdbcType="VARCHAR" property="societyCreateUserId" />
-    <result column="society_create_date" jdbcType="TIMESTAMP" property="societyCreateDate" />
-    <result column="society_intro" jdbcType="VARCHAR" property="societyIntro" />
-    <result column="society_announcement" jdbcType="VARCHAR" property="societyAnnouncement" />
-    <result column="society_logo" jdbcType="VARCHAR" property="societyLogo" />
-    <result column="society_user_count" jdbcType="INTEGER" property="societyUserCount" />
-    <result column="society_active" jdbcType="INTEGER" property="societyActive" />
-    <result column="society_active_ranking" jdbcType="INTEGER" property="societyActiveRanking" />
-    <result column="society_user_count_ranking" jdbcType="INTEGER" property="societyUserCountRanking" />
-    <result column="parent_society_id" jdbcType="VARCHAR" property="parentSocietyId" />
-    <result column="game_id" jdbcType="VARCHAR" property="gameId" />
-    <result column="game_server" jdbcType="VARCHAR" property="gameServer" />
-  </resultMap>
-  <sql id="Example_Where_Clause">
-    <trim prefix="where" prefixOverrides="and|or">
-      <if test="condition.societyName != null">
-         and society_name = #{condition.societyName,jdbcType=VARCHAR}
-      </if>
-      <if test="condition.societyCreateUserId != null">
-         and society_create_user_id = #{condition.societyCreateUserId,jdbcType=VARCHAR}
-      </if>
-      <if test="condition.societyCreateDate != null">
-         and society_create_date = #{condition.societyCreateDate,jdbcType=TIMESTAMP}
-      </if>
-      <if test="condition.societyIntro != null">
-         and society_intro = #{condition.societyIntro,jdbcType=VARCHAR}
-      </if>
-      <if test="condition.societyAnnouncement != null">
-         and society_announcement = #{condition.societyAnnouncement,jdbcType=VARCHAR}
-      </if>
-      <if test="condition.societyLogo != null">
-         and society_logo = #{condition.societyLogo,jdbcType=VARCHAR}
-      </if>
-      <if test="condition.societyUserCount != null">
-         and society_user_count = #{condition.societyUserCount,jdbcType=INTEGER}
-      </if>
-      <if test="condition.societyActive != null">
-         and society_active = #{condition.societyActive,jdbcType=INTEGER}
-      </if>
-      <if test="condition.societyActiveRanking != null">
-         and society_active_ranking = #{condition.societyActiveRanking,jdbcType=INTEGER}
-      </if>
-      <if test="condition.societyUserCountRanking != null">
-         and society_user_count_ranking = #{condition.societyUserCountRanking,jdbcType=INTEGER}
-      </if>
-      <if test="condition.parentSocietyId != null">
-         and parent_society_id = #{condition.parentSocietyId,jdbcType=VARCHAR}
-      </if>
-      <if test="condition.gameId != null">
-         and game_id = #{condition.gameId,jdbcType=VARCHAR}
-      </if>
-      <if test="condition.gameServer != null">
-         and game_server = #{condition.gameServer,jdbcType=VARCHAR}
-      </if>
-    </trim>
-  </sql>
-  <sql id="Update_By_Example_Where_Clause">
-    <trim prefix="where" prefixOverrides="and|or">
-      <if test="example.condition.societyName != null">
-         and society_name = #{example.condition.societyName,jdbcType=VARCHAR}
-      </if>
-      <if test="example.condition.societyCreateUserId != null">
-         and society_create_user_id = #{example.condition.societyCreateUserId,jdbcType=VARCHAR}
-      </if>
-      <if test="example.condition.societyCreateDate != null">
-         and society_create_date = #{example.condition.societyCreateDate,jdbcType=TIMESTAMP}
-      </if>
-      <if test="example.condition.societyIntro != null">
-         and society_intro = #{example.condition.societyIntro,jdbcType=VARCHAR}
-      </if>
-      <if test="example.condition.societyAnnouncement != null">
-         and society_announcement = #{example.condition.societyAnnouncement,jdbcType=VARCHAR}
-      </if>
-      <if test="example.condition.societyLogo != null">
-         and society_logo = #{example.condition.societyLogo,jdbcType=VARCHAR}
-      </if>
-      <if test="example.condition.societyUserCount != null">
-         and society_user_count = #{example.condition.societyUserCount,jdbcType=INTEGER}
-      </if>
-      <if test="example.condition.societyActive != null">
-         and society_active = #{example.condition.societyActive,jdbcType=INTEGER}
-      </if>
-      <if test="example.condition.societyActiveRanking != null">
-         and society_active_ranking = #{example.condition.societyActiveRanking,jdbcType=INTEGER}
-      </if>
-      <if test="example.condition.societyUserCountRanking != null">
-         and society_user_count_ranking = #{example.condition.societyUserCountRanking,jdbcType=INTEGER}
-      </if>
-      <if test="example.condition.parentSocietyId != null">
-         and parent_society_id = #{example.condition.parentSocietyId,jdbcType=VARCHAR}
-      </if>
-      <if test="example.condition.gameId != null">
-         and game_id = #{example.condition.gameId,jdbcType=VARCHAR}
-      </if>
-      <if test="example.condition.gameServer != null">
-         and game_server = #{example.condition.gameServer,jdbcType=VARCHAR}
-      </if>
-    </trim>
-  </sql>
-  <sql id="Base_Column_List">
-    society_id, society_name, society_create_user_id, society_create_date, society_intro, 
-    society_announcement, society_logo, society_user_count, society_active, society_active_ranking, 
-    society_user_count_ranking, parent_society_id, game_id, game_server
-  </sql>
-  <select id="selectByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultMap="BaseResultMap">
-    select
-    <if test="distinct">
-      distinct
-    </if>
-    <include refid="Base_Column_List" />
-    from society_info
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-    <if test="orderByClause != null">
-      order by ${orderByClause}
-    </if>
-    <include refid="common.Mysql_Pagination_Limit" />
-  </select>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from society_info
-    where society_id = #{societyId,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from society_info
-    where society_id = #{societyId,jdbcType=VARCHAR}
-  </delete>
-  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria">
-    delete from society_info
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </delete>
-  <insert id="insert" parameterType="com.dreams.dream.pojo.base.SocietyInfo">
-    insert into society_info (society_id, society_name, society_create_user_id, 
-      society_create_date, society_intro, society_announcement, 
-      society_logo, society_user_count, society_active, 
-      society_active_ranking, society_user_count_ranking, 
-      parent_society_id, game_id, game_server
-      )
-    values (#{societyId,jdbcType=VARCHAR}, #{societyName,jdbcType=VARCHAR}, #{societyCreateUserId,jdbcType=VARCHAR}, 
-      #{societyCreateDate,jdbcType=TIMESTAMP}, #{societyIntro,jdbcType=VARCHAR}, #{societyAnnouncement,jdbcType=VARCHAR}, 
-      #{societyLogo,jdbcType=VARCHAR}, #{societyUserCount,jdbcType=INTEGER}, #{societyActive,jdbcType=INTEGER}, 
-      #{societyActiveRanking,jdbcType=INTEGER}, #{societyUserCountRanking,jdbcType=INTEGER}, 
-      #{parentSocietyId,jdbcType=VARCHAR}, #{gameId,jdbcType=VARCHAR}, #{gameServer,jdbcType=VARCHAR}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.SocietyInfo">
-    insert into society_info
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="societyId != null">
-        society_id,
-      </if>
-      <if test="societyName != null">
-        society_name,
-      </if>
-      <if test="societyCreateUserId != null">
-        society_create_user_id,
-      </if>
-      <if test="societyCreateDate != null">
-        society_create_date,
-      </if>
-      <if test="societyIntro != null">
-        society_intro,
-      </if>
-      <if test="societyAnnouncement != null">
-        society_announcement,
-      </if>
-      <if test="societyLogo != null">
-        society_logo,
-      </if>
-      <if test="societyUserCount != null">
-        society_user_count,
-      </if>
-      <if test="societyActive != null">
-        society_active,
-      </if>
-      <if test="societyActiveRanking != null">
-        society_active_ranking,
-      </if>
-      <if test="societyUserCountRanking != null">
-        society_user_count_ranking,
-      </if>
-      <if test="parentSocietyId != null">
-        parent_society_id,
-      </if>
-      <if test="gameId != null">
-        game_id,
-      </if>
-      <if test="gameServer != null">
-        game_server,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="societyId != null">
-        #{societyId,jdbcType=VARCHAR},
-      </if>
-      <if test="societyName != null">
-        #{societyName,jdbcType=VARCHAR},
-      </if>
-      <if test="societyCreateUserId != null">
-        #{societyCreateUserId,jdbcType=VARCHAR},
-      </if>
-      <if test="societyCreateDate != null">
-        #{societyCreateDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="societyIntro != null">
-        #{societyIntro,jdbcType=VARCHAR},
-      </if>
-      <if test="societyAnnouncement != null">
-        #{societyAnnouncement,jdbcType=VARCHAR},
-      </if>
-      <if test="societyLogo != null">
-        #{societyLogo,jdbcType=VARCHAR},
-      </if>
-      <if test="societyUserCount != null">
-        #{societyUserCount,jdbcType=INTEGER},
-      </if>
-      <if test="societyActive != null">
-        #{societyActive,jdbcType=INTEGER},
-      </if>
-      <if test="societyActiveRanking != null">
-        #{societyActiveRanking,jdbcType=INTEGER},
-      </if>
-      <if test="societyUserCountRanking != null">
-        #{societyUserCountRanking,jdbcType=INTEGER},
-      </if>
-      <if test="parentSocietyId != null">
-        #{parentSocietyId,jdbcType=VARCHAR},
-      </if>
-      <if test="gameId != null">
-        #{gameId,jdbcType=VARCHAR},
-      </if>
-      <if test="gameServer != null">
-        #{gameServer,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer">
-    select count(*) from society_info
-    <if test="_parameter != null">
-      <include refid="Example_Where_Clause" />
-    </if>
-  </select>
-  <update id="updateByExampleSelective" parameterType="map">
-    update society_info
-    <set>
-      <if test="record.societyId != null">
-        society_id = #{record.societyId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.societyName != null">
-        society_name = #{record.societyName,jdbcType=VARCHAR},
-      </if>
-      <if test="record.societyCreateUserId != null">
-        society_create_user_id = #{record.societyCreateUserId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.societyCreateDate != null">
-        society_create_date = #{record.societyCreateDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.societyIntro != null">
-        society_intro = #{record.societyIntro,jdbcType=VARCHAR},
-      </if>
-      <if test="record.societyAnnouncement != null">
-        society_announcement = #{record.societyAnnouncement,jdbcType=VARCHAR},
-      </if>
-      <if test="record.societyLogo != null">
-        society_logo = #{record.societyLogo,jdbcType=VARCHAR},
-      </if>
-      <if test="record.societyUserCount != null">
-        society_user_count = #{record.societyUserCount,jdbcType=INTEGER},
-      </if>
-      <if test="record.societyActive != null">
-        society_active = #{record.societyActive,jdbcType=INTEGER},
-      </if>
-      <if test="record.societyActiveRanking != null">
-        society_active_ranking = #{record.societyActiveRanking,jdbcType=INTEGER},
-      </if>
-      <if test="record.societyUserCountRanking != null">
-        society_user_count_ranking = #{record.societyUserCountRanking,jdbcType=INTEGER},
-      </if>
-      <if test="record.parentSocietyId != null">
-        parent_society_id = #{record.parentSocietyId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.gameId != null">
-        game_id = #{record.gameId,jdbcType=VARCHAR},
-      </if>
-      <if test="record.gameServer != null">
-        game_server = #{record.gameServer,jdbcType=VARCHAR},
-      </if>
-    </set>
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByExample" parameterType="map">
-    update society_info
-    set society_id = #{record.societyId,jdbcType=VARCHAR},
-      society_name = #{record.societyName,jdbcType=VARCHAR},
-      society_create_user_id = #{record.societyCreateUserId,jdbcType=VARCHAR},
-      society_create_date = #{record.societyCreateDate,jdbcType=TIMESTAMP},
-      society_intro = #{record.societyIntro,jdbcType=VARCHAR},
-      society_announcement = #{record.societyAnnouncement,jdbcType=VARCHAR},
-      society_logo = #{record.societyLogo,jdbcType=VARCHAR},
-      society_user_count = #{record.societyUserCount,jdbcType=INTEGER},
-      society_active = #{record.societyActive,jdbcType=INTEGER},
-      society_active_ranking = #{record.societyActiveRanking,jdbcType=INTEGER},
-      society_user_count_ranking = #{record.societyUserCountRanking,jdbcType=INTEGER},
-      parent_society_id = #{record.parentSocietyId,jdbcType=VARCHAR},
-      game_id = #{record.gameId,jdbcType=VARCHAR},
-      game_server = #{record.gameServer,jdbcType=VARCHAR}
-    <if test="_parameter != null">
-      <include refid="Update_By_Example_Where_Clause" />
-    </if>
-  </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.SocietyInfo">
-    update society_info
-    <set>
-      <if test="societyName != null">
-        society_name = #{societyName,jdbcType=VARCHAR},
-      </if>
-      <if test="societyCreateUserId != null">
-        society_create_user_id = #{societyCreateUserId,jdbcType=VARCHAR},
-      </if>
-      <if test="societyCreateDate != null">
-        society_create_date = #{societyCreateDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="societyIntro != null">
-        society_intro = #{societyIntro,jdbcType=VARCHAR},
-      </if>
-      <if test="societyAnnouncement != null">
-        society_announcement = #{societyAnnouncement,jdbcType=VARCHAR},
-      </if>
-      <if test="societyLogo != null">
-        society_logo = #{societyLogo,jdbcType=VARCHAR},
-      </if>
-      <if test="societyUserCount != null">
-        society_user_count = #{societyUserCount,jdbcType=INTEGER},
-      </if>
-      <if test="societyActive != null">
-        society_active = #{societyActive,jdbcType=INTEGER},
-      </if>
-      <if test="societyActiveRanking != null">
-        society_active_ranking = #{societyActiveRanking,jdbcType=INTEGER},
-      </if>
-      <if test="societyUserCountRanking != null">
-        society_user_count_ranking = #{societyUserCountRanking,jdbcType=INTEGER},
-      </if>
-      <if test="parentSocietyId != null">
-        parent_society_id = #{parentSocietyId,jdbcType=VARCHAR},
-      </if>
-      <if test="gameId != null">
-        game_id = #{gameId,jdbcType=VARCHAR},
-      </if>
-      <if test="gameServer != null">
-        game_server = #{gameServer,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where society_id = #{societyId,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.SocietyInfo">
-    update society_info
-    set society_name = #{societyName,jdbcType=VARCHAR},
-      society_create_user_id = #{societyCreateUserId,jdbcType=VARCHAR},
-      society_create_date = #{societyCreateDate,jdbcType=TIMESTAMP},
-      society_intro = #{societyIntro,jdbcType=VARCHAR},
-      society_announcement = #{societyAnnouncement,jdbcType=VARCHAR},
-      society_logo = #{societyLogo,jdbcType=VARCHAR},
-      society_user_count = #{societyUserCount,jdbcType=INTEGER},
-      society_active = #{societyActive,jdbcType=INTEGER},
-      society_active_ranking = #{societyActiveRanking,jdbcType=INTEGER},
-      society_user_count_ranking = #{societyUserCountRanking,jdbcType=INTEGER},
-      parent_society_id = #{parentSocietyId,jdbcType=VARCHAR},
-      game_id = #{gameId,jdbcType=VARCHAR},
-      game_server = #{gameServer,jdbcType=VARCHAR}
+      game_server = #{gameServer,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      create_user_id = #{createUserId,jdbcType=VARCHAR},
+      update_user_id = #{updateUserId,jdbcType=VARCHAR}
     where society_id = #{societyId,jdbcType=VARCHAR}
   </update>
 </mapper>

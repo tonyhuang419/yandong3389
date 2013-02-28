@@ -16,6 +16,14 @@ public class UserLevelDetailHis implements Serializable {
 
     private String levelDetailType;
 
+    private Date createDate;
+
+    private Date updateDate;
+
+    private String createUserId;
+
+    private String updateUserId;
+
     public String getLevelDetailId() {
         return levelDetailId;
     }
@@ -54,5 +62,37 @@ public class UserLevelDetailHis implements Serializable {
 
     public void setLevelDetailType(String levelDetailType) {
         this.levelDetailType = levelDetailType;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    public String getCreateUserId() {
+        return createUserId;
+    }
+
+    public void setCreateUserId(String createUserId) {
+        this.createUserId = createUserId;
+    }
+
+    public String getUpdateUserId() {
+        return updateUserId;
+    }
+
+    public void setUpdateUserId(String updateUserId) {
+        this.updateUserId = updateUserId;
     }
 }

@@ -51,6 +51,7 @@
 <!--             <generatedKey column="field_id" sqlStatement="select sys_guid() from dual"/> -->
 <!--         </table> -->
 
+<table tableName="admin_info"></table>
 <table tableName="game_info"></table>
 <table tableName="gold_detail_his"></table>
 <table tableName="level_info"></table>

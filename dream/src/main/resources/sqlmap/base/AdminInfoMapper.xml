@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dreams.dream.dao.base.AdminInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.dreams.dream.pojo.base.AdminInfo" >
+    <id column="admin_id" property="adminId" jdbcType="VARBINARY" />
+    <result column="管理员帐号" property="管理员帐号" jdbcType="VARCHAR" />
+    <result column="管理员密码" property="管理员密码" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="condition.管理员帐号 != null" >
+         and 管理员帐号 = #{condition.管理员帐号,jdbcType=VARCHAR}
+      </if>
+      <if test="condition.管理员密码 != null" >
+         and 管理员密码 = #{condition.管理员密码,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <trim prefix="where" prefixOverrides="and|or" >
+      <if test="example.condition.管理员帐号 != null" >
+         and 管理员帐号 = #{example.condition.管理员帐号,jdbcType=VARCHAR}
+      </if>
+      <if test="example.condition.管理员密码 != null" >
+         and 管理员密码 = #{example.condition.管理员密码,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </sql>
+  <sql id="Base_Column_List" >
+    admin_id, 管理员帐号, 管理员密码
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dreams.dream.pojo.base.Criteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from admin_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="common.Mysql_Pagination_Limit" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="byte[]" >
+    select 
+    <include refid="Base_Column_List" />
+    from admin_info
+    where admin_id = #{adminId,jdbcType=VARBINARY}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="byte[]" >
+    delete from admin_info
+    where admin_id = #{adminId,jdbcType=VARBINARY}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dreams.dream.pojo.base.Criteria" >
+    delete from admin_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dreams.dream.pojo.base.AdminInfo" >
+    insert into admin_info (admin_id, 管理员帐号, 管理员密码
+      )
+    values (#{adminId,jdbcType=VARBINARY}, #{管理员帐号,jdbcType=VARCHAR}, #{管理员密码,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dreams.dream.pojo.base.AdminInfo" >
+    insert into admin_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="adminId != null" >
+        admin_id,
+      </if>
+      <if test="管理员帐号 != null" >
+        管理员帐号,
+      </if>
+      <if test="管理员密码 != null" >
+        管理员密码,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="adminId != null" >
+        #{adminId,jdbcType=VARBINARY},
+      </if>
+      <if test="管理员帐号 != null" >
+        #{管理员帐号,jdbcType=VARCHAR},
+      </if>
+      <if test="管理员密码 != null" >
+        #{管理员密码,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dreams.dream.pojo.base.Criteria" resultType="java.lang.Integer" >
+    select count(*) from admin_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update admin_info
+    <set >
+      <if test="record.adminId != null" >
+        admin_id = #{record.adminId,jdbcType=VARBINARY},
+      </if>
+      <if test="record.管理员帐号 != null" >
+        管理员帐号 = #{record.管理员帐号,jdbcType=VARCHAR},
+      </if>
+      <if test="record.管理员密码 != null" >
+        管理员密码 = #{record.管理员密码,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update admin_info
+    set admin_id = #{record.adminId,jdbcType=VARBINARY},
+      管理员帐号 = #{record.管理员帐号,jdbcType=VARCHAR},
+      管理员密码 = #{record.管理员密码,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dreams.dream.pojo.base.AdminInfo" >
+    update admin_info
+    <set >
+      <if test="管理员帐号 != null" >
+        管理员帐号 = #{管理员帐号,jdbcType=VARCHAR},
+      </if>
+      <if test="管理员密码 != null" >
+        管理员密码 = #{管理员密码,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where admin_id = #{adminId,jdbcType=VARBINARY}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dreams.dream.pojo.base.AdminInfo" >
+    update admin_info
+    set 管理员帐号 = #{管理员帐号,jdbcType=VARCHAR},
+      管理员密码 = #{管理员密码,jdbcType=VARCHAR}
+    where admin_id = #{adminId,jdbcType=VARBINARY}
+  </update>
+</mapper>
